@@ -1,0 +1,133 @@
+<% i = 21
+   ii = i - 5 %>
+<script type="text/javascript">
+    personal_menu = new dTree('personal_menu');
+    personal_menu.config.inOrder = true;
+    personal_menu.add(0, -1, '<%= _('PERSONAL') %>');
+    personal_menu.add(1, 0, '<%= _('Start_page') %>', '<%= Web_Dir %>/');
+    <% if Confline.get_value('Hide_quick_stats').to_i == 1 %>
+      personal_menu.add(2, 0, '<%= _('Quick_stats') %>', '<%= Web_Dir %>/callc/show_quick_stats');
+    <% end %>
+
+
+    <% if !user? || (user? && simple_user_menu_permissions(:personal_details)) %>
+      personal_menu.add(3, 0, '<%= _('Personal_details') %>', '<%= Web_Dir %>/users/personal_details');
+    <% elsif user? && (simple_user_menu_permissions(:devices) || (show_rates_for_users && simple_user_menu_permissions(:rates)) || simple_user_menu_permissions(:payments) || simple_user_menu_permissions(:invoices) || simple_user_menu_permissions(:financial_statements) || simple_user_menu_permissions(:subscriptions)) %>
+      personal_menu.add(3, 0, '<%= _('Personal_details') %>');
+    <% end %>
+        <% if user? && simple_user_menu_permissions(:devices) %>
+          personal_menu.add(5, 3, '<%= _('Devices') %>', '<%= Web_Dir %>/devices/user_devices');
+        <% end %>
+
+        <% if show_rates_for_users && ((user? && simple_user_menu_permissions(:rates)) || reseller?) && !tariff_by_provider?(current_user)%>
+          personal_menu.add(6, 3, '<%= _('Rates') %>', '<%= Web_Dir %>/tariffs/user_rates');
+        <% end %>
+
+        <% if (user? && simple_user_menu_permissions(:payments)) || reseller? %>
+          personal_menu.add(7, 3, '<%= _('Payments') %>', '<%= Web_Dir %>/payments/personal_payments');
+        <% end %>
+
+        <% if (user? && simple_user_menu_permissions(:invoices)) || reseller? %>
+          personal_menu.add(8, 3, '<%= _('Invoices') %>', '<%= Web_Dir %>/accounting/user_invoices');
+        <% end %>
+
+        <% if (user? && simple_user_menu_permissions(:financial_statements)) || reseller? %>
+          personal_menu.add(11, 3, '<%= _('Financial_statements') %>', '<%= Web_Dir %>/accounting/financial_statements');
+        <% end %>
+
+        <% if (user? && simple_user_menu_permissions(:subscriptions)) || reseller? %>
+          personal_menu.add(9, 3, '<%= _('Subscriptions') %>', '<%= Web_Dir %>/services/user_subscriptions');
+        <% end %>
+
+
+    <% if !current_user.reseller_allow_providers_tariff? %>
+      <% if user? && simple_user_menu_permissions(:calls) %>
+        personal_menu.add(10, 0, '<%= _('Calls') %>', '<%= Web_Dir %>/stats/last_calls_stats');
+      <% elsif user? && ((session[:show_active_calls_for_users] == 1 && simple_user_menu_permissions(:active_calls)) || simple_user_menu_permissions(:graphs) || (rec_active? && show_recordings? && simple_user_menu_permissions(:recordings))) %>
+        personal_menu.add(10, 0, '<%= _('Calls') %>');
+      <% end %>
+          <% if session[:show_active_calls_for_users] == 1 && (user? && simple_user_menu_permissions(:active_calls)) %>
+            personal_menu.add(11, 10, '<%= _('Active_calls') %>', '<%= Web_Dir %>/stats/active_calls');
+          <% end %>
+
+          <% if user? && simple_user_menu_permissions(:calls) %>
+            personal_menu.add(12, 10, '<%= _('Last_calls').downcase.capitalize %>', '<%= Web_Dir %>/stats/last_calls_stats');
+          <% end %>
+
+          <% if user? && simple_user_menu_permissions(:graphs) %>
+            personal_menu.add(14, 10, '<%= _('Graphs') %>', '<%= Web_Dir %>/stats/user_stats', '', '', '<%= Web_Dir %>/images/dtree/chart.gif');
+          <% end %>
+
+          <% if rec_active? %>
+            <% if current_user.recording_enabled.to_i == 1 && show_recordings? && user? && simple_user_menu_permissions(:recordings) %>
+              personal_menu.add(15, 10, '<%= _('Recordings') %>', '<%= Web_Dir %>/recordings/list_recordings', '', '', '<%= Web_Dir %>/images/dtree/musicfolder.gif');
+            <% end %>
+          <% end %>
+    <% end %>
+
+
+    <% owner = User.where(id: current_user.owner_id).first %>
+    <% if user? && (simple_user_menu_permissions(:dids) || simple_user_menu_permissions(:clis) || simple_user_menu_permissions(:phonebook) || simple_user_menu_permissions(:quick_forwards) || (((session[:fax_device_enabled] && simple_user_menu_permissions(:faxes)) || (session[:callback_active] == 1 && simple_user_menu_permissions(:callback)))) || (ad_active_and_user_permissions && simple_user_menu_permissions(:auto_dialer)) || (current_user.cards.size.to_i > 0) || (sms_active? && (((owner.is_reseller? && current_user.has_reseller_sms_permission?) || !owner.is_reseller?) && session[:sms_service_active].to_i == 1)) || (show_rates_for_users && simple_user_menu_permissions(:search))) %>
+      personal_menu.add(16, 0, '<%= _('Various') %>');
+          <% if simple_user_menu_permissions(:dids) %>
+            personal_menu.add(17,16,'<%= _('DIDs') %>','<%= Web_Dir %>/dids/personal_dids');
+          <% end %>
+
+          <% if simple_user_menu_permissions(:clis) %>
+            personal_menu.add(18, 16, '<%= _('CLIs') %>', '<%= Web_Dir %>/devices/user_device_clis');
+          <% end %>
+
+          <% if simple_user_menu_permissions(:phonebook) %>
+            personal_menu.add(19, 16, '<%= _('PhoneBook') %>', '<%= Web_Dir %>/phonebooks/list');
+          <% end %>
+
+          <% if simple_user_menu_permissions(:quick_forwards) %>
+            personal_menu.add(20, 16, '<%= _('Quick_Forwards') %>', '<%= Web_Dir %>/dids/quickforwarddids');
+          <% end %>
+
+            <% if session[:fax_device_enabled] && simple_user_menu_permissions(:faxes) %>
+              personal_menu.add(<%= i %>, <%= ii %>, '<%= _('Faxes') %>', '<%= Web_Dir %>/stats/faxes_list/<%= session[:user_id]%>');
+              <% i += 1 %>
+            <% end %>
+
+            <% if session[:callback_active] == 1 && simple_user_menu_permissions(:callback) %>
+              personal_menu.add(<%= i %>, <%= ii %>, '<%= _('Callback') %>', '<%= Web_Dir %>/functions/callback');
+              <% i += 1 %>
+            <% end %>
+
+          <% if ad_active_and_user_permissions && simple_user_menu_permissions(:auto_dialer) %>
+            personal_menu.add(<%= i %>, <%= ii%>, '<%= _('Auto_Dialer') %>', '<%= Web_Dir %>/autodialer/user_campaigns');
+            <% i += 1 %>
+          <% end %>
+
+          <% if current_user.cards.size.to_i > 0 %>
+            personal_menu.add(<%= i %>, <%= ii%>, '<%= _('Calling_cards') %>', '<%= Web_Dir %>/cardgroups/user_list');
+            <% i += 1 %>
+          <% end %>
+
+          <% if sms_active? && (((owner.is_reseller? && current_user.has_reseller_sms_permission?) || !owner.is_reseller? ) && session[:sms_service_active].to_i == 1) %>
+            personal_menu.add(<%= i %>, <%= 0 %>, '<%= _('Sms') %>', '<%= Web_Dir %>/sms/sms_list');
+            <% i += 1 %>
+
+            <% b = i - 1 %>
+            personal_menu.add(<%= i %>, <%= b %>, '<%= _('Send') %>', '<%= Web_Dir %>/sms/sms');
+            <% i += 1 %>
+            <% if show_rates_for_users or session[:usertype].to_s == 'admin'%>
+              personal_menu.add(<%= i %>, <%= b %>, '<%= _('Rates') %>', '<%= Web_Dir %>/sms/user_rates');
+              <% i += 1 %>
+            <% end %>
+            personal_menu.add(<%= i %>, <%= b %>, '<%= _('Mass_SMS') %>', '<%= Web_Dir %>/smsautodialer/user_campaigns');
+            <% i += 1 %>
+          <% end %>
+
+          <% if show_rates_for_users && simple_user_menu_permissions(:search) %>
+            personal_menu.add(<%= i %>, 16, '<%= _('Search') %>', '<%= Web_Dir %>/stats/search');
+            <% i += 1 %>
+          <% end %>
+    <% end %>
+
+
+    personal_menu.add(<%= i %>, 0, '<%= _('Logout') %>', '<%= Web_Dir %>/callc/logout');
+
+    $("personal_menu_div").innerHTML = personal_menu.toString();
+</script>

@@ -1,0 +1,227 @@
+<%= render 'timezone_notice' %>
+<table width="100%">
+  <tr>
+    <td>
+      <% if @allow_edit %>
+        <%= link_to b_generate + _('Generate_invoices'), {:action => "generate_invoices"}, :id => "link_generate_invoices" %>&nbsp;
+        <%= link_to b_generate + _('Recalculate_invoices'), {:action => "invoices_recalculation"}, :id => "link_invoices_recalculaion" %>&nbsp;
+      <% end %>
+      <%= link_to b_csv + _('Export_to_CSV'), {:action => :invoices, :to_csv => 1}, :id => "invoices_to_csv" %>
+    </td>
+  </tr>
+</table>
+<br/>
+<%= form_tag(action: 'invoices') do %>
+    <div id="search_details" >
+      <table id="search_details" class="bordered">
+        <tr>
+          <td><%= _('Username') %>:</td>
+          <td><%= text_field_tag 's_username', @options[:s_username], class: "input", size: "15", maxlength: "30" %></td>
+          <td><%= _('Period_start') %>:</td>
+          <td>
+            <select name="s_period_start" style="width:85px">
+              <option value="" <%=  %>> <%= _('Any') %></option>
+              <% @period_starts.each do |ps| %>
+                <option value=<%= ps["period_start"] %> <%= "selected" if ps["period_start"].strftime("%F") == @options[:s_period_start] %>> <%= ps["period_start"] %>
+                </option>
+              <% end %>
+            </select>
+          </td>
+          <td><%= _('Invoice_sent_manually') %>:</td>
+          <td><select name="s_sent_manually">
+            <option value="" <%= "selected" if '' == @options[:s_sent_manually].to_s %>> <%= _('Any') %></option>
+            <option value="1" <%= "selected" if '1' == @options[:s_sent_manually].to_s %>> <%= _('Sent') %></option>
+            <option value="0" <%= "selected" if '0' == @options[:s_sent_manually].to_s %>> <%= _('Not_sent') %> </option>
+          </select></td>
+          <td align="right">
+            <%= link_to b_cross + _('Clear_search'), :action => 'invoices', :clear => true if @search == 1 %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= _('first_name') %>:</td>
+          <td><%= text_field_tag 's_first_name', @options[:s_first_name], "class" => "input", :size => "15", :maxlength => "30" %></td>
+          <td><%= _('Period_end') %>:</td>
+          <td>
+            <select name="s_period_end" style="width:85px">
+              <option value="" <%=  %>> <%= _('Any') %></option>
+              <% @period_ends.each do |ps| %>
+                <option value=<%= ps["period_end"] %> <%= "selected" if ps["period_end"].strftime("%F") == @options[:s_period_end] %>> <%= ps["period_end"] %>
+                </option>
+              <% end %>
+            </select>
+          </td>
+          <td><%= _('Paid') %>:</td>
+          <td><select name="s_paid" style="width: 69px">
+            <option value="" <%= "selected" if '' == @options[:s_paid].to_s %>> <%= _('All') %></option>
+            <option value="1" <%= "selected" if '1' == @options[:s_paid].to_s %>> <%= _('_yes') %></option>
+            <option value="0" <%= "selected" if '0' == @options[:s_paid].to_s %>> <%= _('_no') %> </option>
+          </select></td>
+        </tr>
+        <tr>
+          <td><%= _('last_name') %>:</td>
+          <td><%= text_field_tag 's_last_name', @options[:s_last_name], "class" => "input", :size => "15", :maxlength => "30" %></td>
+          <td><%= _('Issue_date') %>:</td>
+          <td>
+            <select name="s_issue_date">
+              <option value="" <%=  %>> <%= _('Any') %></option>
+              <% @issue_dates.each do |ps| %>
+                <option value=<%= ps["issue_date"] %> <%= "selected" if ps["issue_date"].strftime("%F") == @options[:s_issue_date] %>> <%= ps["issue_date"] %>
+                </option>
+              <% end %>
+            </select>
+          </td>
+          <td><%= _('Invoice_type') %>:</td>
+          <td><select name="s_invoice_type" style="width: 69px">
+            <option value="" <%= "selected" if '' == @options[:s_ivnoice_type].to_s %>> <%= _('All') %></option>
+            <option value="postpaid" <%= "selected" if 'postpaid' == @options[:s_ivnoice_type].to_s %>> <%= _('Postpaid') %></option>
+            <option value="prepaid" <%= "selected" if 'prepaid' == @options[:s_ivnoice_type].to_s %>> <%= _('Prepaid') %> </option>
+          </select></td>
+        </tr>
+        <tr>
+          <td><%= _('Number') %>:</td>
+          <td><%= text_field_tag 's_number', @options[:s_number], "class" => "input", :size => "15", :maxlength => "30" %></td>
+          <td><%= _('Invoice_sent_by_mail') %>:</td>
+          <td><select name="s_sent_email" style="width: 85px">
+            <option value="" <%= "selected" if '' == @options[:s_sent_email].to_s %>> <%= _('Any') %></option>
+            <option value="1" <%= "selected" if '1' == @options[:s_sent_email].to_s %>> <%= _('Sent') %></option>
+            <option value="0" <%= "selected" if '0' == @options[:s_sent_email].to_s %>> <%= _('Not_sent') %> </option>
+          </select></td>
+        </tr>
+        <tr>
+          <td nowrap="true"></br><%= submit_tag _('Search') %></td>
+          <td nowrap="true" colspan=4 ></br><%= submit_tag(_('Send_Invoices_over_Email_to_Users'), name: 'email',
+            onclick: "return confirm('Are you sure you want to send #{@invoices.size} invoices by email?');",
+            data: {confirm: _('Are_you_sure_you_want_to_sent_invoices_by_email')}) if Confline.get_value("Email_Sending_Enabled").to_i == 1 %></td>
+        </tr>
+      </table>
+    </div>
+<% end %>
+
+<table width="100%">
+  <tr>
+    <td>
+      <td align="right">
+      <% if @invoices && !@invoices.empty? %>
+          <%= link_to(b_edit + _('Bulk_management'), '#', id: 'bulk_managment') %>
+      <% end %>
+    </td>
+</td>
+</tr>
+</table>
+<div id="bulk_managment_content" style="padding-left: 3px;">
+  <br/>
+  <div <%= tooltip('Please note:', " * #{_('only_unpaid_Invoices_will_be_updated')}<br/> * #{_('Paid_date_will_be_automatically_selected_as_today')}</br> * #{_('Payment_will_be_created_for_completed_Invoice')}") %> style="float:left;">
+    <%= link_to(b_generate + _('Pay_unpaid_Invoices'), action: :bulk_unpaid_invoices) %>
+  </div>
+
+  <div>
+    &nbsp;<%= link_to(b_delete + _('Delete_all_Invoices'), {action: :delete_all}, data: {confirm: "Are you sure you want to delete #{@invoice_query.size} invoices?"}, method: :post) %>
+  </div>
+</div>
+
+<br/>
+<%= page_select_header(@options[:page], @total_pages, @options) %>
+
+<table width="100%" class="maintable">
+  <tr>
+    <th align="left"><%= ordered_list_header("users.first_name", "user", "User", @options) %></th>
+    <th align="left"><%= ordered_list_header("LENGTH(invoices.number)", "number" ,"Number", @options)  %></th>
+    <th align="left"><%= ordered_list_header("invoices.invoice_type", "invoice_type", "Invoice_type", @options) %></th>
+    <th align="center"><%= ordered_list_header("invoices.period_start", "period_start", "Period_start", @options) %></th>
+    <th align="center"><%= ordered_list_header("invoices.period_end", "period_end", "Period_end", @options) %></th>
+    <th align="center"><%= ordered_list_header("invoices.issue_date", "issue_date", "Issue_date", @options) %></th>
+    <th align="center"><%= ordered_list_header("invoices.timezone", "timezone", "timezone", @options) %></th>
+    <th align="center"><%= ordered_list_header("invoices.sent_email", "sent_email", "Invoice_sent", @options) %></th>
+    <th align="center"><%= ordered_list_header("invoices.sent_manually", "sent_manually", "Invoice_sent_manually", @options) %></th>
+    <% if can_see_finances? -%>
+        <th align="center"><%= ordered_list_header("invoices.paid", "paid", "Paid", @options) %></th>
+        <th align="center"><%= ordered_list_header("invoices.paid_date", "paid_date", "Paid_date", @options) %></th>
+        <th align="right"><%= ordered_list_header("invoices.price", "price", "Price", @options) %></th>
+        <th align="right"><%= _('Price_with_VAT') %></th>
+        <th align="center"><%= ordered_list_header("invoices.invoice_currency", 'invoice_currency', "currency", @options) %></th>
+        <th align="center"><%= _('Details') %></th>
+    <% end -%>
+    <% if @allow_edit %>
+        <th></th>
+    <% end %>
+  </tr>
+  <% nice_number_hash = {:change_decimal => session[:change_decimal], :global_decimal => session[:global_decimal]} %>
+  <% @invoices.each_with_index { |inv, i| %>
+      <tr class="row<%= (i % 2 + 1).to_s %>">
+        <% user = inv.user -%>
+        <td id="user_<%= inv.id %>" align="left"> <%= link_nice_user(user) if user %> </td>
+        <td id="inv_number_<%= inv.id %>" align="left"> <%= inv.number %> </td>
+        <td id="inv_type_<%= inv.id %>" align="left"> <%= inv.invoice_type.to_s.capitalize %>  </td>
+        <td id="inv_period_start_<%= inv.id %>" align="center"> <%= nice_date(inv.period_start, 0) %> </td>
+        <td id="inv_period_end_<%= inv.id %>" align="center"> <%= nice_date(inv.period_end, 0) %> </td>
+        <td id="inv_issue_<%= inv.id %>" align="center"> <%= nice_date(inv.issue_date, 0) %> </td>
+        <td id="inv_timezone<%= inv.id %>" align="center"> <%= inv.timezone %></td>
+
+        <td id="sent_email_<%= inv.id %>" align="center">
+          <%= image_tag 'icons/cross.png', :title => _('Not_send'), :id => "image_not_sent_"+inv.id.to_s if inv.sent_email == 0 %>
+          <%= image_tag 'icons/check.png', :title => _('Sent_email'), :id => "image_sent_"+inv.id.to_s if inv.sent_email == 1 %>
+        </td>
+        <td id="sent_manually_<%= inv.id %>" align="center">
+          <%= image_tag 'icons/cross.png', :title => _('Not_send'), :id => "image_not_sent_manually_"+inv.id.to_s if inv.sent_manually == 0 %>
+          <%= image_tag 'icons/check.png', :title => _('Sent_manually'), :id => "image_sent_manually_"+inv.id.to_s if inv.sent_manually == 1 %>
+        </td>
+        <% if can_see_finances? -%>
+            <td id="paid_<%= inv.id %>" align="center">
+              <%= image_tag 'icons/cross.png', :title => _('Unpaid'), :id => "image_not_paid_"+inv.id.to_s if inv.paid == 0 %>
+              <%= image_tag 'icons/check.png', :title => _('Paid'), :id => "image_paid_"+inv.id.to_s if inv.paid == 1 %>
+            </td>
+
+            <td id="inv_paid_date_<%= inv.id %>" align="center"> <%= nice_date inv.paid_date if inv.paid == 1 %> </td>
+            <td id="inv_price_<%= inv.id %>" align="right"> <%= inv.nice_invoice_number(inv.raw_price * inv.invoice_exchange_rate.to_f, nice_number_hash) %> </td>
+            <td id="inv_full_price_<%= inv.id %>" align="right"> <%= inv.nice_invoice_number(inv.raw_price_with_vat * inv.invoice_exchange_rate.to_f, nice_number_hash) %> </td>
+            <td id="inv_currency_<%= inv.id %>" align="center"> <%= inv.invoice_currency.to_s.upcase %></td>
+            <td id="details_<%= inv.id %>" align="center"><%= link_to b_details,
+              {action: 'invoice_details', id: inv.id}, id: 'details_link_' + inv.id.to_s %></td>
+        <% end -%>
+        <% if @allow_edit %>
+            <td id="delete_<%= inv.id %>" align="center"><%= link_to b_delete, {:action => 'invoice_delete', :id => inv.id}, :id => "delete_link_"+inv.id.to_s, data: {confirm: _('are_you_sure')}, :method => :post if !inv.invoice_was_send?(@conf) %></td>
+        <% end %>
+      </tr>
+  <% } %>
+  <tr>
+    <th align="left" colspan="10"><%= _('Total') + " :" if can_see_finances? %></th>
+    <% if can_see_finances? -%>
+        <th></th>
+        <th align="right" id="total"><%= nice_number((@total_price.to_f)) %></th>
+        <th align="right" id="total_wat"><%= nice_number(@total_price_with_vat.to_f) %></th>
+        <th align="center" id='total_currency'><%= session[:show_currency].to_s.upcase %></th>
+        <th colspan="2"></th>
+    <% end -%>
+
+  </tr>
+</table>
+<br/>
+<%= page_select_header(@options[:page], @total_pages, {}, {:id_prefix => "page2_"}) %>
+
+<script type="text/javascript">
+    bulk_managment_hide();
+
+    $j('#bulk_managment').click(function() {
+                if ($j('#bulk_managment_content').css('display') == 'none') {
+                    bulk_managment_show()
+                } else {
+                    bulk_managment_hide()
+                }
+            }
+    );
+
+    function bulk_managment_show() {
+        $j('#bulk_managment_content').show();
+    }
+
+    function bulk_managment_hide() {
+        $j('#bulk_managment_content').hide();
+    }
+
+    function toggleCheckBoxes(defItem) {
+        var items = $$('#invoices_ids_');
+        items.each(function(item) {
+            item.checked = defItem.checked;
+        });
+    }
+</script>

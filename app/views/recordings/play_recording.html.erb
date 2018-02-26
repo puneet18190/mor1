@@ -1,0 +1,22 @@
+<% if @rec %>
+    <div class="nb"><%= b_play + _('Playing_recording') %>: <%= nice_date_time(@rec.datetime) %></div>
+
+    <br>
+
+    <audio controls>
+      <source src="<%= "#{get_server_path(@rec.local)}#{@rec.uniqueid}.mp3" %>" type="audio/mpeg">
+      <%= _('HTML5_audio_not_supported') %>
+    </audio>
+
+    <br>
+    <br>
+    <div class="nb">
+    <% if @rec.local.to_i == 1 %>
+      <%= link_to(b_download + _('Download'), :action => :get_recording, :rec => @rec.id ) %>
+    <% else %>
+      <%= link_to b_download + _('Download'), @recording %>
+    <% end %>
+    </div>
+<% else %>
+    <%= _("Recording_was_not_found") %>
+<% end %>

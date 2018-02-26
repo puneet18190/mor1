@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>filter_by_reseller</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">filter_by_reseller</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/resellers/resellers_and_calls_for_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=s_reseller</td>
+	<td>All Test Reseller Test Reseller #2 Test Reseller #3 Test Reseller #4 Test Reseller #5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_227</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_233</td>
+	<td>34.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_239</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_229</td>
+	<td>45.0000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_reseller</td>
+	<td>label=Test Reseller #3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_227</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_233</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_239</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_229</td>
+	<td>45.0000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_reseller</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_227</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_233</td>
+	<td>34.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_239</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_229</td>
+	<td>45.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/load_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#user_list &gt; tbody</td>
+	<td>System AdminTest AccountantTest ResellerTest Reseller #2Test Reseller #3Test Reseller #4Test Reseller #5Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/loss_making_calls?date_from[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_id</td>
+	<td>AllTest Reseller Test Reseller #2 Test Reseller #3 Test Reseller #4 Test Reseller #5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2011</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User Resellers - IAX2/101</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=reseller_id</td>
+	<td>label=Test Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0loss_making_calls']/div[10]/div</td>
+	<td>-9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[8]/div</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[8]/div</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3loss_making_calls']/div[9]/div</td>
+	<td>-1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowloss_making_calls']/div[4]/div/b</td>
+	<td>exact:00:05:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowloss_making_calls']/div[10]/div/b</td>
+	<td>-54.0000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=reseller_id</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[10]/div</td>
+	<td>-9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3loss_making_calls']/div[8]/div</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3loss_making_calls']/div[4]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/load_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/loss_making_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/load_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#user_list &gt; tbody</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/loss_making_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_227</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_233</td>
+	<td>34.0000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_239</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_229</td>
+	<td>45.0000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_reseller</td>
+	<td>label=Test Reseller #3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_227</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_233</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_239</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_229</td>
+	<td>45.0000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_reseller</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_227</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_233</td>
+	<td>34.0000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_239</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=reseller_price_229</td>
+	<td>45.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/load_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=date_from_year</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/loss_making_calls?date_from[year]=2011</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Reseller:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>name=reseller_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2011</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0loss_making_calls']/div/div</td>
+	<td>2011-06-10 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[2]/div</td>
+	<td>123123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[4]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div/div</td>
+	<td>2011-03-18 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[4]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div/div</td>
+	<td>2011-03-12 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div[2]/div</td>
+	<td>123123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div[11]/div</td>
+	<td>User Resellers - IAX2/101</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User Resellers - IAX2/101</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=reseller_id</td>
+	<td>label=Test Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0loss_making_calls']/div/div</td>
+	<td>2011-06-10 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[4]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div[11]/div</td>
+	<td>User Resellers - IAX2/101</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=reseller_id</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0loss_making_calls']/div/div</td>
+	<td>2011-06-10 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[2]/div</td>
+	<td>123123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[4]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div/div</td>
+	<td>2011-03-18 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[3]/div</td>
+	<td>United States USA 231 Michigan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2loss_making_calls']/div[4]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div/div</td>
+	<td>2011-03-12 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4loss_making_calls']/div[2]/div</td>
+	<td>123123</td>
+</tr>
+</tbody></table>
+</body>
+</html>

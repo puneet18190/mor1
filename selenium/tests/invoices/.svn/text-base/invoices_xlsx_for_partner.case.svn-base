@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>invoices_xlsx_for_partner</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">invoices_xlsx_for_partner</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_1600101/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/various_invoices_for_partner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/partner_invoice</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--defaultiniai xlsx settingai pritaikomi tik naujai kuriamam partneriui-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>test_partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>test_partner1Sa1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_usertype</td>
+	<td>label=partner</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login_as_link_1600102 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<!--Defaultiniai duomenys-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_number</td>
+	<td>G2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_issue_date</td>
+	<td>G3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_period_start</td>
+	<td>B10</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_period_end</td>
+	<td>D10</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_timezone</td>
+	<td>G10</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_name</td>
+	<td>B2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details1</td>
+	<td>B3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details2</td>
+	<td>B4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details3</td>
+	<td>B5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details4</td>
+	<td>B6</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details5</td>
+	<td>B7</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details6</td>
+	<td>B8</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_details_destination_number</td>
+	<td>A13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_details_prefix</td>
+	<td>B13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_details_name</td>
+	<td>C13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_details_quantity</td>
+	<td>F13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_details_total_time</td>
+	<td>G13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_details_price</td>
+	<td>H13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_price</td>
+	<td>E25</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_price_with_vat</td>
+	<td>E26</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_comment</td>
+	<td>D27</td>
+</tr>
+<!--jei postpaid atsiranda su Show balance line: atsiranda trys eilutes-->
+<tr>
+	<td>check</td>
+	<td>id=invoice_show_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_debt</td>
+	<td>D12</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_debt_tax</td>
+	<td>F12</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_total_amount_due</td>
+	<td>I26</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<!--Pabandom neteisingus duomenis-->
+<tr>
+	<td>type</td>
+	<td>id=inv_number</td>
+	<td>7987</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details2</td>
+	<td>dfda</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Value does not match Cell Address format</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_number</td>
+	<td>G2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details2</td>
+	<td>B3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_number</td>
+	<td>G7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details2</td>
+	<td>G7</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Duplicate value in Cell Address field</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_number</td>
+	<td>G2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_client_details2</td>
+	<td>B3</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=invoice_show_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_debt</td>
+	<td>D12</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_debt_tax</td>
+	<td>F12</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=inv_total_amount_due</td>
+	<td>I26</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B2&quot;=&gt;&quot;Test Partner&quot;, &quot;G2&quot;=&gt;&quot;1&quot;, &quot;B3&quot;=&gt;&quot;&quot;, &quot;G3&quot;=&gt;&quot;2013-12-07&quot;, &quot;B4&quot;=&gt;&quot;&quot;, &quot;B5&quot;=&gt;&quot;&quot;, &quot;B6&quot;=&gt;&quot;&quot;, &quot;B7&quot;=&gt;&quot;Afghanistan&quot;, &quot;B8&quot;=&gt;&quot;&quot;, &quot;B10&quot;=&gt;&quot;2014-01-01&quot;, &quot;D10&quot;=&gt;&quot;2015-12-31&quot;, &quot;G10&quot;=&gt;&quot;UTC (GMT +0)&quot;, &quot;D12&quot;=&gt;&quot;&quot;, &quot;F12&quot;=&gt;&quot;&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370&quot;, &quot;C13&quot;=&gt;&quot;Lithuania proper&quot;, &quot;F13&quot;=&gt;&quot;8.0&quot;, &quot;G13&quot;=&gt;&quot;205.0&quot;, &quot;H13&quot;=&gt;&quot;1.7083&quot;, &quot;E25&quot;=&gt;&quot;1.7083&quot;, &quot;E26&quot;=&gt;&quot;1.7083&quot;, &quot;I26&quot;=&gt;&quot;1.7083&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<!--pakeičiam duomenis-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_name</td>
+	<td>Vardas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details1</td>
+	<td>Adressas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details2</td>
+	<td>Miestas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details3</td>
+	<td>PostCodas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details4</td>
+	<td>Valstija</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=invoice_client_details5</td>
+	<td>label=Bahamas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details6</td>
+	<td>Telefonas1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Invoice updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/99?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B2&quot;=&gt;&quot;Test Partner&quot;, &quot;G2&quot;=&gt;&quot;1&quot;, &quot;B3&quot;=&gt;&quot;Adressas&quot;, &quot;G3&quot;=&gt;&quot;2013-12-07&quot;, &quot;B4&quot;=&gt;&quot;Miestas&quot;, &quot;B5&quot;=&gt;&quot;PostCodas&quot;, &quot;B6&quot;=&gt;&quot;Valstija&quot;, &quot;B7&quot;=&gt;&quot;Bahamas&quot;, &quot;B8&quot;=&gt;&quot;Telefonas1&quot;, &quot;B10&quot;=&gt;&quot;2014-01-01&quot;, &quot;D10&quot;=&gt;&quot;2015-12-31&quot;, &quot;G10&quot;=&gt;&quot;UTC (GMT +0)&quot;, &quot;D12&quot;=&gt;&quot;&quot;, &quot;F12&quot;=&gt;&quot;&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370&quot;, &quot;C13&quot;=&gt;&quot;Lithuania proper&quot;, &quot;F13&quot;=&gt;&quot;8.0&quot;, &quot;G13&quot;=&gt;&quot;205.0&quot;, &quot;H13&quot;=&gt;&quot;1.7083&quot;, &quot;E25&quot;=&gt;&quot;1.7083&quot;, &quot;E26&quot;=&gt;&quot;1.7083&quot;, &quot;I26&quot;=&gt;&quot;1.7083&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>Test tariff</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/1600101</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_tariff_id</td>
+	<td>label=Wholesale - Test tariff</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/50?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;A2&quot;=&gt;&quot;Partner`s Reseller&quot;, &quot;G2&quot;=&gt;&quot;INV0801011&quot;, &quot;A3&quot;=&gt;&quot;&quot;, &quot;B3&quot;=&gt;&quot;&quot;, &quot;C3&quot;=&gt;&quot;&quot;, &quot;G3&quot;=&gt;&quot;2014-11-06&quot;, &quot;A4&quot;=&gt;&quot;&quot;, &quot;B4&quot;=&gt;&quot;&quot;, &quot;A5&quot;=&gt;&quot;&quot;, &quot;A7&quot;=&gt;&quot;2008-01-01&quot;, &quot;D7&quot;=&gt;&quot;2009-12-31&quot;, &quot;G7&quot;=&gt;&quot;Mountain Time (US &amp; Canada)&quot;, &quot;D12&quot;=&gt;&quot;&quot;, &quot;F12&quot;=&gt;&quot;&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;407&quot;, &quot;F13&quot;=&gt;&quot;Italy&quot;, &quot;H13&quot;=&gt;&quot;1250.0&quot;, &quot;I13&quot;=&gt;&quot;1.0&quot;, &quot;J13&quot;=&gt;&quot;2.0&quot;, &quot;A14&quot;=&gt;&quot;2.&quot;, &quot;B14&quot;=&gt;&quot;37525&quot;, &quot;F14&quot;=&gt;&quot;DID Owner Cost&quot;, &quot;H14&quot;=&gt;&quot;325.0&quot;, &quot;I14&quot;=&gt;&quot;1.0&quot;, &quot;J14&quot;=&gt;&quot;1.0&quot;, &quot;A15&quot;=&gt;&quot;3.&quot;, &quot;B15&quot;=&gt;&quot;370&quot;, &quot;F15&quot;=&gt;&quot;SMS&quot;, &quot;H15&quot;=&gt;&quot;326454.0&quot;, &quot;I15&quot;=&gt;&quot;1.0&quot;, &quot;J15&quot;=&gt;&quot;10.0&quot;, &quot;E25&quot;=&gt;&quot;13.0&quot;, &quot;E26&quot;=&gt;&quot;13.0&quot;, &quot;I26&quot;=&gt;&quot;13.0&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='login_as_link_1600101']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/50?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;A2&quot;=&gt;&quot;Partner`s Reseller&quot;, &quot;G2&quot;=&gt;&quot;INV0801011&quot;, &quot;A3&quot;=&gt;&quot;&quot;, &quot;B3&quot;=&gt;&quot;&quot;, &quot;C3&quot;=&gt;&quot;&quot;, &quot;G3&quot;=&gt;&quot;2014-11-06&quot;, &quot;A4&quot;=&gt;&quot;&quot;, &quot;B4&quot;=&gt;&quot;&quot;, &quot;A5&quot;=&gt;&quot;&quot;, &quot;A7&quot;=&gt;&quot;2008-01-01&quot;, &quot;D7&quot;=&gt;&quot;2009-12-31&quot;, &quot;G7&quot;=&gt;&quot;Mountain Time (US &amp; Canada)&quot;, &quot;D12&quot;=&gt;&quot;&quot;, &quot;F12&quot;=&gt;&quot;&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;407&quot;, &quot;F13&quot;=&gt;&quot;Italy&quot;, &quot;H13&quot;=&gt;&quot;1250.0&quot;, &quot;I13&quot;=&gt;&quot;1.0&quot;, &quot;J13&quot;=&gt;&quot;2.0&quot;, &quot;A14&quot;=&gt;&quot;2.&quot;, &quot;B14&quot;=&gt;&quot;37525&quot;, &quot;F14&quot;=&gt;&quot;DID Owner Cost&quot;, &quot;H14&quot;=&gt;&quot;325.0&quot;, &quot;I14&quot;=&gt;&quot;1.0&quot;, &quot;J14&quot;=&gt;&quot;1.0&quot;, &quot;A15&quot;=&gt;&quot;3.&quot;, &quot;B15&quot;=&gt;&quot;370&quot;, &quot;F15&quot;=&gt;&quot;SMS&quot;, &quot;H15&quot;=&gt;&quot;326454.0&quot;, &quot;I15&quot;=&gt;&quot;1.0&quot;, &quot;J15&quot;=&gt;&quot;10.0&quot;, &quot;E25&quot;=&gt;&quot;13.0&quot;, &quot;E26&quot;=&gt;&quot;13.0&quot;, &quot;I26&quot;=&gt;&quot;13.0&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/12?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/4?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refresh</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--keiciam settingsus-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_number</td>
+	<td>E3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_issue_date</td>
+	<td>H4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_period_start</td>
+	<td>B8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_period_end</td>
+	<td>E8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_timezone</td>
+	<td>H8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_name</td>
+	<td>B3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details1</td>
+	<td>B4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details2</td>
+	<td>C4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details3</td>
+	<td>D4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details4</td>
+	<td>B5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details5</td>
+	<td>C5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_client_details6</td>
+	<td>B9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_details_destination_number</td>
+	<td>B14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_details_prefix</td>
+	<td>C15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_details_name</td>
+	<td>G14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_details_quantity</td>
+	<td>J14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_details_total_time</td>
+	<td>I14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_details_price</td>
+	<td>K15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_price</td>
+	<td>F17</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_price_with_vat</td>
+	<td>F27</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_comment</td>
+	<td>E28</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_debt</td>
+	<td>D13</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_debt_tax</td>
+	<td>F14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inv_total_amount_due</td>
+	<td>I27</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView2_0 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B2&quot;=&gt;&quot;Test Partner&quot;, &quot;G2&quot;=&gt;&quot;1&quot;, &quot;B3&quot;=&gt;&quot;Adressas&quot;, &quot;G3&quot;=&gt;&quot;2013-12-07&quot;, &quot;B4&quot;=&gt;&quot;Miestas&quot;, &quot;B5&quot;=&gt;&quot;PostCodas&quot;, &quot;B6&quot;=&gt;&quot;Valstija&quot;, &quot;B7&quot;=&gt;&quot;Bahamas&quot;, &quot;B8&quot;=&gt;&quot;Telefonas1&quot;, &quot;B10&quot;=&gt;&quot;2014-01-01&quot;, &quot;D10&quot;=&gt;&quot;2015-12-31&quot;, &quot;G10&quot;=&gt;&quot;UTC (GMT +0)&quot;, &quot;D12&quot;=&gt;&quot;&quot;, &quot;F12&quot;=&gt;&quot;&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370&quot;, &quot;C13&quot;=&gt;&quot;Lithuania proper&quot;, &quot;F13&quot;=&gt;&quot;8.0&quot;, &quot;G13&quot;=&gt;&quot;205.0&quot;, &quot;H13&quot;=&gt;&quot;1.7083&quot;, &quot;E25&quot;=&gt;&quot;1.7083&quot;, &quot;E26&quot;=&gt;&quot;1.7083&quot;, &quot;I26&quot;=&gt;&quot;1.7083&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/50?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B3&quot;=&gt;&quot;Partner`s Reseller&quot;, &quot;E3&quot;=&gt;&quot;INV0801011&quot;, &quot;B4&quot;=&gt;&quot;&quot;, &quot;C4&quot;=&gt;&quot;&quot;, &quot;D4&quot;=&gt;&quot;&quot;, &quot;H4&quot;=&gt;&quot;2014-11-06&quot;, &quot;B5&quot;=&gt;&quot;&quot;, &quot;C5&quot;=&gt;&quot;&quot;, &quot;B8&quot;=&gt;&quot;2008-01-01&quot;, &quot;E8&quot;=&gt;&quot;2009-12-31&quot;, &quot;H8&quot;=&gt;&quot;Mountain Time (US &amp; Canada)&quot;, &quot;B9&quot;=&gt;&quot;&quot;, &quot;D13&quot;=&gt;&quot;&quot;, &quot;B14&quot;=&gt;&quot;1.&quot;, &quot;F14&quot;=&gt;&quot;&quot;, &quot;G14&quot;=&gt;&quot;Italy&quot;, &quot;I14&quot;=&gt;&quot;1250.0&quot;, &quot;J14&quot;=&gt;&quot;1.0&quot;, &quot;B15&quot;=&gt;&quot;2.&quot;, &quot;C15&quot;=&gt;&quot;407&quot;, &quot;G15&quot;=&gt;&quot;DID Owner Cost&quot;, &quot;I15&quot;=&gt;&quot;325.0&quot;, &quot;J15&quot;=&gt;&quot;1.0&quot;, &quot;K15&quot;=&gt;&quot;2.0&quot;, &quot;B16&quot;=&gt;&quot;3.&quot;, &quot;C16&quot;=&gt;&quot;37525&quot;, &quot;G16&quot;=&gt;&quot;SMS&quot;, &quot;I16&quot;=&gt;&quot;326454.0&quot;, &quot;J16&quot;=&gt;&quot;1.0&quot;, &quot;K16&quot;=&gt;&quot;1.0&quot;, &quot;C17&quot;=&gt;&quot;370&quot;, &quot;F17&quot;=&gt;&quot;13.0&quot;, &quot;K17&quot;=&gt;&quot;10.0&quot;, &quot;F27&quot;=&gt;&quot;13.0&quot;, &quot;I27&quot;=&gt;&quot;13.0&quot;, &quot;E28&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/50?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B3&quot;=&gt;&quot;Partner`s Reseller&quot;, &quot;E3&quot;=&gt;&quot;INV0801011&quot;, &quot;B4&quot;=&gt;&quot;&quot;, &quot;C4&quot;=&gt;&quot;&quot;, &quot;D4&quot;=&gt;&quot;&quot;, &quot;H4&quot;=&gt;&quot;2014-11-06&quot;, &quot;B5&quot;=&gt;&quot;&quot;, &quot;C5&quot;=&gt;&quot;&quot;, &quot;B8&quot;=&gt;&quot;2008-01-01&quot;, &quot;E8&quot;=&gt;&quot;2009-12-31&quot;, &quot;H8&quot;=&gt;&quot;Mountain Time (US &amp; Canada)&quot;, &quot;B9&quot;=&gt;&quot;&quot;, &quot;D13&quot;=&gt;&quot;&quot;, &quot;B14&quot;=&gt;&quot;1.&quot;, &quot;F14&quot;=&gt;&quot;&quot;, &quot;G14&quot;=&gt;&quot;Italy&quot;, &quot;I14&quot;=&gt;&quot;1250.0&quot;, &quot;J14&quot;=&gt;&quot;1.0&quot;, &quot;B15&quot;=&gt;&quot;2.&quot;, &quot;C15&quot;=&gt;&quot;407&quot;, &quot;G15&quot;=&gt;&quot;DID Owner Cost&quot;, &quot;I15&quot;=&gt;&quot;325.0&quot;, &quot;J15&quot;=&gt;&quot;1.0&quot;, &quot;K15&quot;=&gt;&quot;2.0&quot;, &quot;B16&quot;=&gt;&quot;3.&quot;, &quot;C16&quot;=&gt;&quot;37525&quot;, &quot;G16&quot;=&gt;&quot;SMS&quot;, &quot;I16&quot;=&gt;&quot;326454.0&quot;, &quot;J16&quot;=&gt;&quot;1.0&quot;, &quot;K16&quot;=&gt;&quot;1.0&quot;, &quot;C17&quot;=&gt;&quot;370&quot;, &quot;F17&quot;=&gt;&quot;13.0&quot;, &quot;K17&quot;=&gt;&quot;10.0&quot;, &quot;F27&quot;=&gt;&quot;13.0&quot;, &quot;I27&quot;=&gt;&quot;13.0&quot;, &quot;E28&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B2&quot;=&gt;&quot;Test Partner&quot;, &quot;G2&quot;=&gt;&quot;1&quot;, &quot;B3&quot;=&gt;&quot;Adressas&quot;, &quot;G3&quot;=&gt;&quot;2013-12-07&quot;, &quot;B4&quot;=&gt;&quot;Miestas&quot;, &quot;B5&quot;=&gt;&quot;PostCodas&quot;, &quot;B6&quot;=&gt;&quot;Valstija&quot;, &quot;B7&quot;=&gt;&quot;Bahamas&quot;, &quot;B8&quot;=&gt;&quot;Telefonas1&quot;, &quot;B10&quot;=&gt;&quot;2014-01-01&quot;, &quot;D10&quot;=&gt;&quot;2015-12-31&quot;, &quot;G10&quot;=&gt;&quot;UTC (GMT +0)&quot;, &quot;D12&quot;=&gt;&quot;&quot;, &quot;F12&quot;=&gt;&quot;&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370&quot;, &quot;C13&quot;=&gt;&quot;Lithuania proper&quot;, &quot;F13&quot;=&gt;&quot;8.0&quot;, &quot;G13&quot;=&gt;&quot;205.0&quot;, &quot;H13&quot;=&gt;&quot;1.7083&quot;, &quot;E25&quot;=&gt;&quot;1.7083&quot;, &quot;E26&quot;=&gt;&quot;1.7083&quot;, &quot;I26&quot;=&gt;&quot;1.7083&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='login_as_link_1600101']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_name</td>
+	<td>Vardas1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details1</td>
+	<td>Adresas1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details2</td>
+	<td>Miestas1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details3</td>
+	<td>PostCodas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details4</td>
+	<td>Valstija</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=invoice_client_details5</td>
+	<td>label=Cocos (Keeling) Islands</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details6</td>
+	<td>3333333</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Invoice updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/50?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;B3&quot;=&gt;&quot;Partner`s Reseller&quot;, &quot;E3&quot;=&gt;&quot;INV0801011&quot;, &quot;B4&quot;=&gt;&quot;Adresas1&quot;, &quot;C4&quot;=&gt;&quot;Miestas1&quot;, &quot;D4&quot;=&gt;&quot;PostCodas&quot;, &quot;H4&quot;=&gt;&quot;2014-11-06&quot;, &quot;B5&quot;=&gt;&quot;Valstija&quot;, &quot;C5&quot;=&gt;&quot;Cocos (Keeling) Islands&quot;, &quot;B8&quot;=&gt;&quot;2008-01-01&quot;, &quot;E8&quot;=&gt;&quot;2009-12-31&quot;, &quot;H8&quot;=&gt;&quot;Mountain Time (US &amp; Canada)&quot;, &quot;B9&quot;=&gt;&quot;3333333&quot;, &quot;D13&quot;=&gt;&quot;&quot;, &quot;B14&quot;=&gt;&quot;1.&quot;, &quot;F14&quot;=&gt;&quot;&quot;, &quot;G14&quot;=&gt;&quot;Italy&quot;, &quot;I14&quot;=&gt;&quot;1250.0&quot;, &quot;J14&quot;=&gt;&quot;1.0&quot;, &quot;B15&quot;=&gt;&quot;2.&quot;, &quot;C15&quot;=&gt;&quot;407&quot;, &quot;G15&quot;=&gt;&quot;DID Owner Cost&quot;, &quot;I15&quot;=&gt;&quot;325.0&quot;, &quot;J15&quot;=&gt;&quot;1.0&quot;, &quot;K15&quot;=&gt;&quot;2.0&quot;, &quot;B16&quot;=&gt;&quot;3.&quot;, &quot;C16&quot;=&gt;&quot;37525&quot;, &quot;G16&quot;=&gt;&quot;SMS&quot;, &quot;I16&quot;=&gt;&quot;326454.0&quot;, &quot;J16&quot;=&gt;&quot;1.0&quot;, &quot;K16&quot;=&gt;&quot;1.0&quot;, &quot;C17&quot;=&gt;&quot;370&quot;, &quot;F17&quot;=&gt;&quot;13.0&quot;, &quot;K17&quot;=&gt;&quot;10.0&quot;, &quot;F27&quot;=&gt;&quot;13.0&quot;, &quot;I27&quot;=&gt;&quot;13.0&quot;, &quot;E28&quot;=&gt;&quot;&quot;}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

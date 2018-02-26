@@ -1,0 +1,408 @@
+<%= form_tag :action => params[:action].to_s do %>
+  <%= hidden_field_tag 'search_on', 1 %>
+  <%= hidden_field_tag 'page', 1 %>
+  <table class="bordered">
+    <tr>
+      <td>
+        <table id="search_details" class="simple">
+          <tr>
+            <td><%= _('From') %>:</td>
+            <td nowrap="true" colspan="5">
+              <%= select_datetime(Time.mktime(session[:year_from], session[:month_from], session[:day_from], session[:hour_from], session[:minute_from]), end_year: Date.today.year + 1, prefix: 'date_from', use_month_numbers: false) %>
+            </td>
+            <td>
+              <span style="text-align: right;FLOAT: right; ">
+                <% if options[:search_on].to_i == 1 %>
+                  <%= link_to(b_cross + _('Clear_search'), action: params[:action], clear: 1) %>
+                <% end %>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= _('Till') %>:
+            </td>
+            <td nowrap="true" colspan="5">
+              <%= select_datetime(Time.mktime(session[:year_till], session[:month_till], session[:day_till], session[:hour_till], session[:minute_till]), end_year: Date.today.year + 1, prefix: 'date_till', use_month_numbers: false) %>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <%= _('User') %>:
+            </td>
+            <td nowrap="true">
+              <%= render 'shared/live_search_field', object: options[:s_user], object_id: options[:s_user_id], object_name: 'User', action_url: {controller: :users, action: :get_partner_resellers_map } %>
+            </td>
+            <td>
+              <%= _('Device') %>:
+            </td>
+            <td nowrap="true" colspan="2">
+              <% if devices_for_scope_present %>
+                <span id="device_list_span">
+                  <%= select_tag("s_device", options_for_select([[_('All'), '']] + devices.map { |d| [nice_device(d, {:image => false}), d.id.to_s] }, options[:s_device].to_s), :style => "max-width:100px") %>
+                </span>
+              <% else %>
+                <span id="device_list">
+                  <%= select_tag('s_device', nil, :disabled => true) %>
+                </span>
+              <% end %>
+            </td>
+            <td>
+              <%= _('Status') %>:
+            </td>
+            <td nowrap="true">
+              <% call_types = [[_('All'), "all"], [_('Answered'), "answered"], [_('No_Answer'), "no answer"], [_('Failed'), "failed"], [_('Busy'), "busy"]] %>
+              <%= select_tag('s_call_type', options_for_select(call_types, options[:s_call_type].to_s), style: "width:100px") %>
+            </td>
+          </tr>
+          <tr>
+            <td nowrap="true">
+              <%= _('hangup_cause') %>:
+            </td>
+            <td nowrap="true" colspan="4">
+              <%= select_tag("s_hgc", options_for_select([[_('All'), 0]]+hgcs.map { |h| [h.clean_description[0..45], h.id] }, options[:s_hgc].to_i), style: 'width:250px') %>
+            </td>
+            <td>
+              <%= _('Reseller') %>:
+            </td>
+            <td nowrap="true">
+              <% reseller_options = resellers.map{ |u| [u['nice_user'], u['id']] } %>
+              <% reseller_options.insert(0, [_('All'), 'all']) if resellers.size > 0 %>
+              <%= select_tag('s_reseller', options_for_select(reseller_options, options[:s_reseller].to_i), disabled: resellers.empty?, style: 'width:135px')  %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= _('Source') %>:
+            </td>
+            <td nowrap="true">
+              <%= text_field_tag("s_source", h(options[:source].to_s)) %>
+            </td>
+            <td>
+              <%= _('Destination') %>:
+            </td>
+            <td nowrap="true" colspan="2">
+              <%= text_field_tag("s_destination", h(options[:s_destination].to_s)) %>
+            </td>
+          </tr>
+          <% if cc_active? %>
+            <tr>
+              <td>
+                <%= _('Card_number') %>:
+              </td>
+              <td>
+                <%= text_field_tag("s_card_number", h(options[:s_card_number].to_s)) %>
+              </td>
+              <td>
+                <%= _('Card_pin') %>:
+              </td>
+              <td colspan="2">
+                <%= text_field_tag("s_card_pin", h(options[:s_card_pin].to_s)) %>
+              </td>
+              <td nowrap="true">
+                <%= _('Card_id') %>:
+              </td>
+              <td>
+                <%= text_field_tag('s_card_id', h(options[:s_card_id].to_s)) %>
+              </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>
+              <br/><%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+<% unless searching %>
+  <%= b_info + _('press_search_button_to_show_data') %>
+<% end %>
+
+<br/>
+<% if searching %>
+    <% if calls && calls.size > 0 && params[:action] != 'old_calls_stats' %>
+        <div id="download_links">
+          <%= link_to(b_csv + _('Export_to_CSV'), '#', id: 'csv_download') %>&nbsp;&nbsp;
+          <%= link_to(b_pdf + _('Export_to_PDF'), '#', id: 'pdf_download') %>
+        </div>
+        <div id="csv_pending" hidden="">
+          <%= b_csv + _('Generating_file_Please_wait') %>&nbsp;<%= image_tag('indicator.gif', border: 0) %>&nbsp;&nbsp;
+          <%= b_pdf + _('Export_to_PDF') %>
+        </div>
+        <div id="pdf_pending" hidden="">
+          <%= b_csv + _('Export_to_CSV') %>&nbsp;&nbsp;
+          <%= b_pdf + _('Generating_file_Please_wait') %>&nbsp;<%= image_tag('indicator.gif', border: 0) %>
+        </div>
+    <% elsif calls && calls.size > 0 && params[:action] == 'old_calls_stats' %>
+        <%= link_to b_csv + _('Export_to_CSV'), action: :old_calls_stats, csv: 1 %>
+    <% end %>
+
+    <script type="text/javascript">
+
+        <% limit_pdf = Confline.get_value('Limit_PDF_size_in_Last_Calls').to_i %>
+        <% limit_pdf_calls = limit_pdf * session[:items_per_page].to_i %>
+        <% pages_msg = limit_pdf > 1 ? _('pages') : _('page') %>
+        var disable_pdf = <%= limit_pdf_calls > 0 && total_calls.to_i > limit_pdf_calls ? 1 : 0 %>;
+        var pdf_error_message = "<%= _('PDF_export_is_disabled') %><br><%= _('Only') + ' ' + Confline.get_value('Limit_PDF_size_in_Last_Calls').to_s + ' ' + pages_msg.to_s + ' ' + _('can_be_exported') %>";
+
+        $j('#csv_download').click(function() {
+            hide_download_links('csv');
+
+            $j.fileDownload('<%= Web_Dir%>/stats/last_calls_stats?csv=1', {
+                successCallback: function() { show_download_links(); }
+            });
+        });
+
+        $j('#pdf_download').click(function() {
+            if (disable_pdf) {
+                $j('#notice').remove();
+                $j('.main_window').prepend("<div id=\"notice\">" + pdf_error_message + "</div>");
+            } else {
+                hide_download_links('pdf');
+
+                $j.fileDownload('<%= Web_Dir%>/stats/last_calls_stats?pdf=1', {
+                    successCallback: function() { show_download_links(); }
+                });
+            }
+        });
+
+        function hide_download_links(file_type) {
+            $j('#download_links').hide();
+
+            if (file_type == 'csv') {
+                $j('#pdf_pending').hide();
+                $j('#csv_pending').show();
+            } else {
+                $j('#csv_pending').hide();
+                $j('#pdf_pending').show();
+            }
+
+        }
+
+        function show_download_links() {
+            $j('#download_links').show();
+            $j('#csv_pending').hide();
+            $j('#pdf_pending').hide();
+        }
+    </script>
+
+<br/>
+<%= page_select_header(options[:page], total_pages, nil, options) %>
+
+<% if calls and calls.size > 0 %>
+  <table width="100%" class="maintable">
+    <tr>
+      <th align="center" rowspan="2">
+        &nbsp;<%= raw nice_list_order('time', _('Time'), options, search_on: params[:search_on]).html_safe %>
+      </th>
+      <th align="left" rowspan="2">
+        <%= raw nice_list_order('src', _('called_from'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left" rowspan="2">
+        <%= raw nice_list_order('dst', _('called_to'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="center" rowspan="2">
+        <%= raw nice_list_order('nice_billsec', _('Duration'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left" rowspan="2">
+        <%= raw nice_list_order('hgc', _('hangup_cause'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left" rowspan="2">
+        <%= raw nice_list_order('server', _('Server'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="center" colspan="2" >
+        <%= _('Self-Cost') %>
+      </th>
+      <th align="center" colspan="3">
+        <%= _('Reseller') %>
+      </th>
+      <th align="center" colspan=<%= options[:show_device_and_cid].to_i == 1 ? 4 : 3 %>>
+        <%= _('User') %>
+      </th>
+      <th align="left" rowspan="2">
+        <%= _('Profit') %>
+      </th>
+    </tr>
+    <tr>
+      <th align="left">
+        <%= raw nice_list_order('p_rate', _('Rate'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left">
+        <%= raw nice_list_order('p_price', _('Price'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left">
+        <%= raw nice_list_order('reseller', _('Name'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left">
+        <%= raw nice_list_order('r_rate', _('Rate'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left">
+        <%= raw nice_list_order('r_price', _('Price'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left">
+        <%= raw nice_list_order('user', _('Name'), options, search_on: params[:search_on]) %>
+      </th>
+      <% if options[:show_device_and_cid].to_i == 1 %>
+        <th align="left">
+          <%= raw nice_list_order('nice_src_device', _('device_cid'), options, search_on: params[:search_on]) %></th>
+      <% end %>
+      <th align="left">
+        <%= raw nice_list_order('u_rate', _('Rate'), options, search_on: params[:search_on]) %>
+      </th>
+      <th align="left">
+        <%= raw nice_list_order('u_price', _('Price'), options, search_on: params[:search_on]) %>
+      </th>
+    </tr>
+      <% calls.each_with_index do |call, index| %>
+        <%
+           dst_device = Device.where("devices.id = ?", call.dst_device_id.to_i).includes(:user).first
+           call_provider = call.provider
+           call_reseller = call.reseller
+           call_user = call.user
+
+           call_user = dst_device.user if dst_device and call.user_id.to_i == -1
+           card = call.card_id.to_i > 0 ? call.card : nil
+           params[:action] == "old_calls_stats" or call.processed == 0 ? text_class="n" : text_class="n_disabled"
+           did = Did.where("id = ?", call.did_id.to_i).first
+        %>
+        <tr class="row<%= (index % 2 + 1).to_s %>">
+          <td id="calldate_<%= call.id %>" class="<%= text_class %>" align="center">
+            <%= nice_date_time call.calldate %>
+          </td>
+          <td id="src_<%= call.id %>" class="<%= text_class %>">
+            <%= nice_src(call) %>
+          </td>
+          <% if show_destination %>
+            <%= raw show_call_dst(call, text_class) %>
+          <% end %>
+          <td id="billsec_<%= call.id %>" class="<%= text_class %>" align="center">
+            <%= nice_time(call[:nice_billsec]) %>
+          </td>
+          <td id="disposition_<%= call.id %>" class="<%= text_class %>" align="left" <%= tooltip('', get_hangup_cause_message(call.hangupcause)) if call.hangupcause %>>
+            <%= call.disposition %><%= " (" + call.hangupcause.to_s + ")" if call.hangupcause %>
+          </td>
+          <td id="server_id_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= call.server_id %>
+          </td>
+          <td id="partner_rate_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.partner_rate) %>
+          </td>
+          <td id="partner_price_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.partner_price) %>
+          </td>
+          <td id="reseller_<%= call.id %>" class="<%= text_class %>">
+            <%= nice_user(call_reseller) if call_reseller %>
+          </td>
+          <td id="reseller_rate_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.reseller_rate_exrate) %>
+          </td>
+          <td id="reseller_price_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.reseller_price_exrate) %>
+          </td>
+
+          <% if card %>
+            <td id="card_<%= call.id %>" class="<%= text_class %>">
+              <%= link_nice_card(card) %>
+            </td>
+          <% else %>
+            <td id="user_<%= call.id %>" class="<%= text_class %>">
+              <% if call.hangupcause.to_i != 200 %>
+                <% if params[:action] != 'old_calls_stats' %>
+                  <%=  link_nice_user_if_own(call_user) %>
+                <% else %>
+                  <%= nice_user(call_user) %>
+                <% end %>
+              <% else %>
+                <%= (_('Unauthenticated') + "<a href='http://wiki.kolmisoft.com/index.php/200_MOR_can%27t_determine_who_is_calling' target='_blank'><img alt='Help' src='#{Web_Dir}/images/icons/help.png'/></a>").html_safe %>
+              <% end %>
+            </td>
+          <% end %>
+          <% if options[:show_device_and_cid].to_i == 1 %>
+            <td align="left" id="user_device_cid_<%= call.id %>">
+              <%= show_device_and_callerid(call) %>
+            </td>
+          <% end %>
+
+          <td id="user_rate_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.user_rate_exrate) %>
+          </td>
+          <td id="user_price_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.user_price_exrate) %>
+          </td>
+          <td id="profit_<%= call.id %>" class="<%= text_class %>" align="left">
+            <%= nice_number(call.profit) %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <% if total_calls_stats.present? %>
+            <%= render '/stats/total_lines/last_calls_stats_partner_total', total_calls_stats: total_calls_stats, options: options %>
+        <% else %>
+            <%= render 'shared/total_calls_stats',
+                  total_line: '/stats/total_lines/last_calls_stats_partner_total',
+                  url: params[:action].to_s == 'last_calls_stats' ? 'last_calls_stats_totals' : 'old_calls_stats_totals' -%>
+        <% end %>
+      </tr>
+    </table>
+    <br/>
+    <%= page_select_header(options[:page], total_pages, nil, options) %>
+  <% else %>
+    <br/>
+    <%= _('No_calls') %>...
+  <% end %>
+<% end %>
+
+
+<script type="text/javascript">
+  new Form.Element.EventObserver('s_user',
+    function(element, value) {
+      new Ajax.Updater('device_list_span',
+        '<%= Web_Dir %>/devices/ajax_get_user_devices',
+        {
+          evalScripts: true,
+          onComplete: function(request){Element.hide('spinner');},
+          onLoading: function(request){Element.show('spinner');},
+          parameters: 'user_id=' + encodeURIComponent($('s_user_id').value) + '&all=true&fax=true'
+        }
+      );
+    }
+  )
+
+  Event.observe(window, 'load',  function() {
+      Event.observe($('s_did_pattern'), 'click', function(){
+          if ($('s_did_pattern').value == "") {
+              $('did_list').innerHTML = "";
+          <%=raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'empty_click=true'") %>
+          }
+          Event.observe($('s_did_pattern'), 'keyup', function(){
+              $('did_list').innerHTML = "";
+              <%=raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'did_livesearch='+$('s_did_pattern').value") %>
+          });
+
+          Event.observe($('did_list'), 'mouseover', function(){
+              var el = document.getElementById('did_list').getElementsByTagName('td');
+              for(var i=0;i<el.length;i++){
+                  el[i].onclick=function(){
+                      if (this.id != -2) {
+                          document.getElementById('s_did_pattern').value = this.innerHTML
+                      <%= raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'did_livesearch='") %>
+                      }
+                  }
+                  el[i].onmouseover=function(){
+                      this.style.backgroundColor="#BBBBBB";
+                  }
+                  el[i].onmouseout=function(){
+                      this.style.backgroundColor="rgb(255, 255, 255)";
+                  }
+              }
+          });
+
+      });
+  });
+</script>

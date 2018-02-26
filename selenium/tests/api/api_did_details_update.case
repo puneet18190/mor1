@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_ did_details_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_ did_details_update</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6511&amp;call_limit=999&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>API Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/dids_get/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_dids_opt_1_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;did_id=6511&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;did_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;did_id=6001&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;did_id=6512&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_reseller&amp;did_id=6009&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash5</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;did_id=6511&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;did_id=6006&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;did_id=6509&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash8</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;did_id=6010&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash9</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6511</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_2</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6001</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6512</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6009</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--HASH tikrinimas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6511&amp;call_limit=999&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Incorrect hash</td>
+</tr>
+<!--Update's-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6511&amp;call_limit=999&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=user_admin&amp;did_id=2&amp;call_limit=7&amp;test=1&amp;hash=${hash2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=accountant&amp;did_id=6001&amp;call_limit=66&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6512&amp;call_limit=55&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=user_reseller&amp;did_id=6009&amp;call_limit=44&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6511&amp;call_limit=-951&amp;test=1&amp;hash=${hash6}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Call limit is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin_user&amp;did_id=6009&amp;call_limit=0&amp;test=1&amp;hash=${hash7}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--sėkmės pranešimas, bet neturi nieko pakeisti siunčiant tai, kas jau nustatyta-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6010&amp;call_limit=0&amp;test=1&amp;hash=${hash9}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6509&amp;call_limit=0&amp;test=1&amp;hash=${hash8}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--neteisingas call_limit formatas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6010&amp;call_limit=fgdfsgsfg&amp;test=1&amp;hash=${hash9}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Call limit is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6509&amp;call_limit=fsgfgshgh&amp;test=1&amp;hash=${hash8}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Call limit is incorrect format</td>
+</tr>
+<!--did_user_id neįeina į hash-->
+<!--tokio did_user_id nera-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=accountant&amp;did_id=6001&amp;call_limit=66&amp;did_user_id=6666666&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+<!--reseleris negali updeitinti admino dido-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6001&amp;call_limit=66&amp;did_user_id=6666666&amp;test=1&amp;hash=c64dc0cce3e52c4c0e475160e971fa6be1822fac</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6511</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_2</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6001</td>
+	<td>66</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6512</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6009</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=6010</td>
+	<td>6010</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6010</td>
+	<td>Free</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6010</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=6006</td>
+	<td>6006</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6006</td>
+	<td>Active</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6006</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=6509</td>
+	<td>6509</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6509</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6509</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--Update's-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;call_limit=222&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=user_admin&amp;did_id=6004&amp;call_limit=223&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=accountant&amp;did_id=6509&amp;call_limit=224&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6505&amp;call_limit=225&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=user_reseller&amp;did_id=6008&amp;call_limit=226&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6010&amp;call_limit=-753&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Call limit is incorrect format</td>
+</tr>
+<!--didą galima priskirti admin priklausnatiems reselleriams ir simple useriams, kai tai daro admin -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6010&amp;call_limit=0&amp;did_user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=1&amp;call_limit=225&amp;did_user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--Reseleriui priskirtas didas perskiriamas accouunantui-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6505&amp;call_limit=225&amp;did_user_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID is already assigned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/edit/6010</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Assigned to user:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Current status: Free</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Unassign from Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=tr.row1 &gt; td &gt; input[name=&quot;commit&quot;]</td>
+	<td>Unassign from Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/edit/6505</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Current status: Reserved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Assigned to user: User Resellers </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=tr.row1 &gt; td &gt; input[name=&quot;commit&quot;]</td>
+	<td>Unassign from Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6010</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6010</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6010</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6006</td>
+	<td>222</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6004</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6509</td>
+	<td>224</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6505</td>
+	<td>225</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6008</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6010</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_1</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6505</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6505</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6505</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<!--didą galima priskirti reseller priklausantiems simple useriams, kai tai daro jo savininkas reselleris -->
+<!--adminas gali priskirti didus reselerio useriams-->
+<tr>
+	<td>open</td>
+	<td>/billing/dids/edit/6508</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr.row1 &gt; td &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>DID made available</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Current status: Free</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6508&amp;call_limit=225&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--reseleris negali priskirti admino dido admino useriams-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6006&amp;call_limit=225&amp;did_user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID was not found</td>
+</tr>
+<!--reseleris negali priskirti savo dido admino useriams-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6512&amp;call_limit=225&amp;did_user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/edit/6508</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Assigned to user: User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Current status: Reserved </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=tr.row1 &gt; td &gt; input[name=&quot;commit&quot;]</td>
+	<td>Make DID free</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6508</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6508</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6508</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<!--Did'as jau priskirtas dialplanui, todėl priskirti reselleriio useriui negalima-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6512&amp;call_limit=225&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID is already assigned</td>
+</tr>
+<!--atlaisvinam did'a-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6512&amp;did_user_id=-1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--reseleris gali priskirti savo didą savo useriams-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6512&amp;call_limit=225&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--reseleris negali priskirti admino dido savo useriams-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6003&amp;call_limit=225&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/edit/6512</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Current status: Reserved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Assigned to user: User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=tr.row1 &gt; td &gt; input[name=&quot;commit&quot;]</td>
+	<td>Unassign from Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6512</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6512</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6512</td>
+	<td>Test Reseller</td>
+</tr>
+<!--neegzistuojantis useris-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6508&amp;call_limit=225&amp;did_user_id=666666&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+<!--priskirti galima tik simple useriams priklausantiems did redaguojančiam owneriui jei did priskirtas dial planui -->
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6507</td>
+	<td>Active</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6507</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_6507</td>
+	<td>testDialPlan (authbypin)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status_6006</td>
+	<td>Active</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6006</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6006</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_6006</td>
+	<td>cc dp (callingcard)</td>
+</tr>
+<!--jei didas priskirtas admino arba reselerio dialplanui, tai negalima priskirti reseleriui, bet galima priskirti admino ir reselerio useriams-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6507&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID is already assigned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6507&amp;did_user_id=-1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--Adminas bando priskirti useriui, kai didas jau priskirtas, pirma reikia padaryti free-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;call_limit=225&amp;did_user_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID is already assigned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;did_user_id=-1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;call_limit=225&amp;did_user_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<!--reselerio didas su dialplanu-->
+<tr>
+	<td>assertText</td>
+	<td>id=status_6507</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6507</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_6507</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6507</td>
+	<td></td>
+</tr>
+<!--admino didas su dialplanu-->
+<tr>
+	<td>assertText</td>
+	<td>id=status_6006</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6006</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6006</td>
+	<td>Test Accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_6006</td>
+	<td></td>
+</tr>
+<!--galima ir atvirkščiai-->
+<!--reseller negali updeitinti admino userių-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6507&amp;call_limit=225&amp;did_user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;call_limit=225&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>DID is already assigned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;call_limit=vsdfsfh&amp;did_user_id=-1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Call limit is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;did_user_id=-1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6006&amp;call_limit=225&amp;did_user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<!--call_limit neturi būti privalomas ir jei jis nenurodytas, call limit reikšmė turi likti kokia buvo-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=admin&amp;did_id=6511&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/did_details_update?u=reseller&amp;did_id=6509&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>DID details successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<!--reselerio didas su dialplanu-->
+<tr>
+	<td>assertText</td>
+	<td>id=status_6507</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6507</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_6507</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6507</td>
+	<td></td>
+</tr>
+<!--admino didas su dialplanu-->
+<tr>
+	<td>assertText</td>
+	<td>id=status_6006</td>
+	<td>Reserved</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_6006</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6006</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_6006</td>
+	<td></td>
+</tr>
+<!--call_limit nepasikeitusios-->
+<tr>
+	<td>assertText</td>
+	<td>link=6511</td>
+	<td>6511</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6511</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=6509</td>
+	<td>6509</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_litmit_6509</td>
+	<td>224</td>
+</tr>
+<!--action log'as-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_16 &gt; a</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_16</td>
+	<td>did_edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_16</td>
+	<td>39064614623</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_17 &gt; a</td>
+	<td>Test Accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_17</td>
+	<td>did_edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_17</td>
+	<td>37062699200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_18 &gt; a</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_18</td>
+	<td>did_edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_18</td>
+	<td>39064614624</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_21 &gt; a</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_23</td>
+	<td>did_edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_23</td>
+	<td>37062699205</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test Reseller</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_24</td>
+	<td>did_edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=39064614617</td>
+	<td>39064614617</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_24</td>
+	<td>Test Accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_24</td>
+	<td>did_edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_24</td>
+	<td>39064614621</td>
+</tr>
+</tbody></table>
+</body>
+</html>

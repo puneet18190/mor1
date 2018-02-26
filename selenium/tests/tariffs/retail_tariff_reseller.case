@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>retail_tariff_reseller</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">retail_tariff_reseller</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/12?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=calling_cards_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Group updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calling_cards/ccgroup_14301/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>logged in</td>
+	<td></td>
+</tr>
+<!--Create Tariff-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>Retail Tariff Reseller</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff[currency]</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tariff_purpose_user</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6</td>
+	<td>Retail Tariff Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_6</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_6</td>
+	<td>Rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_all_rates_6</td>
+	<td>Delete all Rates</td>
+</tr>
+<!--Assign tariff-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_tariff_id</td>
+	<td>label=Retail - Retail Tariff Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/edit/14301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cardgroup[tariff_id]</td>
+	<td>label=Retail Tariff Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Card Group successfully updated</td>
+</tr>
+<!--Tariff details-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#details_6 &gt; a &gt; img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Retail Tariff Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=reseller cc group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Retail Tariff Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Currency: EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Rates for tariff</td>
+</tr>
+<!--Tariff edit-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit_link_6 &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Tariff Edit</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>Retail Tariff Reseller edited</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff[currency]</td>
+	<td>label=USD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully updated</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#rates_6 &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Retail Tariff Reseller edited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/6?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_19</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>View (78)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate250</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=gch250</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=round250</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#rates_link_19 &gt; img[alt=&quot;Coins&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gch250</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate250</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=round250</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=gch250</td>
+	<td>15.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate250</td>
+	<td>5.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=round250</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<!--Rate Edit-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#rates_link_16 &gt; img[alt=&quot;Coins&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Rates for tariff: tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_0</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Split to Work Days and Free Days</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_hour</td>
+	<td>label=09</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_hour</td>
+	<td>09</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate details updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_0</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_value_0</td>
+	<td>exact:09:59:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_1</td>
+	<td>exact:10:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_value_0</td>
+	<td>exact:09:59:59</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>rateLocation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#details_0 &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Rates for tariff: tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=from_238</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_238</td>
+	<td>exact:Infinity ?</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_238</td>
+	<td>minute event</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=round</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=duration</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=artype_238</td>
+	<td>label=event</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=round</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate updated</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=add_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=artype_238</td>
+	<td>label=minute</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>round</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>&quot;Round by&quot; is bigger than &quot;From+Duration&quot;</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>xpath=(//input[@id='round'])[2]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>round</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=artype_238</td>
+	<td>minute event</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=artype_238</td>
+	<td>event</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=price</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=round</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_504</td>
+	<td>Check advanced rates</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=rate504</td>
+	<td></td>
+</tr>
+<!--split-->
+<tr>
+	<td>refresh</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${rateLocation}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_value_0</td>
+	<td>exact:09:59:59</td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Split to Work Days and Free Days</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate details split</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Combine to Work Days and Free Days</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_1_0</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_value_1_0</td>
+	<td>exact:09:59:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_1_1</td>
+	<td>exact:10:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_2_0</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_value_2_0</td>
+	<td>exact:09:59:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_2_1</td>
+	<td>exact:10:00:00</td>
+</tr>
+<!--combine-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Combine to Work Days and Free Days</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate details combined</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Split to Work Days and Free Days</td>
+	<td>Split to Work Days and Free Days</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_0</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_value_0</td>
+	<td>exact:09:59:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_1</td>
+	<td>exact:10:00:00</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_hour</td>
+	<td>label=22</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_minute</td>
+	<td>label=22</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_second</td>
+	<td>label=22</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<!--destroy-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate details updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${rateLocation}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_value_0</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_6 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not deleted<br /> * It is used by some Card Group(s): reseller cc group<br /> * It is used by some User(s): User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_6 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not deleted<br /> * It is used by some User(s): User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_tariff_id</td>
+	<td>label=Retail - tariff</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_6 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff deleted</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=name_6</td>
+	<td></td>
+</tr>
+<!--Search-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>xpath=(//a[contains(text(),'Search')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_prefix</td>
+	<td>%3%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>247</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_5</td>
+	<td>Algeria</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_28</td>
+	<td>Bahrain</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_30</td>
+	<td>Bangladesh</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_1</td>
+	<td>1 2 3 4 5 6 7 8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_2</td>
+	<td>1 2 3 4 5 6 7 8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Rates for tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_21</td>
+	<td>Colombia</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_42</td>
+	<td>Diego Garcia</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_32</td>
+	<td>Cuba</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Algeria</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Bahrain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Bangladesh</td>
+	<td></td>
+</tr>
+<!--Clean -->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_504</td>
+	<td>Check advanced rates</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete all Rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Check advanced rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

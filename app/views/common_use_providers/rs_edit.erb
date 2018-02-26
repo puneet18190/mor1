@@ -1,0 +1,22 @@
+<%= form_tag(action: :rs_update, id: @common_use_provider.provider_id) do %>
+    <table width="100%">
+      <tr>
+        <td valign="top">
+          <table class="simple">
+            <tr>
+              <td colspan="2" class="bottom_border">
+                <b><%= _('General') %></b>
+              </td>
+            </tr>
+            <tr><td height="10"></td></tr>
+            <tr>
+              <td><%= _('Name') %>:</td>
+              <td><%= text_field_tag 'provider_name', @common_use_provider.name_by_reseller, class: 'input', maxlength: 30 %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr><td height="10"></td></tr>
+      <tr><td><%= submit_tag _('Update'), data: { disable_with: _('Processing..') } %></td></tr>
+    </table>
+<% end %>

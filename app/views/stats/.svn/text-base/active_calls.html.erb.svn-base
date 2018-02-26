@@ -1,0 +1,629 @@
+<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank"></iframe>
+
+<div style="position: relative">
+  <table class="bordered simple" style="position:relative">
+    <%= csrf_meta_tag %>
+    <tr>
+      <% unless user? %>
+        <td><%= _('User') %></td>
+        <td>
+          <%= render 'shared/live_search_field',
+                     object: @options[:s_user],
+                     object_id: @options[:s_user_id],
+                     object_name: 'User',
+                     action_url: {
+                         :controller => :users,
+                         :action => :get_users_map,
+                         options: {
+                             show_users_only: true,
+                             not_hidden: true,
+                             responsible_accountant_id:  accountant? && current_user.show_only_assigned_users == 1 ? current_user_id : nil,
+                             show_reseller_users: !reseller?
+                         }
+                     } %>
+        </td>
+        <td colspan="3" align="right" id="clean_button">
+          <a href="#" id="clean_button" style="<%= 'display:none;' if @options[:search_on].blank? || @options[:search_on] == 'false' %>">
+            <%= b_cross %>&nbsp;<%=_('Clear_search') %>
+          </a>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <td><%= _('Status') + ':' %></td>
+      <td>
+        <%= select_tag('s_status', options_for_select(call_status_options, @options[:s_status]), style: 'max-width:100px' )%>
+      </td>
+      <td><%= _('Country') + ':' %></td>
+      <td>
+        <%= select_tag('s_country', options_for_select([[_('All'), '']] + @countries.map { |country|  country.name}, @options[:s_country]), style: 'max-width:100px' )%>
+      </td>
+      <% if user? %>
+        <td colspan="2" align="right" id="clean_button">
+          <a href="#" id="clean_button" style="<%= 'display:none;' if @options[:search_on].blank? || @options[:search_on] == 'false' %>">
+            <%= b_cross %>&nbsp;<%=_('Clear_search') %>
+          </a>
+        </td>
+      <% end %>
+    </tr>
+    <% if admin? || current_user.reseller_allow_providers_tariff? || accountant? %>
+        <tr>
+          <td><%= _('Provider') + ':' %></td>
+          <td>
+            <%= select_tag('s_provider', options_for_select([[_('All'), '']] + natsort_provider_list(@providers), @options[:s_provider])) %>
+          </td>
+        </tr>
+    <% end %>
+    <tr>
+      <td><%= _('Source') %>:</td>
+      <td nowrap="true"><%= text_field_tag('s_source', @options[:s_source]) %></td>
+      <td><%= _('Destination') %>:</td>
+      <td nowrap="true" colspan="2"><%= text_field_tag('s_destination', @options[:s_destination]) %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <br/>
+        <%= submit_tag _('Search'), id: :search_btn %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br/>
+
+<table class="info_table" style="float: left;">
+  <tr>
+    <td> <%= _('Page_refreshes_every') %>:</td>
+    <td> <%= @refresh_period %> s</td>
+  </tr>
+  <tr>
+    <td> <%= _('Active_Calls') %>:</td>
+    <td>
+      <div id="active_calls_count" onmouseover="Tip('<%= active_calls_total_explanation %>', CLICKCLOSE, true);" onmouseout="UnTip()"></div>
+    </td>
+  </tr>
+</table>
+
+<div class="legend">
+  <div class="item"><%= icon('bullet_yellow') %> <span><%= _('Ringing') %></span></div>
+  <div class="item"><%= icon('bullet_green') %> <span><%= _('Answered') %></span></div>
+</div>
+
+<br/><br/><br/><br/>
+
+<div id="too_many_calls" style="min-width:950px"></div>
+<div id="active_calls2" style="min-width:950px"></div>
+
+<br/>
+
+<% if admin? %>
+    <%= form_tag(action: 'truncate_active_calls') do %>
+        <%= submit_tag _('Delete_active_calls_information'), data: { disable_with: _('Processing..') } %>
+        <%= b_info + _('This_action_would_only_delete_temporary_information_it_does_not_affect_any_calls') %>.
+    <% end %>
+<% end %>
+
+<%= javascript_include_tag 'jquery-1.8.3.min.js' %>
+<!-- JQXGRID PROCESSOR -->
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<script type="text/javascript">
+  $p = jQuery.noConflict();
+  <%= render 'shared/mor_js_helper.js.erb' %>
+  $j(document).ready(function ($) {
+    // We need some ruby variables to be turned to JS for processing
+    var show_did = <%= @show_did ? 1 : 0 %>;
+    var show_server = <%= (session[:active_calls_show_server].to_i == 1 && !reseller? && !user?) ? 1 : 0 %>;
+    var manage_provider = <%= admin? || allow_manage_providers? || session[:acc_provider].to_i == 1 ? 1 : 0 %>;
+    var hangup = <%= admin? || allow_manage_providers? ? 1 : 0 %>;
+    var spy = <%= @ma_active && !@chanspy_disabled ? 1 : 0 %>;
+    var ma_active = <%= @ma_active ? 1 : 0 %>;
+    var hide_gui_dst = <%= hide_gui_dst? %>;
+    var acc_show_assigned_users = <%= accountant_show_assigned_users? %>;
+    var is_user = <%= user? %>;
+    var acc_manage_device = <%= session[:acc_device_manage].to_i == 2 %>;
+    var acc_manage_user = <%= session[:acc_user_manage].to_i == 2 %>;
+    var acc_manage_cc = <%= session[:acc_callingcard_manage].to_i == 2 %>;
+    var user_id = parseInt("<%= @user_id %>");
+    var spyDevice = parseInt("<%= @spy_device.try(:id) %>");
+    var spyDeviceServer = parseInt("<%= @spy_device.try(:server_id) %>");
+
+    // jsqGrid datafields
+    var source = {
+      datatype: 'json',
+      datafields: [
+        { name: 'status', type: 'string' },
+        { name: 'answer_time', type: 'time' },
+        { name: 'duration', type: 'time' },
+        { name: 'src', type: 'string' },
+        { name: 'localized_dst', type: 'string' },
+        { name: 'did_num', map: "did_num", type: 'string' },
+        { name: 'provider_name', type: 'string' },
+        { name: 'server_id', type: 'integer' },
+        { name: 'spy', type: 'string' },
+        { name: 'hangup', type: 'string' }
+      ],
+      pagesize: <%= session[:items_per_page] %>,
+      cache: true
+    };
+    // End of datafields
+
+    // Conditional column distribution
+    // based on the columns presence
+    var col_distr = {
+      status: '3%',
+      answer_time: (!manage_provider * 4 + 6) + '%',
+      duration: (!manage_provider * 4 + 6) + '%',
+      src: (!manage_provider * 4 + !show_did * 5 + (!manage_provider || !show_server) * 5 + 25) + '%',
+      localized_dst: (!spy * 3 + !hangup * 3 + !manage_provider * 4 + !show_did * 3 + 25) + '%',
+      provider_name: manage_provider * 16 + '%',
+      server_id: show_server * 5 + '%',
+      did: show_did * 8 + '%',
+      spy: spy * 3 + '%',
+      hangup: hangup * 3 + '%'
+    };
+    // End of conditional distribution
+
+    // A simple clipboard selection handler
+    var copyText = '';
+    // Get the selected text
+    document.addEventListener('mouseup', function() {
+      if (window.getSelection) copyText = window.getSelection().toString();
+    }, false);
+    // On copy event put it on clipboard
+    document.addEventListener('copy', function(event) {
+      event.clipboardData.setData('text/plain', copyText);
+      // Prevent from getting any other selections
+      event.preventDefault();
+    });
+
+    // COLUMNS ARRAY
+    // Ve user helper MOR JS function from ../shared/_mor_js_helper.js.erb
+    var columns = [
+      // Status column
+      { text: "", datafield: "status", align: "center",
+        cellsalign: "center", width: col_distr.status, sortable: false,
+        cellsrenderer: function (row, column, value) {
+          var call = source.localdata[row];
+          var events = 'onmouseover="Tip(\'' + JSActiveCallsHelper.activeCallTooltip(call, ma_active) + '\', CLICKCLOSE, true);" onmouseout="UnTip()"';
+          return '<div ' + events + ' style="text-align: center; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' +
+              JSActiveCallsHelper.activeCallBullet(call.status) + '</div>';
+        }
+      },
+      // Start time column
+      { text: "<%= _('Start_time') %>", datafield: "answer_time", align: "center",
+        cellsalign: "center", width: col_distr.answer_time,
+        cellsrenderer: function (row, column, value) {
+          return '<div style="text-align: center; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' +
+              JSTimeHelper.niceTimeFromDate(JSTimeHelper.toUserTime(value)) + '</div>';
+        }
+      },
+      // Duration column
+      { text: "<%= _('Duration') %>", datafield: "duration", align: "center",
+        cellsalign: "center", width: col_distr.duration,
+        cellsrenderer: function (row, column, value) {
+          return '<div style="text-align: center; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' +
+              JSTimeHelper.niceTime(source.localdata[row].duration )+ '</div>';
+        }
+      },
+      // Source column
+      { text: "<%= "#{_('Source')} (#{_('Caller')})" %>", datafield: "src", align: "left",
+        cellsalign: "left", width: col_distr.src,
+        // Big cellsrenderer callback (adjusts links ant texts due to current user and permissions)
+        cellsrenderer: function (row, column, value) {
+          var call = source.localdata[row];
+          var result = (call.src || "") + " ";
+          if (parseInt(call.cc_id) == 0) {
+            if (parseInt(call.user_id) >= 0 && ((acc_show_assigned_users && call.src_resp_acc == JSUsersHelper.currentUserId) || !acc_show_assigned_users)) {
+              if (!is_user) {
+                result += JSUsersHelper.niceUser(call.user_username, call.user_first_name, call.user_last_name,
+                    {
+                      link: ((call.user_owner_id == user_id && !JSUsersHelper.isAcc) || (call.user_owner_id == user_id &&
+                      JSUsersHelper.isAcc && acc_manage_user)) && call.user_id != 0, user_id: call.user_id
+                    });
+                result += " / ";
+                result += JSDevicesHelper.niceDeviceFromData(call.device_type, call.device_username ? call.device_name : call.device_extension,
+                    call.device_extension, call.device_istrunk, call.device_ani,
+                    {
+                      link: ((call.user_owner_id == user_id && !JSUsersHelper.isAcc) || (call.user_owner_id == user_id &&
+                      JSUsersHelper.isAcc && acc_manage_device)) && call.user_id != 0, device_id: call.device_id
+                    });
+              } else {
+                result += JSDevicesHelper.niceDeviceFromData(call.device_type, call.device_username ? call.device_name : call.device_extension,
+                    call.device_extension, call.device_istrunk, call.device_ani,
+                    { link: false, device_id: call.device_id });
+              }
+            }
+          } else {
+            if ((call.cc_owner_id == JSUsersHelper.correctOwner && !JSUsersHelper.isAcc) || (call.cc_owner_id == JSUsersHelper.correctOwner &&
+                JSUsersHelper.isAcc && acc_manage_cc)) {
+              result += "<a href='<%= Web_Dir %>" + "/cards/show/" + call.cc_id + "' target='_blank'>" + "<%= _('Card') %>" + ": " + call.cc_number + "</a>";
+            } else {
+              result += "<%= _('Card') %>" + ": " + call.cc_number;
+            }
+          }
+          return '<div style="text-align: left; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' + result + '</div>';
+        }
+      },
+      // Destination column
+      { text: "<%= "#{_('Destination')} (#{ _('Callee')})" %>", datafield: 'localized_dst', align: 'left',
+        cellsalign: 'center', width: col_distr.localized_dst,
+        // Big cellsrenderer callback (adjusts links ant texts due to current user and permissions)
+        cellsrenderer: function (row, column, value) {
+          var call = source.localdata[row];
+          if (call.localized_dst) {
+            var result = hide_gui_dst && JSUsersHelper.devices.indexOf(call.device_id) > -1 ? call.localized_dst.substring(0, call.localized_dst.length - 3) + "XXX" : call.localized_dst;
+            result += " " + JSDestinationsHelper.drawFlag(call.direction_code) + " ";
+
+            if (call.dst_user_id != undefined && parseInt(call.dst_user_id) >= 0) {
+              if (JSUsersHelper.isAdmin || (acc_show_assigned_users && call.dst_resp_acc == JSUsersHelper.currentUserId) || !acc_show_assigned_users) {
+                result += JSUsersHelper.niceUser(call.dst_user_username, call.dst_user_first_name, call.dst_user_last_name,
+                    {
+                      link: call.dst_user_owner_id == user_id && !JSUsersHelper.isAcc || (call.dst_user_owner_id == user_id &&
+                      JSUsersHelper.isAcc && acc_manage_user), user_id: call.dst_user_id
+                    });
+                result += " / ";
+                result += JSDevicesHelper.niceDeviceFromData(call.dst_device_type, call.dst_device_username ? call.dst_device_name : call.dst_device_extension,
+                    call.dst_device_extension, call.dst_device_istrunk, call.dst_device_ani,
+                    {
+                      link: call.dst_device_user_id == call.dst_user_id && ((call.dst_user_owner_id == user_id && !JSUsersHelper.isAcc) ||
+                      (call.user_owner_id == user_id && JSUsersHelper.isAcc && acc_manage_device)),
+                      device_id: call.dst_device_id
+                    });
+              } else {
+                if (JSUsersHelper.isReseller) {
+                  result += JSUsersHelper.niceUser(call.dst_user_username, call.dst_user_first_name, call.dst_user_last_name,
+                      {link: false, user_id: call.dst_user_id});
+                  result += " / ";
+                  result += JSDevicesHelper.niceDeviceFromData(call.dst_device_type, call.dst_device_username ? call.dst_device_name : call.dst_device_extension,
+                      call.dst_device_extension, call.dst_device_istrunk, call.dst_device_ani,
+                      {link: false, device_id: call.dst_device_id});
+                } else if (!JSUsersHelper.accShowAssignedUsers) {
+                  result += JSDevicesHelper.niceDeviceFromData(call.device_type, call.device_username ? call.device_name : call.device_extension,
+                      call.device_extension, call.device_istrunk, call.device_ani,
+                      {link: false, device_id: call.device_id});
+                }
+              }
+            } else if (!call.prefix && parseInt(call.did_id) > 0) {
+              if (call.did_direction_code) result += JSDestinationsHelper.drawFlag(call.did_direction_code);
+              result += " <%= _('DID') %> (";
+              result += JSDidsHelper.niceDid(call.did_num, {link: JSUsersHelper.isAdmin, did_id: call.did_id}) + ") ";
+            } else {
+              result += " " + (call.direction_name || "") + " " + (call.destination_name || "");
+            }
+            return '<div style="text-align: left; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' + result + '</div>';
+          }
+        }
+      },
+      <% if @show_did %>
+      // DID column
+      { text: "<%= _('DID') %>", datafield: 'did_num', align: 'right',
+        cellsalign: 'right', width: col_distr.did,
+        cellsrenderer: function (row, column, value) {
+          return '<div style="text-align: right; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' + value + '</div>';
+        }
+      },
+      <% end %>
+      <% if admin? || allow_manage_providers? || session[:acc_provider].to_i == 1 %>
+      // Provider column
+      { text: "<%= _('Provider') %>", datafield: 'provider_name', align: 'left',
+        cellsalign: 'center', width: col_distr.provider_name,
+        cellsrenderer: function (row, column, value) {
+          var call = source.localdata[row];
+          result = "";
+          if (call.provider_id) {
+            if (parseInt(call.common_use) == 1 && JSUsersHelper.isReseller) {
+              if (call.common_use_provider_name && call.common_use_provider_name != '') {
+                result += call.common_use_provider_name;
+              } else {
+                result += "<%= _('Provider') %>" + " " + call.provider_id;
+              }
+            } else if (parseInt(call.common_use) == 1 || call.providers_owner_id == JSUsersHelper.currentUserId) {
+              result += JSProvidersHelper.niceProvider(call.provider_name,
+                  { link: call.providers_owner_id == JSUsersHelper.currentUserId, provider_id: call.provider_id });
+            } else if (JSUsersHelper.isAdmin || parseInt(JSUsersHelper.accProvider) == 1) {
+              result += call.provider_name;
+            }
+          }
+          return '<div style="text-align: left; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' + result + '</div>';
+        }
+      },
+      <% if session[:active_calls_show_server].to_i == 1 && !reseller? %>
+      // Server column
+      { text: "<%= _('Server') %>", datafield: 'server_id', align: 'right',
+        cellsalign: 'right', width: col_distr.server_id,
+        cellsrenderer: function (row, column, value) {
+          var result = JSServersHelper.niceServer(value, { link: true, server_id: value });
+          return '<div style="text-align: right; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' + result + '</div>';
+        }
+      },
+      <% end %>
+      <% end %>
+      <% if @ma_active && !@chanspy_disabled %>
+      // Spy column
+      { text: "<%= _('Spy') %>", datafield: 'spy', align: 'center', sortable: false,
+        cellsalign: 'center', width: col_distr.spy,
+        cellsrenderer: function (row, column, value) {
+          var call = source.localdata[row];
+          var result = "";
+          if (call.device_type != "Virtual") {
+            if (spyDevice && parseInt(call.server_id) != spyDeviceServer) {
+              result += "<div style='text-align: center; opacity:0.4;line-height:22px;' " + JSUniversalHelper.tooltipDiffServer + ">" + JSUniversalHelper.soundIcon() + "</div>";
+            } else {
+              result += "<div style='text-align: center; line-height:22px;'>" + JSUniversalHelper.spyIcon(call.channel, call.ac_id) + "</div>";
+            }
+          } else {
+            result += "<div style='text-align: center;line-height:22px;' " + JSUniversalHelper.tooltipVirtualDev + ">" + JSUniversalHelper.infoIcon() + "</div>"
+          }
+          return result;
+        }
+      },
+      <% end %>
+      <% if admin? || allow_manage_providers? %>
+      // Soft hangup column
+      { text: "", datafield: 'hangup', width: col_distr.hangup, sortable: false,
+        cellsrenderer: function (row, column, value) {
+          var call = source.localdata[row];
+          var result = "";
+          if (call.channel !== undefined && call.channel != null) {
+            result = JSUniversalHelper.softHangup(call);
+          }
+          return '<div style="text-align: center; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">' + result + '</div>';
+        }
+      },
+      <% end %>
+    ];
+    // END OF COLUMNS ARRAY
+
+    // Table container
+    var activeCallsGrid = $("#active_calls2");
+
+    // Counter container
+    var activeCallsCounter = $("#active_calls_count");
+    var tooManyCallsMessage = $("#too_many_calls");
+    // Loader spinner
+    var spinner = $("#spinner");
+    // Max calls from settings
+    var maxCalls = parseInt("<%= Confline.get_value('Active_Calls_Maximum_Calls').to_i %>") || 0;
+    // Request counter
+    var requestCount = 0;
+    // Track if the table has ever been rendered
+    var rendered = false;
+    // Too many calls indicator
+    var tooManyCalls = false;
+    // Request tracker
+    var pendingRequest = null;
+    // Search tracker
+    var searchOn = <%= @options[:search_on] == 'true' ? true : false %>;
+    // Worker timeout handle
+    var timeoutHandle;
+    // Clean search button
+    var cleanButton = $("a#clean_button");
+    // Submit search button
+    var submitButton = $("#search_btn");
+    // Table refresh period
+    var refreshPeriod = parseInt("<%= @refresh_period %>") * 1000;
+
+    // Localization callback
+    var getLocalization = function () {
+      var localizationobj = {};
+      localizationobj.thousandsseparator = '';
+      localizationobj.emptydatastring = "<%= _('No_data_found_no_dots') %>";
+      return localizationobj;
+    };
+
+    // Counter updater callback
+    var getCallsCounter = function(calls) {
+      var total = calls.length;
+      var answered = $.grep(calls, function(e) { return e ? e.status != 0 : false }).length;
+      return total + " / " + answered;
+    };
+
+    // Update jqxGrid function
+    var updateTable = function(data) {
+      // Update the counter
+      activeCallsCounter.html(getCallsCounter(data));
+      // If data fits in a settings range show it
+      if (data.length <= maxCalls) {
+        source.localdata = data;
+        // We only draw a table for the first time
+        // this way it is more optimal. During other requests
+        // We will only update its data reference
+        if (requestCount == 0 || tooManyCalls) {
+          // Initialization
+          activeCallsGrid.show();
+          tooManyCallsMessage.empty();
+          tooManyCalls = false;
+          activeCallsGrid.jqxGrid({
+            source: new $.jqx.dataAdapter(source),
+            width: '100%',
+            autoheight: true,
+            rowsheight: 22,
+            altrows: true,
+            selectionmode: 'multiplecellsadvanced',
+            statusbarheight: 22,
+            sortable: true,
+            pageable: true,
+            enablebrowserselection: 'true',
+            pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+            localization: getLocalization(),
+            columns: columns,
+            handlekeyboardnavigation: function (event) {
+              var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+              if (key == 86 && event.ctrlKey == true) {
+                return true;
+              }
+            },
+            ready: function() {
+              rendered = true;
+              // Default sort: duration
+              activeCallsGrid.jqxGrid("sortby", "duration", "desc");
+            }
+          });
+          if (rendered) {
+            activeCallsGrid.jqxGrid("sortby", "duration", "desc");
+            activeCallsGrid.jqxGrid({ pagesize: source.pagesize });
+          }
+        } else {
+          // For later requests we maintain settings and update the data
+          var sortColumnName = activeCallsGrid.jqxGrid("getsortcolumn");
+          var currentPage = activeCallsGrid.jqxGrid("getdatainformation").paginginformation.pagenum;
+          var sortOrder = activeCallsGrid.jqxGrid("getsortinformation").sortdirection.ascending == true ? "asc" : "desc";
+          activeCallsGrid.jqxGrid({ source: new $.jqx.dataAdapter(source)});
+          activeCallsGrid.jqxGrid("sortby", sortColumnName, sortOrder);
+          activeCallsGrid.jqxGrid("gotopage", currentPage);
+        }
+        // Update the table
+        activeCallsGrid.jqxGrid("updatebounddata", "sort");
+        // If data does not fit in a settings range warn a client
+      } else {
+        activeCallsGrid.hide();
+        activeCallsGrid.jqxGrid("clear");
+        tooManyCallsMessage.html("<%= _('Too_much_calls_to_show') %>");
+        tooManyCalls = true;
+      }
+    };
+    // End of update jqxGrid function
+    // Worker sends periodic actions to server and
+    // updates the jqxGrid correspondingly due to the response
+    function worker() {
+      // For the first time we don't need to ask server
+      // because we already did
+      if (requestCount == 0) {
+        // Update the table
+        updateTable(<%= raw @active_calls_json %>);
+        requestCount++;
+        // Set time out for further iterations (here from we start countint time)
+        clearTimeoutAjax(timeoutHandle);
+        timeoutHandle = setTimeout(worker, refreshPeriod);
+      } else {
+        // > 1st iterations sends periodic requests to server
+        sendRequest();
+      }
+    }
+    // End of worker
+    // Start the worker
+    worker();
+
+    // Supervise a user's interactivity over user a search form
+    $("#s_user, #s_status, #s_country, #s_source, #s_destination, #s_provider").on("click", function() {
+      killRequest();
+      timeoutHandle = setTimeout(worker, refreshPeriod);
+    });
+    $("#s_user, #s_source, #s_destination").on("keyup", function() {
+      killRequest();
+      timeoutHandle = setTimeout(worker, refreshPeriod);
+    });
+
+    // Turn a form to a javascript object
+    var serializeForm = function(search) {
+      search = search || searchOn;
+      return {
+        s_status: search ? $("#s_status").val() : null,
+        s_user: search ? $("#s_user").val() : null,
+        s_user_id: search ? $("#s_user_id").val() : null,
+        s_country: search ? $("#s_country").val() : null,
+        s_provider: search ? $("#s_provider").val() : null,
+        s_source: search ? $("#s_source").val() : null,
+        s_destination: search ? $("#s_destination").val() : null,
+        search_on: searchOn
+      }
+    };
+
+    // Submit a search form
+    submitButton.on("click", function() {
+      killRequest();
+      var data = serializeForm(true);
+      var count = 0;
+      for (var key in data) {
+        if (data[key] && key != "search_on" && key != "s_user_id") count++;
+      }
+      searchOn = count > 0;
+      data.search_on = searchOn;
+      sendRequest(data);
+      submitButton.attr('disabled', true);
+      submitButton.val("<%= _('Processing..') %>");
+      if (searchOn) cleanButton.show();
+    });
+
+    // Clear a search form
+    cleanButton.on("click", function() {
+      killRequest();
+      cleanForm();
+      sendRequest();
+      this.hide();
+      return false;
+    });
+
+    // Abort pending ajax requests and reset timeouts
+    function killRequest() {
+      clearTimeoutAjax(timeoutHandle);
+      if(pendingRequest){
+        pendingRequest.abort();
+      }
+    }
+
+    // More sophisticated clear timeout approach
+    function clearTimeoutAjax(handle) {
+      if (handle) clearTimeout(handle);
+    }
+
+    // Clean the values in a search form
+    function cleanForm() {
+      var inputs = ["#s_user", "#s_user_id", "#s_status", "#s_country", "#s_source", "#s_destination", "#s_provider"];
+      for(var i = 0; i < inputs.length; i++) {
+        var input = $(inputs[i]);
+        if (input) input.val('');
+      }
+      searchOn = false;
+    }
+
+    // Perform an ajax call
+    function sendRequest(data) {
+      pendingRequest = $.ajax({
+        // Request destination
+        url: "<%= Web_Dir %>" + "/stats/active_calls_show",
+        // Serialize the form
+        // TOTO: convert this bad table to normal html form
+        data: data || serializeForm(),
+        // Explicit and default type of request
+        type: "POST",
+        dataType: "json",
+        beforeSend: function (xhr) {
+          // Security concerns
+          xhr.setRequestHeader("X-CSRF-Token", $("meta[name='csrf-token']").attr("content"));
+          spinner.show();
+        },
+        // Update the table with a json response
+        success: function (data) { updateTable(data); },
+        // Clean up and get ready for a successor request
+        complete: function() {
+          spinner.hide();
+          pendingRequest = null;
+          requestCount++;
+          submitButton.attr("disabled", false);
+          submitButton.val("<%= _('Search') %>");
+          clearTimeoutAjax(timeoutHandle);
+          timeoutHandle = setTimeout(worker, refreshPeriod);
+        }
+      });
+    }
+  });
+</script>

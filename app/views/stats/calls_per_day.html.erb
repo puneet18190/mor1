@@ -1,0 +1,243 @@
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<div align="left" class="nb">
+  <%= form_tag action: :calls_per_day do %>
+      <table class='bordered'>
+        <tr>
+          <td>
+            <%= _('From') %>:
+          </td>
+          <td>
+            <%= select_date(Time.mktime(session[:year_from], session[:month_from], session[:day_from]), end_year: (Date.today.year + 1), prefix: 'date_from') %>
+          </td>
+          <td>
+            <%= _('Till') %>:
+          </td>
+          <td>
+            <%= select_date(Time.mktime(session[:year_till], session[:month_till], session[:day_till]), end_year: (Date.today.year + 1), prefix: 'date_till') %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= _('Destination_Group') %>:</td>
+          <td colspan="3">
+            <%= select_tag('destination_group_id', options_from_collection_for_select(@options[:select][:destination_groups], :id, :name, @options[:search][:destination_group_id]), {prompt: _('All')}) %>
+          </td>
+        </tr>
+        <% if admin? || accountant? %>
+        <tr>
+          <td>
+            <%= _('Provider') %>:
+          </td>
+          <td colspan="3">
+            <%= select_tag('provider_id', options_from_collection_for_select(@options[:select][:providers], :id, :name, @options[:search][:provider_id]), {prompt: _('All')}) %>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <td>
+            <%= _('Reseller') %>:
+          </td>
+          <td colspan="3">
+            <%= select_tag('reseller_id', options_from_collection_for_select(@options[:select][:resellers], :id, :nicename, @options[:search][:reseller_id]), {prompt: _('All')}) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= partner? ? _('Resellers_User') : _('User') %>:
+          </td>
+          <td colspan="3">
+            <%= render('shared/live_search_field',
+                       object: params[:s_user].to_s,
+                       object_id: @options[:search][:s_user_id].to_i,
+                       object_name: 'User',
+                       action_url: partner? ?
+                               {controller: :users, action: :get_partner_resellers_map, options: {show_owned_users_only: true}} :
+                               {controller: :users, action: :get_users_map, options: {show_users_only: true, show_reseller_users: true, responsible_accountant_including_owner_users: (accountant_show_assigned_users? ? current_user_id : '')}}
+                )
+            %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= submit_tag _('Search'), data: {disable_with: _('Processing..')} %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+</div>
+
+<br/><br/>
+
+<div id="calls_per_day" style='min-width:850px'></div>
+
+<script type="text/javascript">
+    $j(document).ready(function ($) {
+        var table_data_json = <%= raw @data[:table_rows].to_json %>;
+        var time_format = '<%= @data[:options][:time_format] %>';
+
+        var source =
+        {
+            localdata: table_data_json,
+            datatype: 'json',
+            datafields: [
+                { name: 'date', type: 'date', format: 'yyyy-MM-ddTHH:mm:ss-HH:mm' },
+                { name: 'calls', type: 'int' },
+                { name: 'duration', type: 'int' },
+                { name: 'acd', type: 'int' },
+                { name: 'asr', type: 'number' },
+                { name: 'fail', type: 'int' },
+                { name: 'fail_percent', type: 'number' },
+                { name: 'price', type: 'float' },
+                { name: 'provider_price', type: 'float' },
+                { name: 'profit', type: 'float' },
+                { name: 'reseller_price', type: 'float' },
+                { name: 'partner_price', type: 'float' },
+                { name: 'partner_profit', type: 'float' },
+                { name: 'margin', type: 'number' },
+                { name: 'markup', type: 'number' }
+            ],
+            pagesize: <%= session[:items_per_page] %>
+        };
+
+        var col_distr;
+            if (<%= partner? %>) {
+                col_distr = { date: '12%', calls: '7%', duration: '14%', acd: '11%',
+                    asr: '5%', fail: '5%', fail_percent: '5%', reseller_price: '12%',
+                    partner_price: '8%', partner_profit: '7%', margin: '7%', markup: '7%'
+                }
+            } else if (<%= can_see_finances? %>) {
+              col_distr = { date: '12%', calls: '7%', duration: '14%', acd: '14%',
+                asr: '5%', fail: '5%', fail_percent: '5%', price: '6%',
+                provider_price: '11%', profit: '7%', margin: '7%', markup: '7%'
+              }
+            } else {
+                col_distr = { date: '19%', calls: '14%', duration: '21%', acd: '19%',
+                  asr: '9%', fail: '9%', fail_percent: '9%', price: '0%',
+                  provider_price: '0%', profit: '0%', margin: '0%', markup: '0%'
+                }
+            }
+
+        var dataadapter = new $.jqx.dataAdapter(source);
+
+        var cellsrenderer_time = function (row, column, value) {
+            return '<div style="text-align: center; margin-top: 3.5px;">' + nice_billsec(value, time_format) + '</div>';
+        };
+
+        var float_digits = 'f<%= @data[:options][:number_digits] %>';
+        var percent_digits = 'f2';
+        var date_format = '<%= @data[:options][:date_format] %>';
+
+        var getLocalization = function () {
+            var localizationobj = {};
+            localizationobj.decimalseparator = '<%= @data[:options][:number_decimal] %>';
+            localizationobj.thousandsseparator = '';
+            return localizationobj;
+        };
+        $("#calls_per_day").jqxGrid(
+                {
+                    source: dataadapter,
+                    width: '100%',
+                    autoheight: true,
+                    rowsheight: 22,
+                    altrows: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    handlekeyboardnavigation: function (event) {
+                        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                        if (key == 86 && event.ctrlKey == true) {
+                            return true;
+                        }
+                    },
+                    showaggregates: true,
+                    showstatusbar: true,
+                    statusbarheight: 22,
+                    sortable: true,
+                    pageable: true,
+                    pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+                    localization: getLocalization(),
+                    ready: function () {
+                        $("#calls_per_day").jqxGrid('sortby', 'date', 'asc');
+                    },
+                    columns: [
+                        { text: "<%= _('Date') %>", datafield: 'date', align: 'center', width: col_distr.date, cellsalign: 'center', cellsformat: date_format,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                            }
+                        },
+                        { text: "<%= _('Calls') %>", datafield: 'calls', align: 'right', width: col_distr.calls, cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:calls] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Duration') %>", datafield: 'duration', align: 'center', width: col_distr.duration, cellsrenderer: cellsrenderer_time,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:duration] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('ACD') %>", datafield: 'acd', align: 'center', width: col_distr.acd, cellsrenderer: cellsrenderer_time,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:acd] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('ASR') %>", datafield: 'asr', cellsformat: percent_digits, align: 'right', width: col_distr.asr, cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:asr] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Fail') %>", datafield: 'fail', align: 'right', cellsalign: 'right', width: col_distr.fail,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:fail] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Fail') %> %", datafield: 'fail_percent', cellsformat: percent_digits, align: 'right', width: col_distr.fail_percent, cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:fail_percent] %></b></div>';
+                            }
+                        },
+                        { text: "<%= partner? ? _('Reseller_price') : _('Price') %>", datafield: '<%= partner? ? 'reseller_price' : 'price' %>', cellsformat: float_digits, align: 'right', width: (<%= partner? %>) ? col_distr.reseller_price : col_distr.price, cellsalign: 'right', hidden: <%= !can_see_finances? %>,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= partner? ? @data[:table_totals][:reseller_price] : @data[:table_totals][:price] %></b></div>';
+                            }
+                        },
+                        { text: "<%= partner? ? _('Self-Cost') : _('Provider_price') %>", datafield: '<%= partner? ? 'partner_price' : 'provider_price' %>', cellsformat: float_digits, align: 'right', width: (<%= partner? %>) ? col_distr.partner_price : col_distr.provider_price, cellsalign: 'right', hidden: <%= !can_see_finances? %>,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= partner? ? @data[:table_totals][:partner_price] : @data[:table_totals][:provider_price] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Profit') %>", datafield: '<%= partner? ? 'partner_profit' : 'profit' %>', cellsformat: float_digits, align: 'right', width: (<%= partner? %>) ? col_distr.partner_profit : col_distr.profit, cellsalign: 'right', hidden: <%= !can_see_finances? %>,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= partner? ? @data[:table_totals][:partner_profit] : @data[:table_totals][:profit] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Margin') %> %", datafield: 'margin', cellsformat: percent_digits, align: 'right', width: col_distr.margin, cellsalign: 'right', hidden: <%= !can_see_finances? %>,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:margin] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Markup') %> %", datafield: 'markup', cellsformat: percent_digits, align: 'right', width: col_distr.markup, cellsalign: 'right', hidden: <%= !can_see_finances? %>,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:markup] %></b></div>';
+                            }
+                        }
+                    ]
+                });
+
+        document.getElementById("pagercalls_per_day").style.zIndex = '22';
+    });
+</script>

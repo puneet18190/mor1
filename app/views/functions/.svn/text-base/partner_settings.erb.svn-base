@@ -1,0 +1,240 @@
+<%= form_tag({ action: 'partner_settings_change' }, multipart: true)  do %>
+  <table height='470'>
+    <tr>
+      <td valign='top'>
+        <div id='dhtmlgoodies_tabView1'>
+          <div class='dhtmlgoodies_aTab'>
+            <br/>
+            <br/>
+            <table class='simple' width='100%'>
+              <tr>
+                <td width='30'></td>
+                <td><b><%= _('Company') %>:</b></td>
+                <td><%= text_field_tag('company', h(@partner_setting[:company]), class: 'input', size: 35, maxlength: 50) %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><b><%= _('Company_Email') %>:</b></td>
+                <td><%= text_field_tag('company_email', h(@partner_setting[:company_email]), class: 'input', size: 35, maxlength: 50) %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><b><%= _('Version') %>:</b></td>
+                <td><%= text_field_tag('version', h(@partner_setting[:version]), class: 'input', size: 35, maxlength: 50) %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td valign='top'><b><%= _('Copyright_Title') %>:</b></td>
+                <td><%= text_area_tag('copyright_title', h(@partner_setting[:copyright_title]), class: 'input', cols: 32, rows: 4) %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td valign='top'><b><%= _('Browser_Title') %>:</b></td>
+                <td><%= text_field_tag('admin_browser_title', h(@partner_setting[:admin_browser_title]), class: 'input', size: 35, maxlength: 50) %></td>
+              </tr>
+              <% if @partner_setting[:registration_enabled].to_i == 1 %>
+                  <tr>
+                    <td><%= hidden_field_tag('registration_url2', '/callc/signup_start/' + current_user.get_hash) %></td>
+                    <td><b> <%= _('Registration_URL') %>: </b></td>
+                    <td id='registration_url'><b> <%= h(signup_url) %></b></td>
+                  </tr>
+              <% end %>
+              <tr>
+                <td><%= hidden_field_tag('homepage_url2', Web_Dir + '/callc/login/' + current_user.get_hash) %></td>
+                <td><b><%= _('Homepage_URL') %>:</b></td>
+                <td id='homepage_url'><b> <%= h(homepage_url) %></b></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td valign='top'><b><%= _('Frontpage_Text') %>:</b></td>
+                <td><%= text_area_tag('frontpage_text', h(@partner_setting[:frontpage_text]), class: 'input', cols: 32, rows: 4) %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td valign='top'><b><%= _('Login_page_Text') %>:</b></td>
+                <td><%= text_area_tag('login_page_text', h(@partner_setting[:login_page_text]), class: 'input', cols: 32, rows: 4) %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td valign='top'><b><%= _('Logo') %>:</b></td>
+                <td><%= file_field_tag 'logo' %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><b><%= @partner_setting[:logo_picture] %></b></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><%= image_tag ('/images/' + @partner_setting[:logo_picture]), alt: 'Logo' %></td>
+              </tr>
+            </table>
+          </div>
+          <div class='dhtmlgoodies_aTab'>
+            <br/>
+            <br/>
+            <table class='simple' width='100%'>
+              <tr>
+                <td width='30'><br/><br/></td>
+                <td><b><%= _('Total_tax_name') %></b><br/><br/></td>
+                <td><br/><br/></td>
+                <td>
+                  <%= text_field_tag('total_tax_name', @partner_setting[:total_tax_name], class: 'input', size: 35,
+                    maxlength: 50) %>
+                  <br/><br/>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width='30'></td>
+                <td><b><%= _('Compound_tax') %></b></td>
+                <td></td>
+                <td>
+                  <%= check_box_tag('tax_compound', 1, @partner_setting[:tax_compound]) %>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width='30'></td>
+                <td><b><%= _('Tax') %></b></td>
+                <td><b><%= _('Active') %>?</b></td>
+                <td><b><%= _('Name') %></b></td>
+                <td><b><%= _('Value') %></b></td>
+              </tr>
+              <tr>
+                <td width='30'></td>
+                <td><%= _('Tax_1') %></td>
+                <td></td>
+                <td><%= text_field_tag('tax_1', @partner_setting[:tax_1], class: 'input', size: 35, maxlength: 50) %></td>
+                <td><%= text_field_tag('tax_1_value', @partner_setting[:tax_1_value], class: 'input', size: 5, maxlength: 10) %>&nbsp;%</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><%= _('Tax_2') %></td>
+                <td><%= check_box_tag 'tax_2_active', '1', @partner_setting[:tax_2_active] %></td>
+                <td><%= text_field_tag('tax_2', @partner_setting[:tax_2], class: 'input', size: 35, maxlength: 50) %></td>
+                <td><%= text_field_tag('tax_2_value', @partner_setting[:tax_2_value], class: 'input', size: 5, maxlength: 10) %>&nbsp;%</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><%= _('Tax_3') %></td>
+                <td><%= check_box_tag 'tax_3_active', '1', @partner_setting[:tax_3_active] %></td>
+                <td><%= text_field_tag('tax_3', @partner_setting[:tax_3], class: 'input', size: 35, maxlength: 50) %></td>
+                <td><%= text_field_tag('tax_3_value', @partner_setting[:tax_3_value], class: 'input', size: 5, maxlength: 10) %>&nbsp;%</td>
+              </tr>
+              <tr>
+                <td><br/><br/></td>
+                <td><%= _('Tax_4') %></td>
+                <td><%= check_box_tag 'tax_4_active', '1', @partner_setting[:tax_4_active]  %></td>
+                <td><%= text_field_tag('tax_4', @partner_setting[:tax_4], class: 'input', size: 35, maxlength: 50) %></td>
+                <td><%= text_field_tag('tax_4_value', @partner_setting[:tax_4_value], class: 'input', size: 5, maxlength: 10) %>&nbsp;%</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan='4'>
+                  <b><%= link_to b_check + _('Apply_to_all_Users'), { action: 'tax_change', u: 1 }, data: { confirm: _('are_you_sure') }, method: 'post' %></b>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class='dhtmlgoodies_aTab'>
+            <%= render 'settings_privacy', width: 470 %>
+          </div>
+          <div class="dhtmlgoodies_aTab">
+            <%= render 'reseller_settings_invoices', local_variables_for_partial(self) %>
+          </div>
+          <div class="dhtmlgoodies_aTab">
+            <br/>
+            <br/>
+            <table class="simple" width="100%">
+              <tr>
+                <td></td>
+                <td><b><%= _('CSV_Separator') %>:</b></td>
+                <td><%= text_field_tag('csv_separator', Confline.get_value("CSV_Separator", @user_id), "class" => "input", :size => "10", :maxlength => "50") %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><b><%= _('CSV_Decimal') %>:</b></td>
+                <td><%= text_field_tag('csv_decimal', Confline.get_value("CSV_Decimal", @user_id), "class" => "input", :size => "10", :maxlength => "50") %></td>
+              </tr>
+              <tr>
+                <td width="30"></td>
+                <td><b><%= _('Show_Rates_without_Tax') %>: </b></td>
+                <td><%= check_box_tag 'show_rates_without_tax', "1", Confline.get_value("Show_Rates_Without_Tax", session[:user_id]).to_i == 1 %></td>
+              </tr>
+              <tr>
+                <td width="30"></td>
+                <td><b><%= _('Show_rates_for_users') %>: </b></td>
+                <td><%= check_box_tag 'show_rates_for_users', "1", Confline.get_value("Show_rates_for_users", session[:user_id]).to_i == 1 %></td>
+              </tr>
+              <tr>
+                <td width="30"></td>
+                <td><b><%= _('Show_advanced_rates_for_users') %>: </b></td>
+                <td><%= check_box_tag 'show_advanced_rates_for_users', "1", Confline.get_value("Show_Advanced_Rates_For_Users", session[:user_id]).to_i == 1 %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><b><%= _('Default_Date_Format') %>:</b></td>
+                <td>
+                  <select name='date_format'>
+                    <% sdf = Confline.get_value('Date_format', session[:user_id]).to_s %>
+                    <% for df in $date_formats %>
+                        <option value='<%= df %>' <%= 'selected' if df == sdf %>>
+                          <%= h df.to_s.delete('%') %>
+                        </option>
+                    <% end %>
+                  </select>
+                </td>
+          <%= raw setting_boolean(_('Disallow_prepaid_user_balance_drop_below_zero'), 'disallow_prepaid_user_balance_drop_below_zero', "Disallow_prepaid_user_balance_drop_below_zero", session[:user_id]) %>
+          <%= raw settings_string(_('Logout_link'), 'logout_link', "Logout_link", session[:user_id]) %>
+          <%= raw setting_boolean(_('Show_only_main_page'), 'show_only_main_page', "Show_only_main_page", session[:user_id]) %>
+          <%= raw setting_boolean(_('Show_forgot_password'), 'show_forgot_password', "Show_forgot_password", session[:user_id]) %>
+          <%= raw setting_boolean(_('show_device_and_cid_in_last_calls'), 'show_device_and_cid_in_last_calls', 'Show_device_and_cid_in_last_calls', current_user.id) %>
+        </tr>
+      </table>
+    </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+  <br/>
+  <%= submit_tag _('Save_changes'), data: { disable_with: _('Processing..') } %>
+
+  <% content_for :scripts do %>
+      <script type='text/javascript'>
+          <% setting_tabs = ['Global']
+            setting_tabs << 'Tax'
+            setting_tabs << 'Privacy'
+            setting_tabs << 'Invoices'
+            setting_tabs << 'Various'
+          %>
+          initTabs('dhtmlgoodies_tabView1',
+            Array(<%= raw setting_tabs.map{|tab| "'" + _(tab) + "'"}.join(', ') %>), 0, 600, 750);
+
+          var allow_api = $('allow_api');
+          var input_fields = [$('api_secret_key'), $('api_disable_hash_checking')];
+
+          change_inputs_state();
+
+          function change_inputs_state() {
+            if (allow_api.checked == true) {
+              for(var i=0,j=input_fields.length; i<j; i++){
+                input_fields[i].enable();
+              };
+            } else {
+              for(var i=0,j=input_fields.length; i<j; i++){
+                input_fields[i].disable();
+              };
+            };
+          }
+
+      allow_api.observe('click', function () {
+        change_inputs_state();
+      });
+      </script>
+  <% end %>
+
+<% end %>

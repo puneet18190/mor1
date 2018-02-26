@@ -1,0 +1,217 @@
+10
+
+dir
+66296
+http://svn.kolmisoft.com/mor/gui/branches/x8/app/views
+http://svn.kolmisoft.com
+
+
+
+2017-03-06T13:43:54.827728Z
+66280
+ervinas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19941b1f-7a74-413c-ab52-0de3e92e9a87
+
+autodialer
+dir
+
+alerts
+dir
+
+vouchers
+dir
+
+resellers
+dir
+
+layouts
+dir
+
+ivr_time_periods
+dir
+
+destinations
+dir
+
+cardgroups
+dir
+
+ivrvoices
+dir
+
+providers
+dir
+
+destination_groups
+dir
+
+cron_actions
+dir
+
+servers
+dir
+
+ivr_sound_files
+dir
+
+locations
+dir
+
+tariffs
+dir
+
+payments
+dir
+
+sms
+dir
+
+lcrs
+dir
+
+callshop
+dir
+
+terminators
+dir
+
+phonebooks
+dir
+
+device_rules
+dir
+
+emails
+dir
+
+permissions
+dir
+
+pbx_functions
+dir
+
+license
+dir
+
+devices
+dir
+
+services
+dir
+
+accounting
+dir
+
+quickforwards_rules
+dir
+
+ringgroups
+dir
+
+recordings
+dir
+
+credit_note
+dir
+
+ivr
+dir
+
+users
+dir
+
+number_pools
+dir
+
+shared
+dir
+
+dialplans
+dir
+
+monitorings
+dir
+
+active_processor
+dir
+
+callc
+dir
+
+groups
+dir
+
+test
+dir
+
+payment_gateways
+dir
+
+dids
+dir
+
+simple_user_groups
+dir
+
+backups
+dir
+
+cards
+dir
+
+stats
+dir
+
+calls
+dir
+
+did_rates
+dir
+
+common_use_providers
+dir
+
+currencies
+dir
+
+directions
+dir
+
+ccpanel
+dir
+
+cdr
+dir
+
+functions
+dir
+
+api
+dir
+
+aggregates
+dir
+
+blanks
+dir
+
+smsautodialer
+dir
+
+ast_queues
+dir
+

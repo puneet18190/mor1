@@ -1,0 +1,241 @@
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<div align="left" class="nb">
+  <table class="bordered">
+    <%= form_tag action: :dids do %>
+      <tr>
+        <td><%= _('From') %>:</td>
+        <td>
+          <%= select_date(
+            Time.mktime(session[:year_from], session[:month_from], session[:day_from]),
+            end_year: Date.today.year + 1,
+            prefix: 'date_from'
+          ) %>
+        </td>
+        <% if clear_stats_dids_search %>
+          <td></td>
+          <td align="right">
+              <%= link_to b_cross + _('Clear_search'), { action: :dids, clear: 1 } , { id: 'clear_search' } %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= _('Till') %>:</td>
+        <td>
+          <%= select_date(
+            Time.mktime(session[:year_till],session[:month_till],session[:day_till]),
+            end_year: Date.today.year + 1,
+            prefix: 'date_till'
+          ) %>
+        </td>
+      </tr>
+        <tr>
+          <td><%= _('User') %>:</td>
+          <td>
+            <%= render('shared/live_search_field',
+               object: nice_user(@search_user),
+               object_id: @search_user ? @search_user.id : -1,
+               object_name: 'User',
+               action_url: {
+                controller: :users, action: :get_users_map,
+                options: {show_admin: true}
+            })%>
+          </td>
+          <td><%= _('Provider') %>:</td>
+          <td>
+            <%= select_tag('provider_id',
+              options_for_select([[_('All'), -1]] + @providers.map { |prov| [prov.name, prov.id] }, @provider_id),
+              style: 'max-width: 200px'
+            ) %>
+          </td>
+        </tr>
+        <tr>
+          <td><br/><%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<div style="clear: both"></div>
+<br/><br/>
+<div id="dids_stats" style="min-width:850px"></div>
+
+<script type="text/javascript">
+  $j(document).ready(function ($) {
+
+    var table_data_json = <%= raw @data[:table_rows].to_json %>;
+    var time_format = '<%= @data[:options][:time_format] %>';
+    var web_dir = '<%= Web_Dir %>';
+    var dids_stats_grid = $("#dids_stats");
+    var float_digits = 'f<%= @data[:options][:number_digits] %>';
+    var datetime_format = '<%= "#{@data[:options][:date_format]} HH:mm:ss" %>';
+
+    var source = {
+      localdata: table_data_json,
+      datatype: 'json',
+      datafields: [
+        { name: 'did', map: 'did>did', type: 'string' },
+        { name: 'date', type: 'date' },
+        { name: 'provider', map: 'provider>name', type: 'string' },
+        { name: 'comment', type: 'int' },
+        { name: 'calls', type: 'int' },
+        { name: 'did_inc_price', type: 'float' },
+        { name: 'did_price', type: 'float' },
+        { name: 'did_prov_price', type: 'float' },
+        { name: 'profit', type: 'float' }
+      ],
+      pagesize: <%= session[:items_per_page] %>
+    };
+    var col_distr;
+    if(<%= can_see_finances? %>) {
+      col_distr = { did: '15%', date: '15%', provider: '17%', comment: '15%',
+        calls: '10%', did_inc_price: '7%', did_prov_price: '7%', did_price: '7%',
+        profit: '7%'
+      }
+    } else {
+      col_distr = {
+        did: '20%', date: '20%', provider: '30%', comment: '20%', calls: '10%',
+        did_inc_price: '0%', did_prov_price: '0%', did_price: '0%', profit: '0%'
+      }
+    }
+    var dataadapter = new $.jqx.dataAdapter(source);
+
+    var getLocalization = function () {
+      var localizationobj = {};
+      localizationobj.decimalseparator = '<%= @data[:options][:number_decimal] %>';
+      localizationobj.thousandsseparator = '';
+      localizationobj.emptydatastring = "<%= _('No_data_found_no_dots') %>";
+      return localizationobj;
+    };
+
+    dids_stats_grid.jqxGrid({
+      source: dataadapter,
+      width: '100%',
+      autoheight: true,
+      rowsheight: 22,
+      altrows: true,
+      selectionmode: 'multiplecellsadvanced',
+      showaggregates: true,
+      showstatusbar: true,
+      statusbarheight: 22,
+      sortable: true,
+      pageable: true,
+      pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+      localization: getLocalization(),
+      handlekeyboardnavigation: function (event) {
+          var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+          if (key == 86 && event.ctrlKey == true) { return true; }
+      },
+      columns: [
+        { text: "<%= _('DIDs') %>", datafield: 'did', align: 'left', cellsalign: 'left', width: col_distr.did,
+          cellsrenderer: function (row, column, value) {
+            var result = '<div style="text-align: left; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">';
+            if (<%= @dids_allow_edit %>) {
+              result += '<a href="<%= Web_Dir %>/dids/edit/' + source.localdata[row].did.id + '" target="_blank">' + value + '</a></div>';
+            } else {
+              result += value.did;
+            }
+            return  result;
+          },
+          aggregatesrenderer: function (aggregates) {
+            return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+          }
+        },
+        { text: "<%= _('Date') %>", datafield: 'date', align: 'center', cellsalign: 'center', cellsformat: datetime_format, width: col_distr.date
+        },
+        { text: "<%= _('Provider') %>", datafield: 'provider', align: 'left', cellsalign: 'left', width: col_distr.provider,
+          cellsrenderer: function (row, column, value) {
+            var result = '<div style="text-align: left; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;">';
+            if (<%= admin? || (accountant? && session[:acc_manage_provider].to_i == 2) %>) {
+              result += '<a href="<%= Web_Dir %>/providers/edit/' + source.localdata[row].provider.id + '" target="_blank">' + value + '</a></div>';
+            } else {
+              result += value.name;
+            }
+            return  result;
+          }
+        },
+        { text: "<%= _('Comment') %>", datafield: 'comment', align: 'left', cellsalign: 'left', sortable: false, width: col_distr.comment,
+          cellsrenderer: function (row, column, value) {
+            return result = '<div style="text-align: left; margin: 3.5px; overflow: hidden; text-overflow: ellipsis;" class="comment">' + value + '</div>';
+          }
+        },
+        { text: "<%= _('Calls') %>", datafield: 'calls', align: 'right', cellsalign: 'right', width: col_distr.calls,
+          aggregatesrenderer: function (aggregates) {
+            return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:total_calls] %></b></div>';
+          }
+        },
+        { text: "<%= _('Incoming_price') %>", datafield: 'did_inc_price', cellsformat: float_digits, align: 'right', cellsalign: 'right', width: col_distr.did_inc_price,
+          aggregatesrenderer: function (aggregates) {
+            return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:total_did_inc_price] %></b></div>';
+          }
+        },
+        { text: "<%= _('Owner_price') %>", datafield: 'did_price', cellsformat: float_digits, align: 'right', cellsalign: 'right',  width: col_distr.did_price,
+          aggregatesrenderer: function (aggregates) {
+            return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:total_did_price] %></b></div>';
+          }
+        },
+        { text: "<%= _('Provider_price') %>", datafield: 'did_prov_price', cellsformat: float_digits, align: 'right', cellsalign: 'right', width: col_distr.did_prov_price,
+          aggregatesrenderer: function (aggregates) {
+            return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:total_did_prov_price] %></b></div>';
+          }
+        },
+        { text: "<%= _('Profit') %>", datafield: 'profit', cellsformat: float_digits, align: 'right', cellsalign: 'right', width: col_distr.profit,
+          aggregatesrenderer: function (aggregates) {
+            return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:total_profit] %></b></div>';
+          }
+        }
+      ]
+    });
+
+    if (<%= !can_see_finances? %>) {
+      $.each(
+        ['did_price', 'did_prov_price', 'did_inc_price', 'profit'],
+        function(index, value) {
+          dids_stats_grid.jqxGrid('hidecolumn', value);
+        });
+    }
+
+    // Tooltip for a Comment
+    $(".jqx-grid-cell").hover(
+      // Mouse enter
+      function() {
+        // Get the comment column
+        var comment = $($(this).children('.comment'));
+        // If there is no column or no overflow return
+        if (comment[0] === undefined) return;
+        if (comment[0].scrollWidth <= comment[0].offsetWidth) return;
+
+        // Get the overflow text
+        var text = comment.text();
+        // Show the tooltip
+        if (text) {
+          Tip(text, WIDTH, -600, TITLE, "<%= _('Comment') %>", TITLEBGCOLOR, "#494646", FADEIN, 200, FADEOUT, 200);
+        } else { UnTip(); };
+      },
+      // Mouse leave
+      function() {
+        UnTip();
+      }
+    );
+
+    //fix_column_width('dids_stats');
+    dids_stats_grid.jqxGrid('sortby', 'did', 'asc');
+    document.getElementById("pagerdids_stats").style.zIndex = '23';
+  });
+</script>

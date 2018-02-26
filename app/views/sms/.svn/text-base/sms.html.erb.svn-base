@@ -1,0 +1,94 @@
+<script type="text/javascript" charset="UTF-8">
+    function textCounter(field, cntfield, sms_counter, maxlimit, val) {
+        //alert(val);
+        //if (sms_counter.value == 1) {
+            //alert(val);
+            if (/[^\u0000-\u00ff]/.test(val)) {
+                maxlimit = 70;
+                document.sms.sms_unicode.value = 1;
+            }
+            else {
+                maxlimit = 160;
+                document.sms.sms_unicode.value = 0
+            }
+        //}
+        cntfield.value = maxlimit - ((field.value.length % maxlimit));
+        sms_counter.value = parseInt((field.value.length / maxlimit), 10) + 1;
+        var price = document.getElementById("price");
+        if (price) {
+            //alert(price);
+            var pricee = document.getElementById("sms_counter");
+            //alert(pricee.value);
+            price2 = price.innerHTML * pricee.value;
+            var currency = document.getElementById("curr");
+            var dec_size = <%= session[:nice_number_digits] || 2 %>;
+            var dec_sep = "<%= session[:global_decimal] || '.' %>";
+            var result = "<td><label for='curr2'> <%= _('Total_sms_price') %></label>:</td><td>"
+            document.getElementById('curr2').innerHTML = result + price2.toFixed(dec_size).toString().replace(".", dec_sep) + " " + currency.innerHTML + "</td>";
+        }
+    }
+    function set_number(s_number, number) {
+        if (parseInt(s_number.value) > -1) {
+            if (parseInt(s_number.value) == 0) {
+                number.value = "";
+            }
+            else
+                number.value = s_number.value;
+        }
+        else
+            number.value = "All";
+    }
+    //<![CDATA[
+    function get_prefix(value) {
+        new Ajax.Updater('results', '<%= Web_Dir %>/sms/prefix_finder_find?prefix=' + encodeURI(escape(value)), {asynchronous:true, evalScripts:true})
+    }
+    //]]>
+</script>
+
+
+<%= form_tag({:controller => :sms, :action => :send_sms}, {:name=>'sms'}) do %>
+  <table>
+    <tr>
+      <td><label for="number"><%= _('Number') %></label>:</td>
+      <td>
+        <input id="search" type="text" name="number" size="15" maxlength="15" class="input" onkeyup="get_prefix(this.value);">
+        <% if @addresses.size > 0 %>
+          &nbsp;&nbsp; <%= b_book %>
+          <%= select_tag('s_number', options_for_select([['', '0'],[_('All'), '-1']] + @addresses.map { |address| [address.name, address.number] }), onChange: "set_number(document.sms.s_number,document.sms.number);get_prefix(this.value);") %>
+        <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td id="results"></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><label for="body"><%= _('Message') %></label>:</td>
+      <td>
+        <textarea id="38" name="body" wrap="soft" cols="25" rows="7" class="input" style="width:250px"
+                  onKeyDown="textCounter(document.sms.body,document.sms.remLen1,document.sms.sms_counter,153, this.value)"
+                  onPaste="textCounter(document.sms.body,document.sms.remLen1,document.sms.sms_counter,153, this.value)"
+                  onKeyUp="textCounter(document.sms.body,document.sms.remLen1,document.sms.sms_counter,153, this.value)"></textarea>
+      </td>
+    </tr>
+
+    <tr>
+      <td valign="top"><label for="remLen1"><%= _('characters_left') %></label>:</td>
+      <td>
+        <input readonly type="text" name="remLen1" size="4" maxlength="4" value="160" class="input">&nbsp;&nbsp;
+        <label for="sms_counter"> <%= _('sms_number') %></label>:
+        <input readonly id="sms_counter" type="text" name="sms_counter" size="4" maxlength="4" value="1" class="input">
+        <input readonly id="sms_unicode" type="hidden" name="sms_unicode" size="4" maxlength="4" value="0" class="input">
+      </td>
+    </tr>
+
+    <tr id="curr2"></tr>
+  </table>
+  <br/>
+  <input name="commit" type="submit" value="<%= _('Send_sms') %>"/>
+<%end%>
+
+
+

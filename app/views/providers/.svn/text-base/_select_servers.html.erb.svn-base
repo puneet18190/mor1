@@ -1,0 +1,53 @@
+<tr>
+  <td height="20"></td>
+</tr>
+<tr>
+  <td class="bottom_border" colspan=2>
+    <b><%= _('Servers') %></b>
+  </td>
+</tr>
+<tr>
+  <td height="10"></td>
+</tr>
+<tr>
+  <td colspan="2">
+    <table width="100%">
+      <% servers.each { |serv| %>
+          <tr>
+            <td><%= nice_server(serv) %></td>
+            <td><%= check_box_tag "add_to_servers[#{serv.id}]", 1, serverproviders[serv.id] == 1%></td>
+          </tr>
+      <% } %>
+    </table>
+  </td>
+</tr>
+
+<script type="text/javascript">
+  +function($){
+    var sip = $('#provider_tech_SIP');
+    var tech = $('#tech_select');
+    <% if ccl_active? %>
+      $('document').ready(function(){
+        if (<%= provider.tech == 'SIP' %>) {
+          <% servers.each do |serv| %>
+            $('#<%= "add_to_servers_#{serv.id}" %>').prop('disabled', true);
+            $('#<%= "add_to_servers_#{serv.id}" %>').prop('checked', true);
+          <% end %>
+        }
+      });
+      tech.click(function () {
+          if (sip.is(':checked')) {
+    console.log ("poop");
+            <% servers.each do |serv| %>
+              $('#<%= "add_to_servers_#{serv.id}" %>').prop("disabled", true);
+              $('#<%= "add_to_servers_#{serv.id}" %>').prop("checked", true);
+            <% end %>
+          } else {
+            <% servers.each do |serv| %>
+              $('#<%= "add_to_servers_#{serv.id}" %>').prop("disabled", false);
+            <% end %>
+          }
+      });
+    <% end %>
+  }(jQuery);
+</script>

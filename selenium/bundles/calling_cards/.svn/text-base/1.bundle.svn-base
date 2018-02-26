@@ -1,0 +1,11 @@
+# Lets create calling groups and calling cards for admin and resller
+# ----
+# create cc groups for admin
+calling_cards/ccgroup_14002/create.sql
+# create cc groups for admin
+calling_cards/ccgroup_14002/create_cards.sql
+# create cc groups for reseller
+calling_cards/ccgroup_14301/create.sql
+# create cc groups for reseller
+calling_cards/ccgroup_14301/create_cards.sql
+# bundle loaded

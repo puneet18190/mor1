@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_cc_group_get</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Enable MOR API-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=calling_cards/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--hash1-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_get&amp;u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_get&amp;u=admin&amp;cc_group_id=1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<!--patikrinam kad cc_group_id neina i hash nes jis optional-->
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash1']==storedVars['hash2']</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_get&amp;u=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_get&amp;u=user_admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash3']==storedVars['hash4']</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--klaidos-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;cc_group_id=12354&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Calling Cards Groups were not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=adm4in&amp;cc_group_id=12354&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=user_admin&amp;cc_group_id=12354&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=user_reseller&amp;cc_group_id=12354&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--veikiantys-->
+<!--rodo visus-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_name</td>
+	<td>Test_cardgroup</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_description</td>
+	<td>Test_cardgroup description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_number_pin_length</td>
+	<td>10/4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_tarrif</td>
+	<td>Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_lcr</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price</td>
+	<td>10.0840336134454</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price_without_tax</td>
+	<td>10.0840336134454</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_cards_count</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_image</td>
+	<td>example.jpg</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_name</td>
+	<td>Test_cardgroup_test_1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_description</td>
+	<td>Test_cardgroup description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_description</td>
+	<td>Test_cardgroup description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_number_pin_length</td>
+	<td>10/4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_tarrif</td>
+	<td>Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_tarrif</td>
+	<td>Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_lcr</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_price</td>
+	<td>10.0840336134454</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_price_without_tax</td>
+	<td>10.0840336134454</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_id</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_image</td>
+	<td>example.jpg</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_name</td>
+	<td>cc group 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_name</td>
+	<td>cc group 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_description</td>
+	<td>card group description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_description</td>
+	<td>card group description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_number_pin_length</td>
+	<td>10/6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_tarrif</td>
+	<td>tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_price</td>
+	<td>12.59</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//cc_group[3]/group_price_without_tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_price_without_tax</td>
+	<td>12.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_cards_count</td>
+	<td>0</td>
+</tr>
+<!--rodo tik viena-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;cc_group_id=1200&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_image</td>
+	<td>example.jpg</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_name</td>
+	<td>cc group 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_description</td>
+	<td>card group description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_number_pin_length</td>
+	<td>10/6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_tarrif</td>
+	<td>tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price</td>
+	<td>12.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price_without_tax</td>
+	<td>12.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_cards_count</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;cc_group_id=1200&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>css=group_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>1200</td>
+</tr>
+<!--reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=reseller&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=reseller_card_group/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>#bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=reseller&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>14301</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_image</td>
+	<td>example.jpg</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_name</td>
+	<td>reseller cc group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_name</td>
+	<td>reseller cc group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_description</td>
+	<td>card group description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_description</td>
+	<td>card group description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_number_pin_length</td>
+	<td>10/6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_tarrif</td>
+	<td>tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price_without_tax</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_cards_count</td>
+	<td>0</td>
+</tr>
+<!--adminas turi galėti pasiekti resellerio cc groups-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;cc_group_id=14301&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>14301</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_name</td>
+	<td>reseller cc group</td>
+</tr>
+<!--reselleris negali pasiekti admino cc groups-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=reseller&amp;cc_group_id=1200&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Calling Cards Groups were not found</td>
+	<td></td>
+</tr>
+<!--accountant-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=accountant&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/calling_cards_read</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=accountant&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[2]/group_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//cc_group[3]/group_id</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=accountant&amp;cc_group_id=1200&amp;test=1</td>
+	<td></td>
+</tr>
+<!--pakeiciam currency, turi nepasikeisti api ismetamas-->
+<tr>
+	<td>assertText</td>
+	<td>css=group_id</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_name</td>
+	<td>cc group 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_description</td>
+	<td>card group description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_number_pin_length</td>
+	<td>10/6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_tarrif</td>
+	<td>tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price_without_tax</td>
+	<td>12.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=group_price</td>
+	<td>12.59</td>
+</tr>
+<!--accountant neturi galėti pasiekti resellerio cc_groups-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=accountant&amp;cc_group_id=14301&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Calling Cards Groups were not found</td>
+	<td></td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;cc_group_id=12354&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Cards Groups were not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=accountant&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>1 example.jpg Test_cardgroup Test_cardgroup description 10/4 Test Tariff for Users 10.0840336134454 10.0840336134454 21 2 example.jpg Test_cardgroup_test_1 Test_cardgroup description 10/4 Test Tariff for Users 10.0840336134454 10.0840336134454 0 1200 example.jpg cc group 2 card group description 10/6 tariff 12.59 12.59 0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=reseller&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_groups_get?u=accountant&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/cc_groups_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>cc_group_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>1200 example.jpg cc group 2 card group description 10/6 tariff Primary 12.59 12.59 0</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,1 @@
+<%= render 'comment_for_user', :payment => @payment %>

@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/pbx_pools_list_data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device's settings updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>121</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1002,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>121</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--tampa pool_ID_mor_local-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_2_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1002,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>4</td>
+</tr>
+<!--Turi būti unikalus vienintelis extension+pbx_pool_id t.y. viename pool'e visi extensions numeriai turi būti skirtingi, tarp pool'ų gali kartotis.-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_extension</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Extension already exists in User's PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/user_1004/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Antras Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: testuser</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_IAX2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<!--kadangi kitas poolas, turi leisti kurti tuo pačiu extension-->
+<tr>
+	<td>type</td>
+	<td>id=device_extension</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device's settings updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_8</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_4</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_2</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<!--priskyrus Global, vėl turi tapti mor_local-->
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device's settings updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>121</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>196</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--tampa mor_local-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1002,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>4</td>
+</tr>
+<!--Pakeitus useriui PBX Pool turi pasikeisti visi jo device extline pagal naujai pasirinktą PBX pool-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>171</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_3_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1001,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>171</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--tampa mor_local-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_4_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1001,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<!--neturi leisti rinktis poolo, kuriame jau sutampa kažkokie extensionai su tam poolui priskirtais-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas</td>
+</tr>
+<!--useriui id=2 jau priklauso extensionai 1002 ir jam priskirtas Global pool. Tad kitas useris neturi galėti jį rinktis, nes irgi turi devaisą, kuriam priskirtas extension 1002-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>Antras Poolas Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<!--sukursiu devaisą su extensionu 5126 useriui, kurio poolas yra Trecias. Admino userio poolas yra global ir admino userio devaisui priskirsiu 5126. Tada adminas negalės rinktis pirmo poolo. -->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_H323</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_extension</td>
+	<td>5126</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=host</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_extension</td>
+	<td>5126</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device's settings updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<!--pirmo poolo nebėra, nes kitas useris jau priskyrė jam devaisą su tokiu pačiu extension ,kurį turi šitas useris.-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>Antras Poolas Global Trecias Poolas</td>
+</tr>
+<!--device callflow nustatau, kad forwardintų į kitą device (kuris priskirtas pbx pool X), tačiau extlines matosi, kad forwardina ne į pool_X_mor_local context.-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#no_answer_edit_link &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=Forward</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='1004'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=s_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=s_device</td>
+	<td>IAX2/1001 H323/*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=change</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Call Flow updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>327</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>5126</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=priority_value</td>
+	<td>402</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Goto</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>pool_2_mor_local,1002,1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: testuser</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#no_answer_edit_link &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=Forward</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='1004'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=s_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=s_device</td>
+	<td>IAX2/1001 H323/*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=change</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Call Flow updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>309</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_4_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>5126</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=priority_value</td>
+	<td>402</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Goto</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>mor_local,1002,1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>4</td>
+</tr>
+</tbody></table>
+</body>
+</html>

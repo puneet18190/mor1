@@ -1,0 +1,372 @@
+<%= form_tag :action => 'action_log' do %>
+    <br/>
+    <%= hidden_field_tag 'search_on', 1 %>
+    <%= hidden_field_tag 'page', 1 %>
+    <table class="bordered">
+      <tr>
+        <td>
+          <table id="search_details" class="simple">
+            <tr>
+              <td><%= _('From') %>:</td>
+              <td nowrap="true" colspan=4><%= select_datetime(Time.mktime(session[:year_from], session[:month_from], session[:day_from], session[:hour_from], session[:minute_from]), :end_year => Date.today.year+1, :prefix => "date_from", :use_month_numbers => false) %></td>
+              <td><%= link_to b_cross + _('Clear_search'), :action => 'action_log', :clean => 1 if @options[:search_on].to_i == 1 %></td>
+            </tr>
+            <tr>
+              <td><%= _('Till') %>:</td>
+              <td nowrap="true" colspan=4><%= select_datetime(Time.mktime(session[:year_till], session[:month_till], session[:day_till], session[:hour_till], session[:minute_till]), :end_year => Date.today.year+1, :prefix => "date_till", :use_month_numbers => false) %></td>
+              <td><%= link_to b_check + _('Mark_all_as_reviewed'), action: :action_log_mark_reviewed if (admin? || session[:acc_action_log].to_i == 2) && @not_reviewed_actions %></td>
+            </tr>
+            <tr>
+              <td><%= _('User') %>:</td>
+              <td nowrap="true">
+                  <% nice_user_name = nice_user(User.where(id: @options[:s_user]).first) %>
+                  <%= render('shared/live_search_field',
+                      object: nice_user_name,
+                      object_id: params[:user_id] || @options[:s_user].to_i,
+                      object_name: 'User',
+                      action_url: {
+                        controller: :users,
+                        action: :get_users_map,
+                        options: {
+                          show_admin: true,
+                          responsible_accountant_including_owner_users: (accountant_show_assigned_users? ? current_user_id : '')
+                        }
+                      }) %>
+              </td>
+              <td><%= _("DID") %>:</td>
+              <td nowrap="true">
+          <span width=100px>
+            <input title="DID live search" type="text" size="20" id="s_did_pattern" name="did" autocomplete="off" value="<%=raw @options[:s_did].to_s %>" />
+            <table id="did_list" style='width: 145px;margin-left:2px;margin-top:0px;position:absolute;min-width:100px;border-width: 1px;border-image: initial;-webkit-box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px;box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px;background-clip: initial;background-color: rgb(255, 255, 255);background-position: initial initial;background-repeat: initial initial;'></table>
+          </span>
+              </td>
+            </tr>
+            <tr>
+              <td><%= _('Action_type') %>:</td>
+              <td nowrap="true"><%= select_tag("action_type", options_for_select([["All", "all"]] + @res.map { |action| [action['action'].to_s, action['action'].to_s] }, @options[:s_type].to_s)) %></td>
+              <td><%= _('Reviewed') %>:</td>
+              <td nowrap="true"><%= select_tag("processed", options_for_select(@reviewed_labels, @options[:s_processed].to_i)) %></td>
+            </tr>
+            <tr>
+              <td><%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %></td>
+              <td>
+                <script type="text/javascript">
+                    new Form.Element.EventObserver('s_user',
+                            function(element, value) {
+                                if ($('s_user_id').value >= 0){
+                                    new Ajax.Updater('s_device_span',
+                                            '<%= Web_Dir %>/devices/get_devices_for_search',
+                                            {
+                                                evalScripts: true,
+                                                onComplete: function(request){Element.hide('spinner');},
+                                                onLoading: function(request){Element.show('spinner');},
+                                                parameters:'user_id=' + encodeURIComponent(value)
+                                            }
+                                    )
+                                }
+                            }
+                    )
+                </script>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <script type='text/javascript'>
+          Event.observe(window, 'load',  function() {
+              Event.observe($('s_did_pattern'), 'click', function(){
+                  if ($('s_did_pattern').value == "") {
+                      $('did_list').innerHTML = "";
+                      <%=raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'empty_click=true'") %>
+                  }
+                  Event.observe($('s_did_pattern'), 'keyup', function(){
+                      $('did_list').innerHTML = "";
+                      <%=raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'did_livesearch='+$('s_did_pattern').value") %>
+                  });
+                  Event.observe($('did_list'), 'mouseover', function(){
+                      var el = document.getElementById('did_list').getElementsByTagName('td');
+                      for(var i=0;i<el.length;i++){
+                          el[i].onclick=function(){
+                              if (this.id != -2) {
+                                  document.getElementById('s_did_pattern').value = this.innerHTML
+                                  <%= raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'did_livesearch='") %>
+                              }
+                          }
+                          el[i].onmouseover=function(){
+                              this.style.backgroundColor="#BBBBBB";
+                          }
+                          el[i].onmouseout=function(){
+                              this.style.backgroundColor="rgb(255, 255, 255)";
+                          }
+                      }
+                  });
+              });
+          });
+      </script>
+    </table>
+    <% unless @searching %>
+        <%= b_info + _('press_search_button_to_show_data') %>
+    <% end %>
+
+    <% unless @options[:s_target_id].blank? && @options[:s_target_type].blank? %>
+        <br/>
+        <br/>
+        <strong><%= _('Showing') %></strong> <%= @options[:s_target_type] %> (<%= @options[:s_target_id] %>)
+    <% end %>
+<% end %>
+<br/>
+<br/>
+<% if @actions %>
+    <%= page_select_header(@options[:page], @total_pages, @options).html_safe %>
+    <table width="100%" class="maintable">
+      <tr>
+        <th align="center"><%= sortable_list_header("date", _('Date'), @options) %></th>
+        <th align="left"><%= sortable_list_header("user", _('User'), @options) %></th>
+        <th align="left"><%= sortable_list_header("type", _('Action_type'), @options) %></th>
+        <th align="left"><%= sortable_list_header("target", _('Target'), @options) %></th>
+        <th align="left"><%= sortable_list_header("data", _('Action_data'), @options) %></th>
+        <th align="left"><%= sortable_list_header("data2", _('Action_data_2'), @options) %></th>
+        <th align="left"><%= sortable_list_header("data3", _('Action_data_3'), @options) %></th>
+        <th align="left"><%= sortable_list_header("data4", _('Action_data_4'), @options) %></th>
+        <% if admin? || session[:acc_action_log].to_i == 2 %>
+          <th align="center"><%= sortable_list_header("processed", _('Reviewed'), @options) %></th>
+        <% end %>
+      </tr>
+      <% @actions.each_with_index do |action, i| %>
+          <tr class= <%= action['action'].to_s == "error" ? "red" : "row#{(i % 2 + 1).to_s}" %>>
+            <td id="date_<%= action['id'] %>" align="center"><%= nice_date_time(action['date']) %></td>
+
+            <td align="left" id="user_<%= action['id'] %>">
+              <% if action['nice_user'].present? %>
+                <% if action[:owner_id] == 0 && (admin? || (session[:acc_user_manage].to_i == 2 && action[:user_id] != 0)) %>
+                  <%= link_to action['nice_user'].to_s, controller: :users, action: :edit, id: action['user_id'] %>
+                <% else %>
+                  <%= action['nice_user'].to_s %>
+                <% end %>
+              <% else %>
+                <%= _('User_Was_Not_Found') %>
+              <% end %>
+            </td>
+
+            <% if action['action'].to_s == 'hacking_attempt' %>
+                <td id="type_<%= action['id'] %>" <%= tooltip(_('Hacking_Attempt'), _('Hacking_Attempt_Explanation')) %>>
+                  <%= b_help %>
+                  <a href="http://wiki.kolmisoft.com/index.php/Action_log#hacking_attempt"><%= h(action['action'].to_s) %></a>
+                </td>
+            <% else %>
+                <td id="type_<%= action['id'] %>">
+                  <%= h(action['action'].to_s) %>
+                </td>
+            <% end %>
+
+            <td align="left" id="target_<%= action['id'] %>">
+              <% case action['target_type'].to_s.downcase
+
+                when "user" %>
+                  <% if (user = User.find_by(id: action['target_id'].to_i)) == nil %>
+                    <%= action_with_type(action) %>
+                  <% elsif (admin? || session[:acc_user_manage].to_i == 2) && user.owner_id.zero? %>
+                    <%= link_nice_user(user) %>
+                  <% else %>
+                    <% owner = User.where(id: user.owner_id).first %>
+                    <%= nice_user(user) %>
+                    <% if admin? || session[:acc_user_manage].to_i == 2 %>
+                      (<%= owner.try(:owner_id).try(:zero?) ? link_nice_user(owner) : nice_user(owner) %>)
+                    <% end %>
+                  <% end %>
+
+              <% when "device" %>
+                <% if (device = Device.find_by(id: action['target_id'].to_i)) == nil %>
+                    <%= action_with_type(action) %>
+                <% else %>
+                  <% if (admin? || session[:acc_device_manage].to_i == 2) && User.find_by(id: device.user_id).try(:owner_id).try(:zero?) %>
+                    <%= link_nice_device(device) %>
+                  <% else %>
+                    <%= nice_device(device) %>
+                  <% end %>
+                <% end %>
+
+              <% when "card" %>
+                <% msg = "#{_('Card')} - #{_('id')}: #{action['target_id'].to_i}" %>
+                <% if (card = Card.find_by(id: action['target_id'].to_i)) == nil %>
+                  <%= msg %>
+                <% else %>
+                  <% if (admin? || session[:acc_callingcard_manage].to_i == 2) && card.owner_id.zero? %>
+                    <%= link_to(msg, {controller: :cards, action: :edit, id: action['target_id'].to_i}) %>
+                  <% else %>
+                    <%= msg %>
+                  <% end %>
+                <% end %>
+
+              <% when "subscription" %>
+                <% msg = "#{_('Subscription')} (#{action['target_id'].to_i})" %>
+                <% if (subs = Subscription.find_by(id: action['target_id'].to_i)) == nil %>
+                  <%= msg %>
+                <% else %>
+                  <% if (admin? || session[:acc_manage_subscriptions_opt_1].to_i == 2) && User.find_by(id: subs.user_id).try(:owner_id).try(:zero?) %>
+                    <%= link_to(msg, {controller: :services, action: :subscription_edit, id: action['target_id'].to_i}) %>
+                  <% else %>
+                    <%= msg %>
+                  <% end %>
+                <% end %>
+
+              <% when "sms" %>
+                <% if admin? || session[:acc_sms_addon].to_i == 2 %>
+                  <%= link_to("#{_('SMS')} (#{action['target_id']})", {controller: :sms, action: :sms_list}) %>
+                <% else %>
+                  <%= "#{_('SMS')} (#{action['target_id']})" %>
+                <% end %>
+
+              <% when "provider" %>
+                <% msg = "#{_('Provider')} (#{action['target_id'].to_i})" %>
+                <% if (prov = Provider.find_by(id: action['target_id'].to_i)) == nil %>
+                  <%= msg %>
+                <% else %>
+                  <% if (admin? || session[:acc_manage_provider].to_i == 2) && User.find_by(id: prov.user_id).try(:owner_id).try(:zero?) %>
+                    <%= link_to(msg, {controller: :providers, action: :edit, id: action['target_id'].to_i}) %>
+                  <% else %>
+                    <%= msg %>
+                  <% end %>
+                <% end %>
+
+              <% when /@/ %>
+                <%= action['target_type'].to_s + ' ' %>
+                <% if user = User.where(id: action['target_id'].to_i).first %>
+                    <% if (admin? || session[:acc_user_manage].to_i == 2) && user.owner_id.zero? %>
+                      <%= raw '(' + link_to(user.usertype.to_s, {controller: :users, action: :edit, id: action['target_id'].to_i}) + ')' %>
+                    <% else %>
+                      <%= user.usertype.to_s %>
+                    <% end %>
+                <% end %>
+
+              <% when 'alert' %>
+                <%= action['target_type'].to_s + ' ' %>
+                <% if alert = Alert.where(id: action['target_id'].to_i).first %>
+                  <% if admin? %>
+                    <%= raw "(#{action['target_id']} - #{link_to(alert.name.to_s, {controller: :alerts, action: :alert_edit, id: action['target_id'].to_i})})" %>
+                  <% else %>
+                    <%= "(#{action['target_id']} - #{alert.name})" %>
+                  <% end %>
+                <% end %>
+
+              <% when "rate" %>
+                <% msg = "#{_('Rate')}(#{action['target_id']})" %>
+                <% if (rate = Rate.find_by(id: action['target_id'].to_i)) == nil %>
+                  <%= msg %>
+                <% else %>
+                  <% if (admin? || session[:acc_tariff_manage].to_i > 0) && rate.tariff.owner_id.zero? %>
+                    <%= link_to(msg, {controller: :tariffs, action: :rate_details, id: action['target_id'].to_i}) %>
+                  <% else %>
+                    <%= msg %>
+                  <% end %>
+                <% end %>
+
+              <% when "arate" %>
+                <% msg = "#{_('Advanced')} #{_('Rate')}(#{action['target_id']})" %>
+                <% if (rate = Rate.find_by(id: action['target_id'].to_i)) == nil %>
+                  <%= msg %>
+                <% else %>
+                  <% if (admin? || session[:acc_tariff_manage].to_i > 0) && rate.tariff.owner_id.zero? %>
+                    <%= link_to(msg, {controller: :tariffs, action: :user_arates_full, id: rate.tariff_id, dg: rate.destinationgroup_id}) %>
+                  <% else %>
+                    <%= msg %>
+                  <% end %>
+                <% end %>
+
+              <% when "crate" %>
+                <% msg = "#{_('Custom')} #{_('Rate')}(#{action['target_id']})" %>
+                <% if (rate = Customrate.find_by(id: action['target_id'].to_i)) == nil %>
+                  <%= msg %>
+                <% else %>
+                  <% if admin? && rate.user.owner_id.zero? %>
+                    <%= link_to(msg, {controller: :users, action: :user_acustrates_full, id: rate.user_id, dg: rate.destinationgroup_id}) %>
+                  <% else %>
+                    <%= msg %>
+                  <% end %>
+                <% end %>
+
+              <% else %>
+                <%= action_with_type(action) %>
+              <% end %>
+            </td>
+
+            <td id="data_<%=action['id'] %>">
+              <% if action['action'].match('did')%>
+                <% if (did = Did.find_by(id: action['data'].to_i)) == nil %>
+                  <%= "#{_('DID')} (#{action['data'].to_i})" %>
+                <% elsif admin? || session[:acc_manage_dids_opt_1].to_i == 2 %>
+                  <%= link_to did.did, controller: :dids, action: :edit, id: h(action['data']), back_controller: :stats, back_action: :action_log %>
+                <% else %>
+                  <%= did.did %>
+                <% end %>
+              <% else %>
+                <% case action['action'].to_s
+                when 'card_topup' %>
+                  <% msg = "#{_('Card_used_for_TopUp')} - #{_('id')}: #{action['data']}" %>
+                  <% if (card = Card.find_by(id: action['data'].to_i)) == nil %>
+                    <%= msg %>
+                  <% else %>
+                    <% if (admin? || session[:acc_callingcard_manage].to_i == 2) && card.owner_id.zero? %>
+                      <%= link_to(msg, {controller: :cards, action: :show, id: action['data'].to_i}) %>
+                    <% else %>
+                      <%= msg %>
+                    <% end %>
+                  <% end %>
+
+                <% when 'payment_created', 'Device sent to Asterisk', 'manual_payment_created', 'warning_balance_send' %>
+                  <% if (user = User.find_by(id: action['data'].to_i)) == nil %>
+                    <%= action_with_type(action) %>
+                  <% elsif (admin? || session[:acc_user_manage].to_i == 2) && user.owner_id.zero? %>
+                    <%= link_nice_user(user) %>
+                  <% elsif admin? || session[:acc_user_manage].to_i == 2 %>
+                    <% owner = User.where(id: user.owner_id).first %>
+                    <%= nice_user(user) %>
+                    <% if admin? || session[:acc_user_manage].to_i == 2 %>
+                      (<%= owner.try(:owner_id).try(:zero?) ? link_nice_user(owner) : nice_user(owner) %>)
+                    <% end %>
+                  <% end %>
+
+                <% else %>
+                  <%=  h(action['data'].to_s) %>
+                <% end %>
+              <% end %>
+            </td>
+
+            <td id="data2_<%=action['id'] %>">
+              <% case action['action'].to_s
+              when 'card_topup' %>
+                <%= "#{_('Balance_increased_by')}: #{action['data2']}" %>
+
+              <% when 'warning_balance_send' %>
+                <% if admin? && Email.where(id: action['data2'].to_i).first %>
+                  <%= link_to(action['data2'].to_s, {controller: :emails, action: :edit, id: action['data2'].to_i}) %>
+                <% else %>
+                  <%= action_with_type(action) %>
+                <% end %>
+
+              <% when 'alerts' %>
+                <%= action_data2_alerts(action['data2'].to_s).html_safe %>
+
+              <% else %>
+                <%=  h(action['data2'].to_s) %>
+              <% end %>
+            </td>
+
+            <td id="data3_<%= action['id'] %>"> <%= h(action['data3'].to_s) %> </td>
+            <%= hidden_field_tag 'search_on', 1 %>
+            <td id="data4_<%= action['id'] %>"> <%= h(action['data4'].to_s) %> </td>
+
+            <% if admin? || session[:acc_action_log].to_i == 2 %>
+              <td align="center" id="processed_<%= action['id'] %>">
+                <%= form_tag action: 'action_processed', id: action['id'].to_i, s_action: @action, user: @user_id, procc: @processed do %>
+                    <%= image_submit_tag 'icons/cross.png', title: _('Reviewed'), id: "cross_#{action['id']}" if action['processed'].to_i == 0 %>
+                    <%= image_submit_tag 'icons/check.png', title: _('Not_reviewed'), id: "check_#{action['id']}" if action['processed'].to_i == 1 %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
+    <br/>
+    <%= page_select_header(@options[:page], @total_pages, @options).html_safe %>
+<% end %>

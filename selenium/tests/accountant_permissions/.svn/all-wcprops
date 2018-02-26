@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/66050/mor/gui/branches/x8/selenium/tests/accountant_permissions
+END
+manage_lcrs_permissions.case
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/manage_lcrs_permissions.case
+END
+accountant_fake_form.case
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_fake_form.case
+END
+accountant_permissions_vouchers.case
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_permissions_vouchers.case
+END
+accountant_service_permissions.case
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_service_permissions.case
+END
+test_accountant_permissions2.case
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/65292/mor/gui/branches/x8/selenium/tests/accountant_permissions/test_accountant_permissions2.case
+END
+test_accountant_permissions3.case
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/65365/mor/gui/branches/x8/selenium/tests/accountant_permissions/test_accountant_permissions3.case
+END
+cli_edit.case
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/cli_edit.case
+END
+accountant_permissions_lcrs.case
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_permissions_lcrs.case
+END
+manage_providers_permission_1.case
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/manage_providers_permission_1.case
+END
+manage_localizations_permissions.case
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/64712/mor/gui/branches/x8/selenium/tests/accountant_permissions/manage_localizations_permissions.case
+END
+manage_providers_permission_2.case
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/manage_providers_permission_2.case
+END
+manage_terminators.case
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/manage_terminators.case
+END
+manage_providers_permission_3.case
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/64985/mor/gui/branches/x8/selenium/tests/accountant_permissions/manage_providers_permission_3.case
+END
+accountant_permissions_cli.case
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_permissions_cli.case
+END
+acc_permissions_loss_calls.sql
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/acc_permissions_loss_calls.sql
+END
+responsible_accountant2.case
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/64570/mor/gui/branches/x8/selenium/tests/accountant_permissions/responsible_accountant2.case
+END
+accountant_permissions_payment.case
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_permissions_payment.case
+END
+responsible_accountant3.case
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/65745/mor/gui/branches/x8/selenium/tests/accountant_permissions/responsible_accountant3.case
+END
+accountant_permissions_action_log.case
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/65290/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_permissions_action_log.case
+END
+test_accountant_permissions.case
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/65785/mor/gui/branches/x8/selenium/tests/accountant_permissions/test_accountant_permissions.case
+END
+acc_permissions_new.case
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/acc_permissions_new.case
+END
+accountant_permissions_user_edit.case
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/accountant_permissions/accountant_permissions_user_edit.case
+END
+responsible_accountant.case
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/64691/mor/gui/branches/x8/selenium/tests/accountant_permissions/responsible_accountant.case
+END

@@ -1,0 +1,606 @@
+<%= javascript_include_tag "jqwidgets/jqxdata.js" %>
+<%= javascript_include_tag "jqwidgets/jqxbuttons.js" %>
+<%= javascript_include_tag "jqwidgets/jqxscrollbar.js" %>
+<%= javascript_include_tag "jqwidgets/jqxmenu.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.selection.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.columnsresize.js" %>
+<%= javascript_include_tag "jqwidgets/jqxpanel.js" %>
+<%= javascript_include_tag "jqwidgets/jqxlistbox.js" %>
+
+<% content_for :additional_buttons do %>
+    <span><%= button_tag _('call_tracing'), class: " search-form-button", onclick: "location.href = '#{Web_Dir}/call_tracing/call_log/#{params[:id]}'" %></span>
+<% end %>
+
+<table width="50%" class="maintable">
+<col width="40%">
+  <tr>
+    <th align="center" colspan=2><%= _('General_info') %></th>
+  </tr>
+
+  <tr class="row2">
+    <th align="left"><%= b_date + _('Calldate') %></th>
+    <td id="callldate" align="right"> <%= nice_date_time @call.calldate %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('Source') %></th>
+    <td id="src" align="right"> <%= @call.src %>  </td>
+  </tr>
+
+  <tr class="row2">
+    <th align="left"><%= _('CLID') %></th>
+    <td id="clid" align="right"> <%= @call.clid %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('Called_to') %>/<%= _('Destination') %></th>
+    <td id="dst" align="right"> <%= @call.dst %>  </td>
+  </tr>
+
+  <tr class="row2">
+    <th align="left" nowrap><%= _('Localized_destination') %></th>
+    <td id="loc_dst" align="right"> <%= @call.localized_dst %>  </td>
+  </tr>
+
+
+  <tr class="row1">
+    <th align="left"><%= _('Destination_Details') %></th>
+    <td id="dest_det" align="right">
+
+      <% dest = Destination.where(:prefix => @call.prefix.to_s).first %>
+      <% if dest %>
+          <%= dest.direction.name if dest.direction %> <%= dest.name %>
+      <% end %>
+      &nbsp;&nbsp;<%= _('Prefix_used') %>: <%= @call.prefix %>
+
+    </td>
+  </tr>
+
+  <tr>
+    <th align="left"><%= _('Duration') %></th>
+    <td id="duration" align="right"> <%= @call.duration %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('Real_Duration') %></th>
+    <td id="real_duration" align="right"> <%= @call.real_duration %>  </td>
+  </tr>
+
+  <tr>
+    <th align="left"><%= _('Billsec') %></th>
+    <td id="billsec" align="right"> <%= @call.billsec %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('Real_Billsec') %></th>
+    <td id="real_billsec" align="right"> <%= @call.real_billsec %>  </td>
+  </tr>
+
+  <tr>
+    <th align="left"><%= _('Hangup_cause') %></th>
+    <td id="dosposition" align="right">
+      <%= @call.disposition %>(<%= @call.hangupcause %>)
+    </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left" nowrap><%= _('Hangup_cause_description') %></th>
+    <td id="HC_msg" align="right"> <%= raw get_hangup_cause_message(@call.hangupcause.to_i) %>  </td>
+  </tr>
+
+
+  <tr class="row2">
+    <th align="left"><%= _('UniqueID') %></th>
+    <td id="uniqueid" align="right"> <%= @call.uniqueid %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('Channel') %></th>
+    <td id="channel" align="right"> <%= @call.channel %>  </td>
+  </tr>
+
+
+  <tr class="row2">
+    <% server = @call.server %>
+    <th align="left"><%= b_server + _('Server') %></th>
+    <td id="server" align="right">
+      <% if server %>
+        <% if admin? %>
+          <%= link_to "#{_('ID')}: #{server.id} / IP: #{server.server_ip}", controller: :servers, action: :list %>
+        <% else %>
+          <%= "#{_('ID')}: #{server.id} / IP: #{server.server_ip}" %>
+        <% end %>
+      <% else %>
+          <%= _('Server_not_found') %>
+      <% end %>
+    </td>
+  </tr>
+
+</table>
+
+<br/>
+<br/>
+
+<table width="50%" class="maintable">
+<col width="40%">
+  <tr>
+    <th align="center" colspan=2><%= _('Originator') %></th>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('IP') %></th>
+    <td id="orig_ip" align="right"> <%= @call.originator_ip %>  </td>
+  </tr>
+
+
+  <% if @user %>
+    <tr>
+      <th align="left"><%= b_user + _('User') %></th>
+      <td id="user" align="right">
+        <%= ((owner = User.where(:id => @user.owner_id).first and owner.usertype != "reseller" and !owner.blank? and can_manage_users?) ? (link_nice_user @user) : nice_user(@user) ) %>
+      </td>
+    </tr>
+  <% end %>
+
+  <% if @src_device %>
+    <tr class="row1">
+      <th align="left"><%= b_device + _('Device') %></th>
+      <td id="src_device" align="right">
+      <% if @call.reseller_id != 0 || !can_manage_devices? %>
+        <%= nice_device @src_device %>
+      <% else %>
+        <%= link_nice_device @src_device %>
+     <% end %>
+     </td>
+    </tr>
+  <% end %>
+
+
+  <% user_tariff = @user.tariff if @user %>
+  <% if user_tariff %>
+    <tr>
+      <th <%= tooltip(_('Current_tariff'), _('Current_tariff_explanation')) %> align="left"><%= _('Current_tariff') %></th>
+      <td id="user_tariff" align="right">
+        <%= ((t_owner = User.where(:id => user_tariff.owner_id).first and t_owner.usertype != "reseller" and !t_owner.blank? and can_manage_tariffs?) ? (link_to user_tariff.name + " (" + user_tariff.purpose + ")" , :controller => "tariffs", :action => "rates_list", :id => @user.tariff_id) : (user_tariff.name + " (" + user_tariff.purpose + ")") ) %>
+      </td>
+    </tr>
+  <% end %>
+
+  <% if can_see_finances? %>
+    <tr>
+      <th align="left"><%= _('Rate') %></th>
+      <td id="user_rate" align="right"> <%= nice_number @call.user_rate %>  </td>
+    </tr>
+  <% end %>
+
+  <% if @call.disposition == "ANSWERED" %>
+      <tr class="row1">
+        <th align="left"><%= _('Billsec') %></th>
+        <td id="user_billsec" align="right"> <%= @call.user_billsec %>  </td>
+      </tr>
+      <% if can_see_finances? -%>
+        <tr>
+          <th align="left"><%= _('Price') %></th>
+          <td id="user_price" align="right"> <%= nice_number @call.user_price %>  </td>
+        </tr>
+      <% end %>
+  <% end %>
+  <% if @provider %>
+      <tr>
+        <th id="providers_owner_row" align="left"><%= b_provider + _("Providers_owner") %></th>
+        <td id="providers_owner" align="right">
+          <% if @provider.user_id > 0 && can_manage_users? %>
+            <%= link_to nice_user(@provider.user), :controller => "users", :action => "list" %>
+          <% else %>
+            <%= nice_user(@provider.user) %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<br/>
+<br/>
+<table width="50%" class="maintable">
+<col width="40%">
+  <tr>
+    <th align="center" colspan=2><%= _('Terminator') %></th>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('IP') %></th>
+    <td id="term_ip" align="right"> <%= @call.terminator_ip %>  </td>
+  </tr>
+
+  <% if @provider %>
+    <tr>
+      <th align="left"><%= b_provider + _('Provider') %></th>
+      <td id="provider" align="right">
+        <%= ((p_owner = User.where(:id => @provider.user_id).first and p_owner.usertype != "reseller" and !p_owner.blank? and can_manage_providers?) ? (link_to @provider.name, :controller => :providers, :action => :edit, :id => @provider.id ) : (@provider.name)) %>
+      </td>
+    </tr>
+
+    <tr class="row1">
+      <th align="left"><%= _('Technology') %></th>
+      <td id="prov_tech" align="right"> <%= @provider.tech %>  </td>
+    </tr>
+
+    <tr>
+      <th align="left"><%= _('Server_IP') %></th>
+      <td id="server_ip" align="right"> <%= @provider.server_ip %>  </td>
+    </tr>
+
+    <% prov_tariff = @provider.tariff %>
+    <% if prov_tariff %>
+      <tr>
+        <th align="left"><%= _('Tariff') %></th>
+        <% %>
+        <td id="provider_tariff" align="right">
+        <% if allow_manage_providers_tariffs? %>
+          <%= link_to "#{prov_tariff.name} (#{prov_tariff.purpose})", controller: :tariffs, action: :rates_list, id: @provider.tariff_id %>
+        <% else %>
+          <%= "#{prov_tariff.name} (#{prov_tariff.purpose})" %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+    <% if can_see_finances? %>
+      <tr class="row1">
+        <th align="left"><%= _('Rate') %></th>
+        <td id="provider_rate" align="right"> <%= nice_number @call.provider_rate %>  </td>
+      </tr>
+    <% end %>
+
+    <% if @call.disposition == "ANSWERED" %>
+        <tr>
+          <th align="left"><%= _('Billsec') %></th>
+          <td id="provider_billsec" align="right"> <%= @call.provider_billsec %>  </td>
+        </tr>
+
+        <% if can_see_finances? %>
+          <tr class="row1">
+            <th align="left"><%= _('Price') %></th>
+            <td id="provider_price" align="right"> <%= nice_number @call.provider_price %>  </td>
+          </tr>
+        <% end %>
+    <% end %>
+  <% end %>
+</table>
+<br/>
+<br/>
+<% if reseller_active? %>
+
+    <table width="50%" class="maintable">
+    <col width="40%">
+      <tr>
+        <th align="center" colspan=2><%= b_reseller + _('Reseller') %></th>
+      </tr>
+
+      <% if @reseller %>
+        <tr>
+          <th align="left"><%= b_user + _('Name') %></th>
+          <td id="reseller" align="right">
+          <% if can_manage_users? %>
+            <%= link_nice_user @reseller %>
+          <% else %>
+            <%= nice_user @reseller %>
+          <% end %>
+          </td>
+        </tr>
+
+        <% if @call.disposition == "ANSWERED" %>
+
+          <% if can_see_finances? %>
+            <tr>
+              <th align="left"><%= _('Rate') %></th>
+              <td id="reseller_rate" align="right"> <%= nice_number @call.reseller_rate %>  </td>
+            </tr>
+          <% end %>
+
+          <tr>
+            <th align="left"><%= _('Billsec') %></th>
+            <td id="reseller_billsec" align="right"> <%= @call.reseller_billsec %>  </td>
+          </tr>
+
+          <% if can_see_finances? %>
+            <tr>
+              <th align="left"><%= _('Price') %></th>
+              <td id="reseller_price" align="right"> <%= nice_number @call.reseller_price %>  </td>
+            </tr>
+          <% end %>
+
+        <% end %>
+      <% else %>
+          <tr>
+            <td align="center" colspan=2><%= _('This_call_does_not_belong_to_reseller') %></td>
+          </tr>
+      <% end %>
+    </table>
+
+
+    <br/>
+    <br/>
+
+<% end %>
+
+
+<table width="50%" class="maintable">
+<col width="40%">
+  <tr>
+    <th align="center" colspan=2><%= _('DID') %></th>
+  </tr>
+
+  <% if @did %>
+      <tr>
+        <th align="left"><%= _('DID_Number') %></th>
+        <td id="did" align="right">
+          <% if admin? || (accountant? && session[:acc_manage_dids_opt_1].to_i == 2) %>
+            <%= link_to @did.did, controller: :dids, action: :edit, id: @did.id %>
+          <% else %>
+            <%= @did.did %>
+          <% end %>
+        </td>
+      </tr>
+
+      <% if @call.disposition == "ANSWERED" %>
+        <% if can_see_finances? %>
+          <tr>
+            <th align="left"><%= _('Provider_price') %></th>
+            <td id="did_prov_price" align="right">
+              <% if admin? || (accountant? && session[:acc_manage_dids_opt_1].to_i > 0) %>
+                <%= link_to(nice_number(@call.did_prov_price), controller: :did_rates, action: :index, id: @call.did_id) %>
+              <% else %>
+                <%= nice_number(@call.did_prov_price) %>
+              <% end %>
+              </td>
+          </tr>
+
+          <tr>
+            <th align="left"><%= _('Incoming_price') %></th>
+            <td id="did_inc_price" align="right">
+              <% if admin? || (accountant? && session[:acc_manage_dids_opt_1].to_i > 0) %>
+                <%= link_to(nice_number(@call.did_inc_price), controller: :did_rates, action: :index, id: @call.did_id) %>
+              <% else %>
+                <%= nice_number(@call.did_inc_price) %>
+              <% end %>
+            </td>
+          </tr>
+
+          <tr>
+            <th align="left"><%= _('Owner_price') %></th>
+            <td id="did_price" align="right">
+              <% if admin? || (accountant? && session[:acc_manage_dids_opt_1].to_i > 0) %>
+                <%= link_to(nice_number(@call.did_price), controller: :did_rates, action: :index, id: @call.did_id) %>
+              <% else %>
+                <%= nice_number(@call.did_price) %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <th align="left"><%= _('Billsec') %></th>
+          <td id="did_billsec" align="right"> <%= @call.did_billsec %>  </td>
+        </tr>
+
+      <% end %>
+
+  <% else %>
+      <tr>
+        <td align="center" colspan=2><%= _('DID_was_not_used_in_this_call') %></td>
+      </tr>
+  <% end %>
+
+</table>
+
+<br/><br/>
+
+<table width="50%" class="maintable">
+  <col width="40%">
+
+  <tr>
+    <th align="center" colspan=2><%= _('SIPCHANINFO') %></th>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('PeerIP') %></th>
+    <td id="peerip" align="right"><%= IPAddr.new(@call.peerip.to_i, Socket::AF_INET).to_s if @call.peerip.present? %></td>
+  </tr>
+
+  <tr>
+    <th align="left"><%= _('RecvIP') %></th>
+    <td id="recvip" align="right"><%= IPAddr.new(@call.recvip.to_i, Socket::AF_INET).to_s if @call.recvip.present? %></td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('SipFrom') %></th>
+    <td id="sipfrom" align="right"> <%= @call.sipfrom.to_s %>  </td>
+  </tr>
+
+  <tr>
+    <th align="left"><%= _('URI') %></th>
+    <td id="uri" align="right"> <%= @call.uri.to_s %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('UserAgent') %></th>
+    <td id="user_agent" align="right"> <%= @call.useragent.to_s %>  </td>
+  </tr>
+
+  <tr>
+    <th align="left"><%= _('PeerName') %></th>
+    <td id="peername" align="right"> <%= @call.peername.to_s %>  </td>
+  </tr>
+
+  <tr class="row1">
+    <th align="left"><%= _('T38Passthrough') %></th>
+    <td id="t38passthrough" align="right"> <%= @call.t38passthrough.to_s %>  </td>
+  </tr>
+
+</table>
+
+<br/><br/>
+
+<% if admin? || (accountant? && session[:acc_call_tracing_usage].to_i == 1) %>
+<table width=<%= @call_details.try(:pcap_data?).present? ? '100%' : '50%' %> class="maintable">
+  <tr>
+    <th align="center" colspan=2><%= _('Pcap') %></th>
+  </tr>
+</table>
+
+<div class="call_info_data_container">
+<% if @call_details.try(:pcap_data?).present? %>
+   <%= button_tag _('DOWNLOAD_PCAP_FILE'), class: 'search-form-button button-left', onclick: "location.href = '#{Web_Dir}/calls/download_pcap/#{params[:id]}'" %>
+   <div id="call_details_pcap_text" style="margin: 20px 0px"></div>
+   <%= image_tag("#{Web_Dir}/calls/pcap_image/#{params[:id]}") %>
+<% else %>
+    <%= button_tag _('RETRIEVE_PCAP_FILE'), class: 'search-form-button button-left', onclick: "location.href = '#{Web_Dir}/calls/retrieve_pcap_file/#{params[:id]}'" %>
+<% end %>
+</div>
+
+<table width=<%= @call_log.try(:log).present? ? '100%' : '50%' %> class="maintable">
+  <tr>
+    <th align="center" colspan=2><%= _('Call_Log') %></th>
+  </tr>
+</table>
+
+<div class="call_info_data_container">
+<% if @call_log.try(:log).present? %>
+    <div id="call_details_log_text" style="margin: 20px 0px"></div>
+<% else %>
+    <%= button_tag _('RETRIEVE_LOG_FILE'), class: 'search-form-button button-left', onclick: "location.href = '#{Web_Dir}/calls/retrieve_log_file/#{params[:id]}'" %>
+<% end %>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        var cellsrenderer = function (row, column, value) {
+            return '<span style="position: absolute; top: 50%; transform: translate(0px, -50%); margin-left:4px; margin-right: 4px;">' + value + '</span>';
+        };
+
+        var log_text_color = function (row, columnfield, value, defaulthtml, columnproperties) {
+            var ct_type_color = log_dataadapter.records[row].ct_type_color;
+
+            switch (ct_type_color) {
+                case 1:
+                    return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #a5a5a5;">' + value + '</span>';
+                    break;
+                case 2:
+                    return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #ff0000;">' + value + '</span>';
+                    break;
+            }
+        };
+
+        var theme = 'm2';
+        var localizationobj = {};
+
+        localizationobj.emptydatastring = 'Data not found';
+
+        // RETRIEVE PCAP
+
+        <% if @call_details.try(:pcap_data?) %>
+
+        var source =
+        {
+            type: 'GET',
+            datatype: 'json',
+            datafields: [
+                { name: 'pt_number', type: 'string' },
+                { name: 'pt_time', type: 'string' },
+                { name: 'pt_source', type: 'string' },
+                { name: 'pt_destination', type: 'string' },
+                { name: 'pt_protocol', type: 'string' },
+                { name: 'pt_length', type: 'string' },
+                { name: 'pt_info', type: 'string' }
+            ],
+
+            url: '<%= "#{Web_Dir}/calls/retrieve_call_details_pcap_text/#{params[:id]}" %>'
+        };
+
+        var dataadapter = new jQuery.jqx.dataAdapter(source);
+
+        jQuery("#call_details_pcap_text").jqxGrid(
+                {
+                    source: dataadapter,
+                    theme: theme,
+                    width: '100%',
+                    columnsresize: true,
+                    autorowheight: true,
+                    autoheight: true,
+                    altrows: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    handlekeyboardnavigation: function (event) {
+                        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                        if (key == 86 && event.ctrlKey == true) {
+                            return true;
+                        }
+                    },
+                    columns: [
+                        { text: "<%= _('shorten_number') %>", datafield: 'pt_number', cellsrenderer: cellsrenderer, width: '3%'},
+                        { text: "<%= _('TIME') %>", datafield: 'pt_time', cellsrenderer: cellsrenderer, width: '10%'},
+                        { text: "<%= _('SOURCE') %>", datafield: 'pt_source', cellsrenderer: cellsrenderer, width: '10%'},
+                        { text: "<%= _('DESTINATION') %>", datafield: 'pt_destination', cellsrenderer: cellsrenderer, width: '10%'},
+                        { text: "<%= _('PROTOCOL') %>", datafield: 'pt_protocol', cellsrenderer: cellsrenderer, width: '7%'},
+                        { text: "<%= _('LENGTH') %>", datafield: 'pt_length', cellsrenderer: cellsrenderer, width: '6%'},
+                        { text: "<%= _('INFO') %>", datafield: 'pt_info', cellsrenderer: cellsrenderer, width: '54%'}
+                    ]
+                });
+
+        jQuery('#call_details_pcap_text').on('bindingcomplete', function (event) {
+            jQuery("#call_details_pcap_text").jqxGrid('localizestrings', localizationobj);
+        });
+
+        <% end %>
+
+        // CALL LOG
+
+        <% if @call_log.try(:log).present? %>
+
+        var log_source =
+        {
+            type: 'GET',
+            datatype: 'json',
+            datafields: [
+                { name: 'ct_date', type: 'string' },
+                { name: 'ct_type', type: 'string' },
+                { name: 'ct_message', type: 'string' },
+                { name: 'ct_type_color', type: 'number' }
+            ],
+            url: '<%= "#{Web_Dir}/calls/retrieve_call_log_text/#{params[:id]}" %>'
+        };
+
+        var log_dataadapter = new jQuery.jqx.dataAdapter(log_source);
+
+        jQuery("#call_details_log_text").jqxGrid(
+                {
+                    source: log_dataadapter,
+                    theme: theme,
+                    width: '100%',
+                    columnsresize: true,
+                    autorowheight: true,
+                    autoheight: true,
+                    altrows: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    handlekeyboardnavigation: function (event) {
+                        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                        if (key == 86 && event.ctrlKey == true) {
+                            return true;
+                        }
+                    },
+                    columns: [
+                        { text: "<%= _('DATETIME') %>", datafield: 'ct_date', width: '12%', cellsrenderer: log_text_color },
+                        { text: "<%= _('TYPE') %>", datafield: 'ct_type', width: '6%', cellsrenderer: log_text_color },
+                        { text: "<%= _('MESSAGE') %>", datafield: 'ct_message', width: '82%', cellsrenderer: log_text_color }
+                    ]
+                });
+
+        jQuery('#call_details_log_text').on('bindingcomplete', function (event) {
+            jQuery("#call_details_log_text").jqxGrid('localizestrings', localizationobj);
+        });
+
+        <% end %>
+
+    });
+</script>
+<% end %>

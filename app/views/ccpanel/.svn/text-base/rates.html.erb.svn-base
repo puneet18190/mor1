@@ -1,0 +1,111 @@
+<% if @tariff.purpose == 'user' %>
+    <% if @dgroups.present? %>
+        <%= link_to b_pdf + _('Export_to_PDF'), action: :generate_personal_rates_pdf, id: @tariff %>
+        &nbsp;
+        <%= link_to b_csv + _('Export_to_CSV'), action: :generate_personal_rates_csv, id: @tariff %>
+    <% end %>
+    <br><br>
+    <%= render 'letter_select_header', st: @st, letter_select_header_id: @letter_select_header_id %>
+    <br/>
+
+    <table width="100%" class="maintable">
+      <tr>
+        <th align="left"><%= _('Name') %></th>
+        <th align="center"><%= _('Destinations') %></th>
+        <% if @show_values_without_vat == 1 %>
+            <th align="center"><%= _('Rate') %> (<%= session[:show_currency] %>)</th>
+        <% end %>
+        <th align="center"><%= _('Rate_with_VAT') %> (<%= session[:show_currency] %>)</th>
+      </tr>
+      <% @dgroups.each_with_index do |dg, index| %>
+          <tr class="row<%= (index % 2 + 1).to_s %>">
+            <td id="code_<%= dg.id %>"><%= draw_flag_by_code dg.flag %> <%= h dg.name %></td>
+
+            <%
+               show_rr = true
+               price = 0.0
+
+               arates = []
+               rate = Rate.where(destinationgroup_id: dg.id, tariff_id: @tariff.id).first
+
+               arates = rate.aratedetails if rate
+
+               exchange_rate = @exchange_rate
+
+               if arates.size == 0
+                 price = 0
+               else
+                 if arates.size.to_i >= 1 && (arates[0] && arates[0].artype.to_s == 'minute')
+                   price = arates[0].price
+                 else
+                   if arates.size.to_i == 1 && (arates[1] && arates[1].artype.to_s == 'minute')
+                     price = arates[1].price
+                   else
+                     show_rr = false
+                   end
+                 end
+               end
+            %>
+
+            <td align="center"><%= link_to b_view + _('View'), {controller: :destination_groups, action: :dg_list_user_destinations, id: dg.id}, onclick: "window.open(this.href,'new_window','height=400,width=600');return false;" %></td>
+            <% if show_rr %>
+                <% if @show_values_without_vat == 1 %>
+                    <td id="rate_<%= dg.id %>" align="center"><%= nice_number_currency(price, exchange_rate) if arates.present? %></td>
+                <% end %>
+                <td id="rate_tax_<%= dg.id %>" align="center"><%= nice_number_currency(@cardgroup.get_tax.count_tax_amount(price) + price, exchange_rate) if arates.present? %></td>
+            <% else %>
+                <td colspan="3" align="center"><%= link_to b_rates + _('Check_advanced_rates'), action: :user_advrates, id: dg.id %></td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
+<% elsif @tariff.purpose == 'user_wholesale' %>
+    <% if @dgroups.present? %>
+        <%= link_to b_pdf + _('Export_to_PDF'), action: :generate_personal_wholesale_rates_pdf, id: @tariff %>
+        &nbsp;
+        <%= link_to b_csv + _('Export_to_CSV'), action: :generate_personal_wholesale_rates_csv, id: @tariff %>
+    <% end %>
+    <br/><br/>
+    <%= render 'letter_select_header', st: @st, letter_select_header_id: @letter_select_header_id %>
+    <% if @total_pages > 1 %>
+        <br/>
+        <%= render 'page_select_header',
+                   page: @page, total_pages: @total_pages, page_select_header_id: @page_select_header_id, st: @st,
+                   call_type: @call_type, direction: @direction, sel_device_id: @sel_device_id
+        %>
+    <% end %>
+    <br/>
+
+    <table width="100%" class="maintable">
+      <tr>
+        <th align="left"><%= _('Direction') %></th>
+        <th align="left"><%= _('Prefix') %></th>
+        <th align="left"><%= _('Name') %></th>
+        <th align="right"><%= _('Rate') %> (<%= session[:show_currency] %>)</th>
+        <th align="right"><%= _('Rate_with_VAT') %> (<%= session[:show_currency] %>)</th>
+        <th align="right"><%= _('Connection_Fee') %> (<%= session[:show_currency] %>)</th>
+        <th align="right"><%= _('Connection_Fee_with_VAT') %> (<%= session[:show_currency] %>)</th>
+        <th align="center"><%= _('Increment') %> </th>
+      </tr>
+
+      <% @rates.each_with_index do |rate, index| %>
+          <tr class="row<%= (index % 2 + 1).to_s %>">
+            <td id="<%= rate.id %>"><%= draw_flag rate.destination.direction.code %> <%= h(rate.destination.direction.name) %></td>
+            <td id="prefix_<%= rate.id %>"><%= h(rate.destination.prefix) %></td>
+            <td id="name_<%= rate.id %>"><%= h(rate.destination.name) if rate.destination.name %></td>
+            <td id="rate_<%= rate.id %>" align="right"><%= nice_number @rates_current[rate.id] %></td>
+            <td id="rate_tax_<%= rate.id %>" align="right"><%= nice_number(@rates_current[rate.id] + @cardgroup.get_tax.count_tax_amount(@rates_current[rate.id])) %></td>
+            <td id="fee_<%= rate.id %>" align="right"><%= nice_number @rates_free2[rate.id] %></td>
+            <td id="fee_tax_<%= rate.id %>" align="right"><%= nice_number(@rates_free2[rate.id] + @cardgroup.get_tax.count_tax_amount(@rates_free2[rate.id])) %></td>
+            <td id="inc_<%= rate.id %>" align="center"><%= @rates_d[rate.id] %></td>
+      <% end %>
+    </table>
+
+    <% if @total_pages > 1 %>
+        <br/>
+        <%= render 'page_select_header',
+                   page: @page, total_pages: @total_pages, page_select_header_id: @page_select_header_id, st: @st,
+                   call_type: @call_type, direction: @direction, sel_device_id: @sel_device_id
+        %>
+    <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<% if payment_type == 'manual' or payment_type == 'Card' %>
+    <div id="payment_des_<%= payment_id %>">
+      <div id="payment_description_link_<%= payment_id %>" title="<%= payment_desc %>">
+        <%= truncate(payment_desc)%>
+        <%= link_to_function(b_comment_edit(payment_desc), "Element.toggle('payment_description_#{payment_id}');Element.toggle('payment_description_link_#{payment_id}');") %>
+      </div>
+      <div id="payment_description_<%= payment_id %>" style='display:none;'>
+      <span style="float: left;">
+        <%= text_area_tag 'payment_desciption', payment_desc, :cols => 60, :rows => 6, :id => "payment_description_tag_#{payment_id}" %>
+      </span>
+      <span style="float: left;">
+        <%= submit_tag _('ok'), :name => "ok_#{payment_id}", :onclick => "new Ajax.Updater('payment_des_#{payment_id}', '#{Web_Dir}/payments/change_description/#{payment_id.to_s}', {asynchronous:false, evalScripts:true, onComplete:function(request){Element.hide('spinner');Element.toggle('payment_description_#{payment_id}');Element.toggle('payment_description_link_#{payment_id}');}, onLoading:function(request){Element.show('spinner');}, parameters:'description=' + encodeURIComponent($('payment_description_tag_#{payment_id}').value)})" %>
+      </span>
+      <span style="float: left;">
+        <%= link_to_function _('cancel'), "Element.toggle('payment_description_#{payment_id}');Element.toggle('payment_description_link_#{payment_id}');" %>
+      </span>
+      </div>
+    </div>
+<% end %>
+

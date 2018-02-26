@@ -1,0 +1,54 @@
+<%= form_tag(:action => 'update_lcrpartial', :id => @lp.id) do %>
+<table>
+  <tr>
+    <td>
+      <%= _('Main_Lcr') %>:
+      <select name="main_lcr_id">
+      <% for l in @lcrs %>
+        <option value="<%= l.id %>" <%= "selected" if l.id.to_i == @lp.main_lcr_id.to_i %>> <%= l.name %></option>
+      <% end %>
+      </select>
+    </td>
+
+    <!-- BY PREFIX -->
+    <% if @lp.prefix.present? %>
+    <td>
+      <%= _('Prefix') %>: <%= text_field_tag('prefix', @lp.prefix.to_s, "class" => "input") %>
+      <script type="text/javascript">
+        new Form.Element.Observer('prefix', 0.5, function(element, value) {new Ajax.Updater('results', '<%= Web_Dir %>/lcrs/prefix_finder_find', {asynchronous:false, evalScripts:true, onComplete:function(request){Element.hide('spinner');}, onLoading:function(request){Element.show('spinner');}, parameters:'prefix=' + encodeURIComponent(value)})})
+      </script>
+    </td>
+    <td>
+      <div id="results"></div>
+    </td>
+
+    <!-- BY DESTINATION GROUP -->
+    <% elsif @lp.destinationgroup_id.to_i > 0 %>
+      <td>
+      <%= _('Destination_Group') %>:
+        <select id="destinationgroup_id" name="destinationgroup_id">
+        <% @destinationgroups.each do |dg| %>
+          <option value="<%= dg.id %>" <%= "selected" if @lp.destinationgroup_id.to_i == dg.id %>><%= dg.name %></option>
+        <% end %>
+        </select>
+      </td>
+
+    <!-- BY DESTINATION NAME -->
+    <% elsif @lp.destination_name.present? %>
+      <td>
+        <%= _('Destination_name') %>: <%= text_field_tag('destination_name', @lp.destination_name.to_s, "class" => "input") %>
+      </td>
+    <% end %>
+
+    <td>
+      <%= _('Lcr') %>:
+      <select name="lcr_id">
+        <% for l in @lcrs %>
+            <option value="<%= l.id %>"  <%= "selected" if l.id.to_i == @lp.lcr_id.to_i %> > <%= l.name %></option>
+        <% end %>
+      </select>
+      <%= submit_tag _('Update'), data: { disable_with: _('Processing..') } %>
+    </td>
+  </tr>
+</table>
+<% end %>

@@ -1,0 +1,12 @@
+# DID Rerating DATA
+# ----
+/did/delete_from_dids.sql
+# Old DIDS deleted
+/calls/delete_from_calls.sql
+# Old calls successfuly deleted
+/did/active_did.sql
+# Active DID imported
+/did/did_calls.sql
+# DID Calls imported
+# Success
+# bundle loaded

@@ -1,0 +1,60 @@
+<% if total_pages > 1 %>
+<%= page_select_header(options[:page], total_pages, options) %>
+<br>
+<% end %>
+
+<% if size > 0 %>
+    <table width="100%" class="maintable">
+      <tr>
+        <th align="center"><%= _('Date') %></th>
+        <th align="left"><%= _('Comment') %></th>
+        <th align="center"><%= _('Duration') %></th>
+        <th align="left"><%= _('Source') %></th>
+        <th align="left"><%= _('Destination') %></th>
+        <th align="center"><%= _('Play') %></th>
+        <th align="center"><%= _('Download') %></th>
+        <th align="center"><%= _('Edit') %></th>
+        <th align="center"><%= _('Delete') %></th>
+      </tr>
+
+      <% recordings.each_with_index { |recording, i| %>
+          <tr class="row<%= (i % 2 + 1).to_s %> <%= recording.played == 1 ? 'rec-played' : '' %>">
+            <td id="calldate_<%= recording.id %>" align="center"><%= nice_date_time(recording.datetime) %></td>
+            <td id="comment_<%= recording.id %>" align="left"><%= h(session[:usertype] == 'user' ? recording.user_comment : recording.comment) %></td>
+            <td id="billsec_<%= recording.id %>" align="center"><%= nice_time(recording.real_billsec) if recording.real_call_id.to_i != 0 %></td>
+            <td id="recording_<%= recording.id %>" align="left"><%= recording.call_src.to_s %></td>
+            <td id="dst_<%= recording.id %>" align="left"><%= hide_dst_for_user(current_user, 'gui', recording.call_dst.to_s) %></td>
+            <% if recording.file_present? && (recording.real_billsec.to_f > 0.0 || show_recordings_with_zero_billsec) %>
+                <td id="play_<%= recording.id %>" align="center">
+                  <%= link_to(b_play, { action: :play_recording, id: recording.id }, onclick: 'markAsPlayed(this);return false;') %>
+                </td>
+                <td id="download_<%= recording.id %>" align="center"><%= link_to(b_download, action: :get_recording, rec: recording.id) %></td>
+            <% else %>
+                <td id="fail_<%= recording.id %>" align="center" colspan=2>
+                  <%= b_exclamation + _("Recording_failed") if recording.size.to_i == 0 || recording.real_billsec.to_f == 0.0 %>
+                  &nbsp;&nbsp;
+                  <% if recording.disposition.to_s != 'ANSWERED' %>
+                      <%= _('Call_status') %>: <%= recording.disposition %>
+                  <% end %>
+                </td>
+            <% end %>
+            <td id="rec_edit_<%= recording.id %>" align="center"><%= link_to(b_edit, { action: :edit_recording, id: recording.id }, id: "rec_edit_link_#{recording.id}") %></td>
+            <td id="delete_<%= recording.id %>" align="center"><%= link_to b_delete, {action: :destroy, id: recording.id}, data: {confirm: _('are_you_sure')}, method: 'post' %></td>
+          </tr>
+      <% } %>
+    </table>
+<% else %>
+  <%= _('No_Recordings') %>
+<% end %>
+<br>
+<%= page_select_header(options[:page], total_pages, options) %>
+<br>
+
+<script type="text/javascript">
+    function markAsPlayed(rec) {
+      // Show player in a new window
+      window.open(rec.href, 'new_window', 'height = 200, width = 400');
+      // Add the color class to a parent row
+      jQuery(rec).parent().parent().addClass('rec-played');
+    }
+</script>

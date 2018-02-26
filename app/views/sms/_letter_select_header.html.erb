@@ -1,0 +1,13 @@
+<div align="center">
+  <table class='page_title2' width="100%">
+    <tr>
+      <td align="center">
+        <% for letter in 'A'..'Z' %>
+          <%= raw "<b>" if letter == st[0] %>
+          <%= link_to letter, :action => params[:action], :st => letter %>
+          <%= raw "</b>" if letter == st[0] %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

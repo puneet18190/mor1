@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_user_sms_get</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_user_sms_get</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>API Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=sms_addon/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=user_sms_get&amp;u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=user_sms_get&amp;u=user_admin&amp;from=1178323200&amp;till=1455532914&amp;status_code=3&amp;provider_id=2&amp;user_id&amp;=5&amp;reseller_id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash1']==storedVars['hash2']</td>
+	<td>true</td>
+</tr>
+<!--Errors-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=random&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;test=1&amp;hash=5454644</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Incorrect hash</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Sms Mesagges were not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=user_reseller&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<!--Default from = (Default: Today at 00:00) till =  (Default: Today at 23:59).-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455532914&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2009-12-01 10:54:23 +0200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_rate</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_price</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_rate</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>+37061111111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=clickatell_message_id</td>
+	<td>1234</td>
+</tr>
+<!--more data-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/sms/sms_messages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--status_code=004-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455532914&amp;status_code=004&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>2</td>
+</tr>
+<!--provider_id=2-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;provider_id=2&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>171</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2015-06-24 12:56:58 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_rate</td>
+	<td>0.044</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=clickatell_message_id</td>
+	<td>364bf2b310080dc773dd3f854fd5c035</td>
+</tr>
+<!--user_id = 201-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;user_id=201&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>81</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>201</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2015-04-17 12:52:39 +0300</td>
+</tr>
+<!--reseller_id = 3-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;reseller_id=3&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>251</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2015-06-24 13:51:12 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_rate</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>181</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_id</td>
+	<td>3</td>
+</tr>
+<!--prefix=370-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;prefix=370&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>71</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>37060486809</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[2]/id</td>
+	<td>81</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[2]/prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[3]/id</td>
+	<td>171</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[3]/prefix</td>
+	<td>370</td>
+</tr>
+<!--number=353863520065 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;number=937567337911&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>221</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>937567337911</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2015-06-24 13:41:16 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_rate</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_price</td>
+	<td>2.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_price</td>
+	<td>4.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_rate</td>
+	<td>3.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_rate</td>
+	<td>5.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_price</td>
+	<td>6.0</td>
+</tr>
+<!--pakeiciam currency-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/admin_0/assign_currency_eur</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;number=937567337911&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>221</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>937567337911</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2015-06-24 13:41:16 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_rate</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_price</td>
+	<td>2.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_price</td>
+	<td>4.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_rate</td>
+	<td>3.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_rate</td>
+	<td>5.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_price</td>
+	<td>6.0</td>
+</tr>
+<!--visi parm kartu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;status_code=301&amp;provider_id=1&amp;user_id=3&amp;reseller_id=0&amp;prefix=353&amp;number=353863520065&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>301</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=provider_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=prefix</td>
+	<td>353</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>353863520065</td>
+</tr>
+<!--visi parm nevalidus todel ignoruoja-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;from=1178323200&amp;till=1455667200&amp;status_code=a&amp;provider_id=b&amp;user_id=c&amp;reseller_id=d&amp;prefix=e&amp;number=f&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reseller_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>+37061111111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=clickatell_message_id</td>
+	<td>1234</td>
+</tr>
+<!--reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=user_reseller&amp;from=1178323200&amp;till=1455667200&amp;number=937567337911&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<!--Kol neduotas permissionas tol nepasiekiami sms reselleriui-->
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=reseller_user_services/resseler_sms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/sms/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=user_id</td>
+	<td>label=Test Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User subscribed to SMS service: Test Reseller</td>
+</tr>
+<!--Kai u=reselleris, automatiškai ieškoma sms su reseller_id = 3, o tai kas paduodama parametruose automatiskai ignoruojama-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=reseller&amp;from=1178323200&amp;till=1455667200&amp;reseller_id=88&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>251</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=sending_date</td>
+	<td>2015-06-24 13:51:12 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status_code</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>181</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost_rate</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost_price</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>37060168772</td>
+</tr>
+<!--accountant irgi reikai subscribe-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=accountant&amp;from=1178323200&amp;till=1455667200&amp;reseller_id=3&amp;test=1&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/sms/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User subscribed to SMS service: Test Accountant</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=accountant&amp;from=1178323200&amp;till=1455667200&amp;test=1&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[30]/id</td>
+	<td>251</td>
+</tr>
+<!--turi veikti ir atsijungus-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--Kai u=user_admin, automatiskai apduodamas user_id=2 o tai kas paduodama parametruose, ignoruojamas user_id ir reseller_id -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=user_admin&amp;from=1178323200&amp;till=1455667200&amp;reseller_id=3&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=number</td>
+	<td>+37061111111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[2]/id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[2]/user_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//sms_message[3]/id</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=user_reseller&amp;from=1178323200&amp;till=1455667200&amp;reseller_id=3&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<!--ignoruojamas user_admin=182 parametras, nes pats u=yra  useris-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=user_admin&amp;from=1178323200&amp;till=1455667200&amp;reseller_id=3&amp;user_id=182&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>2 2009-12-01 10:54:23 +0200 004 2 10.0 10.0 +37061111111 1234 3 2009-12-01 10:54:23 +0200 0 2 10.0 10.0 +37061111111 1236 4 2009-12-01 10:54:23 +0200 005 2 0.0 0.0 +37061111111 1237</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<!--Fake forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/user_sms_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>user_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>201</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>from</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>1178323200</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_5</td>
+	<td>till</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_5</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_5</td>
+	<td>1455667200</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>81 2015-04-17 12:52:39 +0300 0 1 0.044 0.044 201 0.05 0.05 0 0.0 0.0 370 37060866345 e35d903c4f79dbb7f0a2a0330ad095a9</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+</tbody></table>
+</body>
+</html>

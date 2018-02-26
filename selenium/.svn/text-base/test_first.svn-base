@@ -1,0 +1,15 @@
+/home/mor/selenium/tests/db_update_check.case
+# NEVER DELETE THIS ^^^^^^^^ STATEMENT
+
+/home/mor/selenium/tests/hgc_stats_es.case
+/home/mor/selenium/tests/calls_in_graphs.case
+/home/mor/selenium/tests/calls_in_graphs_timezones.case
+/home/mor/selenium/tests/calls_new.case
+/home/mor/selenium/tests/calls_search_limits.case
+/home/mor/selenium/tests/graphs_es.case
+/home/mor/selenium/tests/quick_stats_es.case
+/home/mor/selenium/tests/backups.case
+/home/mor/selenium/tests/payments/payment_description.case
+/home/mor/selenium/tests/partner/partner_payments.case
+/home/mor/selenium/tests/cron_actions.case
+/home/mor/selenium/tests/api/api_subscription_get.case

@@ -1,0 +1,27 @@
+<table width="100%" class="maintable">
+  <tr>
+    <th align="left"><%= _('Email') %></th>
+   <% unless accountant? && session[:acc_device_manage] == 1 %>
+    <th></th>
+    <th></th>
+  <% end %>
+
+  </tr>
+
+  <% pdffaxemails.each_with_index { |email, i| %>
+      <tr class="row<%= (i % 2 + 1).to_s %>">
+        <td align="left">
+          <%= email.email %></td>
+      <% unless accountant? && session[:acc_device_manage] == 1 %>
+          <td align="center">    <%= link_to b_edit, {:action => "pdffaxemail_edit", :id => email.id}, {:id => "email-update-#{email.id}"} %>        </td>
+          <td align="center">   <%= link_to b_delete, {:action => 'pdffaxemail_destroy', :id => email.id}, data: {confirm: _('are_you_sure')}, :method => :post, :id => "email-delete-#{email.id}" %></td>
+          </tr>
+      <% end %>
+  <% } %>
+  <tr>
+     <% unless accountant? && session[:acc_device_manage] == 1 %>
+        <th align="left" colspan=3>  <%= link_to b_add + _('Add_new_email'), :action => "pdffaxemail_add", :id => device.id %>  </th>
+     <% end %>
+
+  </tr>
+</table>

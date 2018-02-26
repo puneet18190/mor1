@@ -1,0 +1,1739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Group created</td>
+</tr>
+<!--Bus testuojamas settingu paveldimumas-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=company</td>
+	<td>ADMINO Company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=company_email</td>
+	<td>ADMINO@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=version</td>
+	<td>ADMINO MOR X5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=admin_browser_title</td>
+	<td>ADMINO MOR X5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frontpage_text</td>
+	<td>ADMINO Front Page Text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_page_text</td>
+	<td>ADMINO Login Page Text</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<!--Sukuriamas partneris-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>partner1Sa1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_usertype</td>
+	<td>label=partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Partner</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ADMINO Login Page Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Successfully logged in</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hello</td>
+	<td>Hello, Test Partner <br /> <br /> ADMINO Front Page Text</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ADMINO MOR X5 by</td>
+	<td></td>
+</tr>
+<!--Testuojamas Personal details-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(@href, '/billing/users/personal_details')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table.simple &gt; tbody &gt; tr &gt; td</td>
+	<td>exact:Username:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td/table/tbody/tr[2]/td</td>
+	<td>exact:Password:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance</td>
+	<td>0.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[6]/td</td>
+	<td>Default Currency:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[7]/td</td>
+	<td>Time Zone:</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=warning_email_active</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_warning_email_balance</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_warning_email_hour_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_last_name</td>
+	<td>Partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=company_personal_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=agreement_number</td>
+	<td>0000000004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=user[taxation_country]</td>
+	<td>Afghanistan Albania Algeria American Samoa Andorra Angola Anguilla Antarctica Antigua And Barbuda Argentina Armenia Aruba Ascension Island Australia Austria Azerbaijan Bahamas Bahrain Bangladesh Barbados Belarus Belgium Belize Benin Bermuda Bhutan Bolivia Bosnia And Herzegovina Botswana Brazil Brunei Darussalam Bulgaria Burkina Faso Burundi Cambodia Cameroon Canada Cape Verde Cayman Islands Central African Republ Chad Chile China Christmas Island Cocos (Keeling) Island Colombia Comoros Congo Congo, The Democratic Cook Islands Costa Rica Croatia Cuba Cyprus Czech Republic Denmark Diego Garcia Djibouti Dominica Dominican Republic East Timor Ecuador Egypt El Salvador Ellipso-3 Emsat Equatorial Guinea Eritrea Estonia Ethiopia Falkland Islands (Malv Faroe Islands Fiji Finland France French Guiana French Polynesia Gabon Gambia Georgia Germany Ghana Gibraltar Globalstar Greece Greenland Grenada Guadeloupe Guam Guatemala Guinea Guinea-Bissau Guyana Haiti Honduras Hong Kong Hungary Iceland India Indonesia Inmarsat Iran Iraq Ireland Iridium Israel Italy Ivory Cost Jamaica Japan Jordan Kazakhstan Kenya Kiribati Korea, Democratic Peop Korea, Republic of Kosovo Kuwait Kyrgyzstan Laos Latvia Lebanon Lesotho Liberia Libyan Arab Jamahiriya Liechtenstein Lithuania Luxembourg Macao Macedonia Madagascar Malawi Malaysia Maldives Mali Malta Marshall islands Martinique Mauritania Mauritius Mayotte Mexico Micronesia Moldova Monaco Mongolia Montenegro Montserrat Morocco Mozambique Myanmar Namibia Nauru Nepal Netherlands Netherlands Antilles New Caledonia New Zealand Nicaragua Niger Nigeria Niue Norfolk Island Northern Mariana Islan Norway Oman Pakistan Palau Palestine Panama Papua New Guinea Paraguay Peru Philippines Poland Portugal Puerto Rico Qatar Reunion Romania Russian Federation Rwanda Saint Helena Saint Kitts And Nevis Saint Lucia Saint Pierre And Mique Saint Vincent And The Samoa San Marino Sao Tome And Principe Saudi Arabia Senegal Serbia and Montenegro Seychelles Sierra Leone Singapore Slovakia Slovenia Solomon Islands Somalia South Africa South Sudan Spain Sri Lanka Sudan Suriname Swaziland Sweden Switzerland Syrian Arab Republic Taiwan Tajikistan Tanzania Thailand Thuraya Togo Tokelau Tonga Trinidad And Tobago Tunisia Turkey Turkmenistan Turks And Caicos Islan Tuvalu Uganda Ukraine United Arab Emirates United Kingdom United States Uruguay Uzbekistan Vanuatu Vatican City Venezuela Vietnam Virgin Islands, Britis Virgin Islands, U.S. Wallis And Futuna Yemen Zambia Zimbabwe</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_vat_number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[9]/td/b</td>
+	<td>Registration Address</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_postcode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_city</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_county</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_state</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_phone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_mob_phone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_fax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=address_email</td>
+	<td></td>
+</tr>
+<!--editinam-->
+<tr>
+	<td>click</td>
+	<td>id=warning_email_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_warning_email_balance</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_warning_email_hour_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Partneris melynas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Pilkas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_clientid</td>
+	<td>ssssss</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_address</td>
+	<td>ddddd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_postcode</td>
+	<td>ffff</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_city</td>
+	<td>ggg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_county</td>
+	<td>hhhh</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_state</td>
+	<td>jjjj</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_phone</td>
+	<td>kkk</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=address[direction_id]</td>
+	<td>label=Algeria</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_mob_phone</td>
+	<td>llll</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_fax</td>
+	<td>';;''</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_email</td>
+	<td>iiiiittt@ffff.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Personal details changed</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/6001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Password must be longer than 7 characters</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_email</td>
+	<td>ttt</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please enter correct email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Partner</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Personal details changed</td>
+</tr>
+<!--Sukuriamas tarifas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>test tariffas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate1</td>
+	<td>0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_0</td>
+	<td>on</td>
+</tr>
+<!--Settingai (paveldimi is Admin)-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=company</td>
+	<td>ADMINO Company</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=company_email</td>
+	<td>ADMINO@gmail.com</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=version</td>
+	<td>ADMINO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=version</td>
+	<td>ADMINO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=admin_browser_title</td>
+	<td>ADMINO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=frontpage_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=login_page_text</td>
+	<td></td>
+</tr>
+<!--+ Invoices tab-->
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_number_start</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_number_length</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_number_type_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_number_type_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=invoice_period_start_day</td>
+	<td>01</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_show_calls_in_detailed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_show_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_short_file_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_address_format_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_address_format_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_end_title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_page_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_additional_details_on_separate_page_check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_additional_details_on_separate_page_details</td>
+	<td></td>
+</tr>
+<!--+ Various tab-->
+<tr>
+	<td>assertValue</td>
+	<td>id=csv_separator</td>
+	<td>,</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=csv_decimal</td>
+	<td>.</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_rates_without_tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_advanced_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=date_format</td>
+	<td>Y-m-d H:M:S</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=disallow_prepaid_user_balance_drop_below_zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=logout_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_only_main_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_forgot_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_device_and_cid_in_last_calls</td>
+	<td></td>
+</tr>
+<!------------------->
+<tr>
+	<td>type</td>
+	<td>id=company</td>
+	<td>PARTNERIO Company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=company_email</td>
+	<td>PARTNERIO@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=version</td>
+	<td>PARTNERIO MOR X5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=admin_browser_title</td>
+	<td>PARTNERIO MOR X5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=frontpage_text</td>
+	<td>PARTNERIO Front Page Text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_page_text</td>
+	<td>PARTNERIO Login Information</td>
+</tr>
+<!--+ Invoices tab-->
+<tr>
+	<td>type</td>
+	<td>id=invoice_number_start</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_number_length</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=invoice_number_type_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=invoice_period_start_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=invoice_show_calls_in_detailed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=invoice_show_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=invoice_short_file_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=invoice_address_format_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_address1</td>
+	<td>test adress1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_address2</td>
+	<td>test adress2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_address3</td>
+	<td>test adress3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_address4</td>
+	<td>test adress4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line1</td>
+	<td>test bank1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line2</td>
+	<td>test bank2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line3</td>
+	<td>test bank3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line4</td>
+	<td>test bank4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line5</td>
+	<td>test bank5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line6</td>
+	<td>test bank6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line7</td>
+	<td>test bank7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_bank_details_line8</td>
+	<td>test bank8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_balance_line</td>
+	<td>test balance line</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_end_title</td>
+	<td>GG End title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_page_limit</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_additional_details_on_separate_page_check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=show_additional_details_on_separate_page_details</td>
+	<td>test additional details</td>
+</tr>
+<!--+ Various tab-->
+<tr>
+	<td>type</td>
+	<td>id=csv_separator</td>
+	<td>;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=csv_decimal</td>
+	<td>:</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_rates_without_tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_advanced_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=date_format</td>
+	<td>label=m/d/Y H:M:S</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=disallow_prepaid_user_balance_drop_below_zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=logout_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_only_main_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_forgot_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_device_and_cid_in_last_calls</td>
+	<td></td>
+</tr>
+<!------------>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=application_side_expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=company</td>
+	<td>PARTNERIO Company</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=company_email</td>
+	<td>PARTNERIO@gmail.com</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=version</td>
+	<td>PARTNERIO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=admin_browser_title</td>
+	<td>PARTNERIO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=frontpage_text</td>
+	<td>PARTNERIO Front Page Text</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=login_page_text</td>
+	<td>PARTNERIO Login Information</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView1_2 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=hide_destination_ends_gui_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=hide_destination_ends_csv_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=hide_destination_ends_pdf_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=hide_destination_ends_gui_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=hide_destination_ends_csv_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=hide_destination_ends_pdf_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_number_start</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_number_length</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_number_type_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=invoice_number_type_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=invoice_period_start_day</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=invoice_show_calls_in_detailed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=invoice_show_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=invoice_short_file_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_address_format_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=invoice_address_format_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address1</td>
+	<td>test adress1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address2</td>
+	<td>test adress2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address3</td>
+	<td>test adress3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address4</td>
+	<td>test adress4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line1</td>
+	<td>test bank1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line2</td>
+	<td>test bank2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line3</td>
+	<td>test bank3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line4</td>
+	<td>test bank4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line5</td>
+	<td>test bank5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line6</td>
+	<td>test bank6</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line7</td>
+	<td>test bank7</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line8</td>
+	<td>test bank8</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_balance_line</td>
+	<td>test balance line</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_end_title</td>
+	<td>GG End title</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_page_limit</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_additional_details_on_separate_page_check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_additional_details_on_separate_page_details</td>
+	<td>test additional details</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=csv_separator</td>
+	<td>;</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=csv_decimal</td>
+	<td>exact::</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_rates_without_tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_advanced_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=date_format</td>
+	<td>m/d/Y H:M:S</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=disallow_prepaid_user_balance_drop_below_zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=logout_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_only_main_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_forgot_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_device_and_cid_in_last_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PARTNERIO MOR X5 by</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<!--Kuriamas Partnerio Reselleris-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>user_partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>user_partner1Sa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Partners</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_4</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<!--Jungiames su Partnerio Reselleriu-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PARTNERIO Login Information</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_partner1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Successfully logged in</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hello</td>
+	<td>Hello, User Partners <br /> <br /> PARTNERIO Front Page Text</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PARTNERIO MOR X5 by</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--Settingai (paveldimi is Partner)-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/reseller_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=reseller_company</td>
+	<td>PARTNERIO Company</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=reseller_company_email</td>
+	<td>PARTNERIO@gmail.com</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=reseller_version</td>
+	<td>PARTNERIO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=reseller_admin_browser_title</td>
+	<td>PARTNERIO MOR X5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=frontpage_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=login_page_text</td>
+	<td></td>
+</tr>
+<!--Invoices tab (turi buti Reseller default)-->
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_number_start</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_number_length</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_number_type_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_number_type_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=invoice_period_start_day</td>
+	<td>01</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_show_calls_in_detailed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_show_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_short_file_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_address_format_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=invoice_address_format_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_address4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_bank_details_line8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_balance_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_end_title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_page_limit</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_additional_details_on_separate_page_check</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_additional_details_on_separate_page_details</td>
+	<td></td>
+</tr>
+<!--+ Various tab-->
+<tr>
+	<td>assertValue</td>
+	<td>id=csv_separator</td>
+	<td>;</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=csv_decimal</td>
+	<td>:</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_rates_without_tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=show_advanced_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=date_format</td>
+	<td>m/d/Y H:M:S</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=disallow_prepaid_user_balance_drop_below_zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=logout_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=logout_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_only_main_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_forgot_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_calls_stats_to_user_for_last</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=show_device_and_cid_in_last_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<!--Rates-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Personal Rates</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_detailed/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Detailed Rates</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Login Information</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>partner1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=show_rates_without_tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=show_advanced_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_partner1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_detailed/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<div align="left" class="nb">
+  <%= form_tag action: :loss_making_calls do %>
+      <table class='bordered'>
+        <tr>
+          <td>
+            <%= _('From') %>:
+          </td>
+          <td>
+            <%= select_date(Time.mktime(session[:year_from], session[:month_from], session[:day_from]), end_year: (Date.today.year + 1), prefix: 'date_from') %>
+          </td>
+          <td>
+            <%= _('Till') %>:
+          </td>
+          <td>
+            <%= select_date(Time.mktime(session[:year_till], session[:month_till], session[:day_till]), end_year: (Date.today.year + 1), prefix: 'date_till') %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= _('Reseller') %>:
+          </td>
+          <td colspan="3">
+            <%= select_tag('reseller_id', options_from_collection_for_select(@options[:select][:resellers], :id, :nicename, @options[:search][:reseller_id]), {prompt: _('All')}) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= submit_tag _('Search'), data: {disable_with: _('Processing..')} %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+</div>
+
+<br/><br/>
+
+<div id="loss_making_calls"></div>
+
+<script type="text/javascript">
+    $j(document).ready(function ($) {
+        var table_data_json = <%= raw @data[:table_rows].to_json %>;
+        var time_format = '<%= @data[:options][:time_format] %>';
+        var web_dir = '<%= Web_Dir %>';
+        var loss_making_calls_grid = $("#loss_making_calls");
+
+        var source =
+        {
+            localdata: table_data_json,
+            datatype: 'json',
+            datafields: [
+                { name: 'date', type: 'date' },
+                { name: 'called_to', type: 'string' },
+                { name: 'destination', type: 'string' },
+                { name: 'duration', type: 'int' },
+                { name: 'user_rate', type: 'float' },
+                { name: 'provider_rate', type: 'float' },
+                { name: 'difference', type: 'float' },
+                { name: 'user_price', type: 'float' },
+                { name: 'provider_price', type: 'float' },
+                { name: 'loss', type: 'float' },
+                { name: 'user_device', type: 'string' },
+                { name: 'call_id', type: 'int' }
+            ],
+            pagesize: <%= session[:items_per_page] %>
+        };
+
+        var dataadapter = new $.jqx.dataAdapter(source);
+
+        var cellsrenderer_time = function (row, column, value) {
+            return '<div style="text-align: center; margin-top: 3.5px;">' + nice_billsec(value, time_format) + '</div>';
+        };
+
+        data_cache = {debuginfo: {}};
+        var cellsrenderer_calldebuginfo = function (row, column, value) {
+            return '<div style="text-align: center; margin-top: 3.5px;">' + call_debug_info_tooltip(value, web_dir, data_cache) + '</div>';
+        };
+
+
+        var float_digits = 'f<%= @data[:options][:number_digits] %>';
+        var datetime_format = '<%= "#{@data[:options][:date_format]} HH:mm:ss" %>';
+
+        var getLocalization = function () {
+            var localizationobj = {};
+            localizationobj.decimalseparator = '<%= @data[:options][:number_decimal] %>';
+            localizationobj.thousandsseparator = '';
+            localizationobj.emptydatastring = '<%= _('you_have_no_calls') %>';
+            return localizationobj;
+        };
+
+        loss_making_calls_grid.jqxGrid(
+                {
+                    source: dataadapter,
+                    width: '100%',
+                    autoheight: true,
+                    rowsheight: 22,
+                    altrows: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    handlekeyboardnavigation: function (event) {
+                        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                        if (key == 86 && event.ctrlKey == true) {
+                            return true;
+                        }
+                    },
+                    showaggregates: true,
+                    showstatusbar: true,
+                    statusbarheight: 22,
+                    sortable: true,
+                    pageable: true,
+                    pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+                    localization: getLocalization(),
+                    columns: [
+                        { text: "<%= _('Date') %>", datafield: 'date', align: 'center', cellsalign: 'center', cellsformat: datetime_format,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                            }
+                        },
+                        { text: "<%= _('called_to') %>", datafield: 'called_to', align: 'left', cellsalign: 'left' },
+                        { text: "<%= _('Destination') %>", datafield: 'destination', align: 'left', cellsalign: 'left' },
+                        { text: "<%= _('Duration') %>", datafield: 'duration', align: 'center', cellsrenderer: cellsrenderer_time,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:duration] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('User_rate') %>", datafield: 'user_rate', cellsformat: float_digits, align: 'right', cellsalign: 'right' },
+                        { text: "<%= _('Provider_rate') %>", datafield: 'provider_rate', cellsformat: float_digits, align: 'right', cellsalign: 'right' },
+                        { text: "<%= _('Difference') %>", datafield: 'difference', cellsformat: float_digits, align: 'right', cellsalign: 'right' },
+                        { text: "<%= _('User_price') %>", datafield: 'user_price', cellsformat: float_digits, align: 'right', cellsalign: 'right' },
+                        { text: "<%= _('Provider_price') %>", datafield: 'provider_price', cellsformat: float_digits, align: 'right', cellsalign: 'right' },
+                        { text: "<%= _('Loss') %>", datafield: 'loss', cellsformat: float_digits, align: 'right', cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:loss] %></b></div>';
+                            }
+                        },
+                        { text: "<%= "#{_('User')} - #{_('Device')}" %>", datafield: 'user_device', align: 'right', cellsalign: 'right' },
+                        { text: " ", datafield: 'call_id', cellsrenderer: cellsrenderer_calldebuginfo, sortable: false }
+                    ]
+                });
+
+        if (<%= !can_see_finances? %>) {
+            $.each(
+                    ['user_rate', 'provider_rate', 'difference', 'user_price', 'provider_price', 'loss'],
+                    function(index, value) {
+                        loss_making_calls_grid.jqxGrid('hidecolumn', value);
+                    }
+            );
+        }
+
+        if (<%= !admin? %>) {
+            loss_making_calls_grid.jqxGrid('hidecolumn', 'call_id');
+        }
+
+        fix_column_width('loss_making_calls');
+        loss_making_calls_grid.jqxGrid('sortby', 'date', 'desc');
+
+
+        document.getElementById("pagerloss_making_calls").style.zIndex = '23';
+    });
+</script>

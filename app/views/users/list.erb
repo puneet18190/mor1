@@ -1,0 +1,203 @@
+<% if reseller? %>
+  <%= raw b_info + _('reseller_users_restriction') if current_user.own_providers == 0 && !reseller_active? %>
+  <%= raw b_info + _('reseller_users_restriction') if current_user.own_providers == 1 && !reseller_pro_active? %>
+  <br/><br/>
+<% end %>
+
+<%= form_tag action: :list do %>
+  <table id="search_details" class="bordered">
+    <tr>
+      <td>
+        <table class="simple">
+
+          <tr>
+            <td><%= _('Username') %>:</td>
+            <td>
+              <%= render 'shared/live_search_field',
+                         object: @options[:s_username],
+                         object_name: 'Username',
+                         style: {
+                             class: 'input',
+                             css: 'width:130px;'
+                         },
+                         action_url: {
+                             controller: :users,
+                             action: :get_users_map,
+                             options: {
+                                 show_usernames: true,
+                                 responsible_accountant_id:  accountant? && current_user.show_only_assigned_users == 1 ? current_user_id : nil,
+                             }
+                         }
+              %>
+            </td>
+            <td><%= _('Agreement_number') %>:</td>
+            <td><%= text_field_tag 's_agr_number', @options[:s_agr_number], class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+            <td><%= _('User_ID') %>:</td>
+            <td><%= text_field_tag 's_id', @search_id, class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+            <td align="right">
+            <% if @search == 1 %>
+              <%= link_to b_cross + _('Clear_search'), action: :list, clean: 1 %>
+            <% end %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><%= _('first_name') %>:</td>
+            <td><%= text_field_tag 's_first_name', @options[:s_first_name], class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+            <td><%= _('Accounting_number') %>:</td>
+            <td><%= text_field_tag 's_acc_number', @options[:s_acc_number], class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+            <td><%= _('Email') %>:</td>
+            <td colspan="2"><%= text_field_tag 's_email', @options[:s_email], class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+          </tr>
+
+          <tr>
+            <td><%= _('last_name') %>:</td>
+            <td><%= text_field_tag 's_last_name', @options[:s_last_name], class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+            <td><%= _('Company_Personal_ID') %>:</td>
+            <td><%= text_field_tag 's_clientid', @options[:s_clientid], class: 'input', style: 'width: 130px', maxlength: 30 %></td>
+            <% unless partner? %>
+              <td><%= _('Subscriptions') %>:</td>
+              <td>
+                <select name="sub_s" style="width: 133px">
+                  <option value="-1" <%= 'selected' if @options[:sub_s].to_i == -1 %>><%= _('All') %></option>
+                  <option value="0" <%= 'selected' if @options[:sub_s].to_i == 0 %>><%= _('Without_subscriptions') %></option>
+                  <option value="1" <%= 'selected' if @options[:sub_s].to_i == 1 %>><%= _('With_subscriptions') %></option>
+                </select>
+              </td>
+            <% else %>
+              <td colspan="2"></td>
+            <% end %>
+            <td></td>
+          </tr>
+
+          <tr>
+            <% if admin? || accountant? %>
+              <td><%= _('User_Type') %>:</td>
+              <td>
+                <select id="user_type" name="user_type" style="width: 133px">
+                  <option value="-1" <%= 'selected' if @options[:user_type].to_i == -1 %>><%= _('All') %></option>
+                  <% @roles.each do |type| %>
+                    <option value="<%= type.name %>" <%= 'selected' if @options[:user_type].to_s == type.name %>><%= type.name %></option>
+                  <% end %>
+                </select>
+              </td>
+            <% else %>
+              <td colspan="2"></td>
+            <% end %>
+            <% if admin? || (accountant? && current_user.show_only_assigned_users != 1) %>
+              <td>
+                <%= _('Responsible_accountant') %>:
+              </td>
+              <td>
+                <% rai_selected_id = @options[:responsible_accountant_id] || '-1' %>
+                <%= select_tag('responsible_accountant_id', options_for_select([[_('All'), '-1']] + @responsible_accountants.map { |accountant| [nice_user(accountant), accountant.id] }, rai_selected_id), style: 'width: 133px') %>
+              </td>
+            <% else %>
+              <td colspan="2"></td>
+            <% end %>
+            <td colspan="3"></td>
+          </tr>
+
+          <tr>
+            <td colspan="7" height="10px"></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %></td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+<br/>
+<table width="100%">
+  <tr>
+    <td>
+      <% if current_user.present? && !(accountant? && (session[:acc_user_create].to_i == 0 || session[:acc_user_create].to_i == 1)) %>
+        <%= link_to b_add + _('Add_new_user'), action: :new if allow_add_rs_user? %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<br/>
+
+<%= page_select_header(@options[:page], @total_pages, nil, @options) %>
+
+<div align="center">
+  <table width="100%" class="maintable">
+    <tr>
+      <th align="left"><%= nice_list_order('acc', _('ID'), @options) %></th>
+      <th align="left"><%= nice_list_order('user', _('User'), @options) %></th>
+      <th align="left"><%= nice_list_order('username', _('Username'), @options) %></th>
+      <% if ['admin', 'accountant', 'partner'].include?(session[:usertype]) %>
+        <th align="left"><%= nice_list_order('usertype', _('User_Type'), @options) %></th>
+      <% end %>
+      <th align="left"><%= nice_list_order('account_type', _('Account_type'), @options) %></th>
+      <% if !accountant? %>
+        <th align="left"><%= nice_list_order('tariff_name', _('Tariff'), @options) %></th>
+      <% end %>
+      <% if can_see_finances? %>
+        <th align="right"><%= nice_list_order('balance', _('Balance'), @options) %>
+          (<%= current_user.currency.try(:name) %>)
+        </th>
+      <% end %>
+      <th align="center"></th>
+      <% if admin? %>
+        <th align="center"></th>
+      <% end %>
+      <th colspan="13"></th>
+    </tr>
+    <% if @users.present? %>
+      <% @users.each_with_index { |user, i| %>
+        <% text_class = user.blocked.to_i == 0 ? 'n' : 'n_disabled' %>
+        <tr class="row<%= (i % 2 + 1).to_s %>">
+          <td id="name_<%= user.id %>" align="left" class="<%= text_class %>"><%= h user.id %> </td>
+          <td id="user_link_<%= user.id %>" align="left" class="<%= text_class %>"<%= nice_user_tooltip(user) %>><%= @allow_edit ? link_nice_user(user) : nice_user(user) %></td>
+          <td id="username_<%= user.id %>" align="left" class="<%= text_class %>"><%= h user.username %></td>
+          <% if current_user.present? && ['admin', 'accountant', 'partner'].include?(current_user.usertype) %>
+            <td id="usetype_<%= user.id %>" align="left" class="<%= text_class %>" <%= tooltip(_('Accountant_group'), user.acc_group_name) if user.usertype == 'accountant' && !user.acc_group_name.blank? && admin? %><%= tooltip(_('Reseller_Group'), user.acc_group_name) if user.usertype == 'reseller' && !user.acc_group_name.blank? && admin? %>><%= h user.usertype %><%= (" (" + user.acc_group_name.to_s + ")") if !user.acc_group_name.blank? && ['accountant', 'reseller'].include?(user.usertype) %></td>
+          <% end %>
+          <td id="postpaid_<%= user.id %>" align="left" class="<%= text_class %>">
+          <% unless user.usertype == 'accountant' %>
+            <%= user.postpaid == 1 ? _('Postpaid') : _('Prepaid') %>
+          <% end %>
+          </td>
+          <% if !accountant? %>
+            <td id="tariff_<%= user.id %>" align="left" class="<%= text_class %>">
+            <% unless user.usertype == 'accountant' || user.own_providers == 1 %>
+              <%= link_to user.tariff_name.to_s, controller: :tariffs, action: :rates_list, id: user.tariff.try(:id).to_s %>
+            <% end %>
+            </td>
+          <% end %>
+          <% if can_see_finances? %>
+            <td id="balance_<%= user.id %>" align="right" class="<%= text_class %>">
+              <%= nice_number_n_digits(user.balance, Confline.get_value('nice_number_digits').to_i) unless user.usertype == 'accountant' %>
+            </td>
+          <% end %>
+          <%= render '/layouts/user_buttons', user: user %>
+        </tr>
+      <% } %>
+    <% end %>
+  </table>
+</div>
+<br/>
+
+<%= page_select_header(@options[:page], @total_pages, nil, @options) %>
+
+<script type="text/javascript">
+  Event.observe(window, 'load',  function() {
+    $('user_type').disabled = ($('responsible_accountant_id').value != '-1');
+    $('responsible_accountant_id').disabled = ($('user_type').value != 'user' && $('user_type').value != 'reseller' && $('user_type').value != '-1');
+
+    Event.observe($('responsible_accountant_id'), 'change', function() {
+      $('user_type').disabled = ($('responsible_accountant_id').value != '-1');
+    });
+
+    Event.observe($('user_type'), 'change', function() {
+      $('responsible_accountant_id').disabled = ($('user_type').value != 'user' && $('user_type').value != 'reseller' && $('user_type').value != '-1');
+    });
+  });
+</script>

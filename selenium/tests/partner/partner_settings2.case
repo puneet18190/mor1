@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>partner_settings2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">partner_settings2</td></tr>
+</thead><tbody>
+<!--Partner's settings Tax tab-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Group created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView1_1 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_compound</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_2_active</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_3_active</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_4_active</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_1_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_2_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_3_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_4_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Apply to all Users</td>
+	<td>Apply to all Users</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>test_tariff</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>partner_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>partner_reseller1Sa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Partner's</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>TAX</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>TAX</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView1_1 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=total_tax_name</td>
+	<td>total tax</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax_compound</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_1</td>
+	<td>tax1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_2</td>
+	<td>tax2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_3</td>
+	<td>tax3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_4</td>
+	<td>tax4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax_4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax_2_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax_3_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax_4_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView1_1 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>total tax</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_compound</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_1</td>
+	<td>tax1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_2</td>
+	<td>tax2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_3</td>
+	<td>tax3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_4</td>
+	<td>tax4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_2_active</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_3_active</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax_4_active</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>TAX</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>TAX</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Apply to all Users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Taxes set</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>tax1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>tax2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>tax3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>tax4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>tax1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>tax2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>tax3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>tax4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner_reseller1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>test_tariff</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/default_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>tax1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>tax2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>tax3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>tax4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Default User saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>tax1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>tax2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>tax3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>tax4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+</tbody></table>
+</body>
+</html>

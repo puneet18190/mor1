@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/65290/mor/gui/branches/x8/selenium/tests/permissions
+END
+simple_user_permissions3.case
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/63747/mor/gui/branches/x8/selenium/tests/permissions/simple_user_permissions3.case
+END
+permissions_reseller.case
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/permissions/permissions_reseller.case
+END
+permissions_user.case
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/permissions/permissions_user.case
+END
+permissions_accountant.case
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/65290/mor/gui/branches/x8/selenium/tests/permissions/permissions_accountant.case
+END
+permissions_reseller2.case
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/63631/mor/gui/branches/x8/selenium/tests/permissions/permissions_reseller2.case
+END
+permissions_reseller3.case
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/63632/mor/gui/branches/x8/selenium/tests/permissions/permissions_reseller3.case
+END
+permissions_user2.case
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/63132/mor/gui/branches/x8/selenium/tests/permissions/permissions_user2.case
+END
+permissions_accountant2.case
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/63132/mor/gui/branches/x8/selenium/tests/permissions/permissions_accountant2.case
+END
+permissions_rspro.case
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/permissions/permissions_rspro.case
+END
+check_links_for_user.case
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/permissions/check_links_for_user.case
+END
+permissions_rspro2.case
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/63631/mor/gui/branches/x8/selenium/tests/permissions/permissions_rspro2.case
+END
+permissions_rspro3.case
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/63631/mor/gui/branches/x8/selenium/tests/permissions/permissions_rspro3.case
+END
+simple_user_permissions1.case
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/permissions/simple_user_permissions1.case
+END
+simple_user_permissions2.case
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/permissions/simple_user_permissions2.case
+END

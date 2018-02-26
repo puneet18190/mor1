@@ -1,0 +1,38 @@
+<table width="100%">
+  <tr>
+    <td align="left">
+      <div class="nb"><%= link_to b_edit + _('Bulk_management'), action: 'bulk_management' %></div>
+      <br/>
+    </td>
+  </tr>
+</table>
+<%= b_info %> <%= _('Value_in_system_time_zone') %>: <%= nice_system_time_string %>
+<br>
+<% if @total_pages > 1 %>
+    <br/>
+    <%= page_select_header(@page, @total_pages, @options) %>
+<% end %>
+<br/>
+<table class="maintable" width="60%">
+  <tr>
+    <th align="left"><%= raw nice_list_order('file_name', _('File_name'), @options) %></th>
+    <th align="center"><%= _('Download') %></th>
+    <th align="center"></th>
+  </tr>
+  <% i = 0 %>
+  <% if @files && @files.count > 0 %>
+	  <% @files.each { |file| %>
+	    <tr class="row<%= (i % 2 + 1).to_s %>">
+	    	<td id="name_<%= file %>" align="left"><%= file %></td>
+	    	<td id="download_<%= file %>" align="center"><%= link_to b_download, {action: 'archived_calls_download', name: file}%></td>
+	    	<td id="destroy_<%= file %>" align="center"><%= link_to b_delete, {action: 'archived_calls_delete', name: file}, {data: {confirm: _('are_you_sure')}, method: :post} %></td>
+	    </tr>
+	    <% i+=1 %>
+	  <% } %>
+  <% end %>
+</table>
+<br/>
+<% if @total_pages > 1 %>
+    <br/>
+    <%= page_select_header(@page, @total_pages) %>
+<% end %>

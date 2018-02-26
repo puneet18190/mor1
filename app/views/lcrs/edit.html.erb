@@ -1,0 +1,9 @@
+<%= form_tag(:action => 'update', :id => @lcr) do %>
+    <%= render 'form', lcr: @lcr, options: @options, months_for_select: @months_for_select, weekdays_for_select: @weekdays_for_select, lcrs_for_select: @lcrs_for_select %>
+    <br/>
+    <% if (accountant? && session[:acc_manage_lcr].to_i == 2) || admin? || reseller? %>
+    	<%= submit_tag _('Save_changes'), data: { disable_with: _('Processing..') } %>
+    <% end %>
+<% end %>
+
+<br/><br/>

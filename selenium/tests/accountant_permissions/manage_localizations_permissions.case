@@ -1,0 +1,1661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/clear_rails_cache</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/main</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_manage_locations</td>
+	<td>Manage Locations</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_locations_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_locations_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=manage_locations_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_locations_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--# Manage Locations permission: Write-->
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Localization')]</td>
+	<td>Localization</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rule_1</td>
+	<td>(1)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=view_1</td>
+	<td>(7)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Loc1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Loc2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rule_1</td>
+	<td>(1)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=view_1</td>
+	<td>(7)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rule_2</td>
+	<td>(0)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=view_2</td>
+	<td>(0)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rule_3</td>
+	<td>(0)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=view_3</td>
+	<td>(0)</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#delete_link_3 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#user_list &gt; tbody</td>
+	<td>System AdminTest ResellerTest User #1User Resellers</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cut</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#user_list &gt; tbody</td>
+	<td>System AdminTest ResellerTest User #1User Resellers</td>
+</tr>
+<!--assert device-->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Rul1</td>
+</tr>
+<!--stripinimas-->
+<tr>
+	<td>type</td>
+	<td>cut</td>
+	<td>8 65</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>98 6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rule added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cut_3</td>
+	<td>865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=add_3</td>
+	<td>986</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/3</td>
+	<td></td>
+</tr>
+<!--stripinimas-->
+<tr>
+	<td>type</td>
+	<td>cut</td>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>add</td>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;93&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=Test Tariff + 0.1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cut_3</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=add_3</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/2</td>
+	<td></td>
+</tr>
+<!--duplicate add-->
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>Rul1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cut</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minlen</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxlen</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=Test Tariff + 0.1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule must be unique</td>
+	<td></td>
+</tr>
+<!---------->
+<tr>
+	<td>assertText</td>
+	<td>id=name_3</td>
+	<td>Rul1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cut_3</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=add_3</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=minlen_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=maxlen_3</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_3</td>
+	<td>Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_3</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>enable_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>enable_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>enable_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='edit_3']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cut</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>add</td>
+	<td>86</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minlen</td>
+	<td>9340</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxlen</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=Test Tariff + 0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Change Call's owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//th[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Change Call's owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>//th[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>Nice_name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cut</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minlen</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxlen</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_livesearch</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=device_id_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=device_id_2</td>
+	<td>label=IAX2/101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule added</td>
+	<td></td>
+</tr>
+<!----------------->
+<!--dup edit-->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>Nice_name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cut</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minlen</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxlen</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_livesearch</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='3'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule must be unique</td>
+	<td></td>
+</tr>
+<!------------------->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_add?lr_type=dst</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cut and Add cannot be empty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cut</td>
+	<td>5678</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minlen</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxlen</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=Test Tariff + 0.1</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=device_id_2</td>
+	<td>label=IAX2/1002</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=owner_5</td>
+	<td>IAX2/1002</td>
+</tr>
+<!--Devices-->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_devices/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=select_location_id_2</td>
+	<td>label=Loc1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device location changed and moved to another group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=select_location_id_3</td>
+	<td>label=Loc2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device location changed and moved to another group</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_device</td>
+	<td>label=IAX2/101</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>aaaaaaa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>aaaaaaa2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>aaaaaaa3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>aaaaaaa4</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>aaaaaaa5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_devices/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=select_location_id_6</td>
+	<td>label=aaaaaaa2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device location changed and moved to another group</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_destroy/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#delete_link_2 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='delete_link_4']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Location deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_device</td>
+	<td>label=Select device</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User has no Device, CDR import is not possible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User has no Device, CDR import is not possible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=device_id_2</td>
+	<td>IAX2/101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=owner_5</td>
+	<td>IAX2/101</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>10000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User has no Device, CDR import is not possible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rule updated</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User has no Device, CDR import is not possible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotText</td>
+	<td>id=owner_5</td>
+	<td>SIP/1008</td>
+</tr>
+<!--# Manage Locations permission: Read-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_locations_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Localization')]</td>
+	<td>Localization</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rule_1</td>
+	<td>(3)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=view_1</td>
+	<td>(4)</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#delete_link_3 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=cut</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=add_location_rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#user_list &gt; tbody</td>
+	<td>System AdminTest ResellerTest User #1User Resellers</td>
+</tr>
+<!--assert device-->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>enable_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>enable_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Rule disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//a[@id='edit_3']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Change Call's owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Change Call's owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>Nice_name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cut</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minlen</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxlen</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_livesearch</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='3'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<!------------------->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_add?lr_type=dst</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<!--Devices-->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_devices/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=select_location_id_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=submit_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff</td>
+	<td>label=</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rule_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>10000</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User has no Device, CDR import is not possible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User has no Device, CDR import is not possible</td>
+	<td></td>
+</tr>
+<!--# Manage Locations permission: Disabled-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_locations_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_devices/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+</tbody></table>
+</body>
+</html>

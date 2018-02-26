@@ -1,0 +1,1952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/rates/destinations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=items_per_page</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/sms_tariff_for_providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/sms_tariff_for_users</td>
+	<td></td>
+</tr>
+<!--migracija-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/migrate_sms_tariffs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Task completed. Number of SMS Tariffs migrated: 2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>2</td>
+	<td>467</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>6</td>
+	<td>457</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>3</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>15</td>
+	<td>34</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>18</td>
+	<td>223</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>24</td>
+	<td>65</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>20</td>
+	<td>67</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>56</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>16711</td>
+	<td>457</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=2&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>90</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>107</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>16723</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>136</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=2&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>173</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=3&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>235</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>188</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>227</td>
+	<td>34</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=4&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>148</td>
+	<td>46</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>293</td>
+	<td>345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_505</td>
+	<td>Afghanistan Cdma</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_512</td>
+	<td>Antigua &amp; Barbuda mobile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_517</td>
+	<td>Australia mobile</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=O</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>7053</td>
+	<td>df</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>7055</td>
+	<td>xcvb</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>7058</td>
+	<td>346</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>17745</td>
+	<td>$#%^</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>17749</td>
+	<td>@#EWDSFR^665</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_523</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_524</td>
+	<td>346.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_527</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_526</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_525</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/6?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>7</td>
+	<td>345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>24</td>
+	<td>345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>19991</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>50</td>
+	<td>234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>68</td>
+	<td>sdgsr</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>74</td>
+	<td>aet4t</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=1&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>84</td>
+	<td>e65erdf</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=2&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>16719</td>
+	<td>@!$#3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>11356</td>
+	<td>*&amp;^%$3432erd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>125</td>
+	<td>435</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>170</td>
+	<td>34</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=3&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>11367</td>
+	<td>345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>187</td>
+	<td>342</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?page=4&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>152</td>
+	<td>234df</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>16730</td>
+	<td>fdxb</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_522</td>
+	<td>345.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_542</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_537</td>
+	<td>435.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_536</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_534</td>
+	<td>0.0000</td>
+</tr>
+<!--sql-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/6?st=U&amp;page=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111115</td>
+	<td>6864795#$#%5548756765964455865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111111</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111113</td>
+	<td>68647956445554875676596440895865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111116</td>
+	<td>68647956445554875676596443545865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111112</td>
+	<td>68647956445554875667886445865865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111122114</td>
+	<td>686479564455548756ghjd64486865</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111115</td>
+	<td>546</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111112</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111113</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111116</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111111</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111122114</td>
+	<td>6.585743453645734623452534564565675676</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_543</td>
+	<td>546.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_544</td>
+	<td>456.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_545</td>
+	<td>456.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_546</td>
+	<td>23.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_547</td>
+	<td>6.5857</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_548</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=U&amp;page=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111115</td>
+	<td>6864795#$#%5548756765964455865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111111</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111113</td>
+	<td>68647956445554875676596440895865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111116</td>
+	<td>68647956445554875676596443545865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111112</td>
+	<td>68647956445554875667886445865865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111122114</td>
+	<td>686479564455548756ghjd64486865</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111115</td>
+	<td>546</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111112</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111113</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111116</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111111</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111122114</td>
+	<td>658574345.3645734623452534564565675676</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_549</td>
+	<td>546.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_550</td>
+	<td>456.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_551</td>
+	<td>456.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_552</td>
+	<td>23.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_553</td>
+	<td>658574345.3646</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_554</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/1?st=U&amp;page=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111115</td>
+	<td>6864795#$#%5548756765964455865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111111</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111112</td>
+	<td>68647956445554875667886445865865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111113</td>
+	<td>68647956445554875676596440895865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111116</td>
+	<td>68647956445554875676596443545865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111122114</td>
+	<td>686479564455548756ghjd64486865</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111115</td>
+	<td>546</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111112</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111113</td>
+	<td>456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111116</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111111</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111122114</td>
+	<td>65.85743453645734623452534564565675676</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per kūrimui skirtą psl-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>560</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>560</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>111111111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>448</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/555</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>rate_555</td>
+	<td>546.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/559</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_559</td>
+	<td>65.8574</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/560</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>rate_560</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/4?st=U</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>rate448</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>rate449</td>
+	<td>547868</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='commit' and @value='Update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@alt='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[@id='delete_rate_link_562']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/2?page=11&amp;st=U</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111115</td>
+	<td>6864795#$#%5548756765964455865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111111</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111112</td>
+	<td>68647956445554875667886445865865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111113</td>
+	<td>68647956445554875676596440895865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111111116</td>
+	<td>68647956445554875676596443545865</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix1_111122114</td>
+	<td>686479564455548756ghjd64486865</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111115</td>
+	<td>vn v</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111112</td>
+	<td>3465</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111113</td>
+	<td>34</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111116</td>
+	<td>@#$%&amp;^</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111122114</td>
+	<td>fgvhk</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>111111111</td>
+	<td>354567234568776.5123456787654321234578789876523456</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<!--patikrinama, jog užpildomas prefix, name wholesale tarife ir destinationgroup , kuriant per kūrimui skirtą psl-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>563</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>563</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>111111115</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>448</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>6864795#$#%5548756765964455865</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/563</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_561</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/568</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>99999999999999999999999999999999999999999999999999</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_566</td>
+	<td>354567234568776.5000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/565</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>rate_563</td>
+	<td>34.0000</td>
+</tr>
+<!--rates lentai pridėti du nauji stulpeliai name ir prefix-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.1</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.0</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.1</td>
+	<td>213</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.0</td>
+	<td>Algeria proper</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.15.1</td>
+	<td>994</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.15.0</td>
+	<td>Azerbaijan proper</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1?st=M</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.1</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.0</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>853</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>Macau proper</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.13.1</td>
+	<td>230</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.13.0</td>
+	<td>Mauritius proper</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.23.1</td>
+	<td>95</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.23.0</td>
+	<td>Myanmar proper</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1?st=Z</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.1</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.0</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>260</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>Zambia proper</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.1</td>
+	<td>263</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>Zimbabwe proper</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per quick add-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#destroy_img_1 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate successfully deleted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Afghanistan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_month</td>
+	<td>label=March</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_day</td>
+	<td>label=20</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_hour</td>
+	<td>label=17</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_minute</td>
+	<td>label=20</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=effective_from_569</td>
+	<td>2014-03-20 17:20:00</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>569</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>569</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>93</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per quick add-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate successfully deleted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Afghanistan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_month</td>
+	<td>label=March</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_day</td>
+	<td>label=9</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_hour</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_minute</td>
+	<td>label=30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=effective_from_570</td>
+	<td>2014-03-09 10:30:00</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>570</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>570</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>93</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per add new rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Armenia</td>
+	<td>Armenia</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Argentina</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_111</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>571</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>571</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>54261</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per add new rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Austria</td>
+	<td>Austria</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Austria</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_283</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>572</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>572</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>283</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>4370</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1?st=M</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#destroy_img_158 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate successfully deleted</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>222333555</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>37</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Monaco</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=connection_fee</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ghost_percent</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_573</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_573</td>
+	<td>Monaco proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_573</td>
+	<td>50.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_573</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/571</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Monaco 377</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_rate</td>
+	<td>9.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>2.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>7.59789</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>1.25359</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Monaco 377</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_571</td>
+	<td>7.5979</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_571</td>
+	<td>1.2536</td>
+</tr>
+<!--patikrinam ar uzpildyta destinationgroup_id bei destination_id-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>573</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>6329</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>282</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_min_perc_value</td>
+	<td>50.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=effective_from_value</td>
+	<td>20??-??-?? ??:??:00*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>283</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ghost_percent_edit/1?rate_id=573</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Monaco 377</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

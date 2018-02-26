@@ -1,0 +1,7 @@
+# Bundle for partner/partner_pauments
+#
+#Partner second reseller
+user/reseller_1600101/create_two_resellers.sql
+#Reseller one users 
+user/reseller_1600101/reseller_users.sql
+# bundle loaded

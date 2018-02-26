@@ -1,0 +1,244 @@
+<table class="bordered">
+  <tr>
+    <td>
+      <%= form_tag(action: :calls_per_hour, search_pressed: true) do %>
+          <input type="hidden" name="date_from[hour]" value="00" />
+          <input type="hidden" name="date_from[minute]" value="00" />
+          <input type="hidden" name="date_till[hour]" value="23" />
+          <input type="hidden" name="date_till[minute]" value="59" />
+          <table width="500px" class="simple">
+            <tr>
+              <td align="left">
+                <%= _('From') %>:
+              </td>
+              <td nowrap="true" colspan="5">
+                <%= select_date(Time.mktime(session[:year_from], session[:month_from], session[:day_from]), end_year: (Date.today.year + 1), prefix: 'date_from') %>
+              </td>
+              <td align="right" width="20%">
+                <% if !session_date_present? || @options[:searching] %>
+                    <%= link_to b_cross + _('Clear_search'), {action: :calls_per_hour, clear: true}, {id: 'clear_search'} %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+                <%= _('Till') %>:
+              </td>
+              <td nowrap="true" colspan="6">
+                <%= select_date(Time.mktime(session[:year_till], session[:month_till], session[:day_till]), end_year: (Date.today.year + 1), prefix: 'date_till') %>
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+                <%= _('User') %>:
+              </td>
+              <td>
+                <%= render('shared/live_search_field',
+                           object: @options[:s_user].to_s,
+                           object_id: @options[:s_user_id] || -2,
+                           object_name: 'User',
+                           action_url: {controller: :users, action: :get_users_map,
+                                        options: {show_users_only: true, show_reseller_users: true,
+                                        responsible_accountant_including_owner_users: (accountant_show_assigned_users? ? current_user_id : '')}
+                           }
+                    )
+                %>
+              </td>
+              <td align="left">
+                <%= _('Terminator') %>:
+              </td>
+              <td>
+                <select name="terminator" style="width: 130px">
+                  <option value="0" <%= 'selected' if @options[:terminator].to_i == 0 %>><%= _('Any') %></option>
+                  <% @options[:terminators].try(:each) do |terminator| %>
+                      <option value="<%= terminator.id %>" <%= 'selected' if terminator.id == @options[:terminator].to_i %>>
+                        <%= terminator.name %>
+                      </option>
+                  <% end %>
+                </select>
+              </td>
+              <td colspan="3"></td>
+            </tr>
+            <tr>
+              <td align="left">
+                <%= _('Prefix') %>:
+              </td>
+              <td colspan="6">
+                <%= text_field_tag('prefix', @options[:prefix], size: 20) %>
+              </td>
+            </tr>
+            <tr>
+              <td height="10px" colspan="7"></td>
+            </tr>
+            <tr>
+              <td colspan="7">
+                <%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %>
+              </td>
+            </tr>
+          </table>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<br/><br/>
+
+<% if @options[:searching] %>
+    <% if @es_calls_per_hour[:table_rows].present? %>
+        <table class="maintable" width="100%" id="calls_per_hour">
+          <tr>
+            <th rowspan="2">
+              <table style="margin-top: 0px; width: 100%;">
+                <tr><td align="left" colspan="5"><%= _('Date') %></td></tr>
+                <tr><td align="left" colspan="5">└&nbsp;<%= _('Originator') %></td></tr>
+                <tr><td width="5px"></td><td align="left" colspan="4">└&nbsp;<%= _('Time') %></td></tr>
+                <tr><td width="5px"><td width="5px"></td></td><td align="left" colspan="3">└&nbsp;<%= _('Destination') %></td></tr>
+                <tr><td width="5px"></td><td width="5px"></td><td width="5px"></td><td align="left" colspan="2">└&nbsp;<%= _('Terminator') %></td></tr>
+              </table>
+            </th>
+            <th id='from_user_perspective' colspan="4" style="text-align: center;"><%= _('from_user_perspective') %></th>
+            <th id="from_admin_perspective" colspan="4" style="text-align: center;"><%= _('from_admin_perspective') %></th>
+            <th id='aggregates_billsec' rowspan="2" style="text-align: center;"><%= _('aggregates_billsec') %></th>
+            <th rowspan="2"></th>
+          </tr>
+          <tr>
+            <th id="user_call_attempts" style="text-align: right;"><%= _('Call_Attempts') %></th>
+            <th id="user_answered_calls" style="text-align: right;"><%= _('answered_calls') %></th>
+            <th id="user_aggregates_acd" style="text-align: center;"><%= _('aggregates_acd') %></th>
+            <th id="user_aggregates_asr" style="text-align: right;"><%= "#{_('aggregates_asr')} %" %></th>
+            <th id="admin_call_attempts" style="text-align: right;"><%= _('Call_Attempts') %></th>
+            <th id="admin_answered_calls" style="text-align: right;"><%= _('answered_calls') %></th>
+            <th id="admin_aggregates_acd" style="text-align: center;"><%= _('aggregates_acd') %></th>
+            <th id="admin_aggregates_asr" style="text-align: right;"><%= "#{_('aggregates_asr')} %" %></th>
+          </tr>
+
+          <% @es_calls_per_hour[:table_rows].each_with_index do |call, index| %>
+              <tr data-tt-id="<%= index %>" data-tt-branch="true">
+                <td id="cph_day_map_<%= index %>" align="left"><%= nice_date(call[:branch], 0) %></td>
+                <td id="cph_day_user_call_attempts_<%= index %>" align="right"><%= call[:user_call_attempts] %></td>
+                <td id="cph_day_user_answered_calls_<%= index %>" align="right"><%= call[:answered_calls] %></td>
+                <td id="cph_day_user_acd_<%= index %>" align="center"><%= nice_time(call[:user_acd], true) %></td>
+                <td id="cph_day_user_asr_<%= index %>" align="right"><%= nice_number_with_separator(call[:user_asr], 2, @es_calls_per_hour[:options][:number_decimal]) %></td>
+                <td id="cph_day_admin_call_attempts_<%= index %>" align="right"><%= call[:admin_call_attempts] %></td>
+                <td id="cph_day_admin_answered_calls_<%= index %>" align="right"><%= call[:answered_calls] %></td>
+                <td id="cph_day_admin_acd_<%= index %>" align="center"><%= nice_time(call[:admin_acd], true) %></td>
+                <td id="cph_day_admin_asr_<%= index %>" align="right"><%= nice_number_with_separator(call[:admin_asr], 2, @es_calls_per_hour[:options][:number_decimal]) %></td>
+                <td id="cph_day_duration_<%= index %>" align="center"><%= nice_time(call[:duration], true) %></td>
+                <td id="cph_day_call_list_link_<%= index %>" align="center">
+                  <%= link_to(b_call,
+                              {controller: :stats, action: :last_calls_stats,
+                               year_from: call[:branch][0..3], month_from: call[:branch][5..6], day_from: call[:branch][8..9], hour_from: 0, minute_from: 0,
+                               year_till: call[:branch][0..3], month_till: call[:branch][5..6], day_till: call[:branch][8..9], hour_till: 23, minute_till: 59,
+                               s_destination: '', s_user: '', s_user_id: '-2'
+                              },
+                              id: "call_list_link_#{index}"
+                      ) %>
+                </td>
+              </tr>
+          <% end %>
+
+          <tr>
+            <th id="totals" style="text-align: right;"><%= "#{_('Total')}:" %></th>
+            <th id="totals_user_call_attempts" style="text-align: right;"><%= @es_calls_per_hour[:table_totals][:user_call_attempts] %></th>
+            <th id="totals_answered_calls" style="text-align: right;"><%= @es_calls_per_hour[:table_totals][:answered_calls] %></th>
+            <th id="totals_user_acd" style="text-align: center;"><%= @es_calls_per_hour[:table_totals][:user_acd] %></th>
+            <th id="totals_user_asr" style="text-align: right;"><%= @es_calls_per_hour[:table_totals][:user_asr] %></th>
+            <th id="totals_admin_call_attempts" style="text-align: right;"><%= @es_calls_per_hour[:table_totals][:admin_call_attempts] %></th>
+            <th id="totals_answered_calls" style="text-align: right;"><%= @es_calls_per_hour[:table_totals][:answered_calls] %></th>
+            <th id="totals_admin_acd" style="text-align: center;"><%= @es_calls_per_hour[:table_totals][:admin_acd] %></th>
+            <th id="totals_admin_asr" style="text-align: right;"><%= @es_calls_per_hour[:table_totals][:admin_asr] %></th>
+            <th id="totals_duration" style="text-align: center;"><%= @es_calls_per_hour[:table_totals][:duration] %></th>
+            <th></th>
+          </tr>
+        </table>
+    <% else %>
+        <%= b_info + _('No_data_found') %>
+    <% end %>
+<% else %>
+    <%= b_info + _('press_search_button_to_show_data') %>
+<% end %>
+
+<script type="text/javascript">
+  var cph_table = jQuery("#calls_per_hour");
+
+  function cph_check_if_child_exist(cph_id) {
+      var cph_child_id = String(cph_id) + ".0";
+      var cph_child_presence = cph_table.find('[data-tt-id="' + String(cph_child_id) + '" ] td:first').length;
+      return (cph_child_presence == 1)
+  }
+
+  function cph_find_value(cph_id, level) {
+      if(typeof(level)==='undefined') level = 1;
+      var id_array = String(cph_id).split('.');
+      var id = [];
+      for (var i = 1; i <= level; i++) {
+          id.push( id_array[i-1] )
+      }
+      id = id.join('.');
+
+      var result;
+      if (level == 2) {
+          result = cph_table.find('[data-tt-id="' + id + '" ]').data('ttUser_id')
+      } else {
+          result = cph_table.find('[data-tt-id="' + id + '" ] td:first').html().split("</span>").pop();
+      }
+      return result
+  }
+
+  function cph_conditions(cph) {
+      var cph_id = cph.id;
+      var level = (String(cph_id).match(/\./g) || []).length;
+
+      switch (level) {
+          case 0:
+              return {day: cph_find_value(cph_id, 1)};
+          case 1:
+              return {day: cph_find_value(cph_id, 1),
+                  originator: cph_find_value(cph_id, 2)
+              };
+          case 2:
+              return {day: cph_find_value(cph_id, 1),
+                  originator: cph_find_value(cph_id, 2),
+                  time: cph_find_value(cph_id, 3)
+              };
+          case 3:
+              return {day: cph_find_value(cph_id, 1),
+                  originator: cph_find_value(cph_id, 2),
+                  time: cph_find_value(cph_id, 3),
+                  destination: cph_find_value(cph_id, 4)
+              };
+          case 4:
+              return {day: cph_find_value(cph_id, 1),
+                  originator: cph_find_value(cph_id, 2),
+                  time: cph_find_value(cph_id, 2),
+                  destination: cph_find_value(cph_id, 3),
+                  terminator: cph_find_value(cph_id, 4)
+              };
+      }
+  }
+
+  cph_table.treetable({
+        expandable: true,
+
+        onNodeExpand: function() {
+            var cph = this;
+
+            if (!cph_check_if_child_exist(cph.id)) {
+                var conditions = cph_conditions(cph);
+                conditions['row_id'] = cph.id;
+                conditions['search_user'] = '<%= @options[:s_user_id] %>';
+                conditions['search_terminator'] = '<%= @options[:terminator] %>';
+                conditions['search_prefix'] = '<%= @options[:prefix] %>';
+
+                jQuery.ajax({
+                    async: false,
+                    data: conditions,
+                    url: '<%= Web_Dir %>/aggregates/calls_per_hour_data_expand'
+                }).done(function(request) {
+                    var rows = jQuery(request).filter("tr");
+                    cph_table.treetable("loadBranch", cph, rows);
+                });
+            }
+        }
+    });
+</script>

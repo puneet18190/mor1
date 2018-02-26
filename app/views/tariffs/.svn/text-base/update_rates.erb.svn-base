@@ -1,0 +1,149 @@
+  <div class="content-box">
+    <div class="titled-box">
+      <%= form_tag url_for(action: 'update_rates_by_destination_mask', id: @tariff.id), class: 'details-form hidden-form',
+                   'destinations-url' => url_for(controller: :destination_groups, action: :retrieve_destinations_remote),
+                   'tariff-id' => @tariff.id do %>
+        <div class="row">
+          <div class="col">
+            <div class="input-row">
+              <div class="label-col"><%= b_details +  _('Tariff') %></div>
+              <div style="padding-top:15px"><%= link_nice_tariff_if_own(@tariff)%></div>
+            </div>
+            <div class="input-row">
+              <div class="label-col"><%= _('Destination_mask') %></div>
+
+              <div class="input-col">
+                <%= text_field_tag 'dg_name', @rate_updater.dg_name, id: 'autocomplete' %>
+              </div>
+            </div>
+            <div class="input-row" id="rates-container">
+              <div class="label-col"><%= _('new_rate_for_all_destinations') %></div>
+              <div class="input-col" id="new-rate">
+                <%= text_field_tag 'new_rate', nice_number(@rate_updater.rate.to_d), class: 'balance'%>
+                <span class='currency-text'><%= @tariff.currency.to_s %></span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-row">
+              <div class="narrow-label-col"><%= _('Destinations') %></div>
+              <div class="narrow-label-col" id='destination-count'></div>
+            </div>
+            <div class="input-row">
+              <div class="table-container-white">
+                <table class="unstyled-table" id="destinations-table">
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons-row-bottom">
+          <%= submit_tag _('Cancel'), type: 'reset', onClick: "location.href = '#{Web_Dir}/tariffs/list'" %>
+          <%= submit_tag _('Update') %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+<script>
+
+    var tariffId;
+    var lastMatch;
+
+    $j(document).ready(function() {
+        initUpdateRates();
+
+        if($j('#autocomplete').val().length > 0) {
+            onDestinationGroupSelect();
+        }
+    });
+
+    function initUpdateRates() {
+        detailsForm = $j('.details-form');
+        destinationsUrl = detailsForm.attr('destinations-url');
+        tariffId = detailsForm.attr('tariff-id');
+
+        //Disables submit on enter
+        detailsForm.keypress(function(event) {
+            return event.keyCode != 13;
+        });
+
+        //Initializes the autocomplete field
+        $j("#autocomplete").autocomplete({
+            source: function (request, response) {
+                if (request.term.length > 2) {
+                    updateDestinations();
+                } else {
+                    renderDestinationRatesTable('', false);
+                    response('');
+                }
+            },
+            select: function( event, ui ) {
+                $j("#autocomplete").val( ui.item.label );
+                onDestinationGroupSelect();
+                return false;
+            },
+            close: function (event, ui) {
+                onDestinationGroupSelect();
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+                $j("#autocomplete").val(ui.item.label);
+                onDestinationGroupSelect();
+            },
+            minLength: 2
+        });
+
+        $j("#autocomplete").keyup(function() {
+                    if ( $j('#autocomplete').val().length < 3) {
+                        renderDestinationRatesTable([]);
+                    }
+                }
+        );
+    }
+
+    function onDestinationGroupSelect() {
+        updateDestinations();
+    }
+
+    function updateDestinations() {
+        $j.ajax({
+            url: destinationsUrl,
+            data: {tariff_id: tariffId, mask: $j('#autocomplete').val()},
+            async: true,
+            dataType: 'json',
+            success: function(response) {
+                renderDestinationRatesTable(response, true);
+            }
+        });
+    }
+
+    function renderDestinationRatesTable(destinations, correct_lenght) {
+        if (destinations.length == 0 && !correct_lenght) {
+            $j('#destination-group-field').val('');
+            destinations = [{name: 'No destinations found. At least 3 characters of Destination name must be entered.', rate: ''}];
+            $j('#destination-count').text('');
+        } else if (destinations.length > 1000) {
+            destinations = [{name: 'Too many Destinations to show', rate: ''}];
+            $j('#destination-count').text('');
+        } else if (destinations.length == 0 && correct_lenght) {
+            destinations = [{name: 'No destinations found.', rate: ''}];
+            $j('#destination-count').text('');
+        } else {
+            $j('#destination-count').text('(' + destinations.length + ')');
+        }
+        table = $j('#destinations-table');
+        table.html('');
+        var each_index = 0;
+
+        $j.each(destinations, function() {
+            each_index += 1;
+            row = $j('<tr/>').attr('row', each_index);
+            row.append($j('<td/>').attr('align', 'left').attr('name', each_index).text(this.name));
+            row.append($j('<td/>').attr('align', 'right').attr('rate', each_index).text(this.rate.replace('.','<%= Confline.get_value("Global_Number_Decimal").to_s %>')));
+            table.append(row);
+        });
+
+    }
+</script>

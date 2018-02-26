@@ -1,0 +1,112 @@
+<script type="text/javascript">
+      //<![CDATA[
+      Event.observe(window, 'load', function () {
+          var table = $('delta_table');
+          var text_box_value = $('tariff_delta_value');
+          var text_box_percent = $('tariff_delta_percent');
+          //hide_delta_table();
+          validate_delta_textboxes();
+
+          <% if !no_edit_purpose %>
+          Event.observe($('tariff_purpose_provider'), 'click', function () {
+            hide_delta_table();
+          });
+
+          Event.observe($('tariff_purpose_user'), 'click', function () {
+            hide_delta_table();
+          });
+
+          Event.observe($('tariff_purpose_user_wholesale'), 'click', function () {
+            hide_delta_table();
+          });
+
+          Event.observe($('tariff_purpose_user_by_provider'), 'click', function () {
+            table.style.display = "table";
+          });
+          <% end %>
+
+          Event.observe($('delta_delta_value'), 'click', function () {
+            validate_delta_textboxes();
+          });
+
+          Event.observe($('delta_delta_percent'), 'click', function () {
+            validate_delta_textboxes();
+          });
+
+
+          function hide_delta_table() {
+            table.style.display = "none";
+            }
+
+          function validate_delta_textboxes(){
+             if ($('delta_delta_value').checked == true){
+                      text_box_percent.disabled = true;
+                  } else {
+                      text_box_percent.disabled = false;
+                  }
+             if ($('delta_delta_percent').checked == true){
+                      text_box_value.disabled = true;
+                  } else {
+                      text_box_value.disabled = false;
+                  }
+          }
+      });
+      //]]>
+  </script>
+<p>
+  <label for="tariff_name"><%= _('Name') %></label>:
+  <%= text_field 'tariff', 'name', "class" => "input" %>
+</p>
+
+<p>
+  <label for="tariff_currency"><%= _('Currency') %></label>:
+  <select name="tariff[currency]">
+    <% currs.each do |curr| %>
+        <option value="<%= curr.name %>" <%= "selected" if tariff.currency == curr.name %>><%= curr.name %></option>
+    <% end %>
+  </select>
+</p>
+<% if (admin? || accountant?) && (tariff.purpose == 'user_by_provider' || params[:action] == 'new')%>
+<table id="delta_table" style="display:<%=no_edit_purpose ? 'table' : 'none'%>">
+  <tr>
+    <td><%= radio_button_tag(:delta, :delta_value, no_edit_purpose ? default_delta_radio_button(delta_value, delta_percent) : true) %> <%= _('delta_value') %>:</td>
+    <td><%= text_field_tag 'tariff[delta_value]', nice_number(tariff.delta_value ? tariff.delta_value : 0), 'class' => 'input', size: '8', maxlength: '255' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag(:delta, :delta_percent, no_edit_purpose ? !default_delta_radio_button(delta_value, delta_percent) : false) %> <%= _('delta_percent') %>:</td>
+    <td><%= text_field_tag 'tariff[delta_percent]', nice_number(tariff.delta_percent ? tariff.delta_percent : 0), 'class' => 'input', size: '8', maxlength: '255' %> %</td>
+  </tr>
+</table>
+<% end %>
+
+<% if no_edit_purpose %>
+    <br/>
+    <br/>
+    <%= _('Purpose') %>:  <%= tariff.purpose %>
+<% else %>
+    <% if allow_manage_providers_tariffs? %>
+        <br/>
+        <br/>
+        <hr/>
+        <br/>
+        <%= b_info + _('Provider_tariffs_explained').html_safe %>
+        <br/>
+        <br/>
+        <%= radio_button_tag('tariff[purpose]', 'provider', true) %> <%= _('Providers') %>
+        <br/>
+        <br/>
+        <hr/>
+        <br/>
+        <%=  b_info + _('User_tariffs_explained').html_safe %>
+    <% end %>
+    <br/>
+    <br/>
+
+    <%= radio_button_tag('tariff[purpose]', 'user', ['reseller', 'partner'].include?(session[:usertype])) %> <%= _('User_retail') %>
+    <br/>
+    <%= radio_button_tag('tariff[purpose]', 'user_wholesale', checked = false) %> <%= _('User_wholesale') %>
+    <br/>
+    <% if admin? || accountant? %>
+        <%= radio_button_tag('tariff[purpose]', 'user_by_provider', checked = false) %> <%= _('user_by_provider') %>
+    <% end %>
+<% end %>

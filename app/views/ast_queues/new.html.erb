@@ -1,0 +1,30 @@
+<%= form_tag(action: :create) do %>
+    <table>
+      <tr>
+        <td colspan="2" class="bottom_border"><b><%= _('Queue_options') %></b></td>
+      </tr>
+      <tr>
+        <td height="10" colspan="2"></td>
+      </tr>
+      <tr>
+        <td valign="top" colspan="2">
+          <table class="simple">
+            <tr>
+              <td style="min-width: 100px"><%= _('Queue_Name') %>:</td>
+              <td><%= text_field 'queue', 'name', class: 'input', size: 20, maxlength: 128, value: @queue_params.present? ? @queue_params[:name].to_s : '' %></td>
+            </tr>
+            <tr>
+              <td><%= _('pbx_pool') %>:</td>
+              <td><%= select_tag('queue[pbx_pool_id]', options_for_select(@pbx_pool_dropdown.map { |pbx_pool| [pbx_pool.name, pbx_pool.id] }, (@queue_params.present? ? @queue_params[:pbx_pool_id].to_i : 1))) %></td>
+            </tr>
+            <tr>
+              <td><%= _('Extension') %>:</td>
+              <td><%= text_field 'queue', 'extension', class: 'input', size: 20, maxlength: 30, value: @queue_params.present? ? @queue_params[:extension].to_s : '' %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <%= submit_tag _('Create'), data: { disable_with: _('Processing..') } %>
+<% end %>

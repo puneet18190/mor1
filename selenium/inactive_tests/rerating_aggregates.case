@@ -1,0 +1,2541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calls/delete_from_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/aggregates/calls_and_aggregates_for_all_type_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Originator</td>
+	<td></td>
+</tr>
+<!--reselerio useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=dir_name_4</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_4</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_4</td>
+	<td>5.1500 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax4</td>
+	<td>5.1500 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_4</td>
+	<td>1.7167 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<!--admino useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_1</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_1</td>
+	<td>1.7500 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax1</td>
+	<td>1.7500 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_1</td>
+	<td>0.8750 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/login_as_execute?user=12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/507</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>33</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--pakeičiami retaiai-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/391</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/rerating</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=reseller_users_included</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_bg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_cdr_rerate</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_aggregates</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_aggregates_control</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Originator</td>
+	<td></td>
+</tr>
+<!--reselerio useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_4</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_4</td>
+	<td>113.3000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax4</td>
+	<td>113.3000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_4</td>
+	<td>1.7167 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<!--admino useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_1</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_1</td>
+	<td>38.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax1</td>
+	<td>38.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_1</td>
+	<td>0.8750 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<!--Terminatoriaus kainos-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/140</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/rerating</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=reseller_users_included</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_bg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list?order_by=originator&amp;order_desc=1&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--reselerio useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_4</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_4</td>
+	<td>113.3000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax4</td>
+	<td>113.3000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_4</td>
+	<td>37.7667 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_4</td>
+	<td>exact:00:03:26</td>
+</tr>
+<!--admino useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_1</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_1</td>
+	<td>38.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax1</td>
+	<td>38.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_1</td>
+	<td>19.2500 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_1</td>
+	<td>exact:00:01:45</td>
+</tr>
+<!--rereitinamas tik admino useris-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/login_as_execute?user=12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/507</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>77</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/391</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/140</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>88</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/rerating</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='6'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_bg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--reselerio useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=dir_name_0</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_0</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_0</td>
+	<td>113.3000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax0</td>
+	<td>113.3000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_0</td>
+	<td>37.7667 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_0</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_0</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_0</td>
+	<td>exact:00:03:26</td>
+</tr>
+<!--admino useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_3</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_3</td>
+	<td>3.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax3</td>
+	<td>3.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_3</td>
+	<td>154.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_3</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_3</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_3</td>
+	<td>exact:00:01:45</td>
+</tr>
+<!--Rereitinamas tik reselerio useris-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/391</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/140</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/rerating</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='13'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>admin_reselerio_useris</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_bg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--reselerio useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=dir_name_0</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_0</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_0</td>
+	<td>264.3667 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax0</td>
+	<td>264.3667 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_0</td>
+	<td>30.9000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_0</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_0</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_0</td>
+	<td>exact:00:03:26</td>
+</tr>
+<!--admino useris-->
+<tr>
+	<td>assertText</td>
+	<td>id=customer_orig_3</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_orig_3</td>
+	<td>3.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_billed_with_tax3</td>
+	<td>3.5000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_term_3</td>
+	<td>154.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_orig_3</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billed_time_term_3</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=duration_3</td>
+	<td>exact:00:01:45</td>
+</tr>
+<!--DIDS Rerating-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/rerating/did_rerating</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2015</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=20</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_85</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_84</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_83</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_82</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_81</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_80</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_85</td>
+	<td>49</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_84</td>
+	<td>375</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_83</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_82</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_81</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_80</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_85</td>
+	<td>0.5500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_84</td>
+	<td>0.3667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_83</td>
+	<td>1.6500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_82</td>
+	<td>1.6500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_81</td>
+	<td>1.8333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_80</td>
+	<td>1.8333</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_6</td>
+	<td>49</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_5</td>
+	<td>375</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_4</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_3</td>
+	<td>123</td>
+</tr>
+<!--Setting Rates-->
+<!--Owner - 49-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/340</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>4.9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_increment_s</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_min_time</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_340</td>
+	<td>4.9000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_340</td>
+	<td>2.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_340</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_340</td>
+	<td>7</td>
+</tr>
+<!--Owner - 375-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/272</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>3.75</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_increment_s</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_272</td>
+	<td>3.7500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_272</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_272</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_272</td>
+	<td>0</td>
+</tr>
+<!--Owner - 370-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/391</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>3.7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_min_time</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_391</td>
+	<td>3.7000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_391</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_391</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_391</td>
+	<td>5</td>
+</tr>
+<!--~~~49~~~-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/index/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; b</td>
+	<td>exact:DID: 49</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_4</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_5</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_6</td>
+	<td>0.0000</td>
+</tr>
+<!--PROVIDER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--INCOMING-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--OWNER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=tariff_id</td>
+	<td>label=Wholesale - Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Owner Tariff successfully changed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_4</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_4</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_4</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_4</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_5</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_5</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_5</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_5</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_6</td>
+	<td>10.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_6</td>
+	<td>11.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_6</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_6</td>
+	<td>13.0000</td>
+</tr>
+<!--~~~375~~~-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/index/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; b</td>
+	<td>exact:DID: 375</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_7</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_8</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_9</td>
+	<td>0.0000</td>
+</tr>
+<!--PROVIDER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--INCOMING-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--OWNER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=tariff_id</td>
+	<td>label=Wholesale - Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Owner Tariff successfully changed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_7</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_7</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_7</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_7</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_8</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_8</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_8</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_8</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_9</td>
+	<td>10.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_9</td>
+	<td>11.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_9</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_9</td>
+	<td>13.0000</td>
+</tr>
+<!--~~~370~~~-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/index/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; b</td>
+	<td>exact:DID: 370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_10</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_11</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_12</td>
+	<td>0.0000</td>
+</tr>
+<!--PROVIDER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--INCOMING-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--OWNER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=tariff_id</td>
+	<td>label=Wholesale - Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Owner Tariff successfully changed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_10</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_10</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_10</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_10</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_11</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_11</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_11</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_11</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_12</td>
+	<td>10.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_12</td>
+	<td>11.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_12</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_12</td>
+	<td>13.0000</td>
+</tr>
+<!--~~~123~~~-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/index/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; b</td>
+	<td>exact:DID: 123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_1</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_3</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_2</td>
+	<td>0.5000</td>
+</tr>
+<!--PROVIDER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--INCOMING-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--OWNER-->
+<tr>
+	<td>open</td>
+	<td>/billing/did_rates/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_rate</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_connection_fee</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_increment_s</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=did_rate_min_time</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=tariff_id</td>
+	<td>label=Wholesale - Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Owner Tariff successfully changed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_1</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_1</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_1</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_1</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_3</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_3</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_3</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_3</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_2</td>
+	<td>10.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_2</td>
+	<td>11.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_2</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_2</td>
+	<td>13.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/rerating</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2015</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=20</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=reseller_users_included</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_bg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/src/mor/x6/scripts/mor_cdr_rerate</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_85</td>
+	<td>4967232459 (ricardas)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_84</td>
+	<td>37567232459 (ricardas)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_83</td>
+	<td>37067232459 (ricardas)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_82</td>
+	<td>37067232459 (ricardas)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_81</td>
+	<td>999999999 (ricardas)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_80</td>
+	<td>999999999 (ricardas)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_85</td>
+	<td>4.3000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_84</td>
+	<td>4.3000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_83</td>
+	<td>4.5000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_82</td>
+	<td>4.5000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_81</td>
+	<td>4.5000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_80</td>
+	<td>4.5000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_did_prov_price</td>
+	<td>26.6000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_85</td>
+	<td>7.9000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_84</td>
+	<td>7.9000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_83</td>
+	<td>8.6000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_82</td>
+	<td>8.6000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_81</td>
+	<td>8.6000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_80</td>
+	<td>8.6000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_did_inc_price</td>
+	<td>50.2000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_85</td>
+	<td>2.5717</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_84</td>
+	<td>1.1250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_83</td>
+	<td>3.5550</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_82</td>
+	<td>3.5550</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_81</td>
+	<td>13.1667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_80</td>
+	<td>13.1667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_did_price</td>
+	<td>37.1400</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_85</td>
+	<td>14.7717</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_84</td>
+	<td>13.3250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_83</td>
+	<td>16.6550</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_82</td>
+	<td>16.6550</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_81</td>
+	<td>26.2667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_80</td>
+	<td>26.2667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_profit</td>
+	<td>113.9400</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>update_currencies_daily_actions</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">update_currencies_daily_actions</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<!--updating currencies via daily actions-->
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=GBP_exchange_rate</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=XOF_exchange_rate</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/daily_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=year</td>
+	<td>20??</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotText</td>
+	<td>id=GBP_exchange_rate</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertNotText</td>
+	<td>id=XOF_exchange_rate</td>
+	<td>1.0</td>
+</tr>
+<!--testing periodic actions-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=nice_date</td>
+	<td>today</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>40</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>${today}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/delete_conflines</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/monthly_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=year</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/delete_conflines</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<!--negali tai pačiai dienai sukurti kelių-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>40</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>${today}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/daily_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=year</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/currencies/delete_from_daily_currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/delete_conflines</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/daily_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=year</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>${today}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>3.6*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=KYD_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=TWD_value</td>
+	<td>3?.*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=EUR_value</td>
+	<td>0.??*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ZWL_value</td>
+	<td>322.*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/daily_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Too fast</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/delete_conflines</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/hourly_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Mission complete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/hourly_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Too fast</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/update_currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setTimeout</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=icon_chech_curr_upd_disable_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=icon_chech_curr_upd_disable_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=icon_chech_curr_upd_disable_143</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/currencies/delete_from_daily_currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/daily_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=year</td>
+	<td></td>
+</tr>
+<!--userio pakeitimai neįtakoja daily currencies - jie vis tiek išsaugomi pagal yahoo-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>${today}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=EUR_value</td>
+	<td>0.5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ZWL_value</td>
+	<td>0.0</td>
+</tr>
+<!--daily_currencies lentą updatinti ne tesiai iš yahoo, bet pagal currencies lentą, kiekvieną kartą kai joje rate paredaguojamas. -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/currencies/daily_currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Update currencies from web</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Currencies rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>${today}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>3.6*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_value</td>
+	<td>regexp:^1[1-2]?.*$</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>2014-11-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>102</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>2014-10-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/edit/149</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=exchange_rate</td>
+	<td>999.999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_exchange_rate</td>
+	<td>999.999</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>${today}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>3.6*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_value</td>
+	<td>regexp:^1[1-2]?.*$</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_value</td>
+	<td>999.999</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=daily_currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>102</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>2014-10-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>103</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>103</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=added_value</td>
+	<td>2014-05-03</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_value</td>
+	<td>1.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=currencies</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>149</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>AMD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exchange_rate_value</td>
+	<td>999.999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=curr_update_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=curr_edit_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cur_name_137</td>
+	<td>AED</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AED_exchange_rate</td>
+	<td>3.6*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ALL_exchange_rate</td>
+	<td>regexp:^1[1-2]?.*$</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=AMD_exchange_rate</td>
+	<td>999.999</td>
+</tr>
+</tbody></table>
+</body>
+</html>

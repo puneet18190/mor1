@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/64814/mor/gui/branches/x8/selenium/sqls/did
+END
+dids.sql
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/did/dids.sql
+END
+dids_assigned_to_dialplan.sql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/64814/mor/gui/branches/x8/selenium/sqls/did/dids_assigned_to_dialplan.sql
+END
+delete_from_dids.sql
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/did/delete_from_dids.sql
+END
+quick_stats.sql
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/did/quick_stats.sql
+END
+active_did.sql
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/did/active_did.sql
+END
+did_calls.sql
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/did/did_calls.sql
+END
+quick_stats_updated.sql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/did/quick_stats_updated.sql
+END

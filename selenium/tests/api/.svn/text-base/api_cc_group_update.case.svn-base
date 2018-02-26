@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_cc_group_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_cc_group_update</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;name=du&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>API Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Enable MOR API-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=calling_cards/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=calling_cards/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--pakeiciam time zone ir patikrinam, kad nuo jo nepriklauso data kuria nurodysim su time stamp-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/admin_0/time_zone_muscat</td>
+	<td></td>
+</tr>
+<!--try to update cardgroup with incorecct hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;user_id=0&amp;name=vienas&amp;test=1&amp;hash=9a9d292176f7b8adb10d0d037732446bae1ef4dd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--hash checking-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_update&amp;u=admin&amp;cc_group_id=1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>a1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_update&amp;u=admin&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>a2</td>
+</tr>
+<!--visi parametrai iskyrus name turi neieiti i hash-->
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['a1']==storedVars['a2']</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_update&amp;u=admin&amp;cc_group_id=1201&amp;name=du</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>a3</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['a1']==storedVars['a3']</td>
+	<td>false</td>
+</tr>
+<!--hash1-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_update&amp;u=admin&amp;cc_group_id=1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_update&amp;u=admin&amp;cc_group_id=120111</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=cc_group_update&amp;u=reseller&amp;cc_group_id=14301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<!--klaidos-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=user_admin&amp;cc_group_id=120111&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=user_reseller&amp;cc_group_id=120111&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admidfsdf&amp;cc_group_id=120111&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=120111&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=6&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Use external function is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;tell_cents=6&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Tell cents is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;tell_balance_in_currency=aaa&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Currency was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;lcr_id=11001212&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>LCR was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;tariff_id=4654&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;location_id=4654&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Location was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;date_from=1336694ff400&amp;date_till=1367712000&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;date_from=1336694400&amp;date_till=136771ee2000&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Time till is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;date_from=1336694400&amp;date_till=1336176000&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is greater than date till</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;valid_after_first_use=dfeefgewf&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Valid after is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;valid_after_first_use=99999&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Valid after is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;allow_loss_calls=444&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Allow loss calls is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;disable_voucher=5&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Disable voucher is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;callerid_leave=5&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>CallerID leave is incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;solo_pinless=7&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Solo pinless is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;compound_tax=44&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Compound TAX enabling value is incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;tax2_enabled=1=7&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>TAX 2 enabling value is incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;tax3_enabled=1=7&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>TAX 3 enabling value is incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;tax4_enabled=1=7&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>TAX 4 enabling value is incorrect format</td>
+	<td></td>
+</tr>
+<!--Visi parametrai (isskyrus use_external_function kad eitu istestuoti percent)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=api update&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336709000&amp;date_till=1367729000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/edit/1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_name</td>
+	<td>atnaujinimas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_description</td>
+	<td>api update</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=price_with_vat</td>
+	<td>1.3000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_setup_fee</td>
+	<td>0.98</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_use_external_function_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_use_external_function_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_min_perc</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_balance_perc</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=cardgroup_tell_balance_in_currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[lcr_id]</td>
+	<td>price_rs</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[tariff_id]</td>
+	<td>Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[location_id]</td>
+	<td>Global</td>
+</tr>
+<!--timestamp: 1336709000 - 11 May 2012 04:03:20 GMT-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2012</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_day</td>
+	<td>11</td>
+</tr>
+<!--time stamp: 1367729000 - 05 May 2013 04:43:20 GMT-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_day</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_valid_after_first_use</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=allow_loss_calls</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_solo_pinless_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=disable_voucher</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_callerid_leave_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>c</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>d</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<!--patikrinam duombazeje tikslu laika koki padare time stampai-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=cardgroups</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=valid_from_value</td>
+	<td>2012-05-11 04:03:20 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=valid_till_value</td>
+	<td>2013-05-05 04:43:20 +0300</td>
+</tr>
+<!--pakeiciam use_external_function=1 ir -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;use_external_function=1&amp;ghost_min_perc=40&amp;ghost_balance_perc=50&amp;number_length=15&amp;pin_length=15&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/edit/1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=price_with_vat</td>
+	<td>1.3000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_tell_cents_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_use_external_function_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_name</td>
+	<td>atnaujinimas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_description</td>
+	<td>api update</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_setup_fee</td>
+	<td>0.98</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_min_perc</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_balance_perc</td>
+	<td>50.0</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=cardgroup_tell_balance_in_currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[lcr_id]</td>
+	<td>price_rs</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[tariff_id]</td>
+	<td>Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[location_id]</td>
+	<td>Global</td>
+</tr>
+<!--timestamp: 1336694400-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2012</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_day</td>
+	<td>11</td>
+</tr>
+<!--time stamp: 1367712000-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_day</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=allow_loss_calls</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_solo_pinless_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=disable_voucher</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_callerid_leave_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>c</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>d</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=reseller&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=api update&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=reseller_card_group/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>#bundle loaded</td>
+	<td></td>
+</tr>
+<!--reseller tariff-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+</tr>
+<!--resellerio klaidos(patikrinam kad neleistu paliesti admino tarif, lcr, location)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=reseller&amp;cc_group_id=14301&amp;tariff_id=5&amp;hash=${hash3}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Tariff was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=reseller&amp;cc_group_id=14301&amp;lcr_id=11002&amp;hash=${hash3}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>LCR was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=reseller&amp;cc_group_id=14301&amp;location_id=1&amp;hash=${hash3}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Location was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=reseller&amp;cc_group_id=14301&amp;name=resellerio cc&amp;description=api update reselleriui&amp;price_with_vat=1.5&amp;setup_fee=-1.55&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11302&amp;tariff_id=12303&amp;location_id=5&amp;number_length=5&amp;pin_length=8&amp;date_from=1336765000&amp;date_till=1367754419&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash3}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/edit/14301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_name</td>
+	<td>resellerio cc</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_description</td>
+	<td>api update reselleriui</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=price_with_vat</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_setup_fee</td>
+	<td>-1.55</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_use_external_function_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_use_external_function_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_min_perc</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_balance_perc</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=cardgroup_tell_balance_in_currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[lcr_id]</td>
+	<td>price_rs</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[tariff_id]</td>
+	<td>prov_tariff_rs_2</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[location_id]</td>
+	<td>reseller</td>
+</tr>
+<!--timestamp: 1336765000 --- 11 May 2012 19:36:40 GMT-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2012</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_day</td>
+	<td>11</td>
+</tr>
+<!--time stamp: 1367754419 - 05 May 2013 14:46:59 GMT-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_day</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_valid_after_first_use</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=allow_loss_calls</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_solo_pinless_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=disable_voucher</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_callerid_leave_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>c</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>d</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<!--patikrinam duombazeje tikslu laika koki padare time stampai-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=cardgroups</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>14301</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=valid_from_value</td>
+	<td>2012-05-11 19:36:40 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=valid_till_value</td>
+	<td>2013-05-05 11:46:59 +0300</td>
+</tr>
+<!--acountantui-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=accountant&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=api update&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<!--duodam leidima read-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/calling_cards_read</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=accountant&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=api update&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<!--duodam leidima write-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/calling_cards_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=accountant&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;description=api update&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/see_financial_data_read</td>
+	<td></td>
+</tr>
+<!--acc negali updatini reselerio-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=accountant&amp;cc_group_id=14301&amp;name=atnaujinimas1&amp;description=api update&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was not found</td>
+	<td></td>
+</tr>
+<!--reseller negali admino-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=reseller&amp;cc_group_id=1200&amp;name=atnaujinimas1ffffffffffffffffff&amp;description=reseller adminui&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was not found</td>
+	<td></td>
+</tr>
+<!--adminas turi galėti paupdatinti resellerio cc groups-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=14301&amp;name=ssss&amp;description=adminas updatina reselleri&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=accountant&amp;cc_group_id=1200&amp;name=atnaujinimas per acc&amp;description=api update account&amp;price_with_vat=0.555&amp;setup_fee=111.98&amp;use_external_function=0&amp;ghost_min_perc=40&amp;ghost_balance_perc=60&amp;daily_charge=30&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=5&amp;pin_length=8&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value=30&amp;tax4_value=40&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/edit/1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_name</td>
+	<td>atnaujinimas per acc</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_description</td>
+	<td>api update account</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_tell_cents_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_use_external_function_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=price_with_vat</td>
+	<td>1.1100</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_setup_fee</td>
+	<td>111.98</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_min_perc</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_ghost_balance_perc</td>
+	<td>60.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_daily_charge</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=cardgroup_tell_balance_in_currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=cardgroup[tariff_id]</td>
+	<td>Test Tariff bad currency</td>
+</tr>
+<!--timestamp: 1336694400-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2012</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_day</td>
+	<td>11</td>
+</tr>
+<!--time stamp: 1367712000-->
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_month</td>
+	<td>May</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_day</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=allow_loss_calls</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_solo_pinless_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=disable_voucher</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cardgroup_callerid_leave_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_name</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_name</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_name</td>
+	<td>c</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_name</td>
+	<td>d</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=total_tax_name</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=compound_tax</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax1_value</td>
+	<td>10.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax2_value</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax3_value</td>
+	<td>30.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tax4_value</td>
+	<td>40.0</td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1201fw11&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Card Group was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=120111&amp;name=atnaujinimas&amp;description=sssss&amp;price_with_vat=0.65&amp;setup_fee=0.98&amp;use_external_function=0&amp;ghost_min_perc=20&amp;ghost_balance_perc=30&amp;daily_charge=20&amp;tell_cents=1&amp;tell_balance_in_currency=EUR&amp;lcr_id=11002&amp;tariff_id=5&amp;location_id=1&amp;number_length=12&amp;pin_length=14&amp;date_from=1336694400&amp;date_till=1367712000&amp;valid_after_first_use=5&amp;allow_loss_calls=1&amp;disable_voucher=1&amp;callerid_leave=1&amp;solo_pinless=1&amp;tax2_enabled=1&amp;compound_tax=0&amp;tax3_enabled=1&amp;tax4_enabled=1&amp;tax1_name=a&amp;tax2_name=b&amp;tax3_name=c&amp;tax4_name=d&amp;total_tax_name=e&amp;tax1_value=10&amp;tax2_value=20&amp;tax3_value30&amp;tax4_value=40&amp;hash=${hash2}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Card Group was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;disable_voucher=5&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Disable voucher is incorrect format</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;location_id=4654&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Location was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Card Group was successfully updated</td>
+</tr>
+<!--Fake forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/cc_group_update?u=admin&amp;cc_group_id=1200&amp;name=atnaujinimas&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/cc_group_update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>cc_group_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>1200</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Card Group was successfully updated</td>
+</tr>
+</tbody></table>
+</body>
+</html>

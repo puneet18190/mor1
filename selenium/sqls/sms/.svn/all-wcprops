@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/64278/mor/gui/branches/x8/selenium/sqls/sms
+END
+sms_for_invoices.sql
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/sms/sms_for_invoices.sql
+END
+sms_messages.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/64278/mor/gui/branches/x8/selenium/sqls/sms/sms_messages.sql
+END

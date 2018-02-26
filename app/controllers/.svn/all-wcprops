@@ -1,0 +1,371 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/66280/mor/gui/branches/x8/app/controllers
+END
+emails_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/65750/mor/gui/branches/x8/app/controllers/emails_controller.rb
+END
+blanks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/blanks_controller.rb
+END
+permissions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/permissions_controller.rb
+END
+smsautodialer_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/63875/mor/gui/branches/x8/app/controllers/smsautodialer_controller.rb
+END
+ast_queues_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/64247/mor/gui/branches/x8/app/controllers/ast_queues_controller.rb
+END
+pbx_functions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/pbx_functions_controller.rb
+END
+devices_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/66165/mor/gui/branches/x8/app/controllers/devices_controller.rb
+END
+license_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/license_controller.rb
+END
+services_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/64115/mor/gui/branches/x8/app/controllers/services_controller.rb
+END
+autodialer_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/63797/mor/gui/branches/x8/app/controllers/autodialer_controller.rb
+END
+accounting_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/66280/mor/gui/branches/x8/app/controllers/accounting_controller.rb
+END
+alerts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/63969/mor/gui/branches/x8/app/controllers/alerts_controller.rb
+END
+validation_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/validation_controller.rb
+END
+quickforwards_rules_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/quickforwards_rules_controller.rb
+END
+vouchers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/vouchers_controller.rb
+END
+ringgroups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/64252/mor/gui/branches/x8/app/controllers/ringgroups_controller.rb
+END
+recordings_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/64037/mor/gui/branches/x8/app/controllers/recordings_controller.rb
+END
+credit_note_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/64250/mor/gui/branches/x8/app/controllers/credit_note_controller.rb
+END
+resellers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/65614/mor/gui/branches/x8/app/controllers/resellers_controller.rb
+END
+ivr_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/63615/mor/gui/branches/x8/app/controllers/ivr_controller.rb
+END
+users_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/65992/mor/gui/branches/x8/app/controllers/users_controller.rb
+END
+ivr_time_periods_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/ivr_time_periods_controller.rb
+END
+application_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/66052/mor/gui/branches/x8/app/controllers/application_controller.rb
+END
+number_pools_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/66170/mor/gui/branches/x8/app/controllers/number_pools_controller.rb
+END
+destinations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/destinations_controller.rb
+END
+dialplans_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62912/mor/gui/branches/x8/app/controllers/dialplans_controller.rb
+END
+monitorings_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/monitorings_controller.rb
+END
+ivrvoices_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/ivrvoices_controller.rb
+END
+cardgroups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/63658/mor/gui/branches/x8/app/controllers/cardgroups_controller.rb
+END
+providers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/64112/mor/gui/branches/x8/app/controllers/providers_controller.rb
+END
+callc_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/65947/mor/gui/branches/x8/app/controllers/callc_controller.rb
+END
+groups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/groups_controller.rb
+END
+test_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/65208/mor/gui/branches/x8/app/controllers/test_controller.rb
+END
+destination_groups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/destination_groups_controller.rb
+END
+cron_actions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/63781/mor/gui/branches/x8/app/controllers/cron_actions_controller.rb
+END
+dids_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/65080/mor/gui/branches/x8/app/controllers/dids_controller.rb
+END
+simple_user_groups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/simple_user_groups_controller.rb
+END
+backups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/backups_controller.rb
+END
+servers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/65910/mor/gui/branches/x8/app/controllers/servers_controller.rb
+END
+ivr_sound_files_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/ivr_sound_files_controller.rb
+END
+locations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/locations_controller.rb
+END
+cards_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/cards_controller.rb
+END
+did_rates_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/did_rates_controller.rb
+END
+calls_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/66107/mor/gui/branches/x8/app/controllers/calls_controller.rb
+END
+stats_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/65963/mor/gui/branches/x8/app/controllers/stats_controller.rb
+END
+tariffs_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/65836/mor/gui/branches/x8/app/controllers/tariffs_controller.rb
+END
+payments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/64272/mor/gui/branches/x8/app/controllers/payments_controller.rb
+END
+common_use_providers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/64254/mor/gui/branches/x8/app/controllers/common_use_providers_controller.rb
+END
+currencies_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/currencies_controller.rb
+END
+sms_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/64019/mor/gui/branches/x8/app/controllers/sms_controller.rb
+END
+directions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/directions_controller.rb
+END
+lcrs_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/64736/mor/gui/branches/x8/app/controllers/lcrs_controller.rb
+END
+callshop_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/callshop_controller.rb
+END
+ccpanel_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/64255/mor/gui/branches/x8/app/controllers/ccpanel_controller.rb
+END
+phonebooks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/phonebooks_controller.rb
+END
+terminators_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/terminators_controller.rb
+END
+functions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/65963/mor/gui/branches/x8/app/controllers/functions_controller.rb
+END
+cdr_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/65788/mor/gui/branches/x8/app/controllers/cdr_controller.rb
+END
+device_rules_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/app/controllers/device_rules_controller.rb
+END
+aggregates_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/63281/mor/gui/branches/x8/app/controllers/aggregates_controller.rb
+END
+api_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/66155/mor/gui/branches/x8/app/controllers/api_controller.rb
+END

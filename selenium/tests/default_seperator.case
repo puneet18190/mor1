@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>default_seperator</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">default_seperator</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/set_semicolon_as_decimal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/140</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_140</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_140</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/140</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>5,8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>0,6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rate detail successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_140</td>
+	<td>5;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_140</td>
+	<td>0;0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/4?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate249</td>
+	<td>7,9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate250</td>
+	<td>7,9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate251</td>
+	<td>7,9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate249</td>
+	<td>7.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate250</td>
+	<td>7.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate251</td>
+	<td>7.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_balance_value</td>
+	<td>*;???? USD</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>price_1</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/various_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_4</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_4</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_wat</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list?date_from[year]=2009&amp;date_from[month]=1&amp;date_from[day]=1&amp;date_from[hour]=1&amp;date_from[minute]=1&amp;date_till[year]=2012&amp;date_till[month]=12&amp;date_till[day]=31&amp;date_till[hour]=22&amp;date_till[minute]=58&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Batch Card sale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_2</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_5</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fee_2</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fee_7</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_2</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_7</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount</td>
+	<td>*;???? (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee_completed</td>
+	<td>*;???? (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax</td>
+	<td>*;???? (USD)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/vouchers/vouchers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=credit_without_tax_1</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=credit_with_tax_1</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>count_tax_amount_1</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>price_usd_1</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/list?cg=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_9</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/recordings/recordings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rec_size_8</td>
+	<td>*;???? Kb</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rec_size_5</td>
+	<td>*;???? Kb</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/recordings/list_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=recording_hdd_quota_0</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[4]/div</td>
+	<td>??:??:??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_per_day']/div[4]/div</td>
+	<td>??:??:??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[5]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_per_day']/div[5]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[8]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[9]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[10]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[11]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[12]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[5]/div/b</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[7]/div/b</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[8]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[9]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[10]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[11]/div/b</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[12]/div/b</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2007</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=provider_rate_17</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=provider_price_23</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_rate_20</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_14</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_rate_9</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_price_12</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_prov_price_13</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_14</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_10</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/loss_making_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[5]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[6]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[7]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[8]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[9]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0loss_making_calls']/div[10]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row9loss_making_calls']/div[5]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row9loss_making_calls']/div[6]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row9loss_making_calls']/div[7]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row9loss_making_calls']/div[8]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row9loss_making_calls']/div[9]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row9loss_making_calls']/div[10]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowloss_making_calls']/div[10]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/good_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=20</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_call_price</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_self_price</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_calls_profit</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_avg_profit_per_min</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_call</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_day</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_user</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=subscription_profit</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_profit</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_answer_calls</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_no_ans_calls</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_busy_calls</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_erro_calls</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>total_percent</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_selfcost_percent</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_calls_profit</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/dids</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=March</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0dids_stats']/div[6]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0dids_stats']/div[7]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0dids_stats']/div[8]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0dids_stats']/div[9]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>size_on_hdd_2</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>total_size_on_hdd</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>SIP_provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[2]/div</td>
+	<td>SIP</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[10]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[11]/div</td>
+	<td>??:??:??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[12]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[13]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[14]</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1providers']/div[10]/div</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1providers']/div[12]/div</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[4]/div/b</td>
+	<td>??:??:??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[10]/div/b</td>
+	<td>*;??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[12]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[13]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[14]/div/b</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/aggregates/calls_and_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/hangup_cause_codes_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2007</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=March</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='table']/table[2]/tbody/tr[6]/td[4]</td>
+	<td>*;???? %</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/country_stats?date_from[year]=2013&amp;date_from[month]=10&amp;date_from[day]=1&amp;date_till[year]=2014&amp;date_till[month]=2&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.jqx-grid-cell.jqx-grid-empty-cell &gt; span</td>
+	<td>No data to display</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/main</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Calls:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance</td>
+	<td>*;???? USD</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/call_tracing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='3'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test Reseller (3)</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=destination</td>
+	<td>37060017219</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>7;000000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/functionality/show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/functionality/show_advanced_rates_for_user_insert</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_252</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[@id='rate_255']/td[4]</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=c_fee_260</td>
+	<td>*;????</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_265</td>
+	<td>*;????</td>
+</tr>
+</tbody></table>
+</body>
+</html>

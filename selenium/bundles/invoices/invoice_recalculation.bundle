@@ -1,0 +1,13 @@
+# ----
+# invoice  settings
+# prepaid "number type" INV000000001
+settings/invoices/prepaid_number_type_1.sql
+# prepaid number length
+settings/invoices/prepaid_number_length.sql
+# prepaid invoice number start 
+settings/invoices/prepaid_invoice_number_start.sql
+# postpaid invoice number type
+settings/invoices/postpaid_invoice_number_type_1.sql 
+#reseler number type 1
+settings/reseller/invoices_number_type_1_1.sql
+# bundle loaded

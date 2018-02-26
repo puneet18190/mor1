@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/destination_groups
+END
+delete_destination_9999999.sql
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/destination_groups/delete_destination_9999999.sql
+END
+delete_destinations.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/destination_groups/delete_destinations.sql
+END
+update_destination_with_letter.sql
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/destination_groups/update_destination_with_letter.sql
+END
+dst_fix_for_custom_rates.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/destination_groups/dst_fix_for_custom_rates.sql
+END

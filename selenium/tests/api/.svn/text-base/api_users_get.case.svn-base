@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_users_get</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_users_get</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=admin&amp;p=admin1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Enable MOR API-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=partner/partner_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--Sugeneruojami Hash'ai, u ir p ieina i hasha-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=users_get&amp;u=admin&amp;p=admin1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=users_get&amp;u=user_admin&amp;p=user_admin1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=users_get&amp;u=reseller&amp;p=reseller1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=users_get&amp;u=partner&amp;p=partner1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=users_get&amp;u=accountant&amp;p=accountant1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash5</td>
+</tr>
+<!--errors-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=admin&amp;p=admin1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=user_admin&amp;p=user_admin1&amp;test=1&amp;hash=${hash2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=partner&amp;p=partner1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>1600101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>partner_reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//user[2]/id</td>
+	<td>1600102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//user[2]/username</td>
+	<td>partner_reselle1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//user[3]/id</td>
+	<td>1600103</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//user[3]/username</td>
+	<td>partner_reselle2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//user[4]/id</td>
+	<td>1600104</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//user[4]/username</td>
+	<td>partner_reselle3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=partner&amp;p=partner1&amp;test=1&amp;hash=${hash2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=accountant&amp;p=accountant1&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to view this page</td>
+	<td></td>
+</tr>
+<!--success-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=admin&amp;p=admin1&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=last_name</td>
+	<td>#1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=blocked</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=lcr_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tariff_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=owner_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=usertype</td>
+	<td>user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>2 user_admin Test User #1 0.0 0 1 2 0 user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>2 user_admin Test User #1 0.0 0 1 2 0 user 3 reseller Test Reseller 0.0 0 1 4 0 reseller 4 accountant Test Accountant 0.0 0 1 2 0 accountant 5 user_reseller User Resellers 0.0 0 1 3 3 user 6001 partner Test Partner 0.0 0 1 4 0 partner*</td>
+</tr>
+<!--admin can see all users-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>2 user_admin Test User #1 0.0 0 1 2 0 user 3 reseller Test Reseller 0.0 0 1 4 0 reseller 4 accountant Test Accountant 0.0 0 1 2 0 accountant 5 user_reseller User Resellers 0.0 0 1 3 3 user 6001 partner Test Partner 0.0 0 1 4 0 partner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=reseller&amp;p=reseller1&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=id</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>5 user_reseller User Resellers 0.0 0 1 3 3 user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=lcr_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tariff_id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=owner_id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=usertype</td>
+	<td>user</td>
+</tr>
+<!--reseller can see only his users-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>5 user_reseller User Resellers 0.0 0 1 3 3 user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--acc mato ka adminas, tik jam reikai read arba write manage users persmissionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<!--duodam leidima read-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/manage_users_read</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=accountant&amp;p=accountant1&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>2 user_admin Test User #1 0.0 0 1 2 0 user 3 reseller Test Reseller 0.0 0 1 4 0 reseller 5 user_reseller User Resellers 0.0 0 1 3 3 user 6001 partner Test Partner 0.0 0 1 4 0 partner</td>
+	<td></td>
+</tr>
+<!--partner users-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=partner&amp;p=partner1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1600101 partner_reseller Partner`s Reseller 0.0 0 1 4 6001 reseller 1600102 partner_reselle1 Partner`s1 Reseller1 0.0 0 1 4 6001 reseller1 1600103 partner_reselle2 Partner`s2 Reseller2 0.0 0 1 4 6001 reseller2 1600104 partner_reselle3 Partner`s3 Reseller3 0.0 0 1 4 6001 reseller3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>partner_reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Partner`s</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>partner_reselle2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># disable hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=admin&amp;p=admin1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>2 user_admin Test User #1 0.0 0 1 2 0 user 3 reseller Test Reseller 0.0 0 1 4 0 reseller 4 accountant Test Accountant 0.0 0 1 2 0 accountant 5 user_reseller User Resellers 0.0 0 1 3 3 user 6001 partner Test Partner 0.0 0 1 4 0 partner 6002 partner2 Test2 Partner2 0.0 0 1 4 0 partner 1600101 partner_reseller Partner`s Reseller 0.0 0 1 4 6001 reseller 1600102 partner_reselle1 Partner`s1 Reseller1 0.0 0 1 4 6001 reseller1 1600103 partner_reselle2 Partner`s2 Reseller2 0.0 0 1 4 6001 reseller2 1600104 partner_reselle3 Partner`s3 Reseller3 0.0 0 1 4 6001 reseller3 1600201 partner_reseller44 Partner`s4 Reseller1111 0.0 0 1 4 6002 reseller</td>
+</tr>
+<!--Fake forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/users_get?u=admin&amp;p=admin1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/users_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>2 user_admin Test User #1 0.0 0 1 2 0 user 3 reseller Test Reseller 0.0 0 1 4 0 reseller 4 accountant Test Accountant 0.0 0 1 2 0 accountant 5 user_reseller User Resellers 0.0 0 1 3 3 user 6001 partner Test Partner 0.0 0 1 4 0 partner 6002 partner2 Test2 Partner2 0.0 0 1 4 0 partner 1600101 partner_reseller Partner`s Reseller 0.0 0 1 4 6001 reseller 1600102 partner_reselle1 Partner`s1 Reseller1 0.0 0 1 4 6001 reseller1 1600103 partner_reselle2 Partner`s2 Reseller2 0.0 0 1 4 6001 reseller2 1600104 partner_reselle3 Partner`s3 Reseller3 0.0 0 1 4 6001 reseller3 1600201 partner_reseller44 Partner`s4 Reseller1111 0.0 0 1 4 6002 reseller</td>
+</tr>
+</tbody></table>
+</body>
+</html>

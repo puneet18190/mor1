@@ -1,0 +1,2076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/update_balance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;user_id=0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash12</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash13</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;user_id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash14</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;user_id=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash15</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=warning_email_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_warning_email_balance</td>
+	<td>99</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_warning_email_hour_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_user_warning_email_hour</td>
+	<td>label=09</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_csv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>name=hide_non_answered_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_call_limit</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=warning_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance_admin</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance_manager</td>
+	<td>70</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_warning_email_hour_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_user_warning_email_hour</td>
+	<td>label=23</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sound_file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_pdf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_csv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=warning_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance_admin</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance_manager</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_warning_email_hour_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_user_warning_email_hour</td>
+	<td>label=15</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_pdf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_csv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<!--admin ->admin-->
+<!--neteisingas username-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=neteisingas&amp;user_id=0&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--neteisingas slaptazodis - ignoruojamas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=admin&amp;p=neteisingas&amp;user_id=0&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>60.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>60.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>System</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2007-03-26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Afghanistan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 0 1 0 1 0 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>495.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>9</td>
+</tr>
+<!--slaptazodis ignoruojamas, senas linkas veikia-->
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=admin&amp;p=admin1&amp;user_id=0&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>60.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>60.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>System</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2007-03-26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Afghanistan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=admin&amp;user_id=0&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>60.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>60.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>System</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2007-03-26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Afghanistan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<!--admin ->101-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=admin&amp;user_id=2&amp;hash=${hash13}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>26.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>26.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=generate_invoices</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=send_email_when_balance_drops_lower_than</td>
+	<td>250.0 300.0 350.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>23</td>
+</tr>
+<!--admin ->reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=admin&amp;user_id=3&amp;hash=${hash14}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>36.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>36.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>19.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_direction</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_email</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=send_email_when_balance_drops_lower_than</td>
+	<td>35.0 40.0 45.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>15</td>
+</tr>
+<!--admin -> accountant-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=admin&amp;user_id=4&amp;hash=${hash15}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=pagename</td>
+	<td>Personal details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>44.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>44.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<!--Without hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>name=hide_non_answered_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_call_limit</td>
+	<td>35</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=warning_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=warning_email_balance</td>
+	<td>18.0000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_warning_email_hour_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_user_warning_email_hour</td>
+	<td>label=07</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_pdf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=simplified_csv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--admin -> user_reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=admin&amp;user_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>44.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>44.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<!--101->101-->
+<!--neteisingas slaptazodis - ignoruojamas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=user_admin&amp;p=neteisingas&amp;user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>26.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>26.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>#1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>250.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=user_admin&amp;user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>26.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>26.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>#1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>250.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>23</td>
+</tr>
+<!--101->reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=user_admin&amp;user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>26.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>12</td>
+</tr>
+<!--reseller->101-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=reseller&amp;user_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User was not found</td>
+	<td></td>
+</tr>
+<!--incorrect login-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=adm&amp;user_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--neteisingas slaptazodis - ignoruojamas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=reseller&amp;p=neteisingas&amp;user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>36.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>19.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_direction</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_email</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>35.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>15</td>
+</tr>
+<!--reseller->reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=reseller&amp;user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>36.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>19.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_direction</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_email</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>35.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>15</td>
+</tr>
+<!--reseller->user_reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=reseller&amp;user_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>20.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000003</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Afghanistan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>19.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=active</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=invoices</td>
+	<td>1 1 1 1 1 1 1 1 1 1 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user</td>
+	<td>15.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=warning_email_hour</td>
+	<td>7</td>
+</tr>
+<!--accountant->reseller-->
+<!--blogas password - ignoruojamas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=accountant&amp;p=neteisingas&amp;user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>44.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=accountant&amp;user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>44.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Accountant</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details_get?u=accountant&amp;user_id=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Personal details en 4 Postpaid 44.0000 USD 44.0 USD Unlimited accountant Test Accountant 0000000002 2009-03-31 Lithuania 0.0 0</td>
+</tr>
+<!--with username parameter-->
+<!--admin ->101-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=admin&amp;p=admin1&amp;username=user_admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=pagename</td>
+	<td>Personal details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>26.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>26.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=first_name</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>18.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>12</td>
+</tr>
+<!--admin ->reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=admin&amp;p=admin1&amp;username=reseller&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=pagename</td>
+	<td>Personal details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_number</td>
+	<td>36.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>36.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>19.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_direction</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=reg_email</td>
+	<td>test_reseller@email.test</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>0</td>
+</tr>
+<!--reseller->user_reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=reseller&amp;p=reseller1&amp;username=user_reseller&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=pagename</td>
+	<td>Personal details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=language</td>
+	<td>en</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=userid</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=account</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance</td>
+	<td>20.0000 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit</td>
+	<td>Unlimited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=surname</td>
+	<td>Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_number</td>
+	<td>0000000003</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=agreement_date</td>
+	<td>2009-03-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=taxation_country</td>
+	<td>Afghanistan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=vat_percent</td>
+	<td>19.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=hide_non_answered_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=call_limit</td>
+	<td>35</td>
+</tr>
+<!--reseller ->101-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_details?u=reseller&amp;username=user_admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+</tbody></table>
+</body>
+</html>

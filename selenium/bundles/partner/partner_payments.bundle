@@ -1,0 +1,13 @@
+# Bundle for partner/partner_pauments
+#
+#Partner Nr.1
+/user/partner_6001/create.sql
+#Partner Nr.2
+/user/partner_6002/create.sql
+#Tarifs for partner Nr1
+/tariff/partner_6001/create.sql
+#Reseller for partner Nr.1
+/user/reseller_1600101/create2.sql
+#resllers for partner Nr.2
+/user/reseller_1600202/create.sql
+# bundle loaded

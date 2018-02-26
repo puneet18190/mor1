@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>devices_extlines</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">devices_extlines</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>119</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>sip device</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>121</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>SIP/1001,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>iax2 device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_IAX2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>146</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1003</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1003,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>h323 device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_H323</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>171</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>H323/ipauth*,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>dahdi device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_dahdi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>196</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1005</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>dahdi/1005,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>virtual device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_Virtual</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>221</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>virtual_12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>Virtual/virtual_12,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>fax device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>240</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1006</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Goto</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>1006,9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/default_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/signup_start/hfttv7bcqt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=first_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=last_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>test@email.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Registration successful</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/signup_start/hfttv7bcqt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_type_IAX2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>testuser2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=first_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=last_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>test2@email.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Registration successful</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>265</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1007</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>SIP/1007,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>290</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1008</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1008,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>15</td>
+</tr>
+<!--Reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>sip device</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>iax2 device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_IAX2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>h323 device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_H323</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>fax device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/default_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/reseller_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=registration_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/signup_start/qg2audn8qa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>testuser3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=first_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=last_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>test3@email.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Registration successful</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/signup_start/qg2audn8qa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_type_IAX2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>testuser4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password2</td>
+	<td>testuser11A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=first_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=last_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>test4@email.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Registration successful</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>315</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1009</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>SIP/1009,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>340</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1010</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1010,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>365</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1011</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>H323/ipauth*,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>384</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1012</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Goto</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>1012,9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>409</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1013</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>SIP/1013,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>434</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>1014</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=app_value</td>
+	<td>Dial</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>IAX2/1014,60,il</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>21</td>
+</tr>
+</tbody></table>
+</body>
+</html>

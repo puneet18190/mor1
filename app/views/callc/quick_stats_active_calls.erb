@@ -1,0 +1,16 @@
+<table id="active_calls" class="nb" width="50%">
+  <% if allow_manage_providers? %>
+      <tr>
+        <td style="height: 10px" colspan="2"></td>
+      </tr>
+      <tr>
+        <th class="bottom_border" align="left" colspan=2 nowrap="true"> <%= _('Now') %>:</th>
+      </tr>
+      <tr>
+        <td nowrap="true" width="60%"><%= _('Active_Calls') %>:</td>
+        <td nowrap="true">
+          <div id="active_calls_count" nowrap="true"><%= link_to(@active_calls, {controller: :stats, action: :active_calls}, {id: 'active_calls_link'}) %></div>
+        </td>
+      </tr>
+  <% end %>
+</table>

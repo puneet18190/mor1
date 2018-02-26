@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices
+END
+invoicedetails.sql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/invoicedetails.sql
+END
+real_invoices.sql
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/real_invoices.sql
+END
+update_taxes.sql
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/update_taxes.sql
+END
+partner_invoice.sql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/partner_invoice.sql
+END
+various_invoices.sql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/various_invoices.sql
+END
+various_invoices_for_partner.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/various_invoices_for_partner.sql
+END
+exchange_rate.sql
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/invoices/exchange_rate.sql
+END

@@ -1,0 +1,100 @@
+<%= form_tag :action => 'server_update', :id => @server do %>
+
+
+    <table width="40%">
+      <tr>
+        <td valign="top">
+          <table>
+            <tr>
+              <td colspan="2" class="bottom_border">
+                <b><%= _('General') %></b>
+              </td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <table class="simple">
+                  <tr>
+                    <td> <%= _('ID') %>:   </td>
+                    <td> <%= @server.id.to_s %> </td>
+                  </tr>
+                  <tr>
+                    <td><%= _('Hostname_for_SIP') %>:</td>
+                    <td><%= text_field_tag('server_hostname', @server.hostname, class: 'input') %></td>
+                  </tr>
+                  <tr>
+                    <td><%= _('Server_IP_for_SIP') %>:</td>
+                    <td><%= text_field_tag('server_ip', @server.ipaddr, class: 'input') %></td>
+                  </tr>
+                    <% if @server_type != 'sip_proxy' %>
+                      <tr id="server_ip_for_ami">
+                        <td><%= _('Server_IP_for_AMI') %>:</td>
+                        <td><%= text_field_tag('server_ip_for_ami', @server.server_ip, class: 'input') %></td>
+                      </tr>
+                    <% end %>
+                  <tr>
+                    <td> <%= _('Url') %>:  </td>
+                    <td> <%= text_field_tag('server_url', @server.stats_url, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('Type') %>: </td>
+                    <td>
+                      <% if @server_type == 'sip_proxy' %>
+                          <%= @server_type %>
+                      <% else %>
+                          <%= select_tag('server_type', options_for_select(%w[asterisk other], @server_type), onchange: 'disableAmi()') %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('Max_call_limit') %>:  </td>
+                    <td> <%= text_field_tag('server_maxcalllimit', @server.maxcalllimit, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('AMI_Username') %>:  </td>
+                    <td> <%= text_field_tag('server_ami_username', @server.ami_username, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('AMI_Secret') %>:  </td>
+                    <td> <%= text_field_tag('server_ami_secret', @server.ami_secret, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('Port') %>:  </td>
+                    <td> <%= text_field_tag('server_port', @server.port, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('Comment') %>: </td>
+                    <td> <%= text_field_tag('server_comment', @server.comment, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('Ssh_username') %>:  </td>
+                    <td> <%= text_field_tag('server_ssh_username', @server.ssh_username, "class" => "input") %>  </td>
+                  </tr>
+                  <tr>
+                    <td> <%= _('Ssh_port') %>:  </td>
+                    <td> <%= text_field_tag('server_ssh_port', @server.ssh_port, "class" => "input") %> </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+    <%= submit_tag _('Change') %>
+     <script type="text/javascript">
+        function disableAmi() {
+          if ($('server_type').value == 'asterisk') {
+            $('server_ip_for_ami').style.display = '';
+          } else {
+            $('server_ip_for_ami').style.display = 'none';
+          }
+        }
+        disableAmi();
+    </script>
+<% end %>

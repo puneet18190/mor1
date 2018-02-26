@@ -1,0 +1,7 @@
+<% if @destination.blank? %>
+    <%= _("Destination_not_found") %>
+<% else %>
+        <%= (@destination.prefix.to_s + ' - ' + draw_flag(@destination.direction_code.to_s).to_s + ' ' + @destination.direction_name.to_s +  ' (' + @destination.name.to_s + ')').html_safe %>
+        <td><%= text_field_tag :destination, @destination.id , class: 'input', hidden: true %> </td>
+<% end %>
+

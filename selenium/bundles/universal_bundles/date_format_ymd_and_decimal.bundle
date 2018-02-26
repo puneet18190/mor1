@@ -1,0 +1,6 @@
+# ----
+# Y/m/d H:M:S date format
+/settings/visual/set_date_format_2.sql
+# , global number decimal
+/settings/visual/set_comma_as_decimal.sql
+# bundle loaded

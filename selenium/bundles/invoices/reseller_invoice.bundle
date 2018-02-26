@@ -1,0 +1,15 @@
+# ----
+# reseller_invoice.case settings 
+# invoice number starts = 0
+settings/reseller/invoice_number_start_0.sql
+# invoice number lenght = 5
+settings/reseller/invoices_number_length_5.sql
+# invoice number type = 1
+settings/reseller/invoices_number_type_1_1.sql
+# invoice show calls in detailed
+settings/reseller/invoices_show_calls_in_detailed.sql
+# invoice show balance line
+settings/reseller/show_balance_line_1_1.sql
+# use short file name
+settings/reseller/use_short_file_name.sql
+# bundle loaded

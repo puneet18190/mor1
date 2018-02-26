@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/conflines/es_remote_35.sql</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/aggregates/calls_and_aggregates_for_all_type_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--ORIGINATOR-->
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list?date_from[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Enter value here</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>Tes</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_originator</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#originator_list &gt; tbody</td>
+	<td>AnyNoneTest User #1</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=originator_list.0.0</td>
+	<td>Any</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=originator_list.2.0</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>555</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_originator</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>No value found</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='13'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=September</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=28</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=destination_group</td>
+	<td>label=None</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=csvExport</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[14]/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[6]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[6]</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[8]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>sadasd</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_originator</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#originator_list &gt; tbody</td>
+	<td>AnyNoneNo value found</td>
+</tr>
+<!--any-->
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row2aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=csvExport</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[14]/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[6]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[8]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='any'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>Any</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row2aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=csvExport</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[14]/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[6]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[8]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<!--none-->
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='none'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>None</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0aggregates_data']/div[4]/div</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=customer_orig_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=csvExport</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[14]</td>
+	<td>ACD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[5]/div</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[4]/div/b</td>
+	<td>exact:Total:</td>
+</tr>
+<!--Destination stulpelį turi rodyti kai pasirikta prefix arba Country nėra None-->
+<tr>
+	<td>select</td>
+	<td>name=destination_group</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.jqx-grid-column-header.jqx-widget-header &gt; div &gt; div &gt; span</td>
+	<td>Destination Group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div/div</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=destination_group</td>
+	<td>label=None</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>37%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.jqx-grid-column-header.jqx-widget-header &gt; div &gt; div &gt; span</td>
+	<td>Destination Group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div/div</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[2]/div</td>
+	<td>370</td>
+</tr>
+</tbody></table>
+</body>
+</html>

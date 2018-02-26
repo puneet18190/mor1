@@ -1,0 +1,2124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/services/services_and_subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_delete&amp;u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<!--hashas su visais parametrais -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_delete&amp;u=admin&amp;subscription_id=2&amp;subscription_delete_action=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash1']==storedVars['hash2']</td>
+	<td>false</td>
+</tr>
+<!--kitoks action-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_delete&amp;u=admin&amp;subscription_id=2&amp;subscription_delete_action=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash2']==storedVars['hash3']</td>
+	<td>false</td>
+</tr>
+<!--kitoks subscription id-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_delete&amp;u=admin&amp;subscription_id=1&amp;subscription_delete_action=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash4']==storedVars['hash3']</td>
+	<td>false</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=1&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Incorrect hash</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=adm&amp;subscription_id=1&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=1&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=1&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription was not found</td>
+</tr>
+<!--Dar kartą tas pats-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=17&amp;subscription_delete_action=7&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription delete action was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription was not selected</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=17&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription delete action was not selected</td>
+</tr>
+<!--adminas bando trinti reselerio userio subscription-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=20&amp;subscription_delete_action=2&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=20&amp;subscription_delete_action=3&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=21&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<!--reseleris bando trinti admino userio subscription-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=reseller&amp;subscription_id=12&amp;subscription_delete_action=2&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=reseller&amp;subscription_id=12&amp;subscription_delete_action=3&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=reseller&amp;subscription_id=12&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription was not found</td>
+</tr>
+<!--paprasti useriai nieko negali trinti-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=user_reseller&amp;subscription_id=12&amp;subscription_delete_action=2&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=user_reseller&amp;subscription_id=20&amp;subscription_delete_action=3&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=user_admin&amp;subscription_id=12&amp;subscription_delete_action=2&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=user_admin&amp;subscription_id=20&amp;subscription_delete_action=3&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--adminas trina periodic fee trimis budais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=13&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--periodic ištrintas pirmu tipu turi tik actioną-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_16</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_16</td>
+	<td>Subscription_deleted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_16</td>
+	<td>Subscription (13)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_16</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_16</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=11&amp;subscription_delete_action=2&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription disabled</td>
+</tr>
+<!--periodic ištrintas antru tipu turi tik actioną, pasikeičia laikas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_18</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_18</td>
+	<td>Subscription_disabled</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_18</td>
+	<td>Subscription (11)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_18</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_18</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=nice_date</td>
+	<td>now</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_11</td>
+	<td>${now} *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_11</td>
+	<td>${now} *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=12&amp;subscription_delete_action=3&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--periodic ištrintas trečiu tipu turi tik actioną, paymentą ir keičiasi balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_19</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_19</td>
+	<td>Subscription_deleted_and_return_money_whole</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_19</td>
+	<td>Subscription (12)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_19</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_19</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_11</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_11</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_11</td>
+	<td>424.1387</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_11</td>
+	<td>424.1387</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>424.1387</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_12</td>
+	<td></td>
+</tr>
+<!--===================-->
+<!--adminas trina flat rate trimis budais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=14&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--flat rate ištrintas pirmu tipu turi tik actioną-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_20</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_20</td>
+	<td>Subscription_deleted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_20</td>
+	<td>Subscription (14)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_20</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_20</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<!--balansas nepakito-->
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>424.1387</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=15&amp;subscription_delete_action=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription disabled</td>
+</tr>
+<!--flat rate ištrintas antru tipu turi tik actioną, pasikeičia laikas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_21</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_21</td>
+	<td>Subscription_disabled</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_21</td>
+	<td>Subscription (15)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_21</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_21</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>424.1387</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=nice_date</td>
+	<td>now</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_15</td>
+	<td>${now} *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_15</td>
+	<td>${now} *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=16&amp;subscription_delete_action=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--flat rate ištrintas trečiu tipu turi tik actioną, paymentą ir keičiasi balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_22</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_22</td>
+	<td>Subscription_deleted_and_return_money_whole</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_22</td>
+	<td>Subscription (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_22</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_22</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_12</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_12</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_12</td>
+	<td>113.1613</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_12</td>
+	<td>113.1613</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>537.3000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_16</td>
+	<td></td>
+</tr>
+<!--===================-->
+<!--adminas trina one time fee trimis budais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=17&amp;subscription_delete_action=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--one time fee ištrintas pirmu tipu turi tik actioną-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_23</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_23</td>
+	<td>Subscription_deleted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_23</td>
+	<td>Subscription (17)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_23</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_23</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>537.3000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=18&amp;subscription_delete_action=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--one time fee ištrintas antru tipu turi tik actioną, susikuria paymentas ir pasikeičia balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_24</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_24</td>
+	<td>Subscription_deleted_and_return_money_whole</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_24</td>
+	<td>Subscription (18)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_24</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_24</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_13</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_13</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_13</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_13</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>549.3000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=activation_end_18</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_18</td>
+	<td></td>
+</tr>
+<!--one time fee trečio tipo neturi-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=19&amp;subscription_delete_action=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription delete action was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>549.3000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Subscription (19)</td>
+	<td></td>
+</tr>
+<!--atkeičiamas subscription laikas, nes tada pakildavo userio balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_edit/11?back=subscriptions&amp;page=1&amp;s_date_from=-1&amp;s_date_till=-1&amp;s_device=-1&amp;s_memo=&amp;s_service=-1&amp;s_user=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_day</td>
+	<td>label=30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription updated</td>
+</tr>
+<!--Disablintą galima ir ištrinti-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=11&amp;subscription_delete_action=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=15&amp;subscription_delete_action=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<!--===========PREPAID USERIS =============-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/user_2/make_prepaid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--adminas trina periodic fee trimis budais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=38&amp;subscription_delete_action=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--periodic ištrintas pirmu tipu turi tik actioną-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_27</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_27</td>
+	<td>Subscription_deleted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_27</td>
+	<td>Subscription (38)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_27</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_27</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>651.*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_38</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_38</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=39&amp;subscription_delete_action=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--periodic ištrintas antru tipu turi tik actioną-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_28</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_28</td>
+	<td>Subscription_deleted_and_return_money_month</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_28</td>
+	<td>Subscription (39)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_28</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_28</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>651.*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=activation_end_39</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=activation_end_39</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=40&amp;subscription_delete_action=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--periodic ištrintas trečiu tipu turi tik actioną, paymentą ir keičiasi balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_29</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_29</td>
+	<td>Subscription_deleted_and_return_money_whole</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_29</td>
+	<td>Subscription (40)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_29</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_29</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_15</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_15</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_15</td>
+	<td>264.3667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_15</td>
+	<td>264.3667</td>
+</tr>
+<!--adminas trina flat rate trimis budais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=41&amp;subscription_delete_action=1&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--flat rate ištrintas pirmu tipu turi tik actioną-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_30</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_30</td>
+	<td>Subscription_deleted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_30</td>
+	<td>Subscription (41)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_30</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_30</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=42&amp;subscription_delete_action=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--flat rate ištrintas antru tipu turi tik actioną, pasikeičia laikas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_31</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_31</td>
+	<td>Subscription_deleted_and_return_money_month</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_31</td>
+	<td>Subscription (42)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_31</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_31</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=43&amp;subscription_delete_action=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--flat rate ištrintas trečiu tipu turi tik actioną, paymentą ir keičiasi balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_32</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_32</td>
+	<td>Subscription_deleted_and_return_money_whole</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_32</td>
+	<td>Subscription (43)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_32</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_32</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_16</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_16</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_16</td>
+	<td>113.1613</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_16</td>
+	<td>113.1613</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>102?.*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_43</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_43</td>
+	<td></td>
+</tr>
+<!--===================-->
+<!--adminas trina one time fee trimis budais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=44&amp;subscription_delete_action=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--one time fee ištrintas pirmu tipu turi tik actioną-->
+<tr>
+	<td>assertText</td>
+	<td>id=user_33</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_33</td>
+	<td>Subscription_deleted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_33</td>
+	<td>Subscription (44)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_33</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_33</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>user_17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_44</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_delete?u=admin&amp;subscription_id=45&amp;subscription_delete_action=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--one time fee ištrintas antru tipu turi tik actioną, susikuria paymentas ir pasikeičia balansas-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/action_log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_34</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_34</td>
+	<td>Subscription_deleted_and_return_money_whole</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=target_34</td>
+	<td>Subscription (45)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data_34</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_34</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_17</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_17</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_17</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_17</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>104?.*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=activation_end_45</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_45</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/subscription_delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>subscription_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>46</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>subscription_delete_action</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--adminas tikrai ištrynė-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/5?back=subscriptions&amp;page=1&amp;s_date_from=-1&amp;s_date_till=-1&amp;s_device=-1&amp;s_memo=&amp;s_service=-1&amp;s_user=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_20</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=service_name_21</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

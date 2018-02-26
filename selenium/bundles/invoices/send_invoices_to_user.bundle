@@ -1,0 +1,12 @@
+# ----
+# various things for user
+settings/invoices/send_invoices_to_user.sql
+#acc groups
+settings/addons/acc_groups.sql
+# enable email sending
+settings/email/enable_sending.sql
+#reseller invoice number type
+settings/reseller/invoice_number_type_1.sql
+#invoice number type for  new reseller
+settings/reseller/invoice_number_type_1_id_11.sql
+# bundle loaded

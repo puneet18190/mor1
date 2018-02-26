@@ -1,0 +1,2334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Old calls</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_1600101/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/calls_old</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Archived Calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Call&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//a[@href='http://wiki.kolmisoft.com/index.php/Old_calls']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Help banner&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;date_from[month]=12&amp;date_from[day]=18&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_67</td>
+	<td>2012-11-30 19:05:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_42</td>
+	<td>2012-11-21 11:49:52</td>
+</tr>
+<!--nera linku i user, provider edita-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>/tmp/Last_calls_old-0-2008-12-18_00_00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;dst&quot;:&quot;37093042422&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;nice_reseller&quot;:&quot;Test Reseller&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;profit&quot;:&quot;3.900000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 65</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=total</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 65</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=total</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 65</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_67</td>
+	<td>2012-11-30 19:05:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_42</td>
+	<td>2012-11-21 11:49:52</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=user_53</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Information&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_1</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=(//td[@id='page_1'])[2]</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=src_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_56</td>
+	<td>40060 (40060)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_28</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=u_price_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_price_31</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_price_71</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=provider_rate_71</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=provider_71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=p_name_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test Provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>2012-11-21 11:56:06</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No calls...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/load_bundle_sql/?path=calls_old</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Archived Calls</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.7</td>
+	<td>DID</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.5</td>
+	<td>Number</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>Incoming</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.7</td>
+	<td>Owner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_71</td>
+	<td>37093042422</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_inc_price_71</td>
+	<td>1.3000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_71</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_70</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_67</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=did_price_36</td>
+	<td>0.0000</td>
+</tr>
+<!--nera linku i user, provider edita-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 42</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 42</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=total</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;dst&quot;:&quot;37093042422&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user&quot;:&quot;User Resellers&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;profit&quot;:&quot;1.3000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;did&quot;:&quot;DID Number&quot;,&quot;did_inc_price&quot;:&quot;DID Number&quot;,&quot;did_price&quot;:&quot;DID Price&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>37093042422</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1.3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1.5600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>2.5300</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>0.4100</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>1.3400</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No calls...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Archived Calls</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=reseller_price_71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_price_71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 75</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 75</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>&quot;provider_price&quot;=&gt;&quot;0.0000000000000000&quot;</td>
+	<td>&quot;user_price&quot;=&gt;&quot;0.0000000000000000&quot;</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>&quot;user_price&quot;=&gt;&quot;0.0000000000000000&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;dst&quot;:&quot;37093042422&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user&quot;:&quot;User Resellers&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No calls...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test_group</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=see_financial_data_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=accountant_type_select</td>
+	<td>test_group</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/login_as</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=user</td>
+	<td>label=Test Accountant</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Archived Calls</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=reseller_price_71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=user_price_71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;0.0000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user_price&quot;:&quot;0.000000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;dst&quot;:&quot;37093042422&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user&quot;:&quot;User Resellers&quot;</td>
+	<td></td>
+</tr>
+<!--CSV su decimal separatoriumi-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/universal_bundles/visual_settings2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2009&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;0;000000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user_price&quot;:&quot;0;00000000000*</td>
+	<td></td>
+</tr>
+<!--buvo problema, kad isjungus rspro adona, crashino old calls exportas-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/additional_modules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RSPRO_Active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2009&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;0;0000000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user_price&quot;:&quot;0;0000000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/additional_modules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RS_Active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2009&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;0;0000000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user_price&quot;:&quot;0;0000000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/show_device_and_cid_in_last_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_67</td>
+	<td>2012-11-30 19:05:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_42</td>
+	<td>2012-11-21 11:49:52</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=user_53</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_3/assign_to_partner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_device_and_cid_in_last_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2012&amp;date_till[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=June</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_hour</td>
+	<td>label=01</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_minute</td>
+	<td>label=01</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=June</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No calls...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=15</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2015</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Provider:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>DID Provider:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[7]</td>
+	<td>Self-Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=p_rate_0</td>
+	<td>Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=p_price_0</td>
+	<td>Price</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[8]</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_0</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_rate_0</td>
+	<td>Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_price_0</td>
+	<td>Price</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_207</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=total_reseller_price</td>
+	<td>32;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>28;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=billsec_207</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>20;6789</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>28;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_207</td>
+	<td>2014-01-01 2?:00:04</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=25</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_207</td>
+	<td>2014-01-01 2?:00:04</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>calldate_208</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=s_device</td>
+	<td>All</td>
+</tr>
+<!--devais1 galima rinktis tik pasirinkus konkretų userį-->
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=s_device</td>
+	<td>All IAX2/105</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_device</td>
+	<td>label=IAX2/105</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_207</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dst_207</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_device</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_call_type</td>
+	<td>label=Busy</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_202</td>
+	<td>BUSY (38)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_call_type</td>
+	<td>label=Failed</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_206</td>
+	<td>FAILED (12)</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>disposition_202</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_call_type</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_destination</td>
+	<td>123%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dst_200</td>
+	<td>123123</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>waitForSelectOptions</td>
+	<td>s_device</td>
+	<td>All,IAX2/105</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_device</td>
+	<td>label=IAX2/105</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_call_type</td>
+	<td>label=Answered</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>s_device</td>
+	<td>IAX2/105</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>s_call_type</td>
+	<td>Answered</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_destination</td>
+	<td>123%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>s_device</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>s_call_type</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>s_destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;date_from[month]=1&amp;date_from[day]=1&amp;date_from[hour]=1&amp;date_from[minute]=1&amp;date_till[year]=2015&amp;date_till[month]=3&amp;date_till[day]=20&amp;date_till[hour]=22&amp;date_till[minute]=22&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Time</td>
+	<td>Time</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Called From</td>
+	<td>Called From</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Called To</td>
+	<td>Called To</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Duration</td>
+	<td>Duration</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Hangup Cause</td>
+	<td>Hangup Cause</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Called From</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Called To</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>hgc_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?order_by=u_rate&amp;order_desc=0&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?order_by=u_price&amp;order_desc=1&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=user_list</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;user_price&quot;:&quot;4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>user_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>reseller_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>billsec</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>dispod</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>src</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>calldate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>dst</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>clid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Self-Cost Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Self-Cost Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;reseller_rate&quot;:&quot;0;000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;reseller_price&quot;:&quot;4;000000*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;nice_reseller&quot;:&quot;Partner`s Reseller&quot;</td>
+	<td></td>
+</tr>
+<!--Test option filtering by caller id for admin. there has to be text field to enter data-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;date_from[month]=1&amp;date_from[day]=2&amp;date_from[hour]=1&amp;date_from[minute]=1&amp;date_till[year]=2015&amp;date_till[month]=12&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_207</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>id=disposition_207</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>16 - Normal call clearing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>id=disposition_207</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_source</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<!--Filter is "Like YOUR_DATA" so we can use % _-->
+<tr>
+	<td>type</td>
+	<td>id=s_source</td>
+	<td>370%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_source</td>
+	<td>370%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_source</td>
+	<td>%704%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_source</td>
+	<td>%362%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_source</td>
+	<td>%3_04%</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>37046246362</td>
+	<td></td>
+</tr>
+<!--Verify that we are getting expected results when callerid filter is combined with other filters-->
+<tr>
+	<td>select</td>
+	<td>id=s_call_type</td>
+	<td>label=Answered</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ANSWERED (16)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_call_type</td>
+	<td>label=Failed</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_call_type</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_destination</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_source</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=partner_price_204</td>
+	<td>5;0000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=total</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_partner_price</td>
+	<td>40;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_204</td>
+	<td>4;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_reseller_price</td>
+	<td>32;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_price_204</td>
+	<td>2;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>28;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_204</td>
+	<td>-1;0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_profit</td>
+	<td>-8;0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;calldate2&quot;:&quot;2014-01-01 2?:00:03&quot;,&quot;clid&quot;:&quot;37046246362&quot;,&quot;dst&quot;:&quot;37063042438&quot;,&quot;nice_billsec&quot;:&quot;0&quot;,&quot;dispod&quot;:&quot;FAILED(12)&quot;,&quot;server_id&quot;:&quot;1&quot;,&quot;partner_rate&quot;:&quot;0;0000000000000000&quot;,&quot;partner_price&quot;:&quot;5;0000000000000000&quot;,&quot;nice_reseller&quot;:&quot;Partner`s Reseller&quot;,&quot;reseller_rate&quot;:&quot;0;0000000000000000&quot;,&quot;reseller_price&quot;:&quot;4;0000000000000000&quot;,&quot;user&quot;:&quot;&quot;,&quot;user_rate&quot;:&quot;0;0000000000000000&quot;,&quot;user_price&quot;:&quot;4;0000000000000000&quot;,&quot;profit&quot;:&quot;-1;0000000000000000&quot;}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=partner_price_204</td>
+	<td>3;6927</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_partner_price</td>
+	<td>29;5412</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_price_204</td>
+	<td>2;9541</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_reseller_price</td>
+	<td>23;6330</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_price_204</td>
+	<td>1;4771</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>20;6789</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=profit_204</td>
+	<td>-0;7385</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_profit</td>
+	<td>-5;9082</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;calldate2&quot;:&quot;2013-12-31 2?:00:01&quot;,&quot;clid&quot;:&quot;&quot;,&quot;dst&quot;:&quot;123123&quot;,&quot;nice_billsec&quot;:&quot;0&quot;,&quot;dispod&quot;:&quot;ANSWERED(16)&quot;,&quot;server_id&quot;:&quot;1&quot;,&quot;partner_rate&quot;:&quot;0;00000000000000000000000&quot;,&quot;partner_price&quot;:&quot;3;69265520000000000000000&quot;,&quot;nice_reseller&quot;:&quot;Partner`s Reseller&quot;,&quot;reseller_rate&quot;:&quot;0;00000000000000000000000&quot;,&quot;reseller_price&quot;:&quot;2;95412416000000000000000&quot;,&quot;user&quot;:&quot;System Admin&quot;,&quot;user_rate&quot;:&quot;0;00000000000000000000000&quot;,&quot;user_price&quot;:&quot;1;47706208000000000000000&quot;,&quot;profit&quot;:&quot;-0;73853104000000000000000&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/2_items_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?date_from[year]=2008&amp;date_from[month]=1&amp;date_from[day]=2&amp;date_from[hour]=1&amp;date_from[minute]=1&amp;date_till[year]=2015&amp;date_till[month]=12&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_1</td>
+	<td>1 2 3 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=(//td[@id='page_1'])[2]</td>
+	<td>1 2 3 4</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>2014-01-01 2?:00:04</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.0</td>
+	<td>2014-01-01 2?:00:03</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_201</td>
+	<td>2013-12-31 2?:00:02</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_200</td>
+	<td>2013-12-31 2?:00:01</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=time_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_206</td>
+	<td>2014-01-01 2?:00:03</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calldate_207</td>
+	<td>2014-01-01 2?:00:04</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=src_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_202</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_207</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=src_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=src_202</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=hgc_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disposition_202</td>
+	<td>BUSY (38)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ANSWERED (16)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=hgc_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ANSWERED (16)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dst_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dst_202</td>
+	<td>123123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dst_204</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'3')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dst_201</td>
+	<td>123123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats?csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Last_calls_old</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;calldate2&quot;:&quot;Time&quot;,&quot;clid&quot;:&quot;Called From&quot;,&quot;dst&quot;:&quot;Called To&quot;,&quot;nice_billsec&quot;:&quot;Duration&quot;,&quot;dispod&quot;:&quot;Hangup Cause&quot;,&quot;server_id&quot;:&quot;Server&quot;,&quot;partner_rate&quot;:&quot;Self-Cost Rate&quot;,&quot;partner_price&quot;:&quot;Self-Cost Price&quot;,&quot;nice_reseller&quot;:&quot;Reseller&quot;,&quot;reseller_rate&quot;:&quot;Reseller Rate&quot;,&quot;reseller_price&quot;:&quot;Reseller Price&quot;,&quot;user&quot;:&quot;User&quot;,&quot;user_rate&quot;:&quot;User rate&quot;,&quot;user_price&quot;:&quot;User price&quot;,&quot;profit&quot;:&quot;Profit&quot;}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;calldate2&quot;:&quot;2014-01-01 2?:00:04&quot;,&quot;clid&quot;:&quot;37046246362&quot;,&quot;dst&quot;:&quot;37063042438&quot;,&quot;nice_billsec&quot;:&quot;0&quot;,&quot;dispod&quot;:&quot;ANSWERED(16)&quot;,&quot;server_id&quot;:&quot;1&quot;,&quot;partner_rate&quot;:&quot;0;0000000000000000&quot;,&quot;partner_price&quot;:&quot;5;0000000000000000&quot;,&quot;nice_reseller&quot;:&quot;Partner`s Reseller&quot;,&quot;reseller_rate&quot;:&quot;0;0000000000000000&quot;,&quot;reseller_price&quot;:&quot;4;0000000000000000&quot;,&quot;user&quot;:&quot;&quot;,&quot;user_rate&quot;:&quot;0;0000000000000000&quot;,&quot;user_price&quot;:&quot;5;0000000000000000&quot;,&quot;profit&quot;:&quot;-1;0000000000000000&quot;</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

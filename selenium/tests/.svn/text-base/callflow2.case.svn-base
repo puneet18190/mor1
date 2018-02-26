@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#failed_edit_link &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=Forward</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=user_list</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>id=s_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=user_not_selected_info</td>
+	<td>Please select User</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=s_device</td>
+	<td>IAX2/101 FAX/102 IAX2/1002</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_device</td>
+	<td>label=IAX2/1002</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=change</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Call Flow updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select </td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>159</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>CALLERID(NAME)=101</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_extension</td>
+	<td>10023</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select </td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>159</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=appdata_value</td>
+	<td>CALLERID(NAME)=101</td>
+</tr>
+<!--enable pbx permission for reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=resellers_payment_option/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/12?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pbx_functions_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Kai device callflow pasirenkam voicemail (TIK no answer, busy ir failed atvejais), tuomet reikia rodyti naują checkbox 'Skip intro message'.-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/2?cft=before_call</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Call Flow updated</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Skip intro message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/2?cft=no_answer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[3]</td>
+	<td>Skip intro message</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>xpath=(//input[@name='commit'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Call Flow updated</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/2?cft=busy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[3]</td>
+	<td>Skip intro message</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/2?cft=failed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[3]</td>
+	<td>Skip intro message</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/7?cft=before_call</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Call Flow updated</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Skip intro message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/7?cft=no_answer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[3]</td>
+	<td>Skip intro message</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/7?cft=busy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[3]</td>
+	<td>Skip intro message</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/callflow_edit/7?cft=failed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=cf_action</td>
+	<td>label=VoiceMail</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[3]</td>
+	<td>Skip intro message</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=data5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=data5</td>
+	<td>on</td>
+</tr>
+</tbody></table>
+</body>
+</html>

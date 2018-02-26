@@ -1,0 +1,4792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>invoices</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">invoices</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--invoisų setingai, taxai ir good calls-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=invoices/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/invoices/update_subscriptions</td>
+	<td></td>
+</tr>
+<!--Šito reikia, kad užsipildytų timezones lenta-->
+<tr>
+	<td>setTimeout</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/hourly_actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Mission complete</td>
+	<td></td>
+</tr>
+<!--accountant permissions-->
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoices_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='confirm_without_message']/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Accountant</td>
+</tr>
+<!--Neturi generuoti invoisų useriui, kuriam išjungtas invoices generate setingas-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>name=user[generate_invoice]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=September</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<!--No suitable users found... scripte-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>name=user[generate_invoice]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>name=user[generate_invoice]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=September</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--No suitable users found... scripte-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>name=user[generate_invoice]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Generate Invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Send Invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Generate Invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<!--Iš reselerio pusės bus tik vienas invoisas-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--minimal charge settingai-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=minimal_charge_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=minimal_charge_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=minimal_charge_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minimal_charge_value</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=minimal_charge_date_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=minimal_charge_date_month</td>
+	<td>label=11</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#confirm_without_message &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: Test User #1</td>
+	<td></td>
+</tr>
+<!--Invoices for 1 day. Pirma invoiso diena - minimal charge-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User&nbsp;&nbsp;#1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_5</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_5</td>
+	<td>Generating Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_3</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_3</td>
+	<td>Generating Invoices</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<!--Patikrinam, kad tikrai postpaid invoisai susikūrė - čia yra teisinga, kad pakeitus user tipą vėliau invoisai generuojami prepaid, nors bg tasko sukūrimo metu jie buvo postpaid. -->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_2</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_2</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_2</td>
+	<td>INV12112101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_2</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_issue_2</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_timezone2</td>
+	<td>Vilnius (GMT +3)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_2</td>
+	<td>21.1107</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_2</td>
+	<td>39.8485</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_currency_2</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/2?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Minimal Charge for Calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>50.0000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_by_cid_pdf/2?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Minimal Charge for Calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>50.0000</td>
+	<td></td>
+</tr>
+<!--įkėlus setingus su sql, dar reikėtų papildomai išsiloginti ir įsiloginti, kad pakeitimai suveiktų, tad optimaliau tiesiog nueiti į userio editą-->
+<!--PREPAID, EUR. +10-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/update_currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<!--kadangi useris prepaid, tai invoisuose nebus minimal charge-->
+<tr>
+	<td>click</td>
+	<td>id=user_postpaid_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=ALL</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+10:00) Yakutsk</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<!--Invoices for 10 days.-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User&nbsp;&nbsp;#1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=currency</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_6</td>
+	<td>Generating Invoices</td>
+</tr>
+<!--Invoices for 40 days.-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User&nbsp;&nbsp;#1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_5</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_5</td>
+	<td>Generating Invoices</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=minimal_charge_enabled</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=minimal_charge_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=minimal_charge_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=minimal_charge_enabled</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>id=minimal_charge_enabled</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=minimal_charge_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=minimal_charge_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minimal_charge_value</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=minimal_charge_date_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=minimal_charge_date_month</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#confirm_without_message &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=minimal_charge_value</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=minimal_charge_enabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=minimal_charge_date_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=minimal_charge_date_month</td>
+	<td>1</td>
+</tr>
+<!--Generate additional invoice to check if number is correct.-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_postpaid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_8</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_8</td>
+	<td>Generating Invoices</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<!--to reikia, kad susigeneruotų invoisai-->
+<!--Verify invoice-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_3</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_3</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_3</td>
+	<td>INV12112102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_3</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_timezone3</td>
+	<td>Yakutsk (GMT +10)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_3</td>
+	<td>25.6533</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_3</td>
+	<td>48.4232</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_currency_3</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_4</td>
+	<td>2012-10-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_4</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_4</td>
+	<td>INV12102101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_4</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_5</td>
+	<td>INV12102102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>inv_type_5</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_5</td>
+	<td>1.0053</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_5</td>
+	<td>1.8977</td>
+</tr>
+<!--View invoice details-->
+<!--...as ADMIN-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_not_paid_3'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_not_sent_manually_3'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_not_sent_3'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>nice_date</td>
+	<td>datapilna</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/2?currency=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number</td>
+	<td>INV12112101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>invoice_type</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_start</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_end</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>Vilnius (GMT +3)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>21.1107</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>39.8485</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Invoice was already paid, you cannot recalculate price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Create payment for completed invoice:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=create_payment</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>create_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_paid_2'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_paid_date_2</td>
+	<td>${datapilna}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@id='image_paid'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=create_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[@id='manually']/a/img[@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recalculate</td>
+	<td>Invoice was already paid, you cannot recalculate price</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[@id='manually']/a/img[@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paid_date</td>
+	<td>${datapilna}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='image_paid'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//img[@id='image_paid_2'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/2?currency=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>21.1107</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>39.8485</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=date_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=create_payment</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_name</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_6</td>
+	<td>Calls to DIDs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_6</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_6</td>
+	<td>exact:00:13:16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_6</td>
+	<td>2.6533</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_5</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_5</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_5</td>
+	<td>exact:00:07:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_5</td>
+	<td>4.3900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_4</td>
+	<td>Lithuania mobile (3706)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_4</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_4</td>
+	<td>exact:00:06:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_4</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_7</td>
+	<td>Test_periodic_service - Test_preriodic_service_memo</td>
+</tr>
+<!--čia visada turi būti vienetukas-->
+<tr>
+	<td>assertText</td>
+	<td>id=calls_7</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_7</td>
+	<td>0.3333</td>
+</tr>
+<!--paging-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/2_items_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_1</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_5</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_2</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#page2_1 &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page2_2</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_2</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_3</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_4</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Period start</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_2</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page2_2</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_5</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_4</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_5 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Invoice deleted: INV12102102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_2</td>
+	<td>1 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_4</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_4</td>
+	<td>INV12102101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Invoice deleted: INV12102101</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=page_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=page_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_2</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_3</td>
+	<td>Test User #1</td>
+</tr>
+<!--Check invoices when user has no address and no tax.-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax1_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax2_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax3_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax4_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax2_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax3_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tax4_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/services_and_subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--Generate invoice su subscriptionais-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=12</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='3'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_issue_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_9</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_9</td>
+	<td>Generating Invoices</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<!--...Verify invoice-->
+<!--kainos skiriasi, nes generuojant agregeitus turėjo taxus, bet db duomenys atitinka-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>96.5027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>96.9488</td>
+</tr>
+<!--......Generate xslx-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;A2&quot;=&gt;&quot;reseller&quot;, &quot;G2&quot;=&gt;&quot;INV10110101&quot;, &quot;A3&quot;=&gt;&quot;&quot;, &quot;B3&quot;=&gt;&quot;&quot;, &quot;C3&quot;=&gt;&quot;&quot;, &quot;G3&quot;=&gt;&quot;2012-12-10&quot;, &quot;A4&quot;=&gt;&quot;&quot;, &quot;B4&quot;=&gt;&quot;Lithuania&quot;, &quot;A5&quot;=&gt;&quot;&quot;, &quot;A7&quot;=&gt;&quot;2010-11-01&quot;, &quot;D7&quot;=&gt;&quot;2012-11-30&quot;, &quot;G7&quot;=&gt;&quot;Vilnius (GMT +2)&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370600&quot;, &quot;F13&quot;=&gt;&quot;Lithuania Mobile Tele2&quot;, &quot;H13&quot;=&gt;&quot;58&quot;, &quot;I13&quot;=&gt;&quot;1&quot;, &quot;J13&quot;=&gt;&quot;0.502667&quot;, &quot;A14&quot;=&gt;&quot;2.&quot;, &quot;B14&quot;=&gt;&quot;&quot;, &quot;F14&quot;=&gt;&quot;Sestas - ddd_preriodic_service_memo&quot;, &quot;H14&quot;=&gt;&quot;0&quot;, &quot;I14&quot;=&gt;&quot;1&quot;, &quot;J14&quot;=&gt;&quot;96.0&quot;, &quot;E25&quot;=&gt;&quot;96.502667&quot;, &quot;E26&quot;=&gt;&quot;96.948834&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+	<td></td>
+</tr>
+<!--......Generate detailed pdf-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>ddd_preriodic_service_memo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>96.5027</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Lithuania Mobile Tele2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>0.5027</td>
+	<td></td>
+</tr>
+<!--......Generate detailed csv-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_csv/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Filename: Invoice-Test_Reseller-3-INV10110101-2012-12-10-USD.csv services,price Sestas - ddd_preriodic_service_memo,96.0000 Minimal Charge for Calls (USD),100.0000 number,accounting_number,country,type,rate,calls,billsec,price (USD) Calls from Users: DID,Calls,Total time,Price(USD) 37093042422,12,00:26:27,13.2250 37060064753,1,00:00:58,0.5027</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_6</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_6</td>
+	<td>INV10110101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_start_6</td>
+	<td>2010-11-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_end_6</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=issue_date_6</td>
+	<td>2012-12-10</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='paid_6']/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paid_date_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_6</td>
+	<td>96.5027 USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_with_vat_6</td>
+	<td>96.9488 USD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>INV10110101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_start</td>
+	<td>2010-11-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_end</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>Vilnius (GMT +2)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=issue_date</td>
+	<td>2012-12-10</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='paid']/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paid_date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>96.5027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_with_vat</td>
+	<td>96.9488</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_17</td>
+	<td>Lithuania Mobile Tele2 (370600)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_17</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_17</td>
+	<td>exact:00:00:58</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_17</td>
+	<td>0.5027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>96.50(USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_time</td>
+	<td>exact:00:00:58</td>
+</tr>
+<!--patikriname prieš tai sugeneruotus invoisus-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_1</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_1</td>
+	<td>INV00000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_1</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_1</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_1</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_issue_1</td>
+	<td>2012-10-10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_timezone1</td>
+	<td>Vilnius (GMT +2)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_1</td>
+	<td>8.53</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_1</td>
+	<td>16.10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_currency_1</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total</td>
+	<td>8.5277</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_wat</td>
+	<td>16.0968</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_not_paid_1'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_not_sent_manually_1'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_not_sent_1'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/1?currency=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=User Resellers</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>INV00000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>invoice_type</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_start</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_end</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>Vilnius (GMT +2)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>8.53</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>16.10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Invoice was already paid, you cannot recalculate price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=create_payment</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>create_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@id='image_paid_1'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_paid_date_1</td>
+	<td>${datapilna}</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@id='image_paid'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=create_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[@id='manually']/a/img[@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recalculate</td>
+	<td>Invoice was already paid, you cannot recalculate price</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[@id='manually']/a/img[@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paid_date</td>
+	<td>${datapilna}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@id='image_paid'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//img[@id='image_paid_2'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/1?currency=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>8.53</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>16.10</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=date_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[@id='manually']/a/img[@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@id='image_not_paid'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=create_payment</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_name</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_3</td>
+	<td>Calls to DIDs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_3</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_3</td>
+	<td>exact:00:07:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_3</td>
+	<td>3.6583</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_2</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_2</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_2</td>
+	<td>exact:00:13:16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_2</td>
+	<td>3.9800</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_1</td>
+	<td>Lithuania Mobile Tele2 (370600)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_1</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_1</td>
+	<td>exact:00:00:58</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_1</td>
+	<td>0.8893</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_time</td>
+	<td>exact:00:21:33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>8.53(USD)</td>
+</tr>
+<!--xslx, pdf,csv generate-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;A2&quot;=&gt;&quot;user_reseller&quot;, &quot;G2&quot;=&gt;&quot;INV00000000001&quot;, &quot;A3&quot;=&gt;&quot;&quot;, &quot;B3&quot;=&gt;&quot;&quot;, &quot;C3&quot;=&gt;&quot;&quot;, &quot;G3&quot;=&gt;&quot;2012-10-10&quot;, &quot;A4&quot;=&gt;&quot;&quot;, &quot;B4&quot;=&gt;&quot;Afghanistan&quot;, &quot;A5&quot;=&gt;&quot;&quot;, &quot;A7&quot;=&gt;&quot;2012-11-21&quot;, &quot;D7&quot;=&gt;&quot;2012-11-21&quot;, &quot;G7&quot;=&gt;&quot;Vilnius (GMT +2)&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370600&quot;, &quot;F13&quot;=&gt;&quot;Lithuania Mobile Tele2&quot;, &quot;H13&quot;=&gt;&quot;58&quot;, &quot;I13&quot;=&gt;&quot;1&quot;, &quot;J13&quot;=&gt;&quot;0.889333&quot;, &quot;A14&quot;=&gt;&quot;2.&quot;, &quot;B14&quot;=&gt;&quot;&quot;, &quot;F14&quot;=&gt;&quot;DID Owner Cost&quot;, &quot;H14&quot;=&gt;&quot;796&quot;, &quot;I14&quot;=&gt;&quot;4&quot;, &quot;J14&quot;=&gt;&quot;3.98&quot;, &quot;A15&quot;=&gt;&quot;3.&quot;, &quot;B15&quot;=&gt;&quot;&quot;, &quot;F15&quot;=&gt;&quot;Calls to DIDs&quot;, &quot;H15&quot;=&gt;&quot;439&quot;, &quot;I15&quot;=&gt;&quot;4&quot;, &quot;J15&quot;=&gt;&quot;3.658333&quot;, &quot;E25&quot;=&gt;&quot;8.527666&quot;, &quot;E26&quot;=&gt;&quot;16.096822&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Lithuania Mobile Tele2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>0.44</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>DID Owner Cost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:07:19</td>
+	<td></td>
+</tr>
+<!--pdf kainos atvaizduojamos gerai, bet čia neteisingai - bus tvarkoma-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>8.05</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>4.26</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Filename: Invoice-User_Resellers-5-INV00000000001-2012-10-10-EUR.csv services,price DID Owner Cost,1.9900 number,accounting_number,country,type,rate,calls,billsec,price (EUR)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_by_cid_pdf/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Lithuania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>0.44</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Lithuania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:13:16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>2.27</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_by_cid_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Filename: Invoice-User_Resellers-5-INV00000000001-2012-10-10-EUR.csvCallerID/Device details,price(EUR),calls, 370600 / SIP/1010 (40060),1.3266665,4 40060 / SIP/1010 (40060),2.273833,5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_destinations_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Filename: Invoice-User_Resellers-5-INV00000000001-2012-10-10-EUR.csv Invoice NO.:, INV00000000001 Invoice Date:, 2012-11-21 - 2012-11-21 Due Date:, 2012-10-10 services,price DID Owner Cost,1.9900 Calls to DIDs,1.8292 country,rate,ASR %,calls,ACD,billsec,Sum Lithuania 370600,0.46,25.0000,1,58.0000,58,0.4447</td>
+	<td></td>
+</tr>
+<!--Personal invoices-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/export_invoice_to_xlsx/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;A2&quot;=&gt;&quot;reseller&quot;, &quot;G2&quot;=&gt;&quot;INV10110101&quot;, &quot;A3&quot;=&gt;&quot;&quot;, &quot;B3&quot;=&gt;&quot;&quot;, &quot;C3&quot;=&gt;&quot;&quot;, &quot;G3&quot;=&gt;&quot;2012-12-10&quot;, &quot;A4&quot;=&gt;&quot;&quot;, &quot;B4&quot;=&gt;&quot;Lithuania&quot;, &quot;A5&quot;=&gt;&quot;&quot;, &quot;A7&quot;=&gt;&quot;2010-11-01&quot;, &quot;D7&quot;=&gt;&quot;2012-11-30&quot;, &quot;G7&quot;=&gt;&quot;Vilnius (GMT +2)&quot;, &quot;A13&quot;=&gt;&quot;1.&quot;, &quot;B13&quot;=&gt;&quot;370600&quot;, &quot;F13&quot;=&gt;&quot;Lithuania Mobile Tele2&quot;, &quot;H13&quot;=&gt;&quot;58&quot;, &quot;I13&quot;=&gt;&quot;1&quot;, &quot;J13&quot;=&gt;&quot;0.502667&quot;, &quot;A14&quot;=&gt;&quot;2.&quot;, &quot;B14&quot;=&gt;&quot;&quot;, &quot;F14&quot;=&gt;&quot;Sestas - ddd_preriodic_service_memo&quot;, &quot;H14&quot;=&gt;&quot;0&quot;, &quot;I14&quot;=&gt;&quot;1&quot;, &quot;J14&quot;=&gt;&quot;96.0&quot;, &quot;E25&quot;=&gt;&quot;96.502667&quot;, &quot;E26&quot;=&gt;&quot;96.948834&quot;, &quot;D27&quot;=&gt;&quot;&quot;}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>postpaid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>96.5027</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>96.0000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:26:27</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_csv/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Filename: Invoice-Test_Reseller-3-INV10110101-2012-12-10-USD.csv services,price Sestas - ddd_preriodic_service_memo,96.0000 Minimal Charge for Calls (USD),100.0000 number,accounting_number,country,type,rate,calls,billsec,price (USD) Calls from Users: DID,Calls,Total time,Price(USD) 37093042422,12,00:26:27,13.2250 37060064753,1,00:00:58,0.5027</td>
+	<td></td>
+</tr>
+<!--Test if error on not existing invoice-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_csv/111111?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Invoice was not found</td>
+	<td></td>
+</tr>
+<!--accountant -->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices?to_csv=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>'ID'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>'User'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>'Amount (USD)'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>'Tax'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>'Amount with Tax (USD)'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>System Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>2,Test User #1,10.7220,9.5168,20.2388</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>3,Test User #1,27.3200,24.2492,51.569</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>6,Test Reseller,96.5027,0.4462,96.9488</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Please select User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_not_selected_info</td>
+	<td>Please select User</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Please select User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices_recalculation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Please select User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_not_selected_info</td>
+	<td>Please select User</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Please select User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=img[alt=&quot;Exclamation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices?order_by=price&amp;order_desc=0&amp;page=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_2</td>
+	<td>20.2388</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_2</td>
+	<td>10.7220</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_3</td>
+	<td>27.3200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_3</td>
+	<td>51.5692</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_delete/31</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_issue_date</td>
+	<td>label=2012-12-12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_issue_2</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=inv_issue_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=inv_issue_8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=inv_issue_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--iš naujo generuojamas invoisas tai pačiai datai - turi leisti kurti taską, bet invoiso nesugeneruoti. -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/50_items_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=30</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<!--Scripte komentaras: Invoice for user user_admin and date 2012-10-21 00:00:00 - 2012-11-30 23:59:59 already exists. Invoice will not be generated for this period-->
+<!--Ištrinamas ir iš naujo sugeneruojamas invoisas tai pačiai datai -  turi leisti. -->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_7 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=30</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_8</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_8</td>
+	<td>2012-10-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_8</td>
+	<td>2012-11-30</td>
+</tr>
+<!--buvo problema, kad sukurtas invoice periodui, kurio metu dar neegzistavo useris ir nors subscriptionai veikė teisingai, invoice buvo nuskaičiuotas labai didelis. -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=year</td>
+	<td>currentyear</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>newuser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>newuser1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_year</td>
+	<td>label=2021</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='6'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>newuser</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<!--invoisai negeneruojami periodui, kurio metu useris dar neegzistavo-->
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>newuser</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=${currentyear}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='6'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>newuser</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<!--invoisas generuojamas, nes dalyje periodo useris jau egzistuoja-->
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_9</td>
+	<td>newuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_9</td>
+	<td>INV00000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_9</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_9</td>
+	<td>2012-01-10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_9</td>
+	<td>2015-12-31</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<!--nuresetinama diena i sia diena, kada buvo sukurtas useris-->
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['currentyear']-(-1)}</td>
+	<td>futureyear</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<!--invoice pradzia - si diena, o pabaiga - ateitis. nesvarbu diena, tad galima keisti. -->
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=${futureyear}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='6'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>newuser</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_10</td>
+	<td>newuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_10</td>
+	<td>INV00000000003</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_10</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_10</td>
+	<td>2016-12-31</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_postpaid_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax1_value</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax2_value</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax3_value</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+08:00) Beijing</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=credit</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=unlimited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=minimal_charge_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minimal_charge_value</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<!--Generate Invoice for prepaid users (nes postpaid konkrečiam useriui jau yra)-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=currency</td>
+	<td>label=ALL</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoice_type_prepaid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Verify invoice-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_11</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_11</td>
+	<td>INV00000000004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_11</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_11</td>
+	<td>2012-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_11</td>
+	<td>2016-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_timezone11</td>
+	<td>Beijing (GMT +8)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_11</td>
+	<td>2271.40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_11</td>
+	<td>4094.33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_currency_11</td>
+	<td>ALL</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total</td>
+	<td>1471.3724</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_wat</td>
+	<td>2390.4046</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Invoices Zero Price testavimas <<<<< ŠITĄ GALE PALIKTI-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calls/update_calls_set_zero_price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0.0000</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_60</td>
+	<td>Lithuania mobile (3706)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_60</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_60</td>
+	<td>exact:00:20:08</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_60</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_zero_calls</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=show_zero_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_13</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_13</td>
+	<td>1434.9297</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_13</td>
+	<td>1434.9297</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_13</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania mobile (3706)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/13?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_14</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0.0000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Lithuania Mobile Tele2 (370600)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_69</td>
+	<td>exact:00:00:58</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_69</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/14?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Lithuania - Lithuania Mobile Tele2 - - :text: '00:00:58'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_zero_calls</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=show_zero_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=August</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Reseller</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/launch_script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=command</td>
+	<td>/usr/local/mor/mor_background_tasks</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>STATUS:0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania Mobile Tele2 (370600)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoice_detailed_pdf/15?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

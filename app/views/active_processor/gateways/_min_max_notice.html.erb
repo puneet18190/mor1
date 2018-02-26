@@ -1,0 +1,11 @@
+<% unless min_max_notice_data[:min_amount].to_f.zero? %>
+  <br/>
+  * <%= _('Minimum_amount') %>:
+  <span id="min_currency"><%= nice_number(min_max_notice_data[:min_amount].to_f) %> <%= min_max_notice_data[:current_currency] %> <%= _('Without_tax') %></span>
+<% end %>
+
+<% unless min_max_notice_data[:max_amount].to_f.zero? %>
+  <br/>
+  * <%= _('Maximum_amount') %>:
+  <span id="max_currency"><%= nice_number(min_max_notice_data[:max_amount].to_f) %> <%= min_max_notice_data[:current_currency] %> <%= _('Without_tax') %></span>
+<% end %>

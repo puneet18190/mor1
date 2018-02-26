@@ -1,0 +1,241 @@
+<table width="100%">
+<td>
+  <table>
+    <tr><b><%= _('Users') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <tr>
+      <td><%= _('Admin') %>:</td>
+      <td><%= @data[:users][:admins] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Partners') %>:</td>
+      <td><%= @data[:users][:partners] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Resellers') %>:</td>
+      <td><%= @data[:users][:resellers] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Accountants') %>:</td>
+      <td><%= @data[:users][:accountants] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Users') %>:</td>
+      <td><%= @data[:users][:simple_users] %></td>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Postpaid') %>:</td>
+      <td><%= @data[:users][:postpaid] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Prepaid') %>:</td>
+      <td><%= @data[:users][:prepaid] %></td>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Total') %>:</td>
+      <td><%= @data[:users][:total] %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <table>
+    <tr><b><%= _('Devices') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <% @data[:devices][:types].each do |type| %>
+        <tr>
+          <td><%= type %>:</td>
+          <td><%= @data[:devices][type.to_sym] %></td>
+        </tr>
+    <% end %>
+    <tr>
+      <td><%= _('FAX') %>:</td>
+      <td><%= @data[:devices][:fax] %></td>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Total') %>:</td>
+      <td><%= @data[:devices][:total] %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <table>
+    <tr><b><%= _('Tariffs') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <tr>
+      <td><%= _('Providers') %>:</td>
+      <td><%= @data[:tariffs][:provider] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Users_retail') %>:</td>
+      <td><%= @data[:tariffs][:user] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Users_wholesale') %>:</td>
+      <td><%= @data[:tariffs][:user_wholesale] %></td>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Total') %>:</td>
+      <td><%= @data[:tariffs][:total] %></td>
+    </tr>
+  </table>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td valign="top">
+  <table>
+    <tr><b><%= _('Providers') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <% @data[:providers][:types].each do |type| %>
+        <tr>
+          <td><%= type %>:</td>
+          <td><%= @data[:providers][type.to_sym] %></td>
+        </tr>
+    <% end %>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Total') %>:</td>
+      <td><%= @data[:providers][:total] %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <table>
+
+  </table>
+  <br>
+  <br>
+
+  <table>
+    <tr><b><%= _('DIDs') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <tr>
+      <td><%= _('Free') %>:</td>
+      <td><%= @data[:dids][:free] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Active') %>:</td>
+      <td><%= @data[:dids][:active] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Reserved') %>:</td>
+      <td><%= @data[:dids][:reserved] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Closed') %>:</td>
+      <td><%= @data[:dids][:closed] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Terminated') %>:</td>
+      <td><%= @data[:dids][:terminated] %></td>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Total') %>:</td>
+      <td><%= @data[:dids][:total] %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td valign="top">
+  <table>
+    <tr><b><%= _('Calls') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <tr>
+      <td><%= _('ANSWERED') %>:</td>
+      <td><%= @data[:calls][:answered] %></td>
+    </tr>
+    <tr>
+      <td><%= _('BUSY') %>:</td>
+      <td><%= @data[:calls][:busy] %></td>
+    </tr>
+    <tr>
+      <td><%= _('NO_ANSWER') %>:</td>
+      <td><%= @data[:calls][:no_answer] %></td>
+    </tr>
+    <tr>
+      <td><%= _('FAILED') %>:</td>
+      <td><%= @data[:calls][:failed] %></td>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= _('Total') %>:</td>
+      <td><%= @data[:calls][:total] %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <table>
+    <tr><b><%= _('Cards') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <tr>
+      <td><%= _('Total_cardgroups') %>:</td>
+      <td><%= @data[:cards][:card_groups] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Total_cards') %>:</td>
+      <td><%= @data[:cards][:total] %></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <table>
+    <tr><b><%= _('Other') %></b></tr>
+    <tr>
+      <th class="bottom_border" align="left" colspan=2></th>
+    </tr>
+    <tr>
+      <td><%= _('Total_directions') %>:</td>
+      <td><%= @data[:other][:directions] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Total_destinations') %>:</td>
+      <td><%= @data[:other][:destinations] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Total_destination_groups') %>:</td>
+      <td><%= @data[:other][:destination_groups] %></td>
+    </tr>
+    <tr>
+      <td><%= _('Lcrs') %>:</td>
+      <td><%= @data[:other][:lcrs] %></td>
+    </tr>
+  </table>
+</td>
+</table>

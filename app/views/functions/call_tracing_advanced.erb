@@ -1,0 +1,119 @@
+<%= javascript_include_tag "jqwidgets/jqxdata.js" %>
+<%= javascript_include_tag "jqwidgets/jqxbuttons.js" %>
+<%= javascript_include_tag "jqwidgets/jqxscrollbar.js" %>
+<%= javascript_include_tag "jqwidgets/jqxmenu.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.selection.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.columnsresize.js" %>
+<%= javascript_include_tag "jqwidgets/jqxpanel.js" %>
+<%= javascript_include_tag "jqwidgets/jqxlistbox.js" %>
+
+<%= form_tag action: :call_tracing_advanced, user_id: @user.id, trace_call: 1 do %>
+    <table width="30%" class="simple">
+      <tr class="row1">
+        <td align="left"><%= _('Device') %>:</td>
+        <td>
+            <% if @devices.count > 0 %>
+               <%= select_tag('device', options_for_select(@devices.map { |dev| [dev.device_type + '/' + dev.name, dev.id] }, params[:device]), :style => "width:135px") %>
+            <% else %>
+                <%= select_tag('device', options_for_select([[_('No_Devices'), '']]), style: "width:135px") %>
+            <% end %>
+        </td>
+      </tr>
+      <tr class="row1">
+        <td align="left"><%= _('Server') %>:</td>
+        <td>
+            <% if @servers.count > 0 %>
+            <%= select_tag('server', options_for_select(@servers.map { |ser| [ser.server_ip + (ser.comment == '' ? '' : ' (' + ser.comment + ')'), ser.id] }, params[:server]), :style => "width:135px") %>
+            <% else %>
+                <%= select_tag('server', options_for_select([[_('No_active_servers'), '']]), style: "width:135px") %>
+            <% end %>
+        </td>
+      </tr>
+      <tr class="row1">
+        <td align="left"><%= _('Source') %>:</td>
+        <td><%= text_field_tag 'source', params[:source], class: 'input', size: 20, maxlength: 30 %></td>
+      </tr>
+      <tr class="row1">
+        <td align="left"><%= _('Destination') %>:</td>
+        <td><%= text_field_tag 'destination', params[:destination], class: 'input', size: 20, maxlength: 30 %></td>
+      </tr>
+      <tr class="row1">
+        <td align="left"><%= _('Call_Time') %>:</td>
+        <td nowrap><%= select_datetime((params[:date_from].present? ? Time.mktime(params[:date_from][:year], params[:date_from][:month], params[:date_from][:day], params[:date_from][:hour], params[:date_from][:minute]) : Time.now), end_year: (Date.today.year + 1), prefix: 'date_from', use_month_numbers: false) %></td>
+      </tr>
+    </table>
+    <br/>
+    <div>
+      <%= submit_tag _('Trace_Call'), data: {disable_with: _('Processing..')} if @devices.count > 0 && @servers.count > 0 %>
+    </div>
+<% end %>
+<br/><br/>
+<% if params[:trace_call].to_i == 1 %>
+    <div id="call_tracing_log"></div>
+    <script type="text/javascript">
+        $j(document).ready(function () {
+            var source =
+            {
+                type: 'GET',
+                datatype: 'json',
+                datafields: [
+                    { name: 'ct_type', type: 'string' },
+                    { name: 'ct_message', type: 'string' },
+                    { name: 'ct_type_color', type: 'number' }
+                ],
+                url: '<%= "#{Web_Dir}/functions/retrieve_call_tracing_log?uuid=#{@call_tracing_uuid}" %>'
+            };
+
+            var dataadapter = new $j.jqx.dataAdapter(source);
+
+            var log_text_color = function (row, columnfield, value, defaulthtml, columnproperties) {
+                var ct_type_color = dataadapter.records[row].ct_type_color;
+
+                switch (ct_type_color) {
+                    case 1:
+                        return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #a5a5a5;">' + value + '</span>';
+                        break;
+                    case 2:
+                        return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #ff0000;">' + value + '</span>';
+                        break;
+                    case 3:
+                        return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #409C08;">' + value + '</span>';
+                        break;
+                }
+            };
+
+            $j("#call_tracing_log").jqxGrid(
+                    {
+                        source: dataadapter,
+                        width: '70%',
+                        autorowheight: true,
+                        autoheight: true,
+                        altrows: true,
+                        selectionmode: 'multiplecellsadvanced',
+                        handlekeyboardnavigation: function (event) {
+                            var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                            if (key == 86 && event.ctrlKey == true) {
+                                return true;
+                            }
+                        },
+                        columns: [
+                            { text: "<%= _('TYPE') %>", datafield: 'ct_type', width: '75px', cellsrenderer: log_text_color },
+                            { text: "<%= _('MESSAGE') %>", datafield: 'ct_message', cellsrenderer: log_text_color }
+                        ]
+                    });
+
+            var localizationobj = {};
+            localizationobj.emptydatastring = "No Data found, Trace Call again.";
+            var hidden_columns = ['ct_type', 'ct_message'];
+            $j('#call_tracing_log').on('bindingcomplete', function (event) {
+                $j("#call_tracing_log").jqxGrid('localizestrings', localizationobj);
+                if (jQuery.isEmptyObject(dataadapter.records)) {
+                    hidden_columns.forEach(function(item) {
+                        $j("#call_tracing_log").jqxGrid('hidecolumn', item);
+                    });
+                }
+            });
+        });
+    </script>
+<% end %>

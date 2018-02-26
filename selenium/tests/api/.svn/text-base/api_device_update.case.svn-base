@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api_and_other_settings</td>
+	<td></td>
+</tr>
+<!--Sukuriama daugiau lcr ir devices locations-->
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>location 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;device=7&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=2&amp;new_location_id=7&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;device=7&amp;new_location_id=9&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash5</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash6</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash8</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=2&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash21</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;device=2&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash22</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>reseller location</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Location added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--kitoks lcr id hash patikrinimui-->
+<!--Errors -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;new_location_id=7&amp;username=duplicate&amp;password=duplicate&amp;test=1&amp;hash=0575015b40eb7251e4966361ce8154ea085385ee</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Location was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;new_location_id=7&amp;device_name=duplicate&amp;password=duplicate&amp;test=1&amp;hash=38282ca5e65e63746498ef5b39a2fe71c6448df4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Location was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;new_location_id=9&amp;username=anonymous&amp;test=1&amp;hash=71dc835db946d4a21106433e76ea91ca5eba24b9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Location was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;call_timeout=qwerty&amp;test=1&amp;hash=${hash8}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Device Call Timeout must be greater than or equal to 0</td>
+</tr>
+<!--Success-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;new_location_id=2&amp;username=GerasUserioDevaisas&amp;password=GerasPasswordas&amp;test=1&amp;authentication=1&amp;host=192.168.0.123&amp;port=9876&amp;call_timeout=120&amp;hash=6ef26a72d1163b21417e9f366c1ef136b3efd0b9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;new_location_id=2&amp;call_limit=220&amp;device_name=GerasUserioDevaisas&amp;password=GerasPasswordas&amp;authentication=0&amp;call_timeout=160&amp;test=1&amp;hash=06729f4b524fbb9cfedfc3bd003613537334fe34</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;trunk=1&amp;username=anonymous&amp;call_timeout=190&amp;test=1&amp;hash=a81ed3e46d6a843a27765f1f4bcb6aba260edc82</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=5&amp;callerid_name=plomplom&amp;trunk=2&amp;call_timeout=210&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=5&amp;trunk=9&amp;call_limit=1500&amp;call_timeout=230&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=4&amp;callerid_number=numberber&amp;trunk=2&amp;call_limit=-500&amp;call_timeout=250&amp;username=unknown&amp;password=short&amp;test=1&amp;hash=978508a4109b214ef44975e5be802c849520a2e6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=4&amp;callerid_number=numberber&amp;trunk=2&amp;call_limit=-500&amp;device_name=unknown&amp;password=short&amp;call_timeout=280&amp;test=1&amp;hash=9a9d292176f7b8adb10d0d037732446bae1ef4dd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;callerid_name=name&amp;callerid_number=123456789&amp;username=1002&amp;password=geresnisPasswordas123&amp;call_timeout=310&amp;test=1&amp;hash=1a6a0ab054fc793909fad85011846281d10f08c4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;callerid_name=qwerty&amp;fax_email_add=blablabla@bla.bla&amp;username=IlgasDup&amp;password=IlgasDup&amp;call_timeout=330&amp;test=1&amp;hash=65868703cbb1199e1c8fe0d9feaa5af92ca88809</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=3&amp;fax_email_add=blablabla@bla.bla&amp;call_limit=1000&amp;call_timeout=360&amp;test=1&amp;hash=${hash6}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=3&amp;fax_email_add=gold@gold.gold&amp;call_timeout=390&amp;test=1&amp;hash=${hash6}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=3&amp;fax_email_add=faxmailtest&amp;call_timeout=420&amp;test=1&amp;hash=${hash6}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=3&amp;fax_email_delete=blablabla@bla.bla&amp;call_timeout=450&amp;test=1&amp;hash=${hash6}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;new_location_id=4&amp;username=RSDevaisas&amp;password=RSpassWordas&amp;authentication=1&amp;host=192.168.0.321&amp;call_timeout=480&amp;test=1&amp;hash=13bcef5dd8bebe5dab4ed30ce762710d4d29ff5a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;new_location_id=4&amp;username=RSDevaisas&amp;password=RSpassWordas&amp;authentication=0&amp;call_timeout=510&amp;test=1&amp;hash=efdf35c34a106db9f2baa3de4ef2e5d2994c4bdc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;trunk=1&amp;username=anonymous&amp;call_timeout=530&amp;test=1&amp;hash=71dc835db946d4a21106433e76ea91ca5eba24b9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;trunk=2&amp;callerid_name=pamparam&amp;callerid_number=987654&amp;username=1002&amp;password=short&amp;call_timeout=560&amp;test=1&amp;hash=5ec445f38954f936c367a40f1a8c3cb94ff2eae7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;callerid_number=00001&amp;fax_email_add=blablabla@bla.bla&amp;call_limit=50&amp;fromuser=RSFromUser&amp;username=totalDuplicate&amp;password=totalDuplicate&amp;call_timeout=590&amp;test=1&amp;hash=3ee1efe2ea64c8309b6867044ae830dda25a2a4b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<!--patikrinamas gui-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=device[location_id]</td>
+	<td>reseller location</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_name</td>
+	<td>pamparam</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>00001</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>blablabla@bla.bla</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=call_limit</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_name</td>
+	<td>RSDevaisas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_secret</td>
+	<td>RSpassWordas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_add_value_d</td>
+	<td>192.168.0.321</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_port_value_d</td>
+	<td>4569</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>590</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>fax device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Turi veikti ir be hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=device[location_id]</td>
+	<td>location 2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_name</td>
+	<td>GerasUserioDevaisas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_secret</td>
+	<td>geresnisPasswordas123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_add_value_d</td>
+	<td>192.168.0.123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_port_value_d</td>
+	<td>9876</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_name</td>
+	<td>qwerty</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>123456789</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>blablabla@bla.bla</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=call_limit</td>
+	<td>220</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>330</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_name</td>
+	<td>plomplom</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>103</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=call_limit</td>
+	<td>1500</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>230</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>numberber</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>280</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>450</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>gold@gold.gold</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>blablabla@bla.bla</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>faxmailtest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<!--Pasiekiamumo patikrinimas - adminas neturi naudoti reselerio lcr ir location, o reseleris - admino. -->
+<!--adminas bando naudoti reselerio location-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=2&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Location was not found</td>
+</tr>
+<!--reseleris bando naudoti admino location-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Location was not found</td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo xml-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=4&amp;new_location_id=2&amp;trunk=1&amp;callerid_name=xxx&amp;callerid_number=69&amp;fax_email_add=test@test.test&amp;call_timeout=11&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=8&amp;fax_email_add=test@test.test&amp;call_timeout=22&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=8&amp;fax_email_add=bam@bam.bam&amp;call_timeout=33&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=8&amp;fax_email_delete=bam@bam.bam&amp;call_timeout=44&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Device successfully updated</td>
+</tr>
+<!--adminas bando naudoti reselerio userio device-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=7&amp;new_location_id=4&amp;call_timeout=55&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device was not found</td>
+</tr>
+<!--reseleris bando naudoti admino userio device-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=2&amp;new_location_id=4&amp;call_timeout=66&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device was not found</td>
+</tr>
+<!--Invalid data-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=ad&amp;device=7&amp;new_location_id=4&amp;call_timeout=77&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=admin&amp;device=44&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=22&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device was not found</td>
+</tr>
+<!--Accountant-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=2&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=7&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=44&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_manage_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Accountant</td>
+</tr>
+<!--tik READ-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=2&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=7&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=44&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<!--WRITE-->
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=2&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Location was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=7&amp;new_location_id=4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Device was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=44&amp;new_location_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Device was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=2&amp;new_location_id=2&amp;trunk=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=accountant&amp;device=2&amp;callerid_name=name&amp;callerid_number=number&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device successfully updated</td>
+</tr>
+<!--įjungus optioną reseleris gali naudoti admino location rules-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/allow_resellers_to_use_admin_localization_rules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/user_5/create_sip_2503</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/device_update?u=reseller&amp;device=7&amp;new_location_id=2&amp;call_timeout=999&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Device successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_devices/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=nice_user_7</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=select_location_id_7</td>
+	<td>Global location 2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=IAX2/105</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=link_nice_device_7</td>
+	<td>IAX2/RSDevaisas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/localization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=view_2</td>
+	<td>(3)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_name</td>
+	<td>name</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>number</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>330</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_name</td>
+	<td>xxx</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>69</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>test@test.test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=devices</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fromuser_value</td>
+	<td>RSFromUser</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--kitame to userio devaise nerodo admino location rulo-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2503</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_location_id</td>
+	<td>Default location reseller location</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=device[location_id]</td>
+	<td>location 2 (admin)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_location_id</td>
+	<td>Default location reseller location location 2 (admin)</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device's settings updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_name</td>
+	<td>pamparam</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=cid_number</td>
+	<td>00001</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=device[location_id]</td>
+	<td>location 2 (admin)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=device_location_id</td>
+	<td>label=reseller location</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device's settings updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=device_max_timeout</td>
+	<td>44</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test@test.test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>bam@bam.bam</td>
+	<td></td>
+</tr>
+<!--jei nepriskirtas admino locationas, tai jo net nerodo devaise-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_location_id</td>
+	<td>Default location reseller location</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=device_location_id</td>
+	<td>reseller location</td>
+</tr>
+</tbody></table>
+</body>
+</html>

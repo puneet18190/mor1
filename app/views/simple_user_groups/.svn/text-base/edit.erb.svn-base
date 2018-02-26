@@ -1,0 +1,28 @@
+<%= form_for :permissions, url: {action: :update, id: @simple_user_group.id} do |group| %>
+    <%= _('Name') %>: <%= text_field('simple_user_group', :name, class: 'input', size: 50, maxlength: 255) %>
+    <br/><br>
+    <%= _('Description') %>: <%= text_field('simple_user_group', :comment, class: 'input', size: 50, maxlength: 255) %>
+    <br/><br/>
+    <table id="permissions_table" class="maintable" width="50%">
+      <tr>
+        <th><%= _('Permission') %></th>
+        <th align="center"><%= _('Disabled') %></th>
+        <th align="center"><%= _('Enabled') %></th>
+      </tr>
+      <% @rights.each_with_index do |right, i|%>
+          <tr class="row<%= (i % 2 + 1).to_s %>">
+            <td id="name_<%= right[:name] %>" align="left">
+              <%= _(right[:name]) %>
+            </td>
+            <td id="disabled_<%= right[:name]%>" align="center">
+              <%= group.radio_button right[:name].to_sym, 0, :checked => (right[:value].to_i == 0) %>
+            </td>
+            <td id="enabled_<%= right[:name] %>" align="center">
+              <%= group.radio_button right[:name].to_sym, 2, :checked => (right[:value].to_i == 2) %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <br/>
+    <%= submit_tag _('Update'), data: { disable_with: _('Processing..') }, name: 'commit' %>
+<% end %>

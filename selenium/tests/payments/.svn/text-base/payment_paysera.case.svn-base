@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>payment_paysera</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">payment_paysera</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--Tikrinama validacija-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='tabTabdhtmlgoodies_tabView1_6']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=paysera_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=paysera_test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=paysera_project_id</td>
+	<td>86132</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=paysera_sign</td>
+	<td>9a9a0d6f9d270e7aadc0d4e0a7b11c6b</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=paysera_default_amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=paysera_min_amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=paysera_default_currency</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Settings saved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=paysera_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=paysera_test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=paysera_project_id</td>
+	<td>86132</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=paysera_sign</td>
+	<td>9a9a0d6f9d270e7aadc0d4e0a7b11c6b</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=paysera_default_amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=paysera_min_amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/paysera</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=form</td>
+	<td>exact:Please enter amount to update your balance*: EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.simple</td>
+	<td>exact:*Minimum amount: 1.0000 EUR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>amount</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=form</td>
+	<td>Please press here to pay* 13.0000 EUR <br /><br /> <br /> <br /> *Total amount to pay with TAX: 13.0000 EUR</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_10</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>paymenttype_10</td>
+	<td>Paysera</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>amount_10</td>
+	<td>13.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>fee_10</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>amout_with_tax_10</td>
+	<td>13.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>currency_10</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>completed_10</td>
+	<td>No (Unnotified payment)</td>
+</tr>
+<!--as 101 -->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--create payment-->
+<tr>
+	<td>open</td>
+	<td>/billing/payments/paysera</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=form</td>
+	<td>exact:Please enter amount to update your balance*: EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.simple</td>
+	<td>exact:*Minimum amount: 1.0000 EUR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>amount</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=form</td>
+	<td>Please press here to pay* 13.0000 EUR <br /><br /> <br /> <br /> *Total amount to pay with TAX: 13.0000 EUR</td>
+</tr>
+<!--as reseller | passs-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/paysera</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=form</td>
+	<td>exact:Please enter amount to update your balance*: EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.simple</td>
+	<td>exact:*Minimum amount: 1.0000 EUR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>amount</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=form</td>
+	<td>Please press here to pay* 15.0000 EUR <br /><br /> <br /> <br /> *Total amount to pay with TAX: 15.0000 EUR</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Paysera logo&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Paysera logo&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>exact:Please enter amount to update your balance*: EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>exact:*Minimum amount: 1.0000 EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=amount</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please press here to pay* 5.0000 EUR <br /><br /> <br /> <br /> *Total amount to pay with TAX: 5.0000 EUR </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>exact: *Total amount to pay with TAX: 5.0000 EUR </td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>paymenttype_12</td>
+	<td>Paysera</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>amount_12</td>
+	<td>15.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>fee_12</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>amout_with_tax_12</td>
+	<td>15.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>currency_12</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>completed_12</td>
+	<td>No (Unnotified payment)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_11</td>
+	<td>Paysera</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_11</td>
+	<td>13.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fee_11</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_11</td>
+	<td>13.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_11</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=completed_11</td>
+	<td>No (Unnotified payment)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_13</td>
+	<td>Paysera</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_13</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fee_13</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_13</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_13</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=completed_13</td>
+	<td>No (Unnotified payment)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount</td>
+	<td>62.2858 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax</td>
+	<td>62.2858 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Payment successfully confirmed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=completed_10</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount_completed</td>
+	<td>17.6025 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax_completed</td>
+	<td>17.6025 (USD)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Payment successfully confirmed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=completed_11</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount_completed</td>
+	<td>35.2050 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax_completed</td>
+	<td>35.2050 (USD)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Payment successfully confirmed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=completed_12</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount_completed</td>
+	<td>55.5156 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax_completed</td>
+	<td>55.5156 (USD)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Payment successfully confirmed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=completed_13</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_amount_completed</td>
+	<td>62.2858 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_fee_completed</td>
+	<td>0.0000 (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_with_tax_completed</td>
+	<td>62.2858 (USD)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_3</td>
+	<td>20.3200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>17.6100</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,2030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>call_prices</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">call_prices</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2008&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='confirm_without_message']/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: Test Accountant</td>
+	<td></td>
+</tr>
+<!--~~~192.168.0.34~~~-->
+<!--setting the period-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--checking the values-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test Accountant</td>
+	<td></td>
+</tr>
+<!--test reseller calls..-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div/div</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[3]/div</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[4]/div</td>
+	<td>74</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[5]/div</td>
+	<td>exact:01:05:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[6]/div</td>
+	<td>exact:00:01:36</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[7]/div</td>
+	<td>55.41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[8]/div</td>
+	<td>53.0053</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[9]/div</td>
+	<td>69.2320</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[10]/div</td>
+	<td>-16.2267</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[11]/div</td>
+	<td>-30.61</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[12]/div</td>
+	<td>-23.44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<!--Test user #1-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div/div</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[3]/div</td>
+	<td>39</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[4]/div</td>
+	<td>63</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[5]/div</td>
+	<td>exact:01:23:39</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[6]/div</td>
+	<td>exact:00:02:08</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[7]/div</td>
+	<td>61.90</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[8]/div</td>
+	<td>41.9799</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[9]</td>
+	<td>27.8478</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[10]/div</td>
+	<td>14.1320</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[11]/div</td>
+	<td>33.66</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[12]/div</td>
+	<td>50.75</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=(//img[@alt='Chart bar'])[2]</td>
+	<td></td>
+</tr>
+<!--Checking "Total:" row values-->
+<tr>
+	<td>assertText</td>
+	<td>css=div &gt; b</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[3]/div</td>
+	<td>80</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[4]/div/b</td>
+	<td>137</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[5]/div/b</td>
+	<td>exact:02:29:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[6]/div/b</td>
+	<td>exact:00:01:51</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[7]/div/b</td>
+	<td>58.39</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[8]/div/b</td>
+	<td>94.9852</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[9]/div/b</td>
+	<td>97.0798</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[10]/div/b</td>
+	<td>-2.0946</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[11]/div/b</td>
+	<td>-2.21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[12]/div/b</td>
+	<td>-2.16</td>
+</tr>
+<!--Login as Reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--/billing/stats/show_user_stats-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats?date_from[year]=2009&amp;date_from[month]=0&amp;date_from[day]=1</td>
+	<td></td>
+</tr>
+<!--setting the period-->
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--checking values-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div/div</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[3]/div</td>
+	<td>33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[4]/div</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[5]/div</td>
+	<td>exact:00:59:42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[6]/div</td>
+	<td>exact:00:01:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[7]/div</td>
+	<td>60.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[8]/div</td>
+	<td>23.8206</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[9]/div</td>
+	<td>21.0053</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[10]/div</td>
+	<td>2.8153</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[11]/div</td>
+	<td>11.82</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[12]/div</td>
+	<td>13.40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<!--"Total:" row..-->
+<tr>
+	<td>assertText</td>
+	<td>css=div &gt; b</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[3]/div</td>
+	<td>33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[4]/div</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[5]/div/b</td>
+	<td>exact:00:59:42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[6]/div/b</td>
+	<td>exact:00:01:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[7]/div/b</td>
+	<td>60.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[8]/div/b</td>
+	<td>23.8206</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[9]/div/b</td>
+	<td>21.0053</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[10]/div/b</td>
+	<td>2.8153</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[11]/div/b</td>
+	<td>11.82</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[12]/div/b</td>
+	<td>13.40</td>
+</tr>
+<!--login as root-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--Setting EUR not to update and making its exchange rate to 2-->
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/currencies/currencies_change_update_status/2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>exchange_rate</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Currency details updated</td>
+	<td></td>
+</tr>
+<!--check now everything x2-->
+<!--==============================-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats?date_from[year]=2009&amp;date_from[month]=0&amp;date_from[day]=1&amp;currency=EUR</td>
+	<td></td>
+</tr>
+<!--setting the period-->
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--checking the values-->
+<!--test reseller calls..-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div/div</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[2]</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[3]/div</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[4]/div</td>
+	<td>74</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[5]/div</td>
+	<td>exact:01:05:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[6]/div</td>
+	<td>exact:00:01:36</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[7]/div</td>
+	<td>55.41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[8]</td>
+	<td>106.0107</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[9]/div</td>
+	<td>138.4640</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[10]/div</td>
+	<td>-32.4533</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[11]/div</td>
+	<td>-30.61</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[12]/div</td>
+	<td>-23.44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<!--Test user #1-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div/div</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[3]/div</td>
+	<td>39</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[4]/div</td>
+	<td>63</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[5]/div</td>
+	<td>exact:01:23:39</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[6]/div</td>
+	<td>exact:00:02:08</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[7]/div</td>
+	<td>61.90</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[8]/div</td>
+	<td>83.9597</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[9]/div</td>
+	<td>55.6956</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[10]/div</td>
+	<td>28.2641</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[11]/div</td>
+	<td>33.66</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[12]/div</td>
+	<td>50.75</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=(//img[@alt='Chart bar'])[2]</td>
+	<td></td>
+</tr>
+<!--Checking "Total:" row values-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div/div</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[3]/div/b</td>
+	<td>80</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[4]/div/b</td>
+	<td>137</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[5]/div/b</td>
+	<td>exact:02:29:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[6]/div/b</td>
+	<td>exact:00:01:51</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[7]/div/b</td>
+	<td>58.39</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[8]/div/b</td>
+	<td>189.9704</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[9]/div/b</td>
+	<td>194.1596</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[10]/div/b</td>
+	<td>-4.1893</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[11]/div/b</td>
+	<td>-2.21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[12]/div/b</td>
+	<td>-2.16</td>
+</tr>
+<!--Login as Reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--/billing/stats/show_user_stats-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats?date_from[year]=2009&amp;date_from[month]=0&amp;date_from[day]=1</td>
+	<td></td>
+</tr>
+<!--setting the period-->
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--checking values-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div/div</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[3]/div</td>
+	<td>33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[4]/div</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[5]</td>
+	<td>exact:00:59:42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[6]/div</td>
+	<td>exact:00:01:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[7]/div</td>
+	<td>60.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[8]/div</td>
+	<td>23.8206</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[9]/div</td>
+	<td>21.0053</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[10]/div</td>
+	<td>2.8153</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[11]/div</td>
+	<td>11.82</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[12]/div</td>
+	<td>13.40</td>
+</tr>
+<!--"Total:" row..-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div/div</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[3]/div/b</td>
+	<td>33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[4]/div/b</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[5]/div/b</td>
+	<td>exact:00:59:42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[6]/div/b</td>
+	<td>exact:00:01:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[7]/div/b</td>
+	<td>60.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[8]/div/b</td>
+	<td>23.8206</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[9]/div/b</td>
+	<td>21.0053</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[10]/div/b</td>
+	<td>2.8153</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[11]/div/b</td>
+	<td>11.82</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[12]/div/b</td>
+	<td>13.40</td>
+</tr>
+<!--RESSELLER USER CALL PRICES-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit?date_from[year]=2009&amp;date_from[month]=5&amp;date_from[day]=22&amp;date_till[year]=2009&amp;date_till[month]=5&amp;date_till[day]=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--WHEN NO CALLS WERE MADE-->
+<tr>
+	<td>assertText</td>
+	<td>number_total_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_answer_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_no_ans_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_busy_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_erro_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_call_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_self_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_avg_profit_per_min</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_calls_profit</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_profit</td>
+	<td>0.0000</td>
+</tr>
+<!--WHEN CALLS ARE MADE-->
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='5'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_answer_calls</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_call_price</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_self_price</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_calls_profit</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_avg_profit_per_min</td>
+	<td>1.2000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>avg_profit_per_call</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>avg_profit_per_day</td>
+	<td>0.0070</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>avg_profit_per_user</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_profit</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_profit</td>
+	<td>1.0000</td>
+</tr>
+<!--CHECKING GRAPH-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2008&amp;date_from[month]=12&amp;date_from[day]=31&amp;date_till[year]=2009&amp;date_till[month]=1&amp;date_till[day]=2&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>outgoing_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>incoming_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>all_calls</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>answered_o</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>no_answer_o</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>busy_o</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>failed_o</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>all_calls_o</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>all_calls_i</td>
+	<td>4</td>
+</tr>
+<!--bottom-->
+<tr>
+	<td>assertText</td>
+	<td>row_0_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>row_1_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>row_2_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>total_calls</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>row_0_billsec</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>row_1_billsec</td>
+	<td>00:02:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>row_2_billsec</td>
+	<td>00:02:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>total_billsec</td>
+	<td>00:04:40</td>
+</tr>
+<!--assert values in separe pages for each user-->
+<!--admin-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Detailed statistics for System Admin</td>
+</tr>
+<!--reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Detailed statistics for Test Reseller</td>
+</tr>
+<!--user-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Detailed statistics for Test User #1</td>
+	<td></td>
+</tr>
+<!--===RERATING===-->
+<!--provider | rate=1-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1?st=U</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>1231</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='commit' and @value='Add Rate']</td>
+	<td></td>
+</tr>
+<!--retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/4?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>370 - Lithuania (Lithuania proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='commit' and @value='Add Rate']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rate was added</td>
+	<td></td>
+</tr>
+<!--user | rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/391</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ratedetail_rate</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rate detail successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/locations/location_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>cut 123#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cut</td>
+	<td>123#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>add</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>add_location_rule</td>
+	<td></td>
+</tr>
+<!--reseller-->
+<!--čia įtraukia reselerio ir jo userio skambučius-->
+<!--===last_calls_stats==-->
+<!--reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2007&amp;date_till[year]=2011&amp;search_on=1</td>
+	<td></td>
+</tr>
+<!--Šiaip iš vis 101 neturėtų būti matomas-->
+<tr>
+	<td>assertText</td>
+	<td>calldate_22</td>
+	<td>2010-02-18 00:00:01</td>
+</tr>
+<!--101-->
+<tr>
+	<td>assertText</td>
+	<td>src_22</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_22</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>duration_22</td>
+	<td></td>
+</tr>
+<!--Kiekviena dieną keičias, neaišku kaip  išties yra, nes su DB nesutampa-->
+<tr>
+	<td>assertText</td>
+	<td>disposition_22</td>
+	<td>BUSY</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2007&amp;date_till[year]=2011&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_22</td>
+	<td>2010-02-18 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_22</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_22</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>duration_22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_22</td>
+	<td>BUSY</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_23</td>
+	<td>2008-01-01 00:00:04</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_23</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_23</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>duration_23</td>
+	<td>00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_23</td>
+	<td>ANSWERED</td>
+</tr>
+<!--accountant-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2007&amp;date_till[year]=2011&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_16</td>
+	<td>2009-01-02 00:00:04</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_16</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_16</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>billsec_16</td>
+	<td>00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_16</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>server_id_16</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_16</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_16</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_16</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_rate_16</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_price_16</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_rate_16</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_price_16</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_16</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_prov_price_16</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_price_16</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_15</td>
+	<td>2009-01-02 00:00:03</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_15</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_15</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>billsec_15</td>
+	<td>00:00:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_15</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>server_id_15</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_15</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_price_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_15</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_price_15</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_15</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_prov_price_15</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_price_15</td>
+	<td>1.0000</td>
+</tr>
+<!--admin-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2007&amp;date_till[year]=2011&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_16</td>
+	<td>2009-01-02 00:00:04</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_16</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_16</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>billsec_16</td>
+	<td>00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_16</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>server_id_16</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_16</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_16</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_16</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_rate_16</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_price_16</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_16</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_rate_16</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_price_16</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_16</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_prov_price_16</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_price_16</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_15</td>
+	<td>2009-01-02 00:00:03</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_15</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_15</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>billsec_15</td>
+	<td>00:00:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_15</td>
+	<td>ANSWERED (16)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>server_id_15</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_15</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_price_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>reseller_price_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_15</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_rate_15</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>user_price_15</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_15</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_prov_price_15</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>did_price_15</td>
+	<td>1.0000</td>
+</tr>
+<!--user_reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2007&amp;date_till[year]=2011&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_26</td>
+	<td>2010-03-17 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_26</td>
+	<td>2010-03-17 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>calldate_24</td>
+	<td>2010-02-18 00:00:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_26</td>
+	<td>37046246362</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>dst_26</td>
+	<td>37063042438</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>duration_26</td>
+	<td>00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>disposition_26</td>
+	<td>ANSWERED</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--Lets check if show_user_stats shows good user balance if we change admin currency and we make payment-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=universal_bundles/change_balance_and_currency</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats?currency=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>200.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats?currency=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>600.0000</td>
+</tr>
+</tbody></table>
+</body>
+</html>

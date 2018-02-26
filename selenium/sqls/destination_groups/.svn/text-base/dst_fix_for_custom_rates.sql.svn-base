@@ -1,0 +1,16 @@
+UPDATE `mor`.`destinationgroups` SET `name` = 'Afghanistan FIX' WHERE `destinationgroups`.`id` =1 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Afghanistan MOB' WHERE `destinationgroups`.`id` =2 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Afghanistan NGN' WHERE `destinationgroups`.`id` =473 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Australia FIX' WHERE `destinationgroups`.`id` =24 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Australia MOB' WHERE `destinationgroups`.`id` =25 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Albania FIX' WHERE `destinationgroups`.`id` =3 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Albania MOB' WHERE `destinationgroups`.`id` =4 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Belize FIX' WHERE `destinationgroups`.`id` =47 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Belize MOB' WHERE `destinationgroups`.`id` =48 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Barbados FIX' WHERE `destinationgroups`.`id` =40 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Barbados MOB' WHERE `destinationgroups`.`id` =41 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Benin FIX' WHERE `destinationgroups`.`id` =49 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Benin MOB' WHERE `destinationgroups`.`id` =50 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Lithuania FIX' WHERE `destinationgroups`.`id` =249 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Lithuania MOB' WHERE `destinationgroups`.`id` =250 LIMIT 1 ;
+UPDATE `mor`.`destinationgroups` SET `name` = 'Lithuania NGN' WHERE `destinationgroups`.`id` =251 LIMIT 1 ;

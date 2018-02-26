@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_2</td>
+	<td>Rates (251/251)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/2</td>
+	<td></td>
+</tr>
+<!--yra šiek tiek duplicates šitame faile-->
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/all_rates_variations.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 2&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Column assignment</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>File uploaded</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=delete_unimported_prefix_rates</td>
+	<td></td>
+</tr>
+<!--pakeičia destinations.name-->
+<tr>
+	<td>click</td>
+	<td>id=update_dest_names</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_cell</td>
+	<td>exact:Destination*</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=prefix_id</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=destination_id</td>
+	<td>label=Destination</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=effective_date_now</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=effective_date_today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 3&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Column confirmation</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td> Update Destination Names from CSV: Yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Delete Rates for Prefixes which are not present in imported file: Yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 4&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Analysis</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_dest_in_csv</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_to_create</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_to_create_step</td>
+	<td>Step 5.1(Press here to get the list)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_to_update</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_to_update_step</td>
+	<td>Step 5.2(Press here to get the list)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update_step</td>
+	<td>Step 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create_step</td>
+	<td>Step 8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_to_delete</td>
+	<td>250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_delete_step</td>
+	<td>Step 6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 5&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Creating destinations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Created Destinations: 13<br />Destination names updated: 8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_created_destinations</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_updated_destinations</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 6&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Deleting rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates deleted: 250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_deleted</td>
+	<td>250</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 7&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Updating rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated: 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_rates_updated</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 8&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Creating new rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>New Rates created: 22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_new_rates_created</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Congratulations, successfully imported CSV file!</td>
+	<td></td>
+</tr>
+<!--Check everything-->
+<!--Ištrinti reitai-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_2</td>
+	<td>Rates (23/24)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2?st=A</td>
+	<td></td>
+</tr>
+<!--Pakeisti destination names-->
+<tr>
+	<td>assertText</td>
+	<td>id=name_516</td>
+	<td>ALBANIA Mobile AMC</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_518</td>
+	<td>ALBANIA Mobile FONE</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_503</td>
+	<td>Albania Proper</td>
+</tr>
+<!--Duplicato neįkėlė visai-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Afghanistan Mobile</td>
+	<td></td>
+</tr>
+<!--Sukurti nauji destinationai-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=U</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>United States Florida</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>United States Meinas</td>
+	<td></td>
+</tr>
+<!--Įkeliamas sql, kad būtų updeitinami ir tie dst, kurie turi dst_group 0-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/zero_destgroup_id_for_lt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/list?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinations_249</td>
+	<td>View (0)</td>
+</tr>
+<!--CSV be headerio ir connection fee su kableliu bei su tašku - turi įkelti abu (šiuo metu tai neveikia, testuojama su tar_imp_with_fee testu)-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/dst_group_update_no_header.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>File uploaded</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=prefix_id</td>
+	<td>label=370</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=0.1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=connection_fee_id</td>
+	<td>label=0.2</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=delete_unimported_prefix_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_connection_fee_0</td>
+	<td>0.2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_connection_fee_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_connection_fee_2</td>
+	<td>0,14</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Columns assigned</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Analysis completed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_to_create</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>New Rates created: 5</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Congratulations, successfully imported CSV file!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/list?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinations_249</td>
+	<td>View (0)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_536</td>
+	<td>Lithuania Kaunas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_536</td>
+	<td>37037</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_536</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[2]/td[5]</td>
+	<td>0.1000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>file</td>
+	<td>/home/mor/selenium/files/csv/tariff_algeria_4.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=use_suggestion_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Backslash cannot be separator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>use_suggestion_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>sepn2</td>
+	<td></td>
+</tr>
+<!--russian destination-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/2?step=0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/rulang.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=use_suggestion_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sepn2</td>
+	<td>;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=decn2</td>
+	<td>,</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>10000</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_3_0</td>
+	<td>ывапортиаукеро</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=prefix_id</td>
+	<td>label=370</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=0.1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=destination_id</td>
+	<td>label=ывапортиаукеро</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=update_dest_names</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=delete_unimported_prefix_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Columns assigned</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_dst_0</td>
+	<td>ывапортиаукеро</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Analysis completed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_to_create</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Destination names updated: 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_updated_destinations</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Congratulations, successfully imported CSV file!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destinations/list/123</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=5780_name</td>
+	<td>ывапортиаукеро</td>
+</tr>
+<!--Update destination groups checkboxas-->
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/448</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>United States Teksasas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>United States Vermontas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>United States Tenesis</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destinations/list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>999999999</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destinations/list/225</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20051_prefix</td>
+	<td>125</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20051_name</td>
+	<td>United States Teksasas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20051_dgname</td>
+	<td>Not assigned</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20052_prefix</td>
+	<td>126</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20052_name</td>
+	<td>United States Vermontas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20052_dgname</td>
+	<td>Not assigned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Albania Mobile Eagle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ALBANIA Mobile FONE</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>35567</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destinations/list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=16_name</td>
+	<td>Afghanistan Mobile Roshan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=16_prefix</td>
+	<td>9379</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Afghanistan Mobile Roshan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>9379</td>
+	<td></td>
+</tr>
+<!--Ištrinu, kad nebūtų ilgiausio trumpiausio-->
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/223</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_img_23 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/221</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_img_5 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_img_9 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/353</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/all_rates_variations.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=prefix_id</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=Price</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=delete_unimported_prefix_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[5]/tbody/tr[2]/td</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>New Rates created: 22</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td> Congratulations, successfully imported CSV file! </td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destinations/list/225</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20051_prefix</td>
+	<td>125</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20051_name</td>
+	<td>United States Teksasas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20051_dgname</td>
+	<td>Not assigned</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20052_prefix</td>
+	<td>126</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20052_name</td>
+	<td>United States Vermontas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=20052_dgname</td>
+	<td>Not assigned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Albania Mobile Eagle</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_1</td>
+	<td>35567</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_3</td>
+	<td>ALBANIA Mobile FONE</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_3</td>
+	<td>35569</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destinations/list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=16_name</td>
+	<td>Afghanistan Mobile Roshan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=16_prefix</td>
+	<td>9379</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_8</td>
+	<td>Afghanistan Mobile Roshan</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_8</td>
+	<td>9379</td>
+</tr>
+<!--LTU prefixas 3706285 lieka nepriskirtas DG, nes LTU prefixai neturi DG visai-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>3706285</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_524</td>
+	<td>Non existing name of long existing prefix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_524</td>
+	<td>3706285</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/destination_groups/destinations_to_dg?page=3&amp;st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

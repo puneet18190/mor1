@@ -1,0 +1,1665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/main</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_manage_lcr</td>
+	<td>Manage LCRs</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_lcr_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_lcr_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=manage_lcr_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_lcr_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--# Manage Lcrs permission: Write-->
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/lcrs/list')]</td>
+	<td>LCR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/lcrs/list')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Add new LCR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_name</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Clear search</td>
+	<td>Clear search</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=order_1</td>
+	<td>price</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=providers_1</td>
+	<td>Providers (1)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinations_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=usage_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=make_tariff_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destroy_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>LCR was not deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add new LCR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Add new LCR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lcr_name</td>
+	<td>Acc lcr</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr[order]</td>
+	<td>label=Percent</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>LCR successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_2</td>
+	<td>Acc lcr</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=order_2</td>
+	<td>percent</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>LCR successfully deleted</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Acc lcr</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Providers for LCR</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//input[@type='image'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_1</td>
+	<td>22.33.44.55:4569</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_name_1</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tech_1</td>
+	<td>IAX2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=no_failover_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=no_failover_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Provider removed</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=select_prov</td>
+	<td>label=Test Provider</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Provider successfully added</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=no_failover_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=no_failover_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#f_providers_list &gt; select[name=&quot;select_prov&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=td.main_window &gt; div.nb &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=no_failover_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=no_failover_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=td.main_window &gt; div.nb &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=no_failover_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Provider successfully disabled</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//input[@type='image'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Actions&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Routing by Destinations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td.n</td>
+	<td>Main LCR: Primary&nbsp;&nbsp;&nbsp;&nbsp;Order: price</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Add new Destinations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Destinations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=search</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=search</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pre</td>
+	<td>label=937 - Afghanistan Mobile</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=country</td>
+	<td>label=Azerbaijan</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@type='image'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Saved</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Destinations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=search</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=search</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=prefix_f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcrpartial_destinations/1?lcrp=1&amp;prefix=937</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=b</td>
+	<td>Afghanistan 937</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan Cdma</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcrpartial_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>93789</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Prefix was not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lcr_name</td>
+	<td>for testing</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>LCR successfully created</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR Edit</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=lcr_name</td>
+	<td>for testing</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=lcr[order]</td>
+	<td>Price Priority Percent</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=lcr_first_provider_percent_limit</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=periods_11_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=periods_12_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=periods_11_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=periods_12_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_start_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_start_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_12_start_month</td>
+	<td>label=March</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_12_start_day</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_end_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_end_day</td>
+	<td>label=4</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_12_end_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_12_end_day</td>
+	<td>label=6</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_start_weekday</td>
+	<td>label=Tuesday</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_end_weekday</td>
+	<td>label=Sunday</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_start_hour</td>
+	<td>label=01</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lcr_name</td>
+	<td>for testing edited</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=lcr[order]</td>
+	<td>label=Priority</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;priority&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lcr_first_provider_percent_limit</td>
+	<td>0.5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_11_lcr_id</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=periods_12_lcr_id</td>
+	<td>label=Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>LCR successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_3</td>
+	<td>for testing edited</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/destroy/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/providers_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Providers for LCR</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/details_by_destinations/1?no_direction=true</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Routing by Destinations</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/make_tariff/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>/tmp/Make_LCR_tariff-Primary-EUR*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR Edit</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/try_to_add_provider/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcr_clone/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_lcr_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--# Manage Lcrs permission: Disabled-->
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcrpartial_destinations/1?lcrp=1&amp;prefix=937</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcrpartial_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/destroy/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/providers_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/details_by_destinations/1?no_direction=true</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/make_tariff/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/try_to_add_provider/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcr_clone/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--# Manage Lcrs permission: Read-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_lcr_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!------------------------->
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/lcrs/list')]</td>
+	<td>LCR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/lcrs/list')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Add new LCR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_name</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Clear search</td>
+	<td>Clear search</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=order_1</td>
+	<td>price</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=providers_1</td>
+	<td>Providers (1)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinations_1</td>
+	<td>(2)</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=usage_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=make_tariff_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=destroy_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Add new LCR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Acc lcr</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Providers for LCR</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@type='image'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#f_providers_list &gt; select[name=&quot;select_prov&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@type='image'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/providers_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Providers for LCR</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@type='image'][@alt='Check']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#f_providers_list &gt; select[name=&quot;select_prov&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//input[@type='image'][@alt='Cross']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tech_1</td>
+	<td>IAX2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_1</td>
+	<td>22.33.44.55:4569</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_name_1</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#lcr_edit_1 &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#destinations_1 &gt; a &gt; img[alt=&quot;Actions&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Routing by Destinations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td.n</td>
+	<td>Main LCR: Primary&nbsp;&nbsp;&nbsp;&nbsp;Order: price</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Add new Destinations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=pre</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=country</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>xpath=(//input[@type='image'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=prefix_f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcrpartial_destinations/1?lcrp=1&amp;prefix=937</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=b</td>
+	<td>Afghanistan 937</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan Cdma</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcrpartial_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>93789</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR Edit</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=lcr_name</td>
+	<td>for testing edited</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=lcr[order]</td>
+	<td>Price Priority Percent</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=lcr_first_provider_percent_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=periods_11_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=periods_12_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=periods_11_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=periods_12_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_start_month</td>
+	<td>January</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_start_day</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_12_start_month</td>
+	<td>March</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_12_start_day</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_end_month</td>
+	<td>February</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_end_day</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_12_end_month</td>
+	<td>October</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_12_end_day</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_start_weekday</td>
+	<td>Tuesday</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_end_weekday</td>
+	<td>Sunday</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_start_hour</td>
+	<td>01</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=lcr_name</td>
+	<td>for testing edited</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=lcr[order]</td>
+	<td>Priority</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;priority&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_11_lcr_id</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=periods_12_lcr_id</td>
+	<td>Primary</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/destroy/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/providers_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Providers for LCR</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/details_by_destinations/1?no_direction=true</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Routing by Destinations</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/make_tariff/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>/tmp/Make_LCR_tariff-Primary-EUR*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>LCR Edit</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/try_to_add_provider/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/lcr_clone/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<div style='margin-left: 10px'>
+  <% if @rates.present? %>
+      <% default_currency_name = Currency.get_default.name %>
+      <b><%= _('Rates') %>:</b><br/>
+      <% @rates.group_by { |rate| [rate['purpose']] }.map do |key, rates_grouped_by_purpose| %>
+          <% first_rate = rates_grouped_by_purpose[0] %>
+          <% first_rate_purpose = first_rate['purpose'].to_s %>
+          <% if first_rate_purpose.present? %>
+              <br/>
+              <b style='text-decoration: underline;'>
+                <%= case first_rate_purpose
+                      when 'user'
+                        _('User_Retail')
+                      when 'provider'
+                        _('Provider')
+                      when 'user_wholesale'
+                        _('User_Wholesale')
+                    end
+                %>
+                <%= _('Tariffs') %>:
+              </b>
+          <% end %>
+          <br/>
+          <div style='margin-left: 10px'>
+            <% rates_grouped_by_purpose.group_by { |rate| [rate['tariffs_id']] }.map do |key, rates_grouped_by_tariff| %>
+                <% if rates_grouped_by_tariff.try(:size) > 1 %>
+                  <% rates_grouped_by_tariff = find_longest_prefix_rate(rates_grouped_by_tariff) %>
+                <% end %>
+                <% rates_grouped_by_tariff.group_by { |rate| [rate['prefix']] }.map do |key, rates_grouped| %>
+                    <% rates_grouped = mark_active_rates(rates_grouped) %>
+                    <% first_rate = rates_grouped[0] %>
+                    <br/>
+                    <b>
+                      <% if @callshop.to_i > 0 %>
+                        <% @booths.each { |booth|
+                          if booth.tariff_id.to_i == first_rate['tariffs_id'].to_i and booth.gusertype != 'manager' %>
+                            Booth <%= booth.position %>
+                          <% end } %>
+                      <% else %>
+                        <%= "#{first_rate['tariffs_name']} (#{_('prefix')}: #{first_rate['prefix']}):" %>
+                      <% end %>
+                    </b>
+                    <br/>
+                    <%= draw_flag(first_rate['direction_code']) if first_rate['direction_code'] %> <%= first_rate['name'].to_s %>
+
+                    <% rates_grouped.each do |r| %>
+                        <div style="<%= r['active'] == 0 && r['purpose'] != 'user' ? 'color: #BFBFBF;' : '' %>" <%= "onclick=window.open('#{Web_Dir}/tariffs/#{get_link_to_rate(r)}'); class=max_paragraph_width id=link_to_rate_#{r['rate_id']}" unless user? %>>
+                          <% if r['purpose'] == 'user' %>
+                              <%= "#{nice_time2(r['arate_start_time'])} - #{nice_time2(r['arate_end_time'])} => #{r['price']} (#{r['currency']})" %>
+                              <% if r['currency'] != default_currency_name %>
+                                  / <%= nice_number(r['price'].to_f * Currency.count_exchange_rate(r['currency'],  default_currency_name)) %> (<%= default_currency_name %>)
+                              <% end %>
+                          <% else %>
+                              <%= "#{nice_time2(r['start_time'])} - #{nice_time2(r['end_time'])} => #{r['rate']} (#{r['currency']})" %>
+                              <% if r['purpose'] == 'user_wholesale' %>
+                                <%= "#{_('Connection_Fee')}: #{r['connection_fee']} (#{r['currency']})" %>
+                              <% end %>
+                              <% if r['effective_from'].present? %>
+                                <%= "#{_('Effective_from')}: #{nice_date_time(r['effective_from'])}" %>
+                              <% end %>
+                              <% if r['currency'] != default_currency_name %>
+                                  / <%= nice_number(r['rate'].to_f * Currency.count_exchange_rate(r['currency'],  default_currency_name)) %> (<%= default_currency_name %>)
+                              <% end %>
+                          <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+  <% elsif params[:prefix].present? %>
+      <%= _('NO_RESULTS') %>
+  <% end %>
+</div>

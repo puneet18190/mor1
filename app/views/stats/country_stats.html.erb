@@ -1,0 +1,272 @@
+<%= javascript_include_tag 'swfobject' %>
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<div align="left" class="nb">
+  <table class="bordered">
+    <%= form_tag(action: :country_stats, search_pressed: true) do %>
+        <tr>
+          <td><%= _('From') %>:</td>
+          <td>
+            <%=
+                select_datetime(
+                        Time.mktime(
+                                session[:year_from], session[:month_from], session[:day_from],
+                                session[:hour_from], session[:minute_from]
+                        ), end_year: Date.today.year + 1, prefix: 'date_from', use_month_numbers: false, discard_minute: true
+                )
+            %>:
+            <%= select_minute 0, disabled: true %>
+          </td>
+          <td align="right" width="100px">
+            <% if @options[:show_clear] %>
+                <%= link_to b_cross + _('Clear_search'), {action: :country_stats, clear: 1}, {id: 'clear_search'} %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= _('Till') %>:</td>
+          <td colspan="2">
+            <%=
+                select_datetime(
+                        Time.mktime(session[:year_till], session[:month_till], session[:day_till],
+                                    session[:hour_till], session[:minute_till]
+                        ), end_year: Date.today.year + 1, prefix: 'date_till', use_month_numbers: false, discard_minute: true)
+            %>:
+            <%= select_minute 59, disabled: true %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= _('User') %>:</td>
+          <td colspan="2">
+            <%= render('shared/live_search_field',
+                       object: params[:s_user].to_s,
+                       object_id: @options[:user_id].to_i,
+                       object_name: 'User',
+                       action_url: {
+                        controller: :users, action: :get_users_map,
+                        options: {show_users_only: true, show_reseller_users: true, responsible_accountant_including_owner_users: (accountant_show_assigned_users? ? current_user_id : '')}
+                      }
+                )
+            %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" height="10px"></td>
+        <tr>
+          <td colspan="3"><%= submit_tag _('Search'), data: {disable_with: _('Processing..')} %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+<br/><br/>
+
+<% unless @data[:graphs][:time].to_s == '"No result;1;false\n"' %>
+
+<table width="100%">
+  <tr>
+    <td align="center">
+      <div id="flashcontent1"><strong>You need to upgrade your Flash Player</strong></div>
+    </td>
+    <% if can_see_finances? %>
+        <td align="center">
+          <div id="flashcontent2"><strong>You need to upgrade your Flash Player</strong></div>
+        </td>
+    <% end -%>
+  </tr>
+  <% if can_see_finances? %>
+      <tr align="center">
+        <td>
+          <div id="flashcontent3"><strong>You need to upgrade your Flash Player</strong></div>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<% end %>
+
+<br/><br/>
+<input type="button" value="<%= _('Export_to_csv') %>" id='csvExport' />
+<br/><br/>
+<div id="country_stats_es" style='min-width:850px'></div>
+
+<script type="text/javascript">
+    $j(document).ready(function ($) {
+        var table_data_json = <%= raw @data[:table_rows].to_json %>;
+        var time_format = '<%= @data[:options][:time_format] %>';
+
+        var source =
+        {
+            localdata: table_data_json,
+            datatype: 'json',
+            datafields: [
+                { name: 'flag', type: 'string' },
+                { name: 'destination_group_name', type: 'string' },
+                { name: 'calls', type: 'int' },
+                { name: 'time', type: 'int' },
+                { name: 'price', type: 'float' },
+                { name: 'user_price', type: 'float' },
+                { name: 'profit', type: 'float' },
+                { name: 'destination_group_id', type: 'string' }
+            ],
+            pagesize: <%= session[:items_per_page] %>
+        };
+
+        var col_distr;
+        if(<%= can_see_finances? %>) {
+          col_distr = {
+            flag: '3%', destination_group_name: '27%', calls: '12%', times: '12%',
+            price: '14%', user_price: '14%', profit: '14%', destination_group_id: '4%'
+          }
+        } else {
+          col_distr = {
+            flag: '3%', destination_group_name: '41%', calls: '26%', times: '26%',
+            price: '0%', user_price: '0%', profit: '0%', destination_group_id: '4%'
+          }
+        }
+
+        var dataadapter = new $.jqx.dataAdapter(source);
+
+        var cellsrenderer_flag = function (row, column, value) {
+            return '<div style="text-align: center; margin: 5px 3px 0 0">' + render_flag(value, '<%= Web_Dir %>') + '</div>';
+        };
+
+        var cellsrenderer_time = function (row, column, value) {
+            return '<div style="text-align: center; margin-top: 3.5px;">' + nice_billsec(value, time_format) + '</div>';
+        };
+
+        var cellsrenderer_hgc_url = function (row, column, value) {
+            return '<div style="text-align: center; margin-top: 5px;">' + '<a href="<%= Web_Dir %>/stats/hangup_cause_codes_stats?dg_id=' + value + '" id="hgc_stats_' + value + '"> <img alt="Chart pie" src="<%= Web_Dir %>/images/icons/chart_pie.png"> </a>' + '</div>';
+        };
+
+
+        var float_digits = 'f<%= @data[:options][:number_digits] %>';
+
+        var getLocalization = function () {
+            var localizationobj = {};
+            localizationobj.decimalseparator = '<%= @data[:options][:number_decimal] %>';
+            localizationobj.thousandsseparator = '';
+            return localizationobj;
+        };
+
+        $("#country_stats_es").jqxGrid(
+                {
+                    source: dataadapter,
+                    width: '100%',
+                    autoheight: true,
+                    rowsheight: 22,
+                    altrows: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    handlekeyboardnavigation: function (event) {
+                        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                        if (key == 86 && event.ctrlKey == true) {
+                            return true;
+                        }
+                    },
+                    showaggregates: true,
+                    showstatusbar: true,
+                    statusbarheight: 22,
+                    sortable: true,
+                    pageable: true,
+                    pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+                    localization: getLocalization(),
+                    ready: function () {
+                        $("#country_stats_es").jqxGrid('sortby', 'destination_group_name', 'asc');
+                    },
+                    columns: [
+                        { text: " ", datafield: 'flag', cellsrenderer: cellsrenderer_flag, width: col_distr.flag, sortable: false },
+                        { text: "<%= _('Destination_Group') %>", datafield: 'destination_group_name', width: col_distr.destination_group_name,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px; overflow: hidden;"><b><%= _('Total') %>:</b></div>';
+                            }
+                        },
+                        { text: "<%= _('Calls') %>", datafield: 'calls', align: 'right', cellsalign: 'right', width: col_distr.calls,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:calls] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Time') %>", datafield: 'time', align: 'center', cellsrenderer: cellsrenderer_time, width: col_distr.times,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:time] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Price') %>", datafield: 'price', width: col_distr.price, cellsformat: float_digits, hidden: <%= !can_see_finances? %>, align: 'right', cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:price] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('User_price') %>", datafield: 'user_price', width: col_distr.user_price, cellsformat: float_digits, hidden: <%= !can_see_finances? %>, align: 'right', cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:user_price] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Profit') %>", datafield: 'profit', width: col_distr.profit, cellsformat: float_digits, hidden: <%= !can_see_finances? %>, align: 'right', cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:profit] %></b></div>';
+                            }
+                        },
+                        { text: "  ", datafield: 'destination_group_id', cellsrenderer: cellsrenderer_hgc_url, width: col_distr.destination_group_id, sortable: false }
+                    ]
+                });
+
+        $("#csvExport").jqxButton();
+        $("#csvExport").click(function () {
+
+            var table_content = $("#country_stats_es").jqxGrid('exportdata', 'json');
+
+            $.fileDownload('<%= Web_Dir%>/stats/country_stats_download_table_data', {
+                httpMethod: 'POST',
+                data: {
+                    authenticity_token: '<%= form_authenticity_token %>',
+                    table_content: table_content,
+                    search_time: {from: '<%= @options[:start] %>', till: '<%= @options[:end] %>'}
+                },
+                failCallback: function (html, url) {
+
+                    alert('Download failed, please contact System Administrator if this problem persists.');
+                }
+            });
+        });
+
+        var graph_call_time = new SWFObject("<%= Web_Dir %>/swf/ampie.swf", "ampie", "450", "250", "9", "#FFFFFF");
+        graph_call_time.addVariable("path", "<%= Web_Dir %>/swf/");
+        graph_call_time.addVariable("settings_file", encodeURI("<%= Web_Dir %>/swf/ampie_1.xml"));
+        graph_call_time.addParam("wmode", "transparent");
+        graph_call_time.addVariable("chart_data", encodeURI(<%= raw @data[:graphs][:time] %>));
+        graph_call_time.addVariable("additional_chart_settings", encodeURI("<settings><labels><label><x>0</x><y>20</y><rotate>false</rotate><align>center</align><text_size>15</text_size><text><![CDATA[<b><%= _('Call_Time') %></b>]]></text></label></settings>"));
+        graph_call_time.write("flashcontent1");
+
+        var graph_profit = new SWFObject("<%= Web_Dir %>/swf/ampie.swf", "ampie", "450", "250", "9", "#FFFFFF");
+        graph_profit.addVariable("path", "<%= Web_Dir %>/swf/");
+        graph_profit.addVariable("settings_file", encodeURI("<%= Web_Dir %>/swf/ampie_2.xml"));
+        graph_profit.addParam("wmode", "transparent");
+        graph_profit.addVariable("chart_data", encodeURI(<%= raw @data[:graphs][:profit] %>));
+        graph_profit.addVariable("additional_chart_settings", encodeURI("<settings><labels><label><x>0</x><y>20</y><rotate>false</rotate><align>center</align><text_size>15</text_size><text><![CDATA[<b><%= _('Profit') %></b>]]></text></label></settings>"));
+        graph_profit.write("flashcontent2");
+
+        var graph_income = new SWFObject("<%= Web_Dir %>/swf/ampie.swf", "ampie", "450", "250", "9", "#FFFFFF");
+        graph_income.addVariable("path", "<%= Web_Dir %>/swf/");
+        graph_income.addVariable("settings_file", encodeURI("<%= Web_Dir %>/swf/ampie_4.xml"));
+        graph_income.addParam("wmode", "transparent");
+        graph_income.addVariable("chart_data", encodeURI(<%= raw @data[:graphs][:income] %>));
+        graph_income.addVariable("additional_chart_settings", encodeURI("<settings><labels><label><x>0</x><y>20</y><rotate>false</rotate><align>center</align><text_size>15</text_size><text><![CDATA[<b><%= _('Income') %></b>]]></text></label></settings>"));
+        graph_income.write("flashcontent3");
+    });
+</script>

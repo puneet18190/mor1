@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_recordings_get</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_recordings_get</td></tr>
+</thead><tbody>
+<!--Tikrinam ar nepajungtas api-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<!--Ijungiam api requests, tikrinam kaip api-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--Isjungiam GET, tikrinam-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<!--Ijugniam GET-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/allow_get</td>
+	<td></td>
+</tr>
+<!--Tikrinam hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--No dates-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--date_from-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1&amp;date_from=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is incorrect format</td>
+</tr>
+<!--date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1&amp;date_till=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date till is incorrect format</td>
+</tr>
+<!--date_from > date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1&amp;date_from=1577836800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is greater than date till</td>
+</tr>
+<!--Good dates-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1&amp;date_till=1577836800&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0 7 5 2 7 2 2010-02-18 00:00:01 +0200 00:00:01 37046246362 37063042438 435464.0 8 -1 3 7 2 2010-05-18 00:00:01 +0300 00:00:00 435464.0</td>
+</tr>
+<!--Good dates #2 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam atsiloginus-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;hash=${hash1}&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Isjungiam hash tikrinima-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disable_hash_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disable_hash_3</td>
+	<td></td>
+</tr>
+<!--Tikrinam kitus galimus parametrus (date_from, date_till, source, user, destination, device)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam su papildomai blogais parametrais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;tarzanas=1&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Ijungiam xml ir tikrinam atvaizdavima-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>No Recordings found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView1_7 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=xml_api_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Settings saved</td>
+	<td></td>
+</tr>
+<!--Prisijungiam kaip acc-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Bandom api per acc-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<!--tikrinam acc permisionus-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<!--Pridedam acc permisionus-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_all_permissions_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Accountant</td>
+</tr>
+<!--Jiungiames kaip acc ir tikrinam api-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--date_from-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;&amp;test=1&amp;date_from=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is incorrect format</td>
+</tr>
+<!--date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;test=1&amp;date_till=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date till is incorrect format</td>
+</tr>
+<!--date_from > date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;test=1&amp;date_from=1577836800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is greater than date till</td>
+</tr>
+<!--Good dates-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;test=1&amp;date_till=1577836800&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0 7 5 2 7 2 2010-02-18 00:00:01 +0200 00:00:01 37046246362 37063042438 435464.0 8 -1 3 7 2 2010-05-18 00:00:01 +0300 00:00:00 435464.0</td>
+</tr>
+<!--Good dates #2 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=accountant&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam kitus galimus parametrus (date_from, date_till, source, user, destination, device)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=accountant&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=accountant&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=accountant&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=accountant&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam su papildomai blogais parametrais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=accountant&amp;tarzanas=1&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam reselleri-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=reseller&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--date_from-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=reseller&amp;test=1&amp;date_from=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is incorrect format</td>
+</tr>
+<!--date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=reseller&amp;test=1&amp;date_till=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date till is incorrect format</td>
+</tr>
+<!--date_from > date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=reseller&amp;test=1&amp;date_from=1577836800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is greater than date till</td>
+</tr>
+<!--Good dates-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=reseller&amp;test=1&amp;date_till=1577836800&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>7 5 2 7 2 2010-02-18 00:00:01 +0200 00:00:01 37046246362 37063042438 435464.0 8 -1 3 7 2 2010-05-18 00:00:01 +0300 00:00:00 435464.0</td>
+</tr>
+<!--Good dates #2 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=reseller&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--Tikrinam kitus galimus parametrus (date_from, date_till, source, user, destination, device)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=reseller&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=reseller&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=reseller&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=reseller&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--Tikrinam su papildomai blogais parametrais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=reseller&amp;tarzanas=1&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--Tikrinam useri-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>No Recordings found</td>
+</tr>
+<!--date_from-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1&amp;date_from=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is incorrect format</td>
+</tr>
+<!--date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1&amp;date_till=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date till is incorrect format</td>
+</tr>
+<!--date_from > date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1&amp;date_from=1577836800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is greater than date till</td>
+</tr>
+<!--Good dates-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1&amp;date_till=1577836800&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0 7 5 2 7 2 2010-02-18 00:00:01 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Good dates #2 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=user_admin&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam kitus galimus parametrus (date_from, date_till, source, user, destination, device)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=user_admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=user_admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=user_admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=user_admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam su papildomai blogais parametrais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=user_admin&amp;tarzanas=1&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam ar veikia atsijungus-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>No Recordings found</td>
+</tr>
+<!--date_from-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1&amp;date_from=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is incorrect format</td>
+</tr>
+<!--date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1&amp;date_till=4449513600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date till is incorrect format</td>
+</tr>
+<!--date_from > date_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1&amp;date_from=1577836800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Date from is greater than date till</td>
+</tr>
+<!--Good dates-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1&amp;date_till=1577836800&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0 7 5 2 7 2 2010-02-18 00:00:01 +0200 00:00:01 37046246362 37063042438 435464.0 8 -1 3 7 2 2010-05-18 00:00:01 +0300 00:00:00 435464.0</td>
+</tr>
+<!--Good dates #2 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?u=admin&amp;test=1&amp;date_till=1262304000&amp;date_from=946684800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam kitus galimus parametrus (date_from, date_till, source, user, destination, device)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--Tikrinam su papildomai blogais parametrais-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/recordings_get?test=1&amp;u=admin&amp;tarzanas=1&amp;date_till=1262304000&amp;date_from=946684800&amp;source=37046246362&amp;user=2&amp;destination=37063042438&amp;device=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0</td>
+</tr>
+<!--ijungiam hash tikrinima-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_hash_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_hash_3</td>
+	<td></td>
+</tr>
+<!--Fake forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/recordings_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>hash</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>555</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Incorrect hash</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/recordings_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>date_till</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>1577836800</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>date_from</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>946684800</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>hash</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>${hash1}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_5</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_5</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_5</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>1 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 1024.0 2 2 0 2 0 2009-01-01 00:00:04 +0200 00:00:01 101 123123 928797.0 3 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 76346.0 4 0 2 0 4 2009-01-02 00:00:02 +0200 00:00:00 37046246362 37063042438 578965.0 5 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 98765.0 6 2 2 2 4 2009-01-02 00:00:04 +0200 00:00:01 37046246362 37063042438 435464.0 7 5 2 7 2 2010-02-18 00:00:01 +0200 00:00:01 37046246362 37063042438 435464.0 8 -1 3 7 2 2010-05-18 00:00:01 +0300 00:00:00 435464.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/recordings_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

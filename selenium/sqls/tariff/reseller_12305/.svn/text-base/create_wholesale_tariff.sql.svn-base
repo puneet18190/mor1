@@ -1,0 +1,1 @@
+INSERT INTO `tariffs` (`id`, `name`, `purpose`, `owner_id`, `currency`) VALUES (12345, 'reseller_tariif_test_1', 'user_wholesale', 3, 'USD');

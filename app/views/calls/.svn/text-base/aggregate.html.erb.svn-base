@@ -1,0 +1,30 @@
+<%= b_info + _('This_page_includes_call_attempts_only') %>.
+
+<% if Confline.get_value("Hide_HELP_banner").to_i == 0 # checking if help links are disabled %>
+<%= link_to  _('For_more_information_visit_wiki'), @help_link ,:target => '_blank', :class => 'external_link', :style => 'text-decoration: underline; color: #0000ff;'  %>
+<% end %>
+<%= render 'search_header', options: @options, searching: @searching, terminator_providers_count: @terminator_providers_count %>
+<br>
+<% if @searching %>
+  <table class="bordered">
+    <tr>
+      <td align="left" NOWRAP>
+        <%= _("Records") %>: <%= @total_calls %>&nbsp;&nbsp;&nbsp;
+        <%= _("Pages") %>: <%= @total_pages %>&nbsp;&nbsp;&nbsp;
+      </td>
+      <td align="left" NOWRAP>
+        <%= page_select_header(@options[:page], @total_pages, nil, wrapper: false) %>
+      </td>
+    </tr>
+  </table>
+  <% if @total_calls > 0 %>
+  <br />
+    <%= link_to b_csv + _('Export_to_CSV'), :action => :try_aggregate_to_csv, :csv => 1 %>
+  <% end %>
+    <br />
+    <br />
+  <%= render 'aggregate_call_list', :options => @options,
+                                    :total => @total,
+                                    :result => @result
+  %>
+<% end %>

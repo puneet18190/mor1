@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>reseller_last_calls</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">reseller_last_calls</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/resellers/reseller_last_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>rspro</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>rspro1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_107</td>
+	<td>105</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_107</td>
+	<td>105</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_107</td>
+	<td>proforrspro5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_107</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_107</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_106</td>
+	<td>104</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_106</td>
+	<td>Provider 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_106</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_106</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_104</td>
+	<td>102</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_104</td>
+	<td>Provider 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_104</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_104</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_108</td>
+	<td>106</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_108</td>
+	<td>proforrspro6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_108</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_108</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_111</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_111</td>
+	<td>proforrspro7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_111</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_111</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>src_105</td>
+	<td>103</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_105</td>
+	<td>Provider 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_rate_105</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>provider_price_105</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?pdf=1?&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>OK</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?csv=1?&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_rate&quot;:&quot;4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>&quot;reseller_price&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>&quot;reseller_rate&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_rate&quot;:&quot;6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_rate&quot;:&quot;7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;20</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_rate&quot;:&quot;3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>&quot;provider_price&quot;:&quot;4</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

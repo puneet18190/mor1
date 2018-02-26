@@ -1,0 +1,9 @@
+# flatrate servisas testui flatrate_user_subscription.case
+# ----
+# hide i want to
+settings/visual/check_hide_iwantto.sql
+# hide manual link
+settings/visual/check_hide_manual_link.sql
+#  hide help banner
+settings/visual/check_hide_help_banner.sql
+# bundle loaded

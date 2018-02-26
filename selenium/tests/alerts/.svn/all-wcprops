@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/65698/mor/gui/branches/x8/selenium/tests/alerts
+END
+alert_contacts.case
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/65698/mor/gui/branches/x8/selenium/tests/alerts/alert_contacts.case
+END
+alert_groups.case
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/alerts/alert_groups.case
+END
+alert_schedules.case
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/alerts/alert_schedules.case
+END
+alerts.case
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/63092/mor/gui/branches/x8/selenium/tests/alerts/alerts.case
+END
+alerts_hgc.case
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/63515/mor/gui/branches/x8/selenium/tests/alerts/alerts_hgc.case
+END
+alerts2.case
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/alerts/alerts2.case
+END
+alerts3.case
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/63535/mor/gui/branches/x8/selenium/tests/alerts/alerts3.case
+END
+alerts4.case
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/65064/mor/gui/branches/x8/selenium/tests/alerts/alerts4.case
+END
+alert_param_group.case
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/65446/mor/gui/branches/x8/selenium/tests/alerts/alert_param_group.case
+END

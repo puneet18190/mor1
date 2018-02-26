@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/reseller_6
+END
+invoices_number_type_1_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/reseller_6/invoices_number_type_1_1.sql
+END
+invoices_number_length_3.sql
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/reseller_6/invoices_number_length_3.sql
+END
+invoice_number_start_inv.sql
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/reseller_6/invoice_number_start_inv.sql
+END

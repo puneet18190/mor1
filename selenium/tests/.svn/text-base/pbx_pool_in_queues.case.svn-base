@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/pbx_pools_list_data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PBX Pool:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_name</td>
+	<td>first</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully created</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PBX Pool:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>110</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--penkto poolo id-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_4_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_1</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_1</td>
+	<td>Global</td>
+</tr>
+<!--priskyrus Global exlines reikšmė -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>110</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>112</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>123</td>
+</tr>
+<!--skirtinguose pooluose extension gali kartotis-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_name</td>
+	<td>second</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully created</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=queue[extension]</td>
+	<td>123</td>
+</tr>
+<!--tas pats poolas negali turėti vienodų extensions-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_name</td>
+	<td>third</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Queue was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Queue was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_1</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_2</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_2</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_all_permissions_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Accountant</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--kitas useris negali kurti to paties, kaip adminas-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PBX Pool:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_name</td>
+	<td>third</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Queue was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully created</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PBX Pool:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=queue[extension]</td>
+	<td>654</td>
+</tr>
+<!--kitas useris negali editinant kurti to paties, kaip adminas-->
+<tr>
+	<td>type</td>
+	<td>name=queue[extension]</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Queue was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>118</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--penkto poolo id-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_4_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_3</td>
+	<td>third</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_3</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_3</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_1</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_2</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_2</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_3</td>
+	<td>Global</td>
+</tr>
+<!--priskyrus Global exlines reikšmė -->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>118</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>120</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--skirtinguose pooluose extension gali kartotis-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_name</td>
+	<td>fourth</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully created</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=queue[extension]</td>
+	<td>654</td>
+</tr>
+<!--tas pats poolas negali turėti vienodų extensions-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_name</td>
+	<td>third</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queue_extension</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Queue was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/ast_queues/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Queue was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=queue_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Queue successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_3</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_3</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_4</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_4</td>
+	<td>Pirmas Poolas</td>
+</tr>
+</tbody></table>
+</body>
+</html>

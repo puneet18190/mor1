@@ -1,0 +1,1695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>rates_new2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">rates_new2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_3/make_rspro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/wholesale_12302/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/provider_12303/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/12303?st=H</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_4933</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/12302?st=R</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_7473</td>
+	<td>65</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12303</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>937</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Afghanistan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12302</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>658</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Singapore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12303</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Argentina</td>
+	<td>Argentina</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Argentina</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_111</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12302</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Romania</td>
+	<td>Romania</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Romania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_7483</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12302?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>37</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>9365963146464</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Afghanistan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>2.456789</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_509</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_509</td>
+	<td>Afghanistan proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_509</td>
+	<td>2.4568</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12302?st=M</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>222333555</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>37</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>377 - Monaco (Monaco proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=connection_fee</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ghost_percent</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_510</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_510</td>
+	<td>Monaco proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_510</td>
+	<td>50.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_510</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/510</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Monaco 377</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_rate</td>
+	<td>9.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>2.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>7.59789</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>1.25359</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate detail successfully updated</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Monaco 377</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_510</td>
+	<td>7.5979</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_510</td>
+	<td>1.2536</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12302?st=M</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_510</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_510</td>
+	<td>7.5979</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ghost_percent_edit/12302?rate_id=510</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Monaco 377</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_12303</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_12302</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>937,0.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>54261,26.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>509,7.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>93,2.4568,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>377,7.5979,1.2536,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>26269300,65.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>4078,22.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>658,0.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per kūrimui skirtą psl-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>503</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>503</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12303</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>4933</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>185</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>509</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per kūrimui skirtą psl-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>504</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>504</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12302</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>7473</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>349</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>26269300</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per quick add-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>505</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>505</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12303</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>11338</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>937</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per quick add-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>506</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>506</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12302</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>7874</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>384</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>658</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per add new rate-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>507</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>507</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12303</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>54261</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per add new rate-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>508</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>508</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12302</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>7483</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>351</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>4078</td>
+</tr>
+<!--patikrinam kad uzpildyti destinationgroup_id bei destination_id-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>510</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>510</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>12302</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>6329</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>282</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_min_perc_value</td>
+	<td>50.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>377</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/1?st=H</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_12044</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/2?st=R</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_7473</td>
+	<td>65</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>9375</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>9375 - Afghanistan (Afghanistan Cdma)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>658</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>658 - Singapore (Singapore mobile)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Argentina</td>
+	<td>Argentina</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Argentina</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_117</td>
+	<td>658</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Austria</td>
+	<td>Austria</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Austria</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_297</td>
+	<td>325</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>994</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix_results</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>994 - Azerbaijan (Azerbaijan proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>3.456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=connection_fee</td>
+	<td>0.123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ghost_percent</td>
+	<td>90</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_month</td>
+	<td>label=September</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_day</td>
+	<td>label=15</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_hour</td>
+	<td>label=17</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_minute</td>
+	<td>label=45</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>994</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix_results</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>994 - Azerbaijan (Azerbaijan proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>3.456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=connection_fee</td>
+	<td>0.123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ghost_percent</td>
+	<td>90</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_month</td>
+	<td>label=September</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_day</td>
+	<td>label=15</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_hour</td>
+	<td>label=17</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_minute</td>
+	<td>label=45</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Rate already set</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#destroy_img_16 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate successfully deleted</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>994</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix_results</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>994 - Azerbaijan (Azerbaijan proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>3.456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=connection_fee</td>
+	<td>0.123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ghost_percent</td>
+	<td>90</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_517</td>
+	<td>Azerbaijan proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_517</td>
+	<td>Azerbaijan proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_517</td>
+	<td>994</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_517</td>
+	<td>90.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_517</td>
+	<td>3.4560</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ghost_percent_edit/1?rate_id=517</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Azerbaijan 994</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate_ghost_min_perc</td>
+	<td>90.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/517</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Azerbaijan 994</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_517</td>
+	<td>3.4560</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_517</td>
+	<td>0.1230</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/517</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Azerbaijan 994</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_rate</td>
+	<td>3.456</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_connection_fee</td>
+	<td>0.123</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_1</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_2</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>994,3.4560,0.1230,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/2?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>4367,325.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=rates</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per kūrimui skirtą psl-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>511</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>511</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>12044</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>185</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>509220</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per kūrimui skirtą psl-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>512</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>512</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>7473</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>349</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>26269300</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per quick add-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>513</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>513</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>9375</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per quick add-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>514</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>514</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>7874</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>384</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>658</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name provider tarife, kuriant per add new rate-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>515</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>515</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>117</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>543424</td>
+</tr>
+<!--patikrinama, jog užpildomas prefix ir name wholesale tarife, kuriant per add new rate-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>516</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>516</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>297</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>27</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>4367</td>
+</tr>
+<!--patikrinam kad uzpildyti destinationgroup_id bei destination_id-->
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>517</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>517</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_id_value</td>
+	<td>332</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destinationgroup_id_value</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_min_perc_value</td>
+	<td>90.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_value</td>
+	<td>994</td>
+</tr>
+</tbody></table>
+</body>
+</html>

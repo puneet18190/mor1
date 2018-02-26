@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>calls_in_graphs_timezones</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">calls_in_graphs_timezones</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/load_bundle_sql/?path=last_call_stats/calls_in_graphs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<!--SU TZ-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/quick_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/quick_stats_updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+08:00) Hong Kong</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details changed</td>
+	<td></td>
+</tr>
+<!--#1 diena-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=21&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<!--total answered calls-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>12</td>
+</tr>
+<!--Patikrinti, ar grafikuose data atvaizduoajama gerai-->
+<!--#3 dienos, viena be skambuciu-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=20&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=22&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=23&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_billsec</td>
+	<td>exact:00:08:59</td>
+</tr>
+<!--# savaite-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=24&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_4_date</td>
+	<td>2012-11-22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>16</td>
+</tr>
+<!--#menuo-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=12&amp;date_till[day]=18&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_11_calls</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_1_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_2_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_3_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_4_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_5_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_6_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_opt_7_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_create_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#confirm_without_message &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+08:00) Hong Kong</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#confirm_without_message &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+08:00) Hong Kong</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details changed</td>
+	<td></td>
+</tr>
+<!--#1 diena-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/reseller_all_user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=21&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:21:33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_billsec</td>
+	<td>exact:00:21:33</td>
+</tr>
+<!--total answered calls-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>9</td>
+</tr>
+<!--#3 dienos, viena be skambuciu-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/reseller_all_user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=20&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=22&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_date</td>
+	<td>2012-11-22</td>
+</tr>
+<!--# savaite-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/reseller_all_user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=24&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_6_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>11</td>
+</tr>
+<!--#menuo-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/reseller_all_user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=12&amp;date_till[day]=18&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+08:00) Hong Kong</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT+08:00) Hong Kong</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Personal details changed</td>
+	<td></td>
+</tr>
+<!--#1 diena-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=21&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<!--total answered calls-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>12</td>
+</tr>
+<!--Patikrinti, ar grafikuose data atvaizduoajama gerai-->
+<!--#3 dienos, viena be skambuciu-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=20&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=22&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=23&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_billsec</td>
+	<td>exact:00:08:59</td>
+</tr>
+<!--#14 dienu-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/all_users_detailed?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=12&amp;date_till[day]=01&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--#1 diena-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=21&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:21:33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_billsec</td>
+	<td>exact:00:21:33</td>
+</tr>
+<!--total answered calls-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<!--#3 dienos-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=20&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=22&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_date</td>
+	<td>2012-11-22</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=23&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_date</td>
+	<td>2012-11-22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_date</td>
+	<td>2012-11-23</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--#1 diena-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=21&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=21&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=row_0_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_billsec</td>
+	<td>exact:00:27:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_billsec</td>
+	<td>exact:00:27:01</td>
+</tr>
+<!--total answered calls-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<!--#3 dienos-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=20&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=22&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_billsec</td>
+	<td>exact:00:27:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_2_calls</td>
+	<td>0</td>
+</tr>
+<!--# savaite-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=11&amp;date_till[day]=24&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_date</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_4_date</td>
+	<td>2012-11-22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>15</td>
+</tr>
+<!--#menuo-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/user_stats?date_from[year]=2012&amp;date_from[month]=11&amp;date_from[day]=18&amp;date_till[year]=2012&amp;date_till[month]=12&amp;date_till[day]=18&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='table']/table/tbody/tr/td[2]/table/tbody/tr[2]/td[5]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_3_calls</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_5_calls</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_13_calls</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_calls</td>
+	<td>28</td>
+</tr>
+</tbody></table>
+</body>
+</html>

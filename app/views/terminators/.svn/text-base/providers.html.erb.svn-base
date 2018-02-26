@@ -1,0 +1,92 @@
+<% user = accountant? ? User.where(id: 0).first : current_user %>
+<% if @terminator.user_id == user.id %>
+    <% if (accountant? && session[:acc_manage_terminators].to_i == 2) || admin? || reseller? %>
+      <%= _("Terminator") %> : <%= link_to b_provider+@terminator.name, :action => :edit, :id => @terminator.id %>
+    <% else %>
+      <%= _("Terminator") %> : <%= b_provider+@terminator.name %>
+    <% end %>
+    <br/>
+    <br/>
+    <%= form_tag :action => "provider_add", :id => @terminator.id do %>
+        <table width="100%" class="maintable">
+          <tr>
+            <th align="left"><%= _('Provider') %></th>
+            <th align="left"><%= _('Tech') %></th>
+            <th align="left"><%= _('Hostname') + "/" + _('Server_IP') %></th>
+            <th align="left"><%= _('Port') %></th>
+            <% if (accountant? && session[:acc_manage_terminators].to_i == 2) || admin? || reseller? %>
+            <th></th>
+            <% end %>
+          </tr>
+          <% @assigned.each_with_index { |prov, i| %>
+              <tr class="row<%= (i % 2 + 1).to_s %>">
+                <% if prov.common_use == 1 && reseller? %>
+                    <% prov.name = prov.common_use_provider_name_for_reseller(current_user_id) %>
+                <% end %>
+                <% if (accountant? && (session[:acc_manage_terminators].to_i == 2 || session[:acc_manage_provider].to_i != 0)) || admin? || reseller? %>
+                  <td id="provider_<%= prov.id %>"><%= b_provider_ani if prov.ani == 1 %><%= link_to(h(prov.name), {:controller => :providers, :action => :edit, :id => prov.id}) %></td>
+                <% else %>
+                  <td id="provider_<%= prov.id %>"><%= b_provider_ani if prov.ani == 1 %><%= prov.name %></td>
+                <% end %>
+                <td id="technology_<%= prov.id %>">
+                  <% if admin? || accountant? || (reseller? and prov.user_id == user.id) %>
+                      <%= print_tech(prov.tech) %>
+                  <% end %>
+                </td>
+                <td id="hostname_<%= prov.id %>">
+                  <% if admin? || accountant? || (reseller? and prov.user_id == user.id) %>
+                      <%= h(prov.server_ip) %>
+                  <% end %>
+                </td>
+                <td id="port_<%= prov.id %>">
+                  <% if admin? || accountant? || (reseller? and prov.user_id == user.id) %>
+                      <%= h(prov.port) %>
+                  <% end %>
+                </td>
+                <% if (accountant? && session[:acc_manage_terminators].to_i == 2) || admin? || reseller? %>
+                  <td align="center"><%= link_to b_delete, {:action => 'provider_remove', :id => @terminator.id, :provider_id => prov.id}, :id => "delete_"+prov.id.to_s, data: {confirm: _('are_you_sure')}, :method => :post %></td>
+                <% end %>
+              </tr>
+          <% } %>
+          <% if @not_assigned.size > 0 %>
+            <% if (accountant? && session[:acc_manage_terminators].to_i == 2) || admin? || reseller? %>
+              <tr>
+                <th>
+                  <select name="provider_id">
+                    <% @not_assigned.each { |prov| %>
+                        <% if prov.common_use == 1 && reseller? %>
+                           <% prov.name = prov.common_use_provider_name_for_reseller(current_user_id) %>
+                        <% end %>
+                        <option value="<%= prov.id %>"><%= h(prov.name) %>
+                          <% if admin? || accountant? || (reseller? and prov.user_id == user.id) %>
+                              <%= h(prov.tech.to_s+"/"+prov.server_ip+":"+prov.port.to_s) %>
+                          <% end %>
+                        </option>
+                    <% } %>
+                  </select>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th align="center"><%= image_submit_tag('icons/add.png', :title => _('Add_Provider')) %></th>
+              </tr>
+              <% end %>
+          <% end %>
+        </table>
+    <% end %>
+<% else %>
+
+    <%= _("Terminator") %> : <%= b_provider+@terminator.name %>
+    <br/>
+    <br/>
+    <table width="100%" class="maintable">
+      <tr>
+        <th align="left"><%= _('Provider') %></th>
+      </tr>
+      <% @assigned.each_with_index { |prov, i| %>
+          <tr class="row<%= (i % 2 + 1).to_s %>">
+            <td><%= b_provider_ani if prov.ani == 1 %><%= h(prov.name) %></td>
+          </tr>
+      <% } %>
+    </table>
+<% end %>

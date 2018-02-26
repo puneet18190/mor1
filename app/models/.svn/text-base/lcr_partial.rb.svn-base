@@ -1,0 +1,37 @@
+# -*- encoding : utf-8 -*-
+# Call Log model
+class LcrPartial < ActiveRecord::Base
+  attr_accessible :id, :main_lcr_id, :prefix, :destinationgroup_id, :destination_name, :lcr_id, :user_id
+
+  belongs_to :lcr
+  belongs_to :main_lcr, class_name: 'Lcr'
+
+  # finds if such partial allready exists
+  def duplicate_partials
+    sql = "SELECT COUNT(*) as 'count' FROM lcr_partials WHERE destination_name = '#{destination_name}'
+      AND main_lcr_id = '#{main_lcr_id}' AND destinationgroup_id = '#{destinationgroup_id}'
+      AND prefix = '#{prefix}' AND user_id = #{user_id}"
+    dup_partials = ActiveRecord::Base.connection.select_one(sql)
+    dup_partials['count'].to_i
+  end
+
+  # checks for lower partial (which prefix starts as our original partial)
+  def lower_partials
+    LcrPartial.find_by_sql("SELECT * FROM lcr_partials WHERE main_lcr_id = '#{main_lcr_id}'
+      AND user_id = #{user_id} AND prefix LIKE '#{prefix}%' AND LENGTH(prefix) > LENGTH('#{prefix}')")
+  end
+
+  def self.clone_partials(lcr, original_lcr_id)
+    query = "INSERT INTO lcr_partials (main_lcr_id, prefix, lcr_id, user_id)
+             SELECT lcr_partials.main_lcr_id, lcr_partials.prefix, #{lcr.id}, #{lcr.user_id}
+             FROM   lcr_partials
+             WHERE  lcr_partials.lcr_id = #{original_lcr_id}"
+    ActiveRecord::Base.connection.execute(query)
+  end
+
+  def update_by(params)
+    self.main_lcr_id = params[:main_lcr]
+    self.lcr_id = params[:lcr]
+    self.prefix = params[:prefix]
+  end
+end

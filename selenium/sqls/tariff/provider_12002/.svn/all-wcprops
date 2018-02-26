@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/provider_12002
+END
+create.sql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/provider_12002/create.sql
+END
+create_rates_for_mali.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/provider_12002/create_rates_for_mali.sql
+END
+create_rates_for_us.sql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/provider_12002/create_rates_for_us.sql
+END

@@ -1,0 +1,461 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets
+END
+jqxdatatable.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdatatable.js
+END
+jqxchart.waterfall.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxchart.waterfall.js
+END
+jqxpasswordinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxpasswordinput.js
+END
+jqxvalidator.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxvalidator.js
+END
+jqxgrid.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.js
+END
+jqxcheckbox.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxcheckbox.js
+END
+jqxnotification.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxnotification.js
+END
+jqxdropdownlist.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdropdownlist.js
+END
+jqxcore.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxcore.js
+END
+jqxswitchbutton.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxswitchbutton.js
+END
+jqxgrid.aggregates.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.aggregates.js
+END
+jqxknockout.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxknockout.js
+END
+jqxrangeselector.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxrangeselector.js
+END
+jqxdockpanel.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdockpanel.js
+END
+jqxchart.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxchart.js
+END
+jqxtoolbar.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtoolbar.js
+END
+jqxexpander.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxexpander.js
+END
+jqxcombobox.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxcombobox.js
+END
+jqxgrid.selection.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.selection.js
+END
+jqxcalendar.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxcalendar.js
+END
+jqxgrid.grouping.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.grouping.js
+END
+jqxslider.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxslider.js
+END
+jqxscrollbar.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxscrollbar.js
+END
+jqxmaskedinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxmaskedinput.js
+END
+jqxfileupload.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxfileupload.js
+END
+jqx-all.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqx-all.js
+END
+jqxeditor.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxeditor.js
+END
+jqxgrid.columnsreorder.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.columnsreorder.js
+END
+jqxcomplexinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxcomplexinput.js
+END
+jqxgrid.storage.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.storage.js
+END
+jqxgauge.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgauge.js
+END
+jqxscrollview.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxscrollview.js
+END
+jqxangular.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxangular.js
+END
+jqxprogressbar.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxprogressbar.js
+END
+jqxtooltip.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtooltip.js
+END
+jqxradiobutton.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxradiobutton.js
+END
+jqxtreemap.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtreemap.js
+END
+jqxtree.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtree.js
+END
+jqxlistmenu.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxlistmenu.js
+END
+jqxsplitter.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxsplitter.js
+END
+jqxwindow.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxwindow.js
+END
+jqxbulletchart.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxbulletchart.js
+END
+jqxdatetimeinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdatetimeinput.js
+END
+jqxcolorpicker.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxcolorpicker.js
+END
+jqxtouch.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtouch.js
+END
+jqxrating.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxrating.js
+END
+jqxgrid.columnsresize.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.columnsresize.js
+END
+jqxchart.core.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxchart.core.js
+END
+jqxtabs.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtabs.js
+END
+jqxdata.export.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdata.export.js
+END
+jqxchart.annotations.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxchart.annotations.js
+END
+jqxchart.rangeselector.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxchart.rangeselector.js
+END
+jqxbuttons.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxbuttons.js
+END
+jqxresponse.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxresponse.js
+END
+jqxinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxinput.js
+END
+jqxpanel.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxpanel.js
+END
+jqxdragdrop.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdragdrop.js
+END
+jqxmenu.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxmenu.js
+END
+jqxtreegrid.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxtreegrid.js
+END
+jqxformattedinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxformattedinput.js
+END
+jqxgrid.export.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.export.js
+END
+jqxnumberinput.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxnumberinput.js
+END
+jqxgrid.pager.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.pager.js
+END
+jqxnavigationbar.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxnavigationbar.js
+END
+jqxlistbox.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxlistbox.js
+END
+jqxbuttongroup.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxbuttongroup.js
+END
+jqxdropdownbutton.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdropdownbutton.js
+END
+jqxdraw.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdraw.js
+END
+jqxnavbar.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxnavbar.js
+END
+jqxgrid.filter.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.filter.js
+END
+jqxgrid.edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.edit.js
+END
+jqxchart.api.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxchart.api.js
+END
+jqxdata.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdata.js
+END
+jqxribbon.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxribbon.js
+END
+jqxgrid.sort.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxgrid.sort.js
+END
+jqxdocking.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/app/assets/javascripts/jqwidgets/jqxdocking.js
+END

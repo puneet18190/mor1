@@ -1,0 +1,6 @@
+<%= "#{_('Unpaid_Invoices_found')}: #{@invoices.size}" %>
+<br/>
+<br/>
+<%= form_tag(action: :bulk_pay_unpaid_invoices) do %>
+    <%= submit_tag(_('Pay_unpaid_Invoices'), onclick: "return confirm('#{_('Are_you_sure_you_want_to_pay_unpaid_Invoices')}');",  data: {confirm: _('Are_you_sure_you_want_to_pay_unpaid_Invoices'), disable_with: _('Processing..')}) %>
+<% end %>

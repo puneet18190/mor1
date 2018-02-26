@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/aggregates/calls_and_aggregates_for_all_type_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/sms_user_12004/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/lcr/sms_12004/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_all_permissions_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Accountant</td>
+</tr>
+<!--Visi parametrai išskyrus u ir sms_lcr_id turi įeiti į hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<!--tikrinamas user_id patekimas į hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>SMS Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=9&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>Incorrect hash</td>
+</tr>
+<!--tikrinamas sms_tariff_id patekimas į hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;sms_tariff_id=12004&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>SMS LCR was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;sms_tariff_id=12898&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Incorrect hash</td>
+</tr>
+<!--tikrinamas sms_lcr_id nepatekimas į hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>User successfully subscribed to SMS service</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=12984&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>SMS LCR was not found</td>
+</tr>
+<!--tikrinamas u nepatekimas į hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=reseller&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=accountant&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/12?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sms_addon_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=reseller&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;hash=62441bb433e35d16c0ad336a15cb55be008f3265&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<!--Admin gali valdyti visus userius-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User is already subscribed to SMS service</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=5&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Reseller does not have SMS Subscription</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=3&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>User successfully subscribed to SMS service</td>
+</tr>
+<!--Reselerio useriui gali priskirti tik reselerio tarifus-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=5&amp;sms_tariff_id=12004&amp;sms_lcr_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>SMS Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=2&amp;sms_tariff_id=12004&amp;sms_lcr_id=1265645&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>SMS LCR was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/sms_user_12306/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/lcr/sms_12005/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=5&amp;sms_tariff_id=12306&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>SMS LCR was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=5&amp;sms_tariff_id=12306&amp;sms_lcr_id=12005&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>User successfully subscribed to SMS service</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=5&amp;sms_tariff_id=12306&amp;sms_lcr_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User is already subscribed to SMS service</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=users</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sms_tariff_id_value</td>
+	<td>12306</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sms_lcr_id_value</td>
+	<td>12004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sms_service_active_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sms_tariff_id_value</td>
+	<td>12004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sms_lcr_id_value</td>
+	<td>12004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sms_service_active_value</td>
+	<td>1</td>
+</tr>
+<!--Migracija-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/migrate_sms_tariffs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Task completed. Number of SMS Tariffs migrated: 2</td>
+</tr>
+<!--Reseller gali valdyti tik savo userius-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/sms/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>User was unsubscribed from SMS service: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=reseller&amp;user_id=5&amp;sms_tariff_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>SMS Tariff was not found</td>
+</tr>
+<!--resellerio useriams turi būti priskirta reselleriui subscribintas sms_lcr, nepaisant to koks siunčiamas.-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=reseller&amp;user_id=5&amp;sms_tariff_id=12306&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>User successfully subscribed to SMS service</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=reseller&amp;user_id=2&amp;sms_tariff_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=user_reseller&amp;user_id=5&amp;sms_tariff_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=user_admin&amp;user_id=5&amp;sms_tariff_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=accountant&amp;user_id=5&amp;sms_tariff_id=12306&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=accountant&amp;user_id=2&amp;sms_tariff_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/user_sms_service_subscribe?u=admin&amp;user_id=5&amp;sms_tariff_id=12004&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>SMS Tariff was not found</td>
+</tr>
+</tbody></table>
+</body>
+</html>

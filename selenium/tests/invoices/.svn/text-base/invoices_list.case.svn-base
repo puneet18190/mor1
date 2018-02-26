@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>invoices_list</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">invoices_list</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/real_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=invoices/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/10_items_per_page.sql</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<!--...Search-->
+<!--......Username-->
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_5</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test Reseller</td>
+	<td></td>
+</tr>
+<!--......First_name-->
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_first_name</td>
+	<td>Test%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_5</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test Reseller</td>
+	<td></td>
+</tr>
+<!--......Last_name-->
+<tr>
+	<td>type</td>
+	<td>s_first_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_last_name</td>
+	<td>Res%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_5</td>
+	<td>System Admin</td>
+</tr>
+<!--......Number-->
+<tr>
+	<td>type</td>
+	<td>s_last_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_number</td>
+	<td>INV10110101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_8</td>
+	<td>INV10110101</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INV12102103</td>
+	<td></td>
+</tr>
+<!--......Period_start-->
+<tr>
+	<td>type</td>
+	<td>s_number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_period_start</td>
+	<td>label=2012-11-21</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_2</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>inv_period_start_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>inv_period_start_6</td>
+	<td></td>
+</tr>
+<!--......Period_end-->
+<tr>
+	<td>select</td>
+	<td>s_period_start</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_period_end</td>
+	<td>label=2012-11-21</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_2</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>inv_period_end_6</td>
+	<td></td>
+</tr>
+<!--......Issue_date-->
+<!--......Invoice_sent_email-->
+<tr>
+	<td>select</td>
+	<td>s_period_end</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_sent_email</td>
+	<td>label=Sent</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>image_not_sent_12</td>
+	<td></td>
+</tr>
+<!--......Invoice_sent_manually-->
+<tr>
+	<td>select</td>
+	<td>s_sent_email</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_sent_manually</td>
+	<td>label=Sent</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>image_not_sent_manually_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>image_sent_manually_7</td>
+	<td></td>
+</tr>
+<!--......Invoice_paid-->
+<tr>
+	<td>select</td>
+	<td>s_sent_manually</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_paid</td>
+	<td>label=yes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>image_not_paid_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>image_paid_7</td>
+	<td></td>
+</tr>
+<!--......Invoice type-->
+<tr>
+	<td>select</td>
+	<td>s_paid</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>s_invoice_type</td>
+	<td>label=Postpaid</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_5</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>inv_type_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<!--...Ordering-->
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.0</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.0</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>INV12112102</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.1</td>
+	<td>INV10110101</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>INV10110101</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.1</td>
+	<td>INV12112102</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.2</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.2</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.2</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.2</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Period start</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.3</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.3</td>
+	<td>2010-11-01</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Period start</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.3</td>
+	<td>2010-11-01</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.3</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Period end</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.4</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.4</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Period end</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.4</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.4</td>
+	<td>2012-11-30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Issue date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.5</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.5</td>
+	<td>2012-12-03</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Issue date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.5</td>
+	<td>2012-12-03</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.5</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Time Zone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>Yakutsk (GMT +10)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.6</td>
+	<td>Vilnius (GMT +2)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Time Zone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>Vilnius (GMT +2)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.6</td>
+	<td>Yakutsk (GMT +10)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice sent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice sent manually</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=image_sent_manually_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Paid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=image_paid_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Paid date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Paid date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.10</td>
+	<td>2015-01-30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.11</td>
+	<td>92.5027</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.11</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.11</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.11</td>
+	<td>92.5027</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Currency</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.13</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.13</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Currency</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.13</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.7.13</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Back to Invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to Invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Invoices</td>
+</tr>
+</tbody></table>
+</body>
+</html>

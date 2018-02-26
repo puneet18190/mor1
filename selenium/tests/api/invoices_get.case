@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/real_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=invoices/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>invoices_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='confirm_without_message']/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--hash1-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;p=admin1&amp;from=1350777600&amp;till=1354233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<!--hash2-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;from=1350777600&amp;till=1354233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<!--hash3-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;p=user_admin1&amp;from=1350777600&amp;till=1354233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<!--hash4-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;p=accountant1&amp;from=1350777600&amp;till=1354233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--from api-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=admin&amp;p=admin1&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--hash1-->
+<!--su password ir senu linku-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices?u=admin&amp;p=admin1&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Lithuania mobile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/name</td>
+	<td>Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/price</td>
+	<td>0.3333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/name</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/quantity</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/price</td>
+	<td>11.3700</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/issue_date</td>
+	<td>2012-12-03</td>
+</tr>
+<!--be password-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=admin&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Lithuania mobile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=date_added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=issue_date</td>
+	<td></td>
+</tr>
+<!--reseller-->
+<!--hash2-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=reseller&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Lithuania Mobile Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>0.5027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/name</td>
+	<td>Calls to DIDs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/quantity</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/price</td>
+	<td>3.6583</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/issue_date</td>
+	<td>2012-10-10</td>
+</tr>
+<!--user-->
+<!--hash3-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=user_admin&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Lithuania mobile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/name</td>
+	<td>Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/price</td>
+	<td>0.3333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/name</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/quantity</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/price</td>
+	<td>11.3700</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/issue_date</td>
+	<td>2012-12-03</td>
+</tr>
+<!--accountant-->
+<!--hash4-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=accountant&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Lithuania mobile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/name</td>
+	<td>Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/price</td>
+	<td>0.3333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/name</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/quantity</td>
+	<td>9</td>
+</tr>
+<!--api nesutvarkytas, tad kainos dar neatitinka-->
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/price</td>
+	<td>11.3700</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/issue_date</td>
+	<td>2012-12-03</td>
+</tr>
+<!--no hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disable_hash_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disable_hash_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=group_regular_calls_by_destination_in_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--su password ir senu linku-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices?u=admin&amp;p=admin1&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania mobile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/name</td>
+	<td>Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/price</td>
+	<td>0.3333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/name</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/quantity</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/price</td>
+	<td>11.3700</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/issue_date</td>
+	<td>2012-12-03</td>
+</tr>
+<!--be password-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=admin&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania mobile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=date_added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=issue_date</td>
+	<td></td>
+</tr>
+<!--reseller-->
+<!--hash2-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=reseller&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania mobile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>0.5027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/name</td>
+	<td>Calls to DIDs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/quantity</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/price</td>
+	<td>3.6583</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[3]/issue_date</td>
+	<td>2012-10-10</td>
+</tr>
+<!--user-->
+<!--hash3-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=user_admin&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania mobile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/name</td>
+	<td>Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/price</td>
+	<td>0.3333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/name</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/quantity</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/price</td>
+	<td>11.3700</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/issue_date</td>
+	<td>2012-12-03</td>
+</tr>
+<!--accountant-->
+<!--hash4-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=accountant&amp;from=1350777600&amp;till=1354233600&amp;file=false&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Lithuania mobile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=name</td>
+	<td>Calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=price</td>
+	<td>3.3453</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/name</td>
+	<td>Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/price</td>
+	<td>0.3333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//product[4]/issue_date</td>
+	<td>2012-12-12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/name</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/quantity</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/price</td>
+	<td>11.3700</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//invoice[3]/product[2]/issue_date</td>
+	<td>2012-12-03</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--No invoices-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=accountant&amp;from=1450777600&amp;till=1454233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No Invoices found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=admin&amp;from=1450777600&amp;till=1454233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No Invoices found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=reseller&amp;from=1450777600&amp;till=1454233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No Invoices found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/invoices_get?u=user_admin&amp;from=1450777600&amp;till=1454233600&amp;file=false</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>No Invoices found</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

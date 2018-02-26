@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration
+END
+allow_registration_username_passwords_in_devices_check.sql
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/allow_registration_username_passwords_in_devices_check.sql
+END
+registration_enabled_check.sql
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/registration_enabled_check.sql
+END
+send_email_to_admin_after_registration_check.sql
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/send_email_to_admin_after_registration_check.sql
+END
+asterisk_server_ip.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/asterisk_server_ip.sql
+END
+allow_registration_username_passwords_in_devices_uncheck.sql
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/allow_registration_username_passwords_in_devices_uncheck.sql
+END
+registration_enabled_uncheck.sql
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/registration_enabled_uncheck.sql
+END
+send_email_to_admin_after_registration_uncheck.sql
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/send_email_to_admin_after_registration_uncheck.sql
+END
+send_email_to_user_after_registration_check.sql
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/send_email_to_user_after_registration_check.sql
+END
+send_email_to_user_after_registration_uncheck.sql
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/send_email_to_user_after_registration_uncheck.sql
+END
+disable_recaptcha.sql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/disable_recaptcha.sql
+END
+enable_recaptcha.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/enable_recaptcha.sql
+END
+set_and_allow_terms_and_conditions.sql
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/registration/set_and_allow_terms_and_conditions.sql
+END

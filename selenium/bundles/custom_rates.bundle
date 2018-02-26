@@ -1,0 +1,9 @@
+# flatrate servisas testui flatrate_user_subscription.case
+# ----
+# 
+tariff/wholesale_12302/create.sql
+settings/functionality/show_rates_for_users.sql
+settings/functionality/show_advanced_rates_for_user_insert.sql
+settings/reseller/show_rates_for_users.sql
+settings/reseller/show_advanced_rates_for_user_insert.sql
+# bundle loaded

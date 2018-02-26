@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=universal_bundles/make_rspro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/provider_12301/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/functionality/set_csv_separator_semicolon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/set_comma_as_decimal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 0&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;File upload</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/full_tariff_info.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 2&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Column assignment</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please confirm Column Separator and Decimal Separator for CSV file</td>
+	<td></td>
+</tr>
+<!--tikrinama ar nesiulo  "-"  kaip separatoriaus-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Column Separator , and Decimal Separator .</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=sepn2</td>
+	<td>,</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=decn2</td>
+	<td>.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_1_1</td>
+	<td>United States Florida</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_2_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_3_1</td>
+	<td>$0.444</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_1_0</td>
+	<td>Destination</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_2_0</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_3_0</td>
+	<td>Price</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>First file lines:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=use_suggestion_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_1_1</td>
+	<td>United States Florida</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_2_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_3_1</td>
+	<td>$0.444</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_1_0</td>
+	<td>Destination</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_2_0</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_3_0</td>
+	<td>Price</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sepn2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sepn2</td>
+	<td>;</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=sepn2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=notice</td>
+	<td>Not enough columns - select correct Column Separator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_1_0</td>
+	<td>Destination,Prefix,Price,Country Code,SubCode,Connection Fee,Increment,Min. time,Ghost %,City,Country/Direction</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sep_row_1_1</td>
+	<td>United States Florida,123,$0.444,USA,LBL,0.44,2,2,15,Florida,USA</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sepn2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sepn2</td>
+	<td>,</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=sepn2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=notice</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 2&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Column assignment</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>File uploaded</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Prefix* </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rate* </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=prov_tariff_rs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>United States Florida,123,$0.444,USA,LBL,0.44,2,2,15,Florida</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_day_type</td>
+	<td>All Work Days Free Days</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=time_from_hour</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=time_till_hour</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=delete_unimported_prefix_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dest_cell</td>
+	<td>Destination*</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>prefix_id</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>rate_id</td>
+	<td>label=Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=destination_id</td>
+	<td>label=Destination</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=manual_ghost_percent</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=connection_fee_id</td>
+	<td>label=Connection Fee</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=increment_id</td>
+	<td>label=Increment</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=min_time_id</td>
+	<td>label=Min. time</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ghost_percent_id</td>
+	<td>label=Ghost %</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=manual_connection_fee</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=manual_increment</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=manual_min_time</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2015</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=00</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_minute</td>
+	<td>label=02</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_second</td>
+	<td>label=03</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_from_date_format</td>
+	<td>label=d,m,Y</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next step: Column confirmation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 3&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Column confirmation</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Columns assigned</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rate Day Type: All</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_prefix_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_rate_1</td>
+	<td>$0.444</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_effective_from_1</td>
+	<td>2015-01-01 00:02:03</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_connection_fee_1</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_increment_1</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_min_time_1</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_ghost_percent_1</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_dst_1</td>
+	<td>United States Florida</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next step: Analysis</td>
+	<td></td>
+</tr>
+<!--# BACK (turi likti užpildyta forma)-->
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>prefix_id</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>rate_id</td>
+	<td>Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=destination_id</td>
+	<td>Destination</td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manual_ghost_percent</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=connection_fee_id</td>
+	<td>Connection Fee</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=increment_id</td>
+	<td>Increment</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=min_time_id</td>
+	<td>Min. time</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=ghost_percent_id</td>
+	<td>Ghost %</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manual_connection_fee</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manual_increment</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manual_min_time</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2015</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_month</td>
+	<td>January</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_day</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_hour</td>
+	<td>00</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_minute</td>
+	<td>02</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_second</td>
+	<td>03</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=effective_from_date_format</td>
+	<td>d,m,Y</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next step: Column confirmation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/full_tariff_info.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 2&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Column assignment</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>File uploaded</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=prefix_id</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=destination_id</td>
+	<td>Destination</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_day_type</td>
+	<td>label=Work Days</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=prefix_id</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=connection_fee_id</td>
+	<td>label=Connection Fee</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=increment_id</td>
+	<td>label=Increment</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=min_time_id</td>
+	<td>label=Min. time</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ghost_percent_id</td>
+	<td>label=Ghost %</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=destination_id</td>
+	<td>label=Destination</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2019</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=02</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_minute</td>
+	<td>label=03</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_second</td>
+	<td>label=04</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Columns assigned</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_prefix_1</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_rate_1</td>
+	<td>$0.444</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_effective_from_1</td>
+	<td>2019-01-01 02:03:04</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_connection_fee_1</td>
+	<td>0.44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_increment_1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_min_time_1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_ghost_percent_1</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_dst_1</td>
+	<td>United States Florida</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_ghost_percent_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 4&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Analysis</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Analysis completed</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=prov_tariff_rs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_day_type</td>
+	<td>Rate Day Type</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_rate_day_type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_file_lines</td>
+	<td>Total file lines</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_to_update</td>
+	<td>Rates to update</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update_step</td>
+	<td>Step 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_rates_to_create</td>
+	<td>New Rates to create</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create_step</td>
+	<td>Step 8</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next step: Creating new rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Import from CSV&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Step: 8&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Creating new rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>New Rates created: 21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_rates_updated</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_new_rates_created</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=prov_tariff_rs</td>
+	<td>prov_tariff_rs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_day_type</td>
+	<td>Rate Day Type</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_rate_day_type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_file_lines</td>
+	<td>Total file lines</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_to_update</td>
+	<td>Rates to update</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update_step</td>
+	<td>Step 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_rates_to_create</td>
+	<td>New Rates to create</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create_step</td>
+	<td>Step 8</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Congratulations, successfully imported CSV file!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Back to Tariffs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_12301</td>
+	<td>Rates (0/21)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_514</td>
+	<td>Albania Mobile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_514</td>
+	<td>3556</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ghost_percent_514</td>
+	<td>10,0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td[5]</td>
+	<td>0,2500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=effective_from_516</td>
+	<td>2019-01-01 02:03:04</td>
+</tr>
+<!--Įkelti blocked ir -1-->
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_516</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_517</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=U</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_503</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_504</td>
+	<td>Blocked</td>
+</tr>
+<!--Neįkelti rates su simboliais prie price $0.444, 0.004$-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>124</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_details/514</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td &gt; b</td>
+	<td>For Work Days:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=start_time_514</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=end_time_514</td>
+	<td>exact:23:59:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_514</td>
+	<td>0,2500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=connection_fee_514</td>
+	<td>0,5400</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=increment_s_514</td>
+	<td>33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_time_514</td>
+	<td>7</td>
+</tr>
+<!--WITH BAD DESTINATIONS-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/localization/delete_all_destinations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Step: 0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=prov_tariff_rs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>file</td>
+	<td>/home/mor/selenium/files/pics/big_test_image.jpg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please select CSV file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>file</td>
+	<td>/home/mor/selenium/files/csv/empty_file.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please select file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>file</td>
+	<td>/home/mor/selenium/files/csv/invalid_numbers.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please confirm Column Separator and Decimal Separator for CSV file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>file</td>
+	<td>/home/mor/selenium/files/csv/tariff_import2.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>File uploaded</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=destination_id</td>
+	<td>label=regexp:\s</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Columns assigned</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Analysis completed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_count</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Congratulations, successfully imported CSV file! </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=r_to_update</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=new_r_to_create</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/bad_rows_from_csv?csv2=1&amp;tariff_id=12301</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<!--Check that steps cannot be bypassed-->
+<!--...Without file-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/12301?step=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please upload file</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

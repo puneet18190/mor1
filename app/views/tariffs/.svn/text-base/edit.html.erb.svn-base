@@ -1,0 +1,9 @@
+<%= link_nice_tariff(@tariff).html_safe %>
+<%= form_tag(:action => 'update', :id => @tariff) do %>
+    <%= render 'form', :currs => @currs, :tariff => @tariff, :no_edit_purpose => @no_edit_purpose, delta_value: @delta_value, delta_percent: @delta_percent %>
+    <br><br>
+    <%= submit_tag _('Edit'), data: { disable_with: _('Processing..') } %>
+<% end %>
+
+<br><br>
+

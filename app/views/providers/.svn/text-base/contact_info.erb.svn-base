@@ -1,0 +1,135 @@
+<%= form_tag(action: :contact_info_update, id: @provider) do %>
+    <table class="simple">
+      <tr><td colspan="2" class="bottom_border"><b><%= _('General') %></b></td></tr>
+      <tr><td height="10"></td></tr>
+      <tr>
+        <td><%= _('Company_name') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_id]name', @contact_infos[:contact_info_id].name, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Registered_Address') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_id]address', @contact_infos[:contact_info_id].address, class: 'input', maxlength: 100) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Other_Postal_Address') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_id]address2', @contact_infos[:contact_info_id].address2, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Telephone_Number') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_id]phone', @contact_infos[:contact_info_id].phone, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr>
+        <td><%= _('FAX') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_id]fax', @contact_infos[:contact_info_id].fax, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr><td colspan="2" class="bottom_border"><b><%= _('Partners_Contact_Information') %></b></td></tr>
+      <tr><td height="10"></td></tr>
+      <tr>
+        <td><%= _('Name') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_partners_id]name', @contact_infos[:contact_info_partners_id].name, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Position') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_partners_id]position', @contact_infos[:contact_info_partners_id].position, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Phone') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_partners_id]phone', @contact_infos[:contact_info_partners_id].phone, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr>
+        <td><%= _('FAX') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_partners_id]fax', @contact_infos[:contact_info_partners_id].fax, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr>
+        <td><%= _('E_mail') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_partners_id]provider_email', @contact_infos[:contact_info_partners_id].provider_email, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Skype') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_partners_id]skype', @contact_infos[:contact_info_partners_id].skype, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr><td colspan="2" class="bottom_border"><b><%= _('NOC_Contact_Information') %></b></td></tr>
+      <tr><td height="10"></td></tr>
+      <tr>
+        <td><%= _('Name') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_noc_id]name', @contact_infos[:contact_info_noc_id].name, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Position') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_noc_id]position', @contact_infos[:contact_info_noc_id].position, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Phone') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_noc_id]phone', @contact_infos[:contact_info_noc_id].phone, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr>
+        <td><%= _('E_mail') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_noc_id]provider_email', @contact_infos[:contact_info_noc_id].provider_email, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Skype') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_noc_id]skype', @contact_infos[:contact_info_noc_id].skype, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('CC_to') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_noc_id]cc', @contact_infos[:contact_info_noc_id].cc, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr><td colspan="2" class="bottom_border"><b><%= _('Rates_Provisioning_Contact_Information') %></b></td></tr>
+      <tr><td height="10"></td></tr>
+      <tr>
+        <td><%= _('Name') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_rates_provisioning_id]name', @contact_infos[:contact_info_rates_provisioning_id].name, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Position') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_rates_provisioning_id]position', @contact_infos[:contact_info_rates_provisioning_id].position, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Phone') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_rates_provisioning_id]phone', @contact_infos[:contact_info_rates_provisioning_id].phone, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr>
+        <td><%= _('E_mail') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_rates_provisioning_id]provider_email', @contact_infos[:contact_info_rates_provisioning_id].provider_email, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('CC_to') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_rates_provisioning_id]cc', @contact_infos[:contact_info_rates_provisioning_id].cc, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr><td colspan="2" class="bottom_border"><b><%= _('Billing_Provisioning_Contact_Information') %></b></td></tr>
+      <tr><td height="10"></td></tr>
+      <tr>
+        <td><%= _('Name') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_billing_provisioning_id]name', @contact_infos[:contact_info_billing_provisioning_id].name, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Position') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_billing_provisioning_id]position', @contact_infos[:contact_info_billing_provisioning_id].position, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('Phone') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_billing_provisioning_id]phone', @contact_infos[:contact_info_billing_provisioning_id].phone, class: 'input', maxlength: 30) %></td>
+      </tr>
+      <tr>
+        <td><%= _('E_mail') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_billing_provisioning_id]provider_email', @contact_infos[:contact_info_billing_provisioning_id].provider_email, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr>
+        <td><%= _('CC_to') %>:</td>
+        <td><%= text_field_tag('[provider][contact_info_billing_provisioning_id]cc', @contact_infos[:contact_info_billing_provisioning_id].cc, class: 'input', maxlength: 255) %></td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr><td colspan="2" class="bottom_border"><b><%= _('Partner_Tech_Details') %></b></td></tr>
+      <tr><td height="10"></td></tr>
+      <tr>
+        <td colspan="2"><%= text_field_tag('[provider]tech_details_info', @provider.tech_details_info, class: 'input_100', maxlength: 255) %></td>
+      </tr>
+    </table>
+
+    <br/><br/>
+    <%= submit_tag _('Update'), data: { disable_with: _('Processing..') } %>
+<% end %>

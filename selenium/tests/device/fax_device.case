@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>fax_device</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">fax_device</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/servers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>FAX_device</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=device[server_id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dev_ind_0</td>
+	<td>G.711 A-law</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dev_ind_1</td>
+	<td>G.711 u-law</td>
+</tr>
+<!--pasirinkus fax, codekai jau parinkti ir needitinami-->
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_ulaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/31</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>device_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<!--defoult device sip bet kruiamas fax, turi likti abu codekai -->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>fax2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Device created</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_ulaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<!--defoult device fax-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_ulaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=device[server_id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Settings saved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>FAX_device2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=device[server_id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_ulaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/32</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>FAX_device2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/33</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_ulaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=codec_alaw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_alaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=codec_ulaw</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_SIP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--reikšmės, kurių neturi būti FAX device-->
+<tr>
+	<td>click</td>
+	<td>id=trunk_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=trunk_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cid_name</td>
+	<td>opapa</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cid_number</td>
+	<td>123456789</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_nat_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=qualify_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callgroup</td>
+	<td>qwerty</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pickupgroup</td>
+	<td>qwerty</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vm_email</td>
+	<td>test@test.test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[19]/td/table</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_enable_mwi_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_g722</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_g723</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_g726</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_g729</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_gsm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_ilbc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_lpc10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_speex</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_adpcm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_slin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_h261</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_h263</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_h263p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=codec_h264</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=fromuser</td>
+	<td>asdfg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=fromdomain</td>
+	<td>asdfg1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_trustrpid_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_sendrpid_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=insecure_invite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_promiscredir_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_progressinband_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_videosupport_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_fake_ring_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_time_limit_per_day</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_transport_tcp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_encryption_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=block_callerid_enable_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_tell_rate_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_tell_balance_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_tell_time_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_tell_rtime_when_left</td>
+	<td>3030</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_repeat_rtime_every</td>
+	<td>2020</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_qf_tell_balance_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_qf_tell_time_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=process_sipchaninfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_record_forced_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_record_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_recording_to_email_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_recording_keep_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>fax device</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Device details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>1006</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=host_value</td>
+	<td>dynamic</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=port_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=regseconds_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=accountcode_value</td>
+	<td>35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_value</td>
+	<td>&quot;opapa&quot; &lt;123456789&gt;</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_value</td>
+	<td>1006</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=voicemail_active_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_value</td>
+	<td>1006</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_type_value</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=works_not_logged_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=forward_to_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=record_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=transfer_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=disallow_value</td>
+	<td>all</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=allow_value</td>
+	<td>alaw;ulaw</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=deny_value</td>
+	<td>0.0.0.0/0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=permit_value</td>
+	<td>0.0.0.0/0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=nat_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=qualify_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fullcontact_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=canreinvite_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dtmfmode_value</td>
+	<td>rfc2833</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callgroup_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pickupgroup_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fromuser_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fromdomain_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=trustrpid_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=sendrpid_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=progressinband_value</td>
+	<td>never</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=videosupport_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_value</td>
+	<td>fax device</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=istrunk_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cid_from_dids_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tell_balance_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tell_time_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tell_rtime_when_left_value</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=repeat_rtime_every_value</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=t38pt_udptl_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=regserver_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ani_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=promiscredir_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=timeout_value</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=process_sipchaninfo_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=allow_duplicate_calls_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=call_limit_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lastms_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=faststart_value</td>
+	<td>yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=h245tunneling_value</td>
+	<td>yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=grace_time_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recording_to_email_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recording_keep_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recording_email_value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=record_forced_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fake_ring_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=save_call_log_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=enable_mwi_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=requirecalltoken_value</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=max_timeout_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=anti_resale_auto_answer_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=qf_tell_time_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_limit_per_day_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tp_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tp_active_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=copy_name_to_number_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=op_active_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_FAX</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/device/fax_device</td>
+	<td></td>
+</tr>
+<!--reikia patikrinti ar leidzia pasiekti nuoroda-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes?date_from[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/faxes_list/5?fstatus=good')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/faxes_list/2?fstatus=pdf_size_0')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/faxes_list/2?fstatus=no_tif')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Failed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(@href, '/billing/stats/faxes_list/2')])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Failed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>acc group</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/1?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/show_devices/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_3</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_31</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_32</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_33</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_34</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_35</td>
+	<td>FAX</td>
+</tr>
+<!--FAX device, jis priskiriamas visiems egzistuojantiems Asterisk serveriams.-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=server_devices</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_value</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_value</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>32</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_id_value</td>
+	<td>32</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_value</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.1</td>
+	<td>32</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_value</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_description</td>
+	<td>fax dev</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes_list/2?date_from[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>FAX/102</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes_list/5?date_from[year]=2012</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>FAX/1007</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/faxes_list/2?fstatus=good')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/faxes_list/2?fstatus=pdf_size_0')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/faxes_list/2?fstatus=no_tif')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/faxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(@href, '/billing/stats/faxes_list/2')])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Access denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/31</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#type_value &gt; b</td>
+	<td>FAX</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_pdffaxemail</td>
+	<td>fax@device.email</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>New email added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>fax@device.email</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/pdffaxemail_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>faxmodif@device.email</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Email updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>faxmodif@device.email</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#email-delete-2 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Email deleted: faxmodif@device.email</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

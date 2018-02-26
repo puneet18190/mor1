@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_service_delete</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_service_delete</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/services/services_subscribtions_2</td>
+	<td></td>
+</tr>
+<!--#hash1-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=1235</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<!--#hash2-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<!--#hash3-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<!--#hash4 -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<!--#hash5-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash5</td>
+</tr>
+<!--#hash6-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash6</td>
+</tr>
+<!--#hash7-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash7</td>
+</tr>
+<!--#hash8-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash8</td>
+</tr>
+<!--#hash9-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash9</td>
+</tr>
+<!--#hash10-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash10</td>
+</tr>
+<!--#hash11-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash11</td>
+</tr>
+<!--#hash12-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;service_id=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash12</td>
+</tr>
+<!--#hash13-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;service_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash13</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;service_id=16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash14</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;service_id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash15</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;service_id=17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash16</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;service_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash17</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_admin&amp;service_id=16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash18</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash19</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash20</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash21</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash22</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash23</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash24</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash25</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=accountant&amp;service_id=18</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash26</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;service_id=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash27</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;service_id=15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash28</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;service_id=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash29</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;service_id=23</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash30</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;service_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash31</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=reseller&amp;service_id=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash32</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_reseller&amp;service_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash33</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=user_reseller&amp;service_id=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash34</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--service kurio nera-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=1235&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not found</td>
+	<td></td>
+</tr>
+<!--incorrect hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=2&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--istrinimas  / istrinsim trijų skirtingų rūšių services-->
+<!--periodic fee-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=10&amp;hash=${hash3}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Antras_2</td>
+	<td></td>
+</tr>
+<!--periodic fee su subscribtionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=2&amp;hash=${hash4}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<!--One time fee-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=11&amp;hash=${hash5}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--one time fee su subscribtionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=3&amp;hash=${hash6}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<!--Flat - rate -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=12&amp;hash=${hash7}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--one time fee su subscribtionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=5&amp;hash=${hash8}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<!--adminas bando trinti reselerio services. Ir jam pavyksta. -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=13&amp;hash=${hash9}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Service was successfully deleted</td>
+</tr>
+<!--one time fee su subscribtionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=7&amp;hash=${hash10}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+</tr>
+<!--adminas bando paimti reselerio services  one time  fee-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=14&amp;hash=${hash11}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Service was successfully deleted</td>
+</tr>
+<!--one time fee su subscribtionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=9&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+</tr>
+<!--useris bando trinti-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_admin&amp;service_id=2&amp;hash=${hash13}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--one time fee su subscribtionu-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_admin&amp;service_id=16&amp;hash=${hash14}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--#hash15-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_admin&amp;service_id=3&amp;hash=${hash15}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_admin&amp;service_id=17&amp;hash=${hash16}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--user reselleris bando trinti-->
+<!--#hash17-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_admin&amp;service_id=2&amp;hash=${hash17}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_admin&amp;service_id=16&amp;hash=${hash18}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--accountantas neturi permisssionu -->
+<!--#hash19-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=2&amp;hash=${hash19}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to manage Services</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=16&amp;hash=${hash20}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to manage Services</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--accountantas su manage service read permkisionais -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/services_read</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=2&amp;hash=${hash19}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to manage Services</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=16&amp;hash=${hash20}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to manage Services</td>
+	<td></td>
+</tr>
+<!--accountantas su manage service write permisionais -->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/services_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=2&amp;hash=${hash21}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=16&amp;hash=${hash22}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--one time fee-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=3&amp;hash=${hash23}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=17&amp;hash=${hash24}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--Flat rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=4&amp;hash=${hash25}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=18&amp;hash=${hash26}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--ooooo dabar reselleris-->
+<!--flat rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=9&amp;hash=${hash27}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=15&amp;hash=${hash28}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--one time rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=8&amp;hash=${hash29}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=23&amp;hash=${hash30}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--periodic rate -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=7&amp;hash=${hash31}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cannot delete - some subscriptions to this service exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=22&amp;hash=${hash32}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<!--user_reselis bandys savo reselerio paimti-->
+<!--flat rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_reseller&amp;service_id=7&amp;hash=${hash33}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_reseller&amp;service_id=22&amp;hash=${hash34}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--adminas turi galėti trinti reselerio userių cli-->
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Antras</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Trecias_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Trecias</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Penktas_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Penktas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=1355272&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=19&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=accountant&amp;service_id=20&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=24&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=21&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_reseller&amp;service_id=21&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=admin&amp;service_id=21&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Service was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=user_reseller&amp;service_id=24&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/service_delete?u=reseller&amp;service_id=24&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Service was not found</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<% if params[:id] && !params[:id].blank? %>
+  <% if @devices.size > 0 %>
+    <%= select_tag('users_device', options_for_select(@devices.map { |dev| [dev.device_type.to_s + "/" + dev.name.to_s, dev.id] }.sort, @device_selected)) %>
+  <% else %>
+    <%= select_tag('users_device', options_for_select([[_('No_Devices'), '']])) %>
+  <% end %>
+<% else %>
+    <%= select_tag('users_device', options_for_select([[_('All_Devices'), 'all']])) %>
+<% end %>

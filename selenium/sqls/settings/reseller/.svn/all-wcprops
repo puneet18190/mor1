@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller
+END
+set_date_format_7_reseller.sql
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/set_date_format_7_reseller.sql
+END
+invoice_number_type_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoice_number_type_1.sql
+END
+show_user_billsec_for_user_instead.sql
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/show_user_billsec_for_user_instead.sql
+END
+resellers_server_to_server4302.sql
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/resellers_server_to_server4302.sql
+END
+invoices_number_type_1_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_type_1_1.sql
+END
+invoices_number_length_11.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_length_11.sql
+END
+show_advanced_rates_for_user_insert.sql
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/show_advanced_rates_for_user_insert.sql
+END
+show_balance_line_1_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/show_balance_line_1_1.sql
+END
+show_balance_line.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/show_balance_line.sql
+END
+invoice_number_start_inv.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoice_number_start_inv.sql
+END
+invoice_number_start_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoice_number_start_0.sql
+END
+invoice_number_type_1_id_11.sql
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoice_number_type_1_id_11.sql
+END
+main_invoices_settings.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/main_invoices_settings.sql
+END
+main_settings.sql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/main_settings.sql
+END
+show_rates_for_users.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/show_rates_for_users.sql
+END
+invoices_number_type_2.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_type_2.sql
+END
+invoices_number_length_3.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_length_3.sql
+END
+invoices_number_type_2_update.sql
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_type_2_update.sql
+END
+invoices_number_length_5.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_length_5.sql
+END
+invoices_show_calls_in_detailed.sql
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_show_calls_in_detailed.sql
+END
+invoices_number_format_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_format_1.sql
+END
+invoices_number_length_9.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_length_9.sql
+END
+invoices_number_format_2.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/reseller/invoices_number_format_2.sql
+END

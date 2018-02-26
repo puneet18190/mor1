@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers
+END
+application_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/application_controller_spec.rb
+END
+lcrs_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/lcrs_controller_spec.rb
+END
+services_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/services_controller_spec.rb
+END
+api_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/api_controller_spec.rb
+END
+emails_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/emails_controller_spec.rb
+END
+ast_queues_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/ast_queues_controller_spec.rb
+END
+stats_controller_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/spec/controllers/stats_controller_spec.rb
+END

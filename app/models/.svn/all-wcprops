@@ -1,0 +1,983 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/!svn/ver/66170/mor/gui/branches/x8/app/models
+END
+payment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/payment.rb
+END
+mailman.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/mailman.rb
+END
+common_use_provider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/64144/mor/gui/branches/x8/app/models/common_use_provider.rb
+END
+campaign.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/65907/mor/gui/branches/x8/app/models/campaign.rb
+END
+simple_user_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/64173/mor/gui/branches/x8/app/models/simple_user_right.rb
+END
+customrate.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/customrate.rb
+END
+providercodec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/providercodec.rb
+END
+tax.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/62681/mor/gui/branches/x8/app/models/tax.rb
+END
+ivr_action.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/65866/mor/gui/branches/x8/app/models/ivr_action.rb
+END
+devicecodec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/devicecodec.rb
+END
+acc_permission.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/acc_permission.rb
+END
+credit_note.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/credit_note.rb
+END
+device.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/66161/mor/gui/branches/x8/app/models/device.rb
+END
+simple_user_group_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/62681/mor/gui/branches/x8/app/models/simple_user_group_right.rb
+END
+gateway.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/gateway.rb
+END
+audio.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/62681/mor/gui/branches/x8/app/models/audio.rb
+END
+sms_message.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/65531/mor/gui/branches/x8/app/models/sms_message.rb
+END
+queue_periodic_announcement.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/app/models/queue_periodic_announcement.rb
+END
+sms_lcrprovider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/models/sms_lcrprovider.rb
+END
+client.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/62681/mor/gui/branches/x8/app/models/client.rb
+END
+number_pool.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/number_pool.rb
+END
+active_calls_data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/models/active_calls_data.rb
+END
+alert_schedule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/alert_schedule.rb
+END
+ivr_voice.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ivr_voice.rb
+END
+provider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/64235/mor/gui/branches/x8/app/models/provider.rb
+END
+src_new_score.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/src_new_score.rb
+END
+lcrprovider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/lcrprovider.rb
+END
+user_translation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/app/models/user_translation.rb
+END
+cc_ghostminutepercent.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cc_ghostminutepercent.rb
+END
+lcr_partial.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/lcr_partial.rb
+END
+sms_tariff.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/64023/mor/gui/branches/x8/app/models/sms_tariff.rb
+END
+cron_action.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62948/mor/gui/branches/x8/app/models/cron_action.rb
+END
+role.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/64231/mor/gui/branches/x8/app/models/role.rb
+END
+sms_campaign.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/64390/mor/gui/branches/x8/app/models/sms_campaign.rb
+END
+simple_user_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/models/simple_user_group.rb
+END
+callshop.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/64233/mor/gui/branches/x8/app/models/callshop.rb
+END
+server.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/65458/mor/gui/branches/x8/app/models/server.rb
+END
+location.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/location.rb
+END
+stat.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/64446/mor/gui/branches/x8/app/models/stat.rb
+END
+call_log.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/64652/mor/gui/branches/x8/app/models/call_log.rb
+END
+right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/64231/mor/gui/branches/x8/app/models/right.rb
+END
+action.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/65627/mor/gui/branches/x8/app/models/action.rb
+END
+acustratedetail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/65627/mor/gui/branches/x8/app/models/acustratedetail.rb
+END
+acc_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62681/mor/gui/branches/x8/app/models/acc_right.rb
+END
+phonebook.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62681/mor/gui/branches/x8/app/models/phonebook.rb
+END
+mor_api.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/65356/mor/gui/branches/x8/app/models/mor_api.rb
+END
+blank.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/62681/mor/gui/branches/x8/app/models/blank.rb
+END
+devicerule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/64031/mor/gui/branches/x8/app/models/devicerule.rb
+END
+ast_queue.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/63223/mor/gui/branches/x8/app/models/ast_queue.rb
+END
+invoice.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/65872/mor/gui/branches/x8/app/models/invoice.rb
+END
+service.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/64392/mor/gui/branches/x8/app/models/service.rb
+END
+devicetype.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/devicetype.rb
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/application.rb
+END
+activecall.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/63088/mor/gui/branches/x8/app/models/activecall.rb
+END
+alert.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/65916/mor/gui/branches/x8/app/models/alert.rb
+END
+partner_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/65767/mor/gui/branches/x8/app/models/partner_right.rb
+END
+extline.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/extline.rb
+END
+ivr_block.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/65866/mor/gui/branches/x8/app/models/ivr_block.rb
+END
+src_scoring.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/src_scoring.rb
+END
+voucher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/voucher.rb
+END
+daily_currency.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/daily_currency.rb
+END
+sms_provider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/64056/mor/gui/branches/x8/app/models/sms_provider.rb
+END
+day.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/64019/mor/gui/branches/x8/app/models/day.rb
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/66032/mor/gui/branches/x8/app/models/user.rb
+END
+callerid.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/63564/mor/gui/branches/x8/app/models/callerid.rb
+END
+ccorder.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ccorder.rb
+END
+quickforwarddid.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/models/quickforwarddid.rb
+END
+alert_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/alert_group.rb
+END
+partner_group_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/app/models/partner_group_right.rb
+END
+timezone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/timezone.rb
+END
+usergroup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62681/mor/gui/branches/x8/app/models/usergroup.rb
+END
+rate.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/65627/mor/gui/branches/x8/app/models/rate.rb
+END
+group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/64350/mor/gui/branches/x8/app/models/group.rb
+END
+confline.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/65522/mor/gui/branches/x8/app/models/confline.rb
+END
+adnumber.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/adnumber.rb
+END
+translation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/translation.rb
+END
+dst_new_score.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/dst_new_score.rb
+END
+hangupcausecode.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/models/hangupcausecode.rb
+END
+did.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/64100/mor/gui/branches/x8/app/models/did.rb
+END
+ivr.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ivr.rb
+END
+background_task.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/63593/mor/gui/branches/x8/app/models/background_task.rb
+END
+acc_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62681/mor/gui/branches/x8/app/models/acc_group.rb
+END
+pdffax.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/65380/mor/gui/branches/x8/app/models/pdffax.rb
+END
+tariff.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/66010/mor/gui/branches/x8/app/models/tariff.rb
+END
+ip_new_score.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ip_new_score.rb
+END
+invoicedetail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/invoicedetail.rb
+END
+voicemail_box.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/63947/mor/gui/branches/x8/app/models/voicemail_box.rb
+END
+direction.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62681/mor/gui/branches/x8/app/models/direction.rb
+END
+ivr_timeperiod.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ivr_timeperiod.rb
+END
+address.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/64310/mor/gui/branches/x8/app/models/address.rb
+END
+aggregate.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/62971/mor/gui/branches/x8/app/models/aggregate.rb
+END
+gateway_engine.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/gateway_engine.rb
+END
+email.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/66093/mor/gui/branches/x8/app/models/email.rb
+END
+partner_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/partner_group.rb
+END
+flatrate_data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/flatrate_data.rb
+END
+device_free_extension.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/66155/mor/gui/branches/x8/app/models/device_free_extension.rb
+END
+role_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/64231/mor/gui/branches/x8/app/models/role_right.rb
+END
+ivr_action_log.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ivr_action_log.rb
+END
+acc_group_right.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/models/acc_group_right.rb
+END
+pbxfunction.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/pbxfunction.rb
+END
+server_loadstat.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/models/server_loadstat.rb
+END
+iplocation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/65528/mor/gui/branches/x8/app/models/iplocation.rb
+END
+callflow.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/callflow.rb
+END
+alert_dependency.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/app/models/alert_dependency.rb
+END
+shortnumber.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/shortnumber.rb
+END
+cdr.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cdr.rb
+END
+quickforwards_rule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/models/quickforwards_rule.rb
+END
+cclineitem.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cclineitem.rb
+END
+didrate.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/didrate.rb
+END
+sms_rate.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/64023/mor/gui/branches/x8/app/models/sms_rate.rb
+END
+ringgroups_device.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ringgroups_device.rb
+END
+sms_adnumber.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/models/sms_adnumber.rb
+END
+serverprovider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/serverprovider.rb
+END
+alert_contact.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/alert_contact.rb
+END
+moh.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/62681/mor/gui/branches/x8/app/models/moh.rb
+END
+cardgroup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/64256/mor/gui/branches/x8/app/models/cardgroup.rb
+END
+currency.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/currency.rb
+END
+blocked_ip.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/blocked_ip.rb
+END
+ivr_extension.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ivr_extension.rb
+END
+sms_lcr.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/63941/mor/gui/branches/x8/app/models/sms_lcr.rb
+END
+backup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/62681/mor/gui/branches/x8/app/models/backup.rb
+END
+card.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/62681/mor/gui/branches/x8/app/models/card.rb
+END
+old_call.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/old_call.rb
+END
+call.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/66057/mor/gui/branches/x8/app/models/call.rb
+END
+devicegroup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/devicegroup.rb
+END
+codec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/62681/mor/gui/branches/x8/app/models/codec.rb
+END
+notifier.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/notifier.rb
+END
+lcr.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/64736/mor/gui/branches/x8/app/models/lcr.rb
+END
+adaction.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/adaction.rb
+END
+subscription.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/64386/mor/gui/branches/x8/app/models/subscription.rb
+END
+terminator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/terminator.rb
+END
+cart.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cart.rb
+END
+tax_table_factory.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/models/tax_table_factory.rb
+END
+destinationgroup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/app/models/destinationgroup.rb
+END
+time_period.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/time_period.rb
+END
+lcr_timeperiod.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62698/mor/gui/branches/x8/app/models/lcr_timeperiod.rb
+END
+cc_invoice.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cc_invoice.rb
+END
+flatrate_destination.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/62681/mor/gui/branches/x8/app/models/flatrate_destination.rb
+END
+recording.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/63881/mor/gui/branches/x8/app/models/recording.rb
+END
+ringgroup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/64239/mor/gui/branches/x8/app/models/ringgroup.rb
+END
+ratedetail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/65627/mor/gui/branches/x8/app/models/ratedetail.rb
+END
+dst_scoring.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/dst_scoring.rb
+END
+aratedetail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/65627/mor/gui/branches/x8/app/models/aratedetail.rb
+END
+pdffaxemail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/pdffaxemail.rb
+END
+cs_invoice.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cs_invoice.rb
+END
+destination.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/destination.rb
+END
+providerrule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/64031/mor/gui/branches/x8/app/models/providerrule.rb
+END
+pbx_pool.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/pbx_pool.rb
+END
+dialplan.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/app/models/dialplan.rb
+END
+alert_schedule_period.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/app/models/alert_schedule_period.rb
+END
+server_device.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/models/server_device.rb
+END
+number.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/66170/mor/gui/branches/x8/app/models/number.rb
+END
+providertype.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/models/providertype.rb
+END
+call_detail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/66107/mor/gui/branches/x8/app/models/call_detail.rb
+END
+mor_log.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/62681/mor/gui/branches/x8/app/models/mor_log.rb
+END
+alert_contact_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/app/models/alert_contact_group.rb
+END
+cron_setting.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/models/cron_setting.rb
+END
+locationrule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/64031/mor/gui/branches/x8/app/models/locationrule.rb
+END
+queue_agent.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/queue_agent.rb
+END
+cdr_export_template.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/66057/mor/gui/branches/x8/app/models/cdr_export_template.rb
+END
+sms_adaction.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/models/sms_adaction.rb
+END
+ivr_sound_file.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/models/ivr_sound_file.rb
+END
+permissions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/models/permissions.rb
+END

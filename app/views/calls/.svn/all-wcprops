@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/66052/mor/gui/branches/x8/app/views/calls
+END
+aggregate.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/62681/mor/gui/branches/x8/app/views/calls/aggregate.html.erb
+END
+call_info.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/66052/mor/gui/branches/x8/app/views/calls/call_info.html.erb
+END
+_aggregate_call_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/views/calls/_aggregate_call_list.html.erb
+END
+_search_header.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/app/views/calls/_search_header.html.erb
+END
+summary.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/views/calls/summary.html.erb
+END
+_summary_call_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/app/views/calls/_summary_call_list.html.erb
+END
+active_call_soft_hangup.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/app/views/calls/active_call_soft_hangup.html.erb
+END

@@ -1,0 +1,30 @@
+<th id="total" align="left" colspan="2"><%= _("Total") %>:</th>
+<th></th>
+<th id="total_billsec" align="center"><%= nice_time(total_calls_stats[:total_duration]) %></th>
+<th></th>
+
+<% if current_user.reseller_allow_providers_tariff? %>
+    <th></th>
+    <% if can_see_finances? -%>
+        <th></th>
+        <th id="total_provider_price" align="left"><%= nice_number(total_calls_stats[:total_provider_price]) %></th>
+    <% end -%>
+<% end %>
+<th></th>
+<% if reseller_not_pro? %>
+    <th id="total_reseller_price" align="left"><%= nice_number(total_calls_stats[:total_reseller_price]) %></th>
+    <th></th>
+<% end %>
+<% if options[:show_device_and_cid].to_i == 1 %>
+    <th></th>
+<% end %>
+<th></th>
+<th id="total_user_price" align="left"><%= nice_number(total_calls_stats[:total_user_price]) %></th>
+<% unless current_user.try(:owner).is_partner? %>
+    <th></th>
+    <th id="total_did_inc_price" align="left"><%= nice_number(total_calls_stats[:total_did_inc_price]) %></th>
+    <th id="total_did_price" align="left"><%= nice_number(total_calls_stats[:total_did_price]) %></th>
+<% end %>
+<th id="total_profit" align="left">
+  <%= nice_number(total_calls_stats[:total_profit]) %>
+</th>

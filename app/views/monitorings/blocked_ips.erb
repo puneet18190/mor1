@@ -1,0 +1,39 @@
+<table class="maintable" width="50%">
+  <tr>
+    <th align="left"><%= _('Country') %></th>
+    <th align="left"><%= _('Blocked_IP') %></th>
+    <th align="left"><%= _('Server') %></th>
+    <th align="left"><%= _('Reason') %></th>
+    <th align="center"><%= _('Action') %></th>
+  </tr>
+  <%= form_for @block_ip, url: {action: :blocked_ip_block}, html: {id: 'block_ip_form'} do |ip| %>
+      <tr style="background-color: #E7E9EA">
+        <td align="left"></td>
+        <td align="left"><%= ip.text_field :blocked_ip, class: 'input', size: 20, maxlength: 255 %></td>
+        <td align="left"><%= ip.select(:server_id, options_for_select(@servers.map { |server| [server.server_name, server.id]}, @block_ip.server_id)) %></td>
+        <td align="left"><%= ip.text_field :chain, class: 'input', size: 50, maxlength: 255 %></td>
+        <td align="center" style="white-space: nowrap"><%= link_to image_tag('icons/world_delete.png', title: _('Block')) + ' ' + _('Block'), '#', onclick: "$j('#block_ip_form').submit()" %></td>
+      </tr>
+  <% end %>
+  <% @blocked_ips.each_with_index do |blocked_ip, index| %>
+      <% ip_id = blocked_ip[:id] %>
+      <tr class="row<%= (index % 2 + 1).to_s %>">
+        <td id="country_<%= ip_id %>" style="white-space: nowrap">
+          <% country = blocked_ip.try(:country).to_s.gsub(/Republic Of /, '') %>
+          <%= draw_flag(blocked_ip.direction_code(country)) %> <%= country %>
+        </td>
+        <td id="blocked_ip_<%= ip_id %>" style="white-space: nowrap">
+          <%= link_to blocked_ip[:blocked_ip], "http://whatismyipaddress.com/ip/#{blocked_ip[:blocked_ip]}", target: '_blank' if blocked_ip[:blocked_ip].present? %>
+        </td>
+        <td id="server_<%= ip_id %>" style="white-space: nowrap">
+          <%= link_to(blocked_ip[:server], {controller: :servers, action: :edit, id: blocked_ip[:server_id]}, {id: "server_link_#{ip_id}"}) if blocked_ip[:server].present? %>
+        </td>
+        <td id="reason_<%= ip_id %>">
+          <%= blocked_ip[:reason] %>
+        </td>
+        <td id="unblock_<%= ip_id %>" align="center" style="white-space: nowrap">
+          <%= link_to image_tag('icons/world.png', title: _('Unblock')) + ' ' + _('Unblock'), {action: :blocked_ip_unblock, id: ip_id}, {data: {confirm: _('are_you_sure')}, method: :post, id: "delete_link_#{ip_id}"} %>
+        </td>
+      </tr>
+  <% end %>
+</table>

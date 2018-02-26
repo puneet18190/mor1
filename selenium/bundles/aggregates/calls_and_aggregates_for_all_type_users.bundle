@@ -1,0 +1,17 @@
+# insert aggregates data, calls and users with devices, tariffs
+# ----
+/calls/delete_from_calls.sql
+# Old calls successfuly deleted
+/aggregates/all_type_users.sql
+# Users successfully imported
+/aggregates/devices_for_all_type_users.sql
+# Devices successfully imported
+/aggregates/provider_in_terminator_for_all_type_users.sql
+# Terminator and provider successfully imported
+/aggregates/tariffs_and_rates_for_all_type_users.sql
+# Tariffs and Rates successfully imported
+/aggregates/calls_for_all_type_users.sql
+# Calls successfully imported
+/aggregates/aggregates_for_all_type_users.sql
+# Aggregates succesfully imported
+# bundle loaded

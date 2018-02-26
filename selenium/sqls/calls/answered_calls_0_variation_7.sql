@@ -1,0 +1,2 @@
+INSERT INTO `aggregates` (`id`,`uniqueid`, `direction`, `destination`, `prefix`, `terminator_id`, `user_id`, `reseller_id`, `time_period_id`, `user_billed`, `user_billed_with_tax`, `terminator_billed`, `user_billed_billsec`, `terminator_billed_billsec`, `billsec`, `real_billsec`, `answered_calls`, `total_calls`, `total_calls_for_user`, `variation`) VALUES
+(200,0, 'Cameroon', 'Cameroon mobile-Orange', '2379', 3, 2, 3, 1, 0.000000000000000, 0.000000000000000, 0.000000000000000, 0, 0, 0, 0.000000000000000, 0, 15, 15, 7);

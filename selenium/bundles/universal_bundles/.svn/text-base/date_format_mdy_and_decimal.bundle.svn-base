@@ -1,0 +1,6 @@
+# ----
+# m-d-Y H:M:S date format
+/settings/visual/set_date_format_8.sql
+# ; global number decimal
+/settings/visual/set_semicolon_as_decimal.sql
+# bundle loaded

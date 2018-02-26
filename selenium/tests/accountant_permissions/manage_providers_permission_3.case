@@ -1,0 +1,1871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>provider_stats</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">provider_stats</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/providers/stats_providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/various_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/update_various_calls_prefixes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/2?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_manage_provider</td>
+	<td>Manage Providers</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_provider_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/stats/providers?date_from[year]=2005&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=hide_providers_without_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Failed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Failed Locally</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[2]/div</td>
+	<td>IAX2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]/div</td>
+	<td>93</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[4]</td>
+	<td>exact:01:32:02</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[5]/div</td>
+	<td>68</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[6]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[7]/div</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[8]/div</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[9]</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[10]/div</td>
+	<td>73.12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[11]/div</td>
+	<td>exact:00:01:21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[12]/div</td>
+	<td>82.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[13]/div</td>
+	<td>93.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[14]/div</td>
+	<td>11.0000</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a &gt; img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers_stats/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTable</td>
+	<td>css=table.maintable.0.0</td>
+	<td>ANSWERED</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.1</td>
+	<td>66</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.2</td>
+	<td>70.97 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>NO ANSWER</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.2</td>
+	<td>0.00 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>BUSY</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.2</td>
+	<td>2.15 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.0</td>
+	<td>FAILED</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.1</td>
+	<td>25</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.2</td>
+	<td>26.88 %</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2011&amp;date_from[month]=11&amp;date_from[day]=1&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[2]/div</td>
+	<td>IAX2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]/div</td>
+	<td>44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[4]/div</td>
+	<td>exact:01:32:02</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[5]/div</td>
+	<td>40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[8]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2007</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>370%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]/div</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[5]/div</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[10]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[11]/div</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[12]/div</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[13]/div</td>
+	<td>42.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[14]/div</td>
+	<td>22.0000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>123%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[4]/div</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]/div</td>
+	<td>34</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=13</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[8]/div</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[9]/div</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[10]/div</td>
+	<td>38.24</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[12]/div</td>
+	<td>61.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[13]/div</td>
+	<td>48.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[14]/div</td>
+	<td>-13.0000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>3705</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>No Providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2011&amp;date_from[month]=11&amp;date_from[day]=15&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=hide_providers_without_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]/div</td>
+	<td>44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[4]/div</td>
+	<td>exact:01:32:02</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[5]/div</td>
+	<td>40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[8]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers_stats/1?search=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=search</td>
+	<td>123%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=search</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/1_item_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2008&amp;date_till[year]=2013&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='pagerproviders']/div/div[3]</td>
+	<td>1-1 of 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>common_use_provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[3]/div/b</td>
+	<td>68</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[4]/div/b</td>
+	<td>exact:00:46:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[5]/div</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[7]/div</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[9]/div</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[10]/div/b</td>
+	<td>66.18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[11]/div/b</td>
+	<td>exact:00:01:01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[12]</td>
+	<td>79.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[13]/div/b</td>
+	<td>82.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowproviders']/div[14]</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[2]</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]</td>
+	<td>68</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[12]/div</td>
+	<td>79.0000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/last_calls_stats?s_provider=1&amp;s_call_type=failed')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2008</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>name=s_call_type</td>
+	<td>Failed</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2008&amp;date_from[month]=12&amp;date_till[year]=2013&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[2]</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/stats/last_calls_stats?s_provider=1&amp;s_call_type=answered')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Last Calls</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_1</td>
+	<td>1 2 3 4 5 6 7 8 9 10 11 &gt; &gt;&gt;</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_from_year</td>
+	<td>2008</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=date_till_year</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[2]</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a &gt; img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Providers' Statistics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=th</td>
+	<td>ANSWERED</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.1</td>
+	<td>40</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.2</td>
+	<td>61.54 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>NO ANSWER</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.2</td>
+	<td>0.00 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>BUSY</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.2</td>
+	<td>3.08 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.0</td>
+	<td>FAILED</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.1</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.2</td>
+	<td>35.38 %</td>
+</tr>
+<!--pakeičiamas id į tokį, kurio stats neegzistuoja-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers_stats/77?search=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/50_items_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=provider_hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=provider_server_ip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_add_value_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=provider_hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=provider_server_ip</td>
+	<td>192.168.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_add_value_ip</td>
+	<td>192.168.0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=provider_hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2011&amp;date_from[month]=11&amp;date_from[day]=1&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Show Hidden Providers:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Hide Providers without Calls:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_hidden_providers_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=show_hidden_providers_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=hide_providers_without_calls_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=hide_providers_without_calls_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Common use provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1providers']/div/div</td>
+	<td>Common use provider 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3providers']/div/div</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test provider 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show_hidden_providers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Common use provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1providers']/div/div</td>
+	<td>Common use provider 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div/div</td>
+	<td>common_use_provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row4providers']/div/div</td>
+	<td>Test provider 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row5providers']/div/div</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=hide_providers_without_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Common use provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test provider 3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Common use provider 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>common_use_provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show_hidden_providers_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Common use provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test provider 3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test provider 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Common use provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Common use provider 2</td>
+	<td></td>
+</tr>
+<!--Sortinimas, orderinimas...-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2009&amp;date_from[month]=12&amp;date_till[year]=2015&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0providers']/div/div</td>
+	<td>Common use provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0providers']/div[3]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1providers']/div/div</td>
+	<td>Common use provider 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1providers']/div[3]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div/div</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div[3]/div</td>
+	<td>57</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div[5]/div</td>
+	<td>34</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div[7]</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div[8]/div</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div[9]/div</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2providers']/div[12]/div</td>
+	<td>68.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3providers']/div/div</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3providers']/div[3]/div</td>
+	<td>0</td>
+</tr>
+<!--Icon'eles-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2009&amp;date_from[month]=12&amp;date_till[year]=2015&amp;order_by=provider&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a &gt; img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Chart pie&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//img[@alt='Chart bar'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTable</td>
+	<td>css=table.maintable.0.0</td>
+	<td>ANSWERED</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.1</td>
+	<td>32</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.2</td>
+	<td>56.14 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>NO ANSWER</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.2</td>
+	<td>0.00 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>BUSY</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.2</td>
+	<td>3.51 %</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.0</td>
+	<td>FAILED</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.1</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.2</td>
+	<td>40.35 %</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers?date_from[year]=2009&amp;date_from[month]=12&amp;date_till[year]=2015&amp;order_by=provider&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//img[@alt='Chart bar'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=(//img[@alt='Chart pie'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//img[@alt='Chart pie'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.5.2</td>
+	<td>34</td>
+</tr>
+<!--Provider quick changes puslapis-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/quick_changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>You are not authorized to view this page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/providers/quick_changes')]</td>
+	<td>Quick Changes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Quick Changes</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_server_ip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=s_tech</td>
+	<td>All SIP IAX2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=clear_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row2 &gt; td</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=providers_3_tariff_id</td>
+	<td>Test Tariff Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=providers_1_tariff_id</td>
+	<td>Test Tariff Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_max_timeout</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_timeout</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_time_limit_per_day</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_max_timeout</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_timeout</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_time_limit_per_day</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=providers_1_tariff_id</td>
+	<td>label=Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=providers_1_call_limit</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=providers_1_max_timeout</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=providers_1_timeout</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=providers_1_time_limit_per_day</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Providers successfully updated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row2 &gt; td</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=providers_1_tariff_id</td>
+	<td>Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_max_timeout</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_call_limit</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_timeout</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_time_limit_per_day</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=providers_3_tariff_id</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_max_timeout</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_timeout</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_time_limit_per_day</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=time_limit_per_day_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=time_limit_per_day_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_time_limit_per_day</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=timeout_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_timeout</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=timeout_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_timeout</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=max_timeout_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=max_timeout_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_max_timeout</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=call_limit_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_3_call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=call_limit_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=providers_1_call_limit</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=tariff_id_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=providers_3_tariff_id</td>
+	<td>Test Tariff Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=tariff_id_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=providers_1_tariff_id</td>
+	<td>Test Tariff Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=name_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_name</td>
+	<td>Test%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_name</td>
+	<td>Test%</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row2 &gt; td</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=page_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>common_use_provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_server_ip</td>
+	<td>%0.0%</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row1 &gt; td</td>
+	<td>Test provider 3</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=page_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_server_ip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_tech</td>
+	<td>label=SIP</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Nepasiekia provider stats puslapiu be permissions-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/2?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_provider_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/providers_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+</tbody></table>
+</body>
+</html>

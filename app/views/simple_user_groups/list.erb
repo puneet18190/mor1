@@ -1,0 +1,42 @@
+<%= form_tag(action: :create) do %>
+    <table class='maintable' width="100%">
+      <tr>
+        <th align="left"><%= _('Name') %></th>
+        <th align="left"><%= _('Description') %></th>
+        <th align="center"><%= _('Permissions') %></th>
+        <th align="center"></th>
+      </tr>
+      <% @simple_user_groups.each_with_index do |group, i| %>
+          <tr class="row<%= (i % 2 + 1).to_s %>">
+            <td id="name_<%= group.id %>" align="left">
+              <%= h group.name %>
+            </td>
+            <td id="description_<%= group.id %>" align="left" <%= tooltip(_('Description'), h(group.comment.to_s)) %> >
+              <%= h group.comment.to_s[0..30] %>
+            </td>
+            <td id="edit_<%= group.id %>" align="center">
+              <%= link_to(b_edit, {action: :edit, id: group.id}, {id: "edit_link_#{group.id}"}) %>
+            </td>
+            <td id="delete_<%= group.id %>" align="center">
+              <%= link_to(b_delete, {action: :destroy, id: group.id}, {data: {confirm: _('are_you_sure')}, method: :post, id: "delete_link_#{group.id}"}) %>
+            </td>
+          </tr>
+      <% end %>
+      <tr>
+        <th align="left">
+          <%= text_field(:new_simple_user_group, :name, class: 'input', size: 30, maxlength: 255,
+                         value: params[:new_simple_user_group].try(:[], :name).to_s
+              )
+          %>
+        </th>
+        <th align="left">
+          <%= text_field(:new_simple_user_group, :comment, class: 'input', size: 50, maxlength: 255,
+                             value: params[:new_simple_user_group].try(:[], :comment).to_s
+              )
+          %>
+        </th>
+        <th align="center"></th>
+        <th align="center"><%= image_submit_tag 'icons/add.png', title: _('Create_Group') %></th>
+      </tr>
+    </table>
+<% end %>

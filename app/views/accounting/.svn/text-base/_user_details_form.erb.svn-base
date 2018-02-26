@@ -1,0 +1,47 @@
+<table width='100%' cellspacing='0' cellpadding='0'>
+  <tr>
+    <td colspan="2" class="bottom_border"><b><%= _('user_details') %></b></td>
+  </tr>
+  <tr>
+    <td height="10" colspan="2"></td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2">
+      <table class="simple" width="100%">
+        <tr>
+          <td width="90%"><%= _('Name') %>:</td>
+          <td id="name"><%= f.text_field :client_name, :class => 'input' %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('Address') %>:</td>
+          <td id="address"><%= f.text_field :client_details1, :class => 'input' %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('City') %>:</td>
+          <td id="city"><%= f.text_field :client_details2, :class => 'input' %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('Postcode') %>:</td>
+          <td id="postcode"><%= f.text_field :client_details3, :class => 'input' %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('State') %>:</td>
+          <td id="state"><%= f.text_field :client_details4, :class => 'input' %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('Country') %>:</td>
+          <td id="country"><%= f.collection_select :client_details5, countries, :id, :name, {},
+            { style: "width:136px" } %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('Tax_registration_number') %>:</td>
+          <td id="tax_registration"><%= f.text_field :client_details7, class: 'input' %></td>
+        </tr>
+        <tr>
+          <td width="90%"><%= _('Phone') %>:</td>
+          <td id="phone"><%= f.text_field :client_details6, :class => 'input' %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

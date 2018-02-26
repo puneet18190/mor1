@@ -1,0 +1,1376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{ storedVars['currentYear'] = new&nbsp;&nbsp;Date().getFullYear();}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--#### Problema: Adminas sukuria subscriptionus viename time zone, o accountant'as juos redaguoja kitame time zone, del to accountantas negalejo issaugoti jo-->
+<!--ikeliamas useris, kurio fiksuota registracijos data: 2013-07-28-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=services/flatrate_user_subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--problema buvo tame, kad negalima buvo sukurti subscription useriui pvz., liepai, jei useris užsiregistravo liepos viduryje-->
+<!--+ Dynamic Flat Rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_name</td>
+	<td>Dynamic Flat Rate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_dynamic_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_price</td>
+	<td>15.99</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_selfcost_price</td>
+	<td>5.62</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_quantity</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_13002</td>
+	<td>Dynamic Flat Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_13001</td>
+	<td>Flatrate service</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=servicetype_13002</td>
+	<td>Dynamic Flat-Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=servicetype_13001</td>
+	<td>Flat-Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_13002</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_13001</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=self_price_13002</td>
+	<td>5.6200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=self_price_13001</td>
+	<td>5.6200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=quantity_13002</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=quantity_13001</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=subscription_service_id</td>
+	<td>label=Flatrate service, Price: 15.9900</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=subscription_memo</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_year</td>
+	<td>label=${currentYear}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_year</td>
+	<td>label=${currentYear}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=subscription_memo</td>
+	<td>MEMO</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_year</td>
+	<td>label=2025</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_name_3</td>
+	<td>Dynamic Flat Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_price_3</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_3</td>
+	<td>MEMO</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_start_3</td>
+	<td>2016-01-01 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_3</td>
+	<td>2025-11-30 23:59:59</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=no_expire</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=subscription_memo</td>
+	<td>MEMO Until Canceled</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_year</td>
+	<td>label=2025</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_start_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=no_expire</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_name_4</td>
+	<td>Dynamic Flat Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_price_4</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_4</td>
+	<td>MEMO Until Canceled</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_start_4</td>
+	<td>2016-01-01 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_4</td>
+	<td>Until canceled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=no_expire</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/1004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_name_2</td>
+	<td>Flatrate service</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_price_2</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_start_2</td>
+	<td>${currentYear}-07-01 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_2</td>
+	<td>${currentYear}-07-31 23:59:59</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT-11:00) International Date Line West</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#confirm_without_message &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_postpaid_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/manual_payment?user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=amount</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Payment added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=subscription_service_id</td>
+	<td>label=Flatrate service, Price: 15.9900</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=subscription_memo</td>
+	<td>Test payment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=no_expire</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=service_price_6</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_6</td>
+	<td>Test payment</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_6</td>
+	<td>Until canceled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_10</td>
+	<td>Manual</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_11</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_12</td>
+	<td>Subscription</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_10</td>
+	<td>50.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_11</td>
+	<td>-15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_12</td>
+	<td>-15.9900</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#destroy_link_5 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete_return_money_month</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#destroy_link_6 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete_return_money_whole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_14</td>
+	<td>15.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_14</td>
+	<td>15.9900</td>
+</tr>
+<!--Test with errors.-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>service_servicetype_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_selfcost_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_price</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_quantity</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service must have name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Quantity must be greater than zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Round by must be positive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_quantity</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_selfcost_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_price</td>
+	<td>-1.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_dynamic_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_selfcost_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_price</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_quantity</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service must have name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Quantity must be greater than zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Round by must be positive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_quantity</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_selfcost_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_price</td>
+	<td>-1.0000</td>
+</tr>
+<!--With good data-->
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_name</td>
+	<td>Test_flatrate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>service_servicetype_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_price</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>service_quantity</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>000654</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test_flatrate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_13003</td>
+	<td>Test_flatrate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_13003</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=quantity_13003</td>
+	<td>1000</td>
+</tr>
+<!--update with bad data-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/edit/13002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>-5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Round by must be positive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>0313131</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/edit/13002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>313131</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/edit/13003</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>654</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>-5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Round by must be positive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>0313131</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/edit/13003</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>313131</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_edit/2?back=subscriptions&amp;page=1&amp;s_date_from=-1&amp;s_date_till=-1&amp;s_device=-1&amp;s_memo=&amp;s_service=-1&amp;s_user=-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_postpaid_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/manual_payment?user_id=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=amount</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Payment added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_name</td>
+	<td>flatrate</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete_return_money_month</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_quantity</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_selfcost_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_price</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_dynamic_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_name</td>
+	<td>dynamic</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_new/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=activation_end_year</td>
+	<td>label=2025</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Subscription added</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete_return_money_month</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Subscription deleted and money returned</td>
+</tr>
+<!--bad data create-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_servicetype_flat_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_quantity</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service must have name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Quantity must be greater than zero</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Round by must be positive</td>
+	<td></td>
+</tr>
+<!--good data-->
+<tr>
+	<td>type</td>
+	<td>id=service_name</td>
+	<td>flat rate </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_quantity</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>0658</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully created</td>
+</tr>
+<!--bad data edit-->
+<tr>
+	<td>open</td>
+	<td>/billing/services/edit/13006</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>658</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=service_round_by</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>-5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Round by must be positive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service_round_by</td>
+	<td>03264564</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Service successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/edit/13006</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=service_round_by</td>
+	<td>3264564</td>
+</tr>
+</tbody></table>
+</body>
+</html>

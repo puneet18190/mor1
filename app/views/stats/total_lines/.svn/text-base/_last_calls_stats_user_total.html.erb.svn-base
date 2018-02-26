@@ -1,0 +1,14 @@
+<th id="total" align="left" colspan="2"><%= _("Total") %>:</th>
+<th></th>
+<th></th>
+<% if distributor? %>
+    <th></th>
+<% end %>
+<th id="total_billsec" align="center"><%= nice_time(total_calls_stats[:total_duration]) %></th>
+<th></th>
+<% if options[:show_device_and_cid].to_i == 1 %>
+    <th></th>
+<% end %>
+<% if current_user.show_billing_info == 1 and can_see_finances? %>
+    <th id="total_user_price" align="right"><%= nice_number(total_calls_stats[:total_user_price]) %></th>
+<% end %>

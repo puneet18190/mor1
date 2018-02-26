@@ -1,0 +1,59 @@
+<%= javascript_include_tag "jqwidgets/jqxdata.js" %>
+<%= javascript_include_tag "jqwidgets/jqxbuttons.js" %>
+<%= javascript_include_tag "jqwidgets/jqxscrollbar.js" %>
+<%= javascript_include_tag "jqwidgets/jqxmenu.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.sort.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.selection.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.columnsresize.js" %>
+<%= javascript_include_tag "jqwidgets/jqxlistbox.js" %>
+<%= javascript_include_tag "jqwidgets/jqxdropdownlist.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.pager.js" %>
+<%= javascript_include_tag "jqwidgets/jqxgrid.grouping.js" %>
+
+<script type="text/javascript">
+  jQuery(document).ready(function () {
+    // prepare the data
+    var data = new Array();
+    var extensions = [];
+    var used_by = [];
+    var edit_links = [];
+  	<% @objects.each_with_index { |object, i| %>
+      var row = {};
+      row["extensions"] = '<%= object.extension %>';
+      row["used_by"] = '<%= raw get_type_and_nice_name(object) %>';
+      row["edit_links"] = '<%= raw edit_links(object) %>';
+      data[<%= i %>] = row;
+  	<% } %>
+    var source =
+    {
+      localdata: data,
+      datatype: "array"
+    };
+    var dataAdapter = new jQuery.jqx.dataAdapter(source, {
+      loadComplete: function (data) { },
+      loadError: function (xhr, status, error) { }
+    });
+    jQuery("#jqxgrid").jqxGrid(
+    {
+      source: dataAdapter,
+      sortable: true,
+      pageable: true,
+        selectionmode: 'multiplecellsadvanced',
+        handlekeyboardnavigation: function (event) {
+            var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+            if (key == 86 && event.ctrlKey == true) {
+                return true;
+            }
+        },
+      columns: [
+        { text: 'Extension', datafield: 'extensions', width: '30%' },
+        { text: 'Used By', datafield: 'used_by', width: '50%' },
+        { text: '', datafield: 'edit_links', width: '20%', cellsalign: 'center', sortable: false, menu: false },
+      ]
+    });
+  });
+</script>
+<div id='jqxWidget' style="font-size: 13px; font-family: Verdana; float: left;">
+  <div id="jqxgrid"></div>
+</div>

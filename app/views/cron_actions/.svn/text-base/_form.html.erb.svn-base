@@ -1,0 +1,274 @@
+<table class="simple">
+  <tr>
+    <td colspan="2" class="bottom_border" style="color: #000000"><b><%= _('General') %></b></td>
+  </tr>
+  <tr>
+    <td height="10" colspan="2"></td>
+  </tr>
+  <tr>
+    <td><%= _('Name') %>:</td>
+    <td><%= f.text_field(:name, class: 'input') %></td>
+  </tr>
+  <tr>
+    <td><%= _('Action') %>:</td>
+    <td><%= f.select :action, options_for_select(CronSetting.cron_settings_actions(session[:usertype]), cron_setting.try(:action).to_s), {}, { onchange: 'hide_elements();toggle_reapeat_option();' } %></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="bottom_border" style="color: #000000"><b><%= _('Details') %></b></td>
+  </tr>
+  <tr>
+    <td height="10" colspan="2"></td>
+  </tr>
+  <tr id="user">
+    <td><%= _('User') %>:</td>
+    <td><%= f.select :target_id, options_for_select([[_('All'), -1]] + users.map { |u| [nice_user(u), u.id.to_s] }, cron_setting.target_id.to_s) %></td>
+  </tr>
+  <tr id="For_User">
+    <td><%= radio_button_tag 'cron_setting[change_tariff_details]', 'For_User', true %><%= _('For_User') %>:</td>
+    <td><%= f.select :target_id, options_for_select([[_('All'), -1]] + users.map { |u| [nice_user(u), u.id.to_s] }, cron_setting.target_id.to_s) %></td>
+  </tr>
+  <tr id="Where_current_Tariff_is">
+    <td><%= radio_button_tag 'cron_setting[change_tariff_details]', 'For_Tariff', cron_setting.change_tariff_details == 'For_Tariff' %><%= _('Where_current_Tariff_is') %>:</td>
+    <td>
+	    <%= f.select :target_id, options_for_select([[_('Any'), -1]] + (tariffs.map { |u| [u.name, u.id.to_s] if u.purpose != 'provider' }).compact, cron_setting.target_id.to_s) %>
+	  	<%= b_info %> <%= _('Affect_All_Users') %>
+  	</td>
+  </tr>
+  <tr id="lcr">
+    <td><%= _('LCR') %>:</td>
+    <td><%= f.select :lcr_id, options_for_select(lcrs.map { |u| [u.name, u.id.to_s] }.sort_by { |u_name, u_id| u_name.downcase }, cron_setting.lcr_id.to_s) %></td>
+  </tr>
+  <tr id="provider">
+    <td><%= _('Provider') %>:</td>
+    <td><%= f.select :provider_target_id, options_for_select([[_('All'), -1]] + providers.map { |u| [u.name, u.id.to_s] }.sort_by { |u_name, u_id| u_name.downcase }, cron_setting.provider_target_id.to_s) %></td>
+  </tr>
+  <tr id="user_tariff">
+    <td><%= _('Change_to_Tariff') %>:</td>
+    <td><%= f.select :to_target_id, options_for_select(tariffs.map { |u| [u.name, u.id.to_s] }, cron_setting.to_target_id.to_s) %></td>
+  </tr>
+  <tr id="provider_tariff">
+    <td><%= _('Provider Tariff') %>:</td>
+    <td><%= f.select :provider_to_target_id, options_for_select(provider_tariffs.map { |u| [u.name, u.id.to_s] }.sort_by { |u_name, u_id| u_name.downcase }, cron_setting.provider_to_target_id.to_s) %></td>
+  </tr>
+  <tr id="invoice_user">
+    <td><%= _('User') %>:</td>
+    <td><%= f.select :target_id, options_for_select([[_('All'), -1], [_('Postpaid'), -2], [_('Prepaid'), -3]] + users.map { |u| [nice_user(u), u.id.to_s] }, cron_setting.target_id.to_s) %></td>
+  </tr>
+  <tr id='invoice_currency'>
+    <td><%= _('currency') %>:</td>
+    <td><%= f.select(:inv_currency, options_for_select(options[:currencies], cron_setting.try(:inv_currency) || options[:default_currency]) ) %></td>
+  </tr>
+  <tr id="invoice_from">
+    <td><%= _('From') %>:</td>
+    <td><%= f.select :inv_from, options_for_select((1..31).map {|value| [value, value]}, cron_setting.inv_from.to_i)%></td>
+  </tr>
+  <tr id="invoice_till">
+    <td><%= _('Till') %>:</td>
+    <td><%= f.select :inv_till, options_for_select((1..31).map {|value| [value, value]}, cron_setting.inv_till.to_i) %></td>
+  </tr>
+  <tr id="invoice_send_after" <%= tooltip('', _('tooltip_enable_sending_emails')) if email_sending_disabled %>>
+    <td><%= _('send_after_invoice_generated') %>?</td>
+    <td><%= f.check_box :inv_send_after, disabled: email_sending_disabled %></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="bottom_border" style="color: #000000"><b><%= _('Repeat') %></b></td>
+  </tr>
+  <tr>
+    <td height="10" colspan="2"></td>
+  </tr>
+  <tr id="periodic_type_container">
+    <td><%= _('Periodic_type') %>:</td>
+    <td id='general_periodic_type'><%= f.select :periodic_type, options_for_select(CronSetting.cron_settings_periodic_types, cron_setting.periodic_type.to_i), {}, { onchange: 'toggle_reapeat_option();' } %></td>
+    <td id='invoice_periodic_type'><%= f.select :periodic_type, options_for_select(CronSetting.cron_settings_inv_periodic_types, cron_setting.periodic_type.to_i), {}, { onchange: 'toggle_reapeat_option();' } %></td>
+  </tr>
+  <tr id="repeat_forever_container">
+    <td> <%= _('Repeat_forever') %>?</td>
+    <td> <%= f.check_box :repeat_forever, {:onclick => 'hide_element();'} %></td>
+  </tr>
+  <% valid_from = current_user.user_time(cron_setting.valid_from)
+     valid_till = current_user.user_time(cron_setting.valid_till) %>
+  <tr>
+    <td> <%= _('From') %>:</td>
+    <td>
+      <%= select_year(valid_from, :prefix => "activation_start") %>
+      <%= select_month(valid_from, :prefix => "activation_start", :use_month_numbers => false) %>
+      <%= select_day(valid_from, :prefix => "activation_start") %>
+      <%= select_hour(valid_from, :prefix => "activation_start", :prompt => {:minute => false}) %>
+      <%= b_info %> <%= _('Value_in_your_time_zone') %>: <%= nice_user_time_string(current_user) %>
+    </td>
+  </tr>
+  <tr id="till">
+    <td> <%= _('Till') %>:</td>
+    <td> <%= select_year(valid_till, :end_year => Date.today.year+10, :prefix => "activation_end", :use_month_numbers => false) %>
+      <%= select_month(valid_till, :end_year => Date.today.year+10, :prefix => "activation_end", :use_month_numbers => false) %>
+      <%= select_day(valid_till, :end_year => Date.today.year+10, :prefix => "activation_end", :use_month_numbers => false) %>
+      <%= select_hour(valid_till, :end_year => Date.today.year+10, :prefix => "activation_end", :use_month_numbers => false) %>
+      <%= b_info %> <%= _('Value_in_your_time_zone') %>: <%= nice_user_time_string(current_user) %>
+    </td>
+  </tr>
+  <!---
+  <tr id="to_do">
+    <td><%= _('To_do_times') %></td>
+    <td><%= text_field('cron_setting', 'to_do_times', "class" => "input") %></td>
+  </tr>
+  -->
+  <tr>
+    <td colspan="2" class="bottom_border" style="color: #000000"><b><%= _('Description') %></b></td>
+  </tr>
+  <tr>
+    <td height="10" colspan="2"></td>
+  </tr>
+  <tr>
+    <td><%= _('Description') %>:</td>
+    <td><%= text_area 'cron_setting', 'description', class: 'input', cols: 32, rows: 4 %></td>
+  </tr>
+</table>
+
+<% content_for :scripts do %>
+    <script type="text/javascript" >
+
+        // If the period type is One Time, do not allow repeating it forever.
+        function toggle_reapeat_option() {
+          var display = '';
+          if ($j('#cron_setting_periodic_type').val() == '0') {
+            display = 'none';
+            $j('#cron_setting_repeat_forever').val('0').attr('checked', false);
+            hide_element(0);
+          }
+          $j('#repeat_forever_container').css('display', display);
+        }
+
+        function hide_element(value) {
+
+            if ($j('#cron_setting_repeat_forever').is(':checked') || value == 1) {
+                $j('#till').css('display', 'none');
+            }
+            else {
+                $j('#till').css('display', '');
+            }
+        }
+
+        $j(document).ready(function() {
+          hide_element(<%=cron_setting.repeat_forever%>);
+          toggle_reapeat_option();
+        });
+
+        var provider_fields = [$j('#provider'), $j('#provider_tariff')];
+        var lcr_fields = [$j('#user'), $j('#lcr')];
+        var tariff_fields = [$j('#For_User'), $j('#user_tariff'), $j('#Where_current_Tariff_is')];
+        var invoice_fields = [$j('#invoice_user'),  $j('#invoice_from'), $j('#invoice_currency'), $j('#invoice_till'), $j('#invoice_send_after')];
+        var invoice_form_fields = [$j('#invoice_user select'), $j('#cron_setting_inv_from'), $j('#cron_setting_inv_currency'), $j('#cron_setting_inv_till')];
+        var invoice_period_types = ['One time', 'Monthly'];
+        var invoice_periodic_type = $j('#invoice_periodic_type');
+        var periodic_type = $j('#general_periodic_type');
+        var user_dropdown = $j('#For_User select');
+        var tariff_dropdown = $j('#Where_current_Tariff_is select');
+        var for_user_button = $j('#cron_setting_change_tariff_details_For_User');
+        var for_tariff_button = $j('#cron_setting_change_tariff_details_For_Tariff');
+
+
+        function toggle_fields(fields, visible) {
+            var display = '';
+            var disabled = false;
+            if (visible == false) {
+                display = 'none'
+                disabled = true;
+            }
+            for(var i=0; i<fields.size(); i++) {
+                fields[i].css('display', display);
+            }
+
+            if (fields == tariff_fields) {
+              if (visible == false){
+                disable_target_id();
+              } else {
+                disable_dropdown();
+                if (for_user_button.is(":checked")) {
+                  tariff_dropdown.val('Any')
+                } else {
+                  user_dropdown.val('All')
+                }
+              }
+            }
+
+            if (fields == invoice_fields) {
+                for(var i=0; i<invoice_form_fields.size();i++) {
+                    invoice_form_fields[i].attr('disabled', disabled);
+                }
+
+                period_options = $j('#cron_setting_periodic_type option');
+                if (visible) {
+                  $j('#general_periodic_type').remove();
+                  if (invoice_periodic_type != null){
+                    invoice_periodic_type.appendTo('#periodic_type_container');
+                  }
+
+                } else {
+                  $j('#invoice_periodic_type').remove();
+                  if (periodic_type != null){
+                    periodic_type.appendTo('#periodic_type_container');
+                  }
+                }
+            }
+        }
+
+        function hide_elements(value) {
+            if ($j('#cron_setting_action').val() == 'change_provider_tariff') {
+                toggle_fields(tariff_fields, false);
+                toggle_fields(lcr_fields, false);
+                toggle_fields(invoice_fields, false);
+                toggle_fields(provider_fields, true);
+            }
+            else {
+                if ($j('#cron_setting_action').val() == 'change_LCR') {
+                    toggle_fields(tariff_fields, false);
+                    toggle_fields(invoice_fields, false);
+                    toggle_fields(provider_fields, false);
+                    toggle_fields(lcr_fields, true);
+                }
+                else {
+                    if ($j('#cron_setting_action').val() == 'change_tariff') {
+                        toggle_fields(invoice_fields, false);
+                        toggle_fields(provider_fields, false);
+                        toggle_fields(lcr_fields, false);
+                        toggle_fields(tariff_fields, true);
+                    } else {
+                        toggle_fields(provider_fields, false);
+                        toggle_fields(lcr_fields, false);
+                        toggle_fields(tariff_fields, false);
+                        toggle_fields(invoice_fields, true);
+                    }
+                }
+            }
+        }
+
+        function disable_target_id() {
+          user_dropdown.attr("disabled", true);
+          tariff_dropdown.attr("disabled", true);
+        }
+
+        function disable_dropdown() {
+          console.log(':)')
+          if (for_user_button.is(":checked")) {
+            user_dropdown.attr("disabled", false);
+            tariff_dropdown.attr("disabled", true);
+          } else {
+            user_dropdown.attr("disabled", true);
+            tariff_dropdown.attr("disabled", false);
+          }
+        }
+
+        function radiobutton_connection_to_dropdown() {
+          for_user_button.click(function(){
+            disable_dropdown();
+          });
+
+          for_tariff_button.click(function(){
+            disable_dropdown();
+          });
+        }
+
+        radiobutton_connection_to_dropdown();
+        hide_elements();
+    </script>
+<%end%>

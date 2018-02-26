@@ -1,0 +1,31 @@
+<%= form_tag :action => :make_select do %>
+  <p><label for="tables"><%= _('Table') %></label><br/>
+    <%= select_tag("table", options_for_select(@tables.map { |t| [t, t] }, @table)) %>
+  </p>
+  <p><label for="id"><%= _('ID') %></label><br/>
+    <%= text_field_tag 'id' %>
+  </p>
+  <p><%= submit_tag 'select', data: { disable_with: _('Processing..') }, :id => 'search_devices_all' %></p>
+<% end %>
+
+<% if @select.present? %>
+  <% if @table != 'sessions' %>
+    <table width="50%" class="maintable">
+      <tr>
+        <th align="left"><%= _('Field') %></th>
+        <th align="left"><%= _('Value') %></th>
+      </tr>
+      <% @object.each_with_index { |column, i| %>
+      <% field, value = (@table != 'queues') ? [column, @select.read_attribute(column)] : [column[0], column[1]] %>
+        <tr class="row<%= (i % 2 + 1).to_s %>">
+          <td align="left"><%= field %></td>
+          <td align="left" id="<%= column %>_value"><%= value %></td>
+        </tr>
+      <% } %>
+    </table>
+  <% else %>
+    <%= @select.to_yaml %>
+  <% end %>
+<% else %>
+  <p>Not found</p>
+<% end %>

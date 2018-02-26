@@ -1,0 +1,27 @@
+<%= render 'letter_select_header', st: @st %>
+<% if @total_pages > 1 %>
+    <br>
+    <%= page_select_header(@page, @total_pages) %>
+<% end %>
+<br>
+<table width="100%" class="maintable">
+  <tr>
+    <th align="left"><%= _('Direction') %></th>
+    <th align="left"><%= _('Prefix') %></th>
+    <th align="left"><%= _('Name') %></th>
+    <th align="right"><%= _('Price') %> (<%= current_user.currency.name %>)</th> <%#@user_tariff.currency%>
+  </tr>
+
+  <% @rates.each_with_index { |rate, i| %>
+      <tr class="row<%= i % 2 + 1 %>">
+        <td id="direction_<%= rate['id'] %>"><%= draw_flag rate['direction_code'] %> <%= rate['direction_name'] %></td>
+        <td id="prefix_<%= rate['id'] %>"><%= rate['prefix'] %></td>
+        <td id="destination_<%= rate['id'] %>"><%= rate['destination_name'] %></td>
+        <td id="price_<%= rate['id'] %>" align="right"><%= nice_number(rate['curr_price'].to_f) %></td>
+      </tr>
+  <% } %>
+</table>
+<% if @total_pages > 1 %>
+    <br>
+    <%= page_select_header(@page, @total_pages) %>
+<% end %>

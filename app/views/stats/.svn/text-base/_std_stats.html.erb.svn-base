@@ -1,0 +1,303 @@
+<%= javascript_include_tag 'google_charts/loader.js' %>
+
+<% unless hide_non_answered_calls_for_user %>
+<table width="100%" class="bordered">
+  <tr>
+    <td width="50%" valign="top">
+
+      <table class="maintable" width="100%">
+        <tr class="row1">
+          <th align="left" width="70%"><%= _('Outgoing_calls') %></th>
+          <td id="outgoing_calls" align="right" width="15%"><%= outgoing_calls %></td>
+          <td id="outgoing_calls_perc" align="right" width="15%"><%= outgoing_perc.try(:round) %>%</td>
+        </tr>
+        <tr class="row2">
+          <th align="left"><%= _('Incoming_calls') %></th>
+          <td id="incoming_calls" align="right"><%= incoming_calls %></td>
+          <td id="incoming_calls_perc" align="right"><%= incoming_perc.try(:round) %>%</td>
+        </tr>
+        <tr class="row1">
+          <th align="left"><%= _('All_calls') %></th>
+          <td id="all_calls" align="right"><%= total_calls %></td>
+          <td id="all_calls_perc" align="right">100%</td>
+        </tr>
+      </table>
+    </td>
+
+    <td>
+      <table class="maintable" width="100%">
+        <tr height="20px">
+          <th></th>
+          <th align="center" colspan="2"><%= _('Outgoing_calls') %></th>
+          <th align="center" colspan="2"><%= _('Incoming_calls') %></th>
+          <th align="center" colspan="2"><%= _('Total_calls') %></th>
+        </tr>
+        <tr class="row1">
+          <th align="left"><%= _('ANSWERED') %></th>
+          <td id="answered_o" align="right" width="13%"><%= o_answered_calls %></td>
+          <td align="right" width="13%"><%= o_answered_perc.try(:round) %>%</td>
+          <td id="answered_i" align="right" width="13%"><%= i_answered_calls %></td>
+          <td align="right" width="13%"><%= i_answered_perc.try(:round) %>%</td>
+          <td align="right" width="13%"><%= t_answered_calls %></td>
+          <td align="right" width="13%"><%= t_answered_perc.try(:round) %>%</td>
+        </tr>
+        <tr class="row2">
+          <th align="left"><%= _('NO_ANSWER') %></th>
+          <td id="no_answer_o" align="right"><%= o_no_answer_calls %></td>
+          <td align="right"><%= o_no_answer_perc.try(:round) %>%</td>
+          <td id="no_answer_i" align="right"><%= i_no_answer_calls %></td>
+          <td align="right"><%= i_no_answer_perc.try(:round) %>%</td>
+          <td align="right"><%= t_no_answer_calls %></td>
+          <td align="right"><%= t_no_answer_perc.try(:round) %>%</td>
+        </tr>
+        <tr class="row1">
+          <th align="left"><%= _('BUSY') %></th>
+          <td id="busy_o" align="right"><%= o_busy_calls %></td>
+          <td align="right"><%= o_busy_perc.try(:round) %>%</td>
+          <td id="busy_i" align="right"><%= i_busy_calls %></td>
+          <td align="right"><%= i_busy_perc.try(:round) %>%</td>
+          <td align="right"><%= t_busy_calls %></td>
+          <td align="right"><%= t_busy_perc.try(:round) %>%</td>
+        </tr>
+        <tr class="row2">
+          <th align="left"><%= _('FAILED') %></th>
+          <td id="failed_o" align="right"><%= o_failed_calls %></td>
+          <td align="right"><%= o_failed_perc.try(:round) %>%</td>
+          <td id="failed_i" align="right"><%= i_failed_calls %></td>
+          <td align="right"><%= i_failed_perc.try(:round) %>%</td>
+          <td align="right"><%= t_failed_calls %></td>
+          <td align="right"><%= t_failed_perc.try(:round) %>%</td>
+        </tr>
+        <tr class="row1">
+          <th align="left"><%= _('All_calls') %></th>
+          <td id="all_calls_o" align="right"><%= outgoing_calls %></td>
+          <td align="right">100%</td>
+          <td id="all_calls_i" align="right"><%= incoming_calls %></td>
+          <td align="right">100%</td>
+          <td align="right"><%= total_calls %></td>
+          <td align="right">100%</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr height="10px"></tr>
+
+  <tr>
+    <td align="center">
+      <div id="incoming_outgoing_calls_chart"></div>
+    </td>
+    <td align="center">
+      <div id="calls_by_disposition_chart"></div>
+    </td>
+  </tr>
+
+  <tr height="10px"></tr>
+
+</table>
+<br/>
+<% end %>
+
+<table width="100%" class="bordered">
+  <tr>
+    <td width="100%" valign="top">
+      <table width=100%>
+        <tr>
+          <td align="center" width="33%">
+            <h3><%= _('Calls') %></h3>
+          </td>
+          <td align="center" width="33%">
+            <h3><%= _('Duration') %> (min)</h3>
+          </td>
+          <td align="center" width="33%">
+            <h3><%= _('avg_call_time') %> (s)</h3>
+          </td>
+        </tr>
+
+        <% if lv_Out_in_calls_graph.include? 'No result' %>
+          <tr>
+            <td align="center">
+              <div>No result</div>
+            </td>
+            <td align="center">
+              <div>No result</div>
+            </td>
+            <td align="center">
+              <div>No result</div>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td align="center">
+              <div id="calls_per_day"></div>
+            </td>
+            <td align="center">
+              <div id="minutes_per_day"></div>
+            </td>
+            <td align="center">
+              <div id="avg_call_time"></div>
+            </td>
+          </tr>
+        <% end %>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<br/>
+
+<table class="maintable" width="100%">
+  <tr>
+    <th align="center"><%= _('Date') %></th>
+    <th align="right"><%= _('Calls') %></th>
+    <th align="center"><%= _('Duration') %></th>
+    <th align="center"><%= _('avg_call_time') %></th>
+  </tr>
+  <% for i in 0..a_calls.try(:size).to_i-1 %>
+      <tr class="row<%= (i % 2 + 1).to_s %>">
+        <td id="row_<%= i %>_date" align="center"><%= nice_date(a_date[i],(params[:action].to_s == 'reseller_all_user_stats' ? 1 : 0)) %></td>
+        <td id="row_<%= i %>_calls" align="right"><%= a_calls[i] %></td>
+        <td id="row_<%= i %>_billsec" align="center"><%= nice_time a_billsec[i] %></td>
+        <td id="row_<%= i %>_avg_billsec" align="center"><%= nice_time a_avg_billsec[i] %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <th align="center"><%= _('Total') %>:</th>
+    <th id="total_calls" align="right"><%= t_calls %></th>
+    <th id="total_billsec" align="center"><%= nice_time t_billsec %></th>
+    <th id="total_avg_billsec" align="center"><%= nice_time t_avg_billsec %></th>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  $j(document).ready(function ($) {
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawCharts);
+
+    function resizeArray(array, size) {
+
+      if (array.length <= size) {
+        return;
+      }
+
+      var tmpArray = [];
+      var delta = Math.floor(array.length / size);
+
+      for (i = 0; i < array.length; i = i + delta) {
+        tmpArray.push(array[i]);
+      }
+
+      while (array.length > 0) {
+        array.pop();
+      }
+
+      for (i = 0; i < tmpArray.length; i++) {
+        array.push(tmpArray[i]);
+      }
+
+    }
+
+    // Callback that creates and populates a data tables,
+    // instantiates the pie charts, passes in the data and draws charts
+    function drawCharts() {
+
+      // Create the data table for incoming outgoing calls
+      var dataChart1 = new google.visualization.DataTable();
+      dataChart1.addColumn('string', 'direction');
+      dataChart1.addColumn('number', 'calls');
+      dataChart1.addRows([<%= raw lv_Out_in_calls_graph %>]);
+
+      // Create the data table for calls by disposition
+      var dataChart2 = new google.visualization.DataTable();
+      dataChart2.addColumn('string', 'disposition');
+      dataChart2.addColumn('number', 'calls');
+      dataChart2.addRows([<%= raw lv_Out_in_calls_graph2 %>]);
+
+      // Create the data table for calls per day
+      var dataChart3 = new google.visualization.DataTable();
+      dataChart3.addColumn('date', 'date');
+      dataChart3.addColumn('number', 'calls');
+      dataChart3.addColumn({type: 'string', role: 'tooltip'});
+      dataChart3.addRows([<%= raw lv_Calls_graph %>]);
+
+      // Create the data table for minutes per day
+      var dataChart4 = new google.visualization.DataTable();
+      dataChart4.addColumn('date', 'date');
+      dataChart4.addColumn('number', 'minutes');
+      dataChart4.addColumn({type: 'string', role: 'tooltip'});
+      dataChart4.addRows([<%= raw lv_Calltime_graph %>]);
+
+      // Create the data table for avg seconds per day
+      var dataChart5 = new google.visualization.DataTable();
+      dataChart5.addColumn('date', 'date');
+      dataChart5.addColumn('number', 'seconds');
+      dataChart5.addColumn({type: 'string', role: 'tooltip'});
+      dataChart5.addRows([<%= raw lv_Avg_Calltime_graph %>]);
+
+      var ticks = [];
+
+      for (var i = 0; i < dataChart3.getNumberOfRows(); i++) {
+        ticks.push(dataChart3.getValue(i, 0));
+      }
+
+      resizeArray(ticks, 5);
+
+      // Pie chart options
+      var optionsPie = {
+        'height': 220,
+        'pieHole': 0.4,
+        'chartArea': {
+          'width': '80%',
+          'height': '90%',
+          'top': 10
+        },
+        'legend': {
+          'position': 'right',
+          'alignment': 'top'
+        },
+        'sliceVisibilityThreshold': 0
+      };
+
+      // Histogram chart options
+      var optionsLines = {
+        'height': 180,
+        'width': 350,
+        'chartArea': {
+          'width': '85%',
+          'height': '50%',
+          'top': 10,
+          'bottom': 40
+        },
+        'legend': { 'position': 'none' },
+        'vAxis': { 'gridlines': { 'count': 6 } },
+        'hAxis' : {
+          'format': '<%= session[:date_format].present? ? session[:date_format].gsub('%', '').sub('Y', 'yyyy').sub('d', 'dd').sub('m', 'MM') : 'yyyy-MM-dd' %>',
+          'gridlines': { 'color': '#fff' },
+          'ticks': ticks
+        }
+      };
+
+      // Instantiate and draw our charts, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('incoming_outgoing_calls_chart'));
+      chart.draw(dataChart1, optionsPie);
+
+      var chart = new google.visualization.PieChart(document.getElementById('calls_by_disposition_chart'));
+      chart.draw(dataChart2, optionsPie);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('calls_per_day'));
+      chart.draw(dataChart3, optionsLines);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('minutes_per_day'));
+      chart.draw(dataChart4, optionsLines);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('avg_call_time'));
+      chart.draw(dataChart5, optionsLines);
+
+    }
+
+  });
+</script>

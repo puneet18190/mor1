@@ -1,0 +1,2252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_calling_cards_create</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_calling_cards_create</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calling_cards/ccgroup_14002/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calling_cards/ccgroup_14301/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql?path=reseller_card_group/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>#bundle loaded</td>
+	<td></td>
+</tr>
+<!--Enable MOR API-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--Būtini parametrai: card_group_id, cards_from ir cards_till-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/generate_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=link</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1&amp;cards_from=1000000025&amp;cards_till=1000000035&amp;batch_number=50&amp;min_balance=15&amp;language=en&amp;distributor_id=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=param_card_group_id</td>
+	<td>card_group_id</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=param_value_card_group_id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=param_cards_from</td>
+	<td>cards_from</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=param_value_cards_from</td>
+	<td>1000000025</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=param_cards_till</td>
+	<td>cards_till</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=param_value_cards_till</td>
+	<td>1000000035</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=api_key</td>
+	<td>API key</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=secret_key</td>
+	<td>secret</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=param_batch_number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=param_min_balance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=param_language</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=param_distributor_id</td>
+	<td></td>
+</tr>
+<!--Sugeneruojami Hash'ai-->
+<!--#hash1 u=admin-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<!--#hash2 u=admin, card_group_id=1200-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<!--#hash3 u=admin, card_group_id=1200, cards_from=0000000001-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_from=0000000001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<!--#hash4 u=admin, card_group_id=1200, cards_from=0000000001, cards_till=0000000009-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=0000000009</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<!--#hash5 u=admin, cards_from=1000000001, cards_till=1000000009-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;cards_from=1000000001&amp;cards_till=1000000009</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash5</td>
+</tr>
+<!--#hash6 u=admin, card_group_id=1200, cards_till=2222222222-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_till=2222222222</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash6</td>
+</tr>
+<!--#hash7 u=admin, card_group_id=1200, cards_from=123, cards_till=0000000009-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_from=123&amp;cards_till=0000000009</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash7</td>
+</tr>
+<!--#hash8 u=admin, card_group_id=1200, cards_from=0000000001, cards_till=321-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=321</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash8</td>
+</tr>
+<!--#hash9 u=admin,card_group_id=1200, cards_from=3000000033, cards_till=3000000011-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_from=3000000033&amp;cards_till=3000000011</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash9</td>
+</tr>
+<!--#hash10 u=admin, card_group_id=1200, cards_from=0000000001, cards_till=9999999999-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=9999999999</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash10</td>
+</tr>
+<!--#hash11 u=accountant, card_group_id=2, cards_from=1111111111, cards_till=1111111125-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=accountant&amp;card_group_id=2&amp;cards_from=1111111111&amp;cards_till=1111111125</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash11</td>
+</tr>
+<!--#hash12 u=admin, ccard_group_id=12345, cards_from=0000000011, cards_till=0000000013-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=12345&amp;cards_from=0000000011&amp;cards_till=0000000013</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash12</td>
+</tr>
+<!--#hash13 u=reseller, card_group_id=14301, cards_from=3000000011, cards_till=3000000013-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=reseller&amp;card_group_id=14301&amp;cards_from=3000000011&amp;cards_till=3000000013</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash13</td>
+</tr>
+<!--#hash14 u=reseller, card_group_id=14301, cards_from=3000000021, cards_till=3000000023-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=reseller&amp;card_group_id=14301&amp;cards_from=3000000021&amp;cards_till=3000000023</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash14</td>
+</tr>
+<!--#hash15 u=admin, card_group_id=14301, cards_from=1230000001, cards_till=1230000002-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=admin&amp;card_group_id=14301&amp;cards_from=1230000001&amp;cards_till=1230000002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash15</td>
+</tr>
+<!--#hash16 u=accountant, card_group_id=1200, cards_from=0111111101, cards_till=0111111105, batch_number=qwerty, language=-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=accountant&amp;card_group_id=1200&amp;cards_from=0111111101&amp;cards_till=0111111105&amp;batch_number=qwerty&amp;language=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash16</td>
+</tr>
+<!--#hash17 u=accountant, card_group_id=1200, cards_from=1111111118&cards_till=1111111129, batch_number=acc987654, min_balance=5.5, language=qwer-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=accountant&amp;card_group_id=1200&amp;cards_from=1111111118&amp;cards_till=1111111129&amp;batch_number=acc987654&amp;min_balance=5.5&amp;language=qwer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash17</td>
+</tr>
+<!--#hash18 u=reseller, card_group_id=14301, cards_from=0111111102, cards_till=0111111108-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=reseller&amp;card_group_id=14301&amp;cards_from=0111111102&amp;cards_till=0111111108</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash18</td>
+</tr>
+<!--#hash19 u=aaaa, card_group_id=1200, cards_from=0123456789, cards_till=0123456789-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=calling_cards_create&amp;u=aaaa&amp;card_group_id=1200&amp;cards_from=0123456789&amp;cards_till=0123456789</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash19</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--Klaidų pranešimai-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=aaaa&amp;card_group_id=1200&amp;cards_from=0123456789&amp;cards_till=0123456789&amp;hash=${hash19}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=user_admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=0000000009&amp;hash=0001&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=2&amp;cards_from=1111111111&amp;cards_till=1111111125&amp;hash=${hash11}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;cards_from=1000000001&amp;cards_till=1000000009&amp;hash=${hash5}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=12345&amp;cards_from=0000000011&amp;cards_till=0000000013&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_till=2222222222&amp;hash=${hash6}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards from was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;hash=${hash3}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards till was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=123&amp;cards_till=0000000009&amp;hash=${hash7}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards from is in incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=321&amp;hash=${hash8}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards till is in incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=3000000033&amp;cards_till=3000000011&amp;hash=${hash9}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards from must not be greater than Cards till</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=9999999999&amp;hash=${hash10}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PIN is too short for this interval</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>acc group</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/13?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=callingcard_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=callingcard_pin_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--Calling Cards create-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=2&amp;cards_from=1111111111&amp;cards_till=1111111125&amp;&amp;batch_number=acc987654&amp;min_balance=7.89&amp;language=zzzzz&amp;distributor_id=2&amp;hash=${hash11}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 15/15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=2&amp;cards_from=1111111111&amp;cards_till=1111111125&amp;hash=${hash11}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=0000000009&amp;batch_number=987654321&amp;min_balance=0.12345&amp;language=lt&amp;distributor_id=2&amp;hash=${hash4}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 9/9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=0000000009&amp;hash=${hash4}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000011&amp;time=2012&amp;batch_number=50&amp;min_balance=9&amp;language=&amp;language=test language&amp;cards_till=3000000013&amp;tariff_id=5&amp;distributor_id=5&amp;hash=${hash13}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 3/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000011&amp;time=2012&amp;batch_number=50&amp;min_balance=9&amp;language=&amp;language=test language&amp;cards_till=3000000013&amp;tariff_id=5&amp;distributor_id=5&amp;hash=${hash13}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000021&amp;batch_number=&amp;min_balance=&amp;language=&amp;cards_till=3000000023&amp;distributor_id=2&amp;hash=${hash14}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 3/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000021&amp;batch_number=&amp;min_balance=&amp;language=&amp;cards_till=3000000023&amp;distributor_id=2&amp;hash=${hash14}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=14301&amp;cards_from=1230000001&amp;batch_number=&amp;min_balance=1.1&amp;language=ru&amp;cards_till=1230000002&amp;distributor_id=5&amp;hash=${hash15}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 2/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=14301&amp;cards_from=1230000001&amp;batch_number=&amp;min_balance=1.1&amp;language=ru&amp;cards_till=1230000002&amp;distributor_id=5&amp;hash=${hash15}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1200&amp;cards_from=0111111101&amp;cards_till=0111111105&amp;batch_number=qwerty&amp;language=&amp;hash=${hash16}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 5/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1200&amp;cards_from=0111111101&amp;cards_till=0111111105&amp;batch_number=qwerty&amp;language=&amp;hash=${hash16}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1200&amp;cards_from=1111111118&amp;cards_till=1111111129&amp;batch_number=acc987654&amp;min_balance=5.5&amp;language=qwer&amp;hash=${hash17}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 4/12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1200&amp;cards_from=1111111118&amp;cards_till=1111111129&amp;batch_number=acc987654&amp;min_balance=5.5&amp;language=qwer&amp;hash=${hash17}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=0111111102&amp;cards_till=0111111108&amp;batch_number=666res&amp;min_balance=4&amp;language=4lang&amp;distributor_id=5&amp;hash=${hash18}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 3/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=0111111102&amp;cards_till=0111111108&amp;batch_number=666res&amp;min_balance=4&amp;language=4lang&amp;distributor_id=5&amp;hash=${hash18}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Disable Hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;cards_from=7000000001&amp;cards_till=7000000009&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Card Group was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_till=9222222222&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards from was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards till was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=14301&amp;cards_from=123&amp;cards_till=0000000009&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards from is in incorrect format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000033&amp;cards_till=3000000011&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards from must not be greater than Cards till</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=0000000001&amp;cards_till=9999999999&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>PIN is too short for this interval</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=2&amp;cards_from=1111111111&amp;cards_till=1111111125&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1200&amp;cards_from=0000000001&amp;cards_till=0000000009&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000011&amp;time=2012&amp;batch_number=50&amp;min_balance=9&amp;language=&amp;language=test language&amp;cards_till=3000000013&amp;tariff_id=5&amp;distributor_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=3000000021&amp;batch_number=&amp;min_balance=&amp;language=&amp;cards_till=3000000023&amp;distributor_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=14301&amp;cards_from=1230000001&amp;batch_number=&amp;min_balance=1.1&amp;language=ru&amp;cards_till=1230000002&amp;distributor_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1200&amp;cards_from=0111111101&amp;cards_till=0111111105&amp;batch_number=qwerty&amp;language=&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1200&amp;cards_from=1111111118&amp;cards_till=1111111129&amp;batch_number=acc987654&amp;min_balance=5.5&amp;language=qwer&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=0111111102&amp;cards_till=0111111108&amp;batch_number=666res&amp;min_balance=4&amp;language=4lang&amp;distributor_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1&amp;cards_from=7777777777&amp;cards_till=7777777777&amp;batch_number=7777777&amp;min_balance=77777&amp;language=777&amp;distributor_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 1/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=1&amp;cards_from=7777777777&amp;cards_till=7777777777&amp;batch_number=7777777&amp;min_balance=77777&amp;language=777&amp;distributor_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1&amp;cards_from=8888888888&amp;cards_till=8888888888&amp;batch_number=8888888&amp;min_balance=88888&amp;language=888&amp;distributor_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 1/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=accountant&amp;card_group_id=1&amp;cards_from=8888888888&amp;cards_till=8888888888&amp;batch_number=8888888&amp;min_balance=88888&amp;language=888&amp;distributor_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=9999999999&amp;cards_till=9999999999&amp;batch_number=9999999&amp;min_balance=99999&amp;language=999&amp;distributor_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards created: 1/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=reseller&amp;card_group_id=14301&amp;cards_from=9999999999&amp;cards_till=9999999999&amp;batch_number=9999999&amp;min_balance=99999&amp;language=999&amp;distributor_id=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cards already exist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--API XML-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;card_group_id=2&amp;cards_from=1000000123&amp;cards_till=1000000134&amp;batch_number=50&amp;min_balance=15&amp;language=en&amp;distributor_id=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Cards created: 12/12</td>
+</tr>
+<!-------------------------------------------------------------------------------------------->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=14301&amp;clean=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards</td>
+	<td>exact:Cards: 12</td>
+</tr>
+<!--3/3 cards_from=3000000011&time=2012&batch_number=50&min_balance=9&language=&language=test language&cards_till=3000000013&tariff_id=5&distributor_id=5-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_46 &gt; a</td>
+	<td>3000000011</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_46</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_46</td>
+	<td>test langu</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_46 &gt; a</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_48 &gt; a</td>
+	<td>3000000013</td>
+</tr>
+<!--3/3 cards_from=3000000021&batch_number=&min_balance=&language=&cards_till=3000000023&distributor_id=2-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_49 &gt; a</td>
+	<td>3000000021</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_49</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_49</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_49</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_51 &gt; a</td>
+	<td>3000000023</td>
+</tr>
+<!--3/7 cards_from=0111111102&cards_till=0111111108&batch_number=666res&min_balance=4&language=4lang&distributor_id=5-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_63 &gt; a</td>
+	<td>0111111106</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_63</td>
+	<td>666res</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_63</td>
+	<td>4lang</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_63 &gt; a</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_65 &gt; a</td>
+	<td>0111111108</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0111111102</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0111111103</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0111111104</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0111111105</td>
+	<td></td>
+</tr>
+<!--2/2 admin cards_from=1230000001&batch_number=&min_balance=1.1&language=ru&cards_till=1230000002&distributor_id=5-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_52 &gt; a</td>
+	<td>1230000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_52</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_52</td>
+	<td>ru</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_52 &gt; a</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_53 &gt; a</td>
+	<td>1230000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_68 &gt; a</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_68</td>
+	<td>9999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_68</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#user_68 &gt; a</td>
+	<td>User Resellers</td>
+</tr>
+<!--Edit forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>3000000011</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>9.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>test langu</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/49</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>3000000021</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/63</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>0111111106</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>666res</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>4.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>4lang</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/63</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_63</td>
+	<td>0111111106</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_63</td>
+	<td>666res</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_63</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_63</td>
+	<td>4lang</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#distributor_63 &gt; a</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/52</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>1230000001</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>1.1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>ru</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/68</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>9999999</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>99999.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/68</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_68</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_68</td>
+	<td>9999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_68</td>
+	<td>99999.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_68</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#distributor_68 &gt; a</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_1</td>
+	<td>(23)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_2</td>
+	<td>(27)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_1200</td>
+	<td>(18)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=1&amp;clean=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=7777777777</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_66</td>
+	<td>7777777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_66</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=8888888888</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_67</td>
+	<td>8888888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_67</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/66</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>7777777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>77777.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/67</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>8888888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>88888.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=2&amp;clean=1</td>
+	<td></td>
+</tr>
+<!--15/15 card_group_id=2&cards_from=1111111111&cards_till=1111111125&&batch_number=acc987654&min_balance=7.89&language=zzzzz&distributor_id=2-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_22 &gt; a</td>
+	<td>1111111111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_22</td>
+	<td>acc987654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_22</td>
+	<td>zzzzz</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_36 &gt; a</td>
+	<td>1111111125</td>
+</tr>
+<!--Edit forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>1111111111</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>acc987654</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>7.89</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>zzzzz</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=1200&amp;clean=1</td>
+	<td></td>
+</tr>
+<!--5/5 card_group_id=1200&cards_from=0111111101&cards_till=0111111105&batch_number=qwerty&language=-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_54 &gt; a</td>
+	<td>0111111101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_54</td>
+	<td>qwerty</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_58 &gt; a</td>
+	<td>0111111105</td>
+</tr>
+<!--4/12 card_group_id=1200&cards_from=1111111118&cards_till=1111111129&batch_number=acc987654&min_balance=5.5&language=qwer-->
+<tr>
+	<td>assertText</td>
+	<td>link=1111111126</td>
+	<td>1111111126</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_59</td>
+	<td>acc987654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_59</td>
+	<td>qwer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_62 &gt; a</td>
+	<td>1111111129</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>1111111118</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>1111111119</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>1111111124</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>1111111125</td>
+	<td></td>
+</tr>
+<!--Edit forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>0111111101</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>qwerty</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_54</td>
+	<td>0111111101</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_54</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_label_54</td>
+	<td>exact:Language:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=distributor_label_54</td>
+	<td>exact:Distributor:</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/60</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>1111111127</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>acc987654</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>qwer</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/60</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_60</td>
+	<td>1111111127</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_60</td>
+	<td>5.5000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_60</td>
+	<td>qwer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=distributor_60</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_1</td>
+	<td>(23)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_2</td>
+	<td>(27)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_1200</td>
+	<td>(18)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=1200&amp;clean=1</td>
+	<td></td>
+</tr>
+<!--9/9 card_group_id=1200&cards_from=0000000001&cards_till=0000000009&batch_number=987654321&min_balance=0.12345&language=lt&distributor_id=2-->
+<tr>
+	<td>assertText</td>
+	<td>link=0000000001</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_37</td>
+	<td>987654321</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_37</td>
+	<td>lt</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_37</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/37</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>987654321</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>0.12345</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>lt</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/37</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_37</td>
+	<td>0000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_37</td>
+	<td>987654321</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_37</td>
+	<td>0.1235</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_37</td>
+	<td>lt</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=1&amp;clean=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=7777777777</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_66</td>
+	<td>7777777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_66</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=8888888888</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_67</td>
+	<td>8888888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_67</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/66</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>7777777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>77777.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/67</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>8888888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>88888.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=2&amp;clean=1</td>
+	<td></td>
+</tr>
+<!--15/15 card_group_id=2&cards_from=1111111111&cards_till=1111111125&&batch_number=acc987654&min_balance=7.89&language=zzzzz&distributor_id=2-->
+<tr>
+	<td>assertText</td>
+	<td>css=#number_22 &gt; a</td>
+	<td>1111111111</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_22</td>
+	<td>acc987654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_22</td>
+	<td>zzzzz</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#number_36 &gt; a</td>
+	<td>1111111125</td>
+</tr>
+<!--Edit forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>1111111111</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>acc987654</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>7.89</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>zzzzz</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_cards_create?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<!--Fake forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/calling_cards_create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>card_group_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>cards_from</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1000000025</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>cards_till</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>1000000035</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_5</td>
+	<td>batch_number</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_5</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_5</td>
+	<td>test987</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_6</td>
+	<td>min_balance</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_6</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_6</td>
+	<td>3.33</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_7</td>
+	<td>language</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_7</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_7</td>
+	<td>test lang</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_8</td>
+	<td>distributor_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_8</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_8</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_9</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_9</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_9</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Cards created: 11/11</td>
+</tr>
+</tbody></table>
+</body>
+</html>

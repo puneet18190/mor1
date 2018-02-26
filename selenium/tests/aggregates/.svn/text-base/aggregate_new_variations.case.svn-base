@@ -1,0 +1,1432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/conflines/es_remote_35.sql</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/aggregates/calls_and_aggregates_for_all_type_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Export to CSV</td>
+	<td></td>
+</tr>
+<!--teste rekomenduojama nekeisti datų, nes tada bus sunku atsirinkti duomenis-->
+<!--1 variacija: aggregate by originator (originator dropdowne pasirinkas any arba konkretus orig, visi kiti dropdownai su pasirinkimais none o prefix inputas tuščias)-->
+<!--i aggregates ieina tik agregates id=13 ir id=14 (dėl timeperiods lentos)-->
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>Any</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='any'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=terminator</td>
+	<td>label=None</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=destination_group</td>
+	<td>label=None</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=dir_name_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row2aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[5]/div</td>
+	<td>2.3250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[6]/div</td>
+	<td>2.3250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[7]/div</td>
+	<td>0.7750</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[8]/div</td>
+	<td>exact:00:01:33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[10]/div</td>
+	<td>exact:00:01:33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[11]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[12]/div</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[13]/div</td>
+	<td>57.14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:23</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[5]/div</td>
+	<td>7.2333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[6]</td>
+	<td>7.2333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[7]/div</td>
+	<td>3.4000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[8]/div/b</td>
+	<td>exact:00:06:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[9]/div/b</td>
+	<td>exact:00:06:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:06:48</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]/div</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div/b</td>
+	<td>48.57</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div/b</td>
+	<td>exact:00:00:24</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=csvExport</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[10]</td>
+	<td>exact:00:01:31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:06:39</td>
+</tr>
+<!--pasirinkus 1 variaciją nuo mėnesio pirmos dienos-->
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=from_user_perspective_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=dir_name_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[5]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[6]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[7]/div</td>
+	<td>1.7167</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[8]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[9]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[10]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[11]/div</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[12]/div</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[13]/div</td>
+	<td>60.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:22</td>
+</tr>
+<!--pasirinkus 1 variaciją ne nuo mėnesio pirmos dienos-->
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[5]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[6]/div</td>
+	<td>5.1500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[7]/div</td>
+	<td>1.7167</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[8]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[9]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[10]/div</td>
+	<td>exact:00:03:26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[11]/div</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[12]/div</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[13]/div</td>
+	<td>60.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row3aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[5]/div</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[6]/div</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[7]/div/b</td>
+	<td>8.7417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[8]/div/b</td>
+	<td>exact:00:17:34</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[9]/div/b</td>
+	<td>exact:00:17:34</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:34</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]/div</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>84</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div/b</td>
+	<td>50.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div/b</td>
+	<td>exact:00:00:25</td>
+</tr>
+<!--// i = 2 aggregate by terminator (terminator dropdowne pasirinkas any arba konkretus term, visi kiti dropdownai su pasirinkimais none o prefix inputas tuščias)-->
+<!--i aggregates ieina tik agregates id=7 ir id=8 (dėl timeperiods lentos)-->
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=from_user_perspective_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>None</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='none'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=terminator</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='row0aggregates_data']/div[4]/div</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[5]/div</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[7]/div</td>
+	<td>8.7417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[8]/div</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>62</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>66.13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[5]/div</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[7]/div/b</td>
+	<td>8.7417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[8]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[9]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]/div</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>62</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div/b</td>
+	<td>66.13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div/b</td>
+	<td>exact:00:00:25</td>
+</tr>
+<!--pasirinkus 2 variaciją ne nuo mėnesio pirmos dienos-->
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:17:09</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:09</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=from_user_perspective_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[7]/div</td>
+	<td>8.7417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>62</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>66.13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:25</td>
+</tr>
+<!--pasirinkus 2 variaciją ne nuo pradinės valandos-->
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=26</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=05</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[7]/div</td>
+	<td>5.3417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:10:41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:10:41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>24</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>68.57</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:26</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=16</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[7]/div</td>
+	<td>5.1667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:10:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>28</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]/div</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]</td>
+	<td>28</td>
+</tr>
+<!--// i = 3 aggregate by direction (Country dropdowne pasirinkas any arba konkretus direction, visi kiti dropdownai su pasirinkimais none o prefix inputas tuščias)-->
+<tr>
+	<td>select</td>
+	<td>name=destination_group</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=terminator</td>
+	<td>label=None</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=answered_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--i aggregates ieina tik agregates id=5 ir id=6 (dėl timeperiods lentos)-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1aggregates_data']/div/div</td>
+	<td>Latvia</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1aggregates_data']/div[10]/div</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1aggregates_data']/div[11]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1aggregates_data']/div[12]/div</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>65</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1aggregates_data']/div[13]/div</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div</td>
+	<td>63.08</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div/b</td>
+	<td>exact:00:00:25</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:17:09</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:09</td>
+</tr>
+<!--pasirinkus 3 variaciją ne nuo mėnesio pirmos dienos-->
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=from_user_perspective_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div/div</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:10:41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>24</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>68.57</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:26</td>
+</tr>
+<!--pasirinkus 3 variaciją ne nuo pradinės valandos-->
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=26</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=16</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div/div</td>
+	<td>Lithuania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:10:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>75.86</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:28</td>
+</tr>
+<!--// i = 4 aggregate by originator and terminator (originator ir terminator dropdownuose pasirinkti any arba konkretūs orig ir/ar term, country dropdownas su pasirinkimu none o prefix inputas tuščias) -->
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>Any</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_originator_id').value='any'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=terminator</td>
+	<td>label=Any</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=destination_group</td>
+	<td>label=None</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[3]/div</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[4]/div</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[5]/div</td>
+	<td>1.7500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[6]/div</td>
+	<td>1.7500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[7]/div</td>
+	<td>0.8750</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[8]/div</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:01:45</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>43.75</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[5]/div/b</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[6]/div/b</td>
+	<td>18.1900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[7]/div/b</td>
+	<td>8.7417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[8]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[9]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]/div</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>62</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div</td>
+	<td>66.13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div/b</td>
+	<td>exact:00:00:25</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[10]/div</td>
+	<td>exact:00:03:23</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:17:09</td>
+</tr>
+<!--pasirinkus 4 variaciją ne nuo mėnesio pirmos dienos-->
+<tr>
+	<td>click</td>
+	<td>id=use_real_billsec_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=from_user_perspective_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=26</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[4]/div</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[5]/div</td>
+	<td>2.8250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[6]/div</td>
+	<td>2.8250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[7]/div</td>
+	<td>0.9417</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[8]/div</td>
+	<td>exact:00:01:53</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[9]/div</td>
+	<td>exact:00:01:53</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[10]/div</td>
+	<td>exact:00:01:53</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[11]/div</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[12]/div</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[13]/div</td>
+	<td>83.33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:22</td>
+</tr>
+<!--pasirinkus 4 variaciją ne nuo pradinės valandos-->
+<tr>
+	<td>select</td>
+	<td>id=date_from_hour</td>
+	<td>label=17</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[3]/div</td>
+	<td>admin_resellerio_useris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[4]/div</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[5]/div</td>
+	<td>2.2000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[6]/div</td>
+	<td>2.2000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[7]/div</td>
+	<td>0.7333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[8]/div</td>
+	<td>exact:00:01:28</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[9]/div</td>
+	<td>exact:00:01:28</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[10]</td>
+	<td>exact:00:01:28</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[11]/div</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[12]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[13]/div</td>
+	<td>75.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row2aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[5]/div/b</td>
+	<td>7.0117</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[6]/div</td>
+	<td>7.0117</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[7]/div</td>
+	<td>3.3083</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[8]</td>
+	<td>exact:00:06:37</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[9]/div/b</td>
+	<td>exact:00:06:37</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:06:37</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]/div</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div/b</td>
+	<td>70.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div/b</td>
+	<td>exact:00:00:28</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_originator</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=originator_list</td>
+	<td>AnyNoneadmin_resellerio_useriskitas_userisresellerio_userisTest User #1User Resellersuser1user2user3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_originator</td>
+	<td>yturtyuetyue</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Customer </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Billed Duration </td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/vouchers/vouchers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/vouchers/vouchers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=icon_cross_cross_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=deactivate_link_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_11</td>
+	<td>10007</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_11</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=2&amp;voucher_number=306984327343&amp;test=1&amp;hash=fd5e47d194f0e3eea27ed4fd4e56a678d455069f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Vouchers Disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=vouchers_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--neegzistuojantis-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=2&amp;voucher_number=306984327343&amp;test=1&amp;hash=fd5e47d194f0e3eea27ed4fd4e56a678d455069f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>Voucher was not found</td>
+</tr>
+<!--panaudotas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=2&amp;voucher_number=1234567890&amp;test=1&amp;hash=aadd7b779812392e372fa4c9893e2823343825a7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>Voucher was not found</td>
+</tr>
+<!--dar nepanaudotas-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=2&amp;voucher_number=10007&amp;test=1&amp;hash=0985483cdfe471f028b452c5de00c582e5f00ce4 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10007</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/vouchers/vouchers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=icon_cross_cross_11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=deactivate_link_11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_11</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_10</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_10</td>
+	<td>Voucher (1)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_10</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=fee_10</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_10</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_10</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=completed_10</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax1value</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_balance_value</td>
+	<td>20.0000 USD</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tax1_value</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--dar kartą tas pats - jau turi neleisti-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=2&amp;voucher_number=10007&amp;test=1&amp;hash=0985483cdfe471f028b452c5de00c582e5f00ce4 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=html</td>
+	<td>Voucher was not found</td>
+</tr>
+<!--adminas sau-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=0&amp;voucher_number=10011&amp;test=1&amp;hash=4fc93e3e91f3ac2a874737ff784e59ea0a583a4d </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10011</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance</td>
+	<td>20.0000 USD</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Personal details changed</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--adminas be user id pasipildo sau (nes žiūri tada į user_id)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;voucher_number=10012&amp;test=1&amp;hash=ff75dea0a0af3495090d6294f8bc7fe02be08dab </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10012</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance</td>
+	<td>29.5412 EUR</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_11</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paymenttype_11</td>
+	<td>Voucher (1)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amount_11</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=amout_with_tax_11</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--user_admin sau-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=user_admin&amp;user_id=2&amp;voucher_number=10009&amp;test=1&amp;hash=86fd27acb271d162d406eb64e43152daa4bdeaef </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10009</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>40.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>29.5412</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--admino sueris be user id pasipildo sau (nes žiūri tada į user_id)-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=user_admin&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10010</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>60.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>14</td>
+</tr>
+<!--tie useriai, kurie neturi priėjimo - reseller, user reselelr, accountant-->
+<!--user_reseller admino useriui-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=user_reseller&amp;user_id=2&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--user reseller sau-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=user_reseller&amp;user_id=5&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--user reseller be user id - ir su user_id, ir be jo hash toks pats. -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=user_reseller&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--tas pats su reseleriu, partneriu ir acc-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=reseller&amp;user_id=2&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=reseller&amp;user_id=5&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=reseller&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=accountant&amp;user_id=2&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=accountant&amp;user_id=5&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=accountant&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--adminas gali pildyti tik tiems, kuriu owner yra 0-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=5&amp;voucher_number=10008&amp;test=1&amp;hash=fa4e2db111f3243e0da692ac0546d3a6ec33f1d0 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>User was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=4&amp;voucher_number=10008&amp;test=1&amp;hash=fa4e2db111f3243e0da692ac0546d3a6ec33f1d0 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10008</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=3&amp;voucher_number=10013&amp;test=1&amp;hash=975e98e651924bcc4f3ad10ad657d4769b864f24 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10013</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>16</td>
+</tr>
+<!--adminas pildo partneriui-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=admin&amp;user_id=6001&amp;voucher_number=10014&amp;test=1&amp;hash=9c82b7b5ad265dd27869e36cf531b9ee702dfd10 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status &gt; status</td>
+	<td>Voucher used to update balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_number</td>
+	<td>10014</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=voucher_id</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_with_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_without_tax</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=credit_in_default_currency</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=user_id</td>
+	<td>6001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=balance_after_voucher_use</td>
+	<td>20.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=payment_id</td>
+	<td>17</td>
+</tr>
+<!--blogas username-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/voucher_use?u=sdfsdfsdf&amp;voucher_number=10010&amp;test=1&amp;hash=dc0e61ad9bf36c84617c8c90897d451ee661b61f </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_2</td>
+	<td>44.3119</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_3</td>
+	<td>14.7706</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_5</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance</td>
+	<td>20.0000 USD</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance</td>
+	<td>20.0000 USD</td>
+</tr>
+</tbody></table>
+</body>
+</html>

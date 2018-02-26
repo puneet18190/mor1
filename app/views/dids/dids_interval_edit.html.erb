@@ -1,0 +1,163 @@
+<%= render 'bulk_management_header', from: @from, till: @till, user: @user, device: @device, dids: @dids  %>
+<% unless @dids.size.to_i < 1 %>
+    <b><%= _('Possible_choices') %>:</b>
+    <br/>
+    <br/>
+    <% unless reseller? %>
+      <%= form_tag({:action => 'update', :BMUpdate_setting => 'details'}.merge(@opts)) do %>
+        <%= hidden_field_tag 'status', "provider", {:id => "status_provider"} %>
+        <table class="maintable" width="500px">
+          <tr>
+            <th align="left"><%= _('Details') %></th>
+          </tr>
+          <tr class="row1">
+            <td style="padding: 10px 5px 5px 5px">
+              <table style="border-style: none, padding: 0px; margin: 0px">
+                <tr>
+                  <td><b><%= _('Provider') %>:</b></td>
+                  <td>
+                    <select name="did[provider_id]">
+                    <% for p in @providers %>
+                      <option value=<%= p.id %>> <%= p.name %> </option>
+                    <% end %>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><%= _('Language') %>:</b></td>
+                  <td><%= text_field_tag 'did[language]', '', "class" => "input", :size => "5", :maxlength => "4", :id => "did_language" %></td>
+                </tr>
+              </table>
+              <br/>
+              <%= submit_tag _('Change'), data: { disable_with: _('Processing..') } %>
+            </td>
+          </tr>
+        </table>
+        <br/>
+      <% end %>
+    <% end %>
+
+    <%= form_tag({:action => 'update', management_action: 'interval_edit'}.merge(@opts)) do %>
+      <%= hidden_field_tag 'status', "reserved", {:id => "status_reserver"} %>
+      <table class="maintable" width="500px">
+        <tr>
+          <th align="left"><%= _('Reserve_did_for_user') %></th>
+        </tr>
+        <tr class="row1">
+          <td style="padding: 10px 5px 5px 5px">
+            <%= _('Reserve_did_for_user_expanded') %>
+            <br/>
+            <br/>
+            <%= b_user %>
+            <%= render 'shared/live_search_field', object: '',
+                                                   object_id: -2,
+                                                   left_margin: 20,
+                                                   object_name: 'User',
+                                                   action_url: {
+                                                    controller: :users,
+                                                    action: :get_users_map,
+                                                    options:
+                                                    {show_reseller_users: true,
+                                                     hide_partners: true,
+                                                     show_admin: true
+                                                    }
+                                                   } %>
+
+            <span id="user_not_selected_info"><%= b_exclamation + _('Please_select_User') %></span>
+            <span id="device_list_container" style="display: inline">
+              <span><b>&nbsp;<%= _('Assign_DID_to_Device') %>:</b></span>
+              <span id="device_list_span"></span>
+            </span>
+            <br/>
+            <br/>
+            <%= submit_tag(_('Reserve'), id: 'submit_reserve', data: { disable_with: _('Processing..') }) %>
+          </td>
+        </tr>
+      </table>
+      <br/>
+    <% end %>
+
+    <%= form_tag({:action => 'update'}.merge(@opts)) do %>
+      <%= hidden_field_tag 'status', "free", {:id => "status_free"} %>
+      <table class="maintable" width="500px">
+        <tr>
+          <th align="left"><%= _('Make_did_free') %></th>
+        </tr>
+        <tr class="row1">
+          <td style="padding: 10px 5px 5px 5px">
+            <%= b_check + _('Make_did_free_expanded') %>
+            <br/>
+            <br/>
+            <%= submit_tag _('Make_did_free'), data: { disable_with: _('Processing..') } %>
+          </td>
+        </tr>
+      </table>
+      <br/>
+    <% end %>
+<% end %>
+
+<script type="text/javascript">
+  var userIdField = $('s_user_id');
+  var submitField = $('submit_reserve');
+
+  function toogleStatus(){
+    if (parseInt(userIdField.value) >= 0 ) {
+      submitField.enable();
+    } else {
+      submitField.disable();
+    }
+  }
+
+  toogleStatus();
+
+  Event.observe($('s_user'), 'change', toogleStatus);
+</script>
+
+<script type="text/javascript">
+  new Form.Element.EventObserver('s_user', function(element, value) {
+    new Ajax.Updater('device_list_span', '<%= Web_Dir %>/devices/ajax_get_user_devices', {
+      asynchronous:true,
+      evalScripts:true,
+      onComplete:function(request){
+        Element.hide('spinner');
+      },
+      onLoading:function(request){
+        Element.show('spinner');
+      },
+      parameters:'user_id=' + encodeURIComponent($('s_user_id').value) + '&default=<%= @search_device.to_i.to_s %>&none=true&fax=true'})
+  })
+
+  window.onload = function() {
+
+    var submit_button = $('submit_reserve');
+    new Form.Element.EventObserver('s_user', hideSubmitButton);
+    hideSubmitButton();
+    function hideSubmitButton() {
+      var user_element = $("s_user_id");
+      if(user_element.value === '-2' || user_element.value === '') {
+        $('submit_reserve').disabled = true;
+        $('user_not_selected_info').show();
+        $('device_list_container').hide();
+      } else {
+        $('submit_reserve').disabled = false;
+        $('user_not_selected_info').hide();
+        if (user_element.getAttribute('usertype') == 'user') {
+          $('device_list_container').show();
+        } else {
+          $('device_list_container').hide();
+        }
+      }
+      submit_button.value = '<%= _('Reserve') %>';
+    };
+
+    $('device_list_container').on('change', 'select', function() {
+      var selected_device = $('s_device').value;
+      if (selected_device == 'none') {
+        submit_button.value = '<%= _('Reserve') %>';
+      } else {
+        submit_button.value = '<%= _('Reserve_and_Assign') %>';
+      }
+    });
+
+  };
+</script>

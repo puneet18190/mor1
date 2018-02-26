@@ -1,0 +1,11 @@
+# flatrate servisas testui flatrate_user_subscription.case
+# ----
+# servers
+server/servers.sql
+# various calls.sql
+calls/various_calls.sql
+# callback_dialplan
+dialplan/callback_dialplan.sql
+#dids
+did/dids.sql
+# bundle loaded

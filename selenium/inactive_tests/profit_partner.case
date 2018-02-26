@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>profit_partner</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">profit_partner</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calls/partner_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit?date_from[year]=2009&amp;date_from[month]=0&amp;date_from[day]=1&amp;date_till[year]=2015&amp;date_till[month]=0&amp;date_till[month]=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=9</td>
+	<td>Test Partner</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='9'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test Partner</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>DID Owner Profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>Profit for: partner - Test Partner , Period: 2009-01-01 - 2015-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_calls</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_answer_calls</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_answer_calls</td>
+	<td>44.4444 %</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Duration: 00:03:25</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Average call duration: 00:00:25 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_no_ans_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_no_ans_calls</td>
+	<td>0.0000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_busy_calls</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_busy_calls</td>
+	<td>16.6667 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_erro_calls</td>
+	<td>7</td>
+</tr>
+<!--Calls price skaičiuojama iš reseller_price-->
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_call_price</td>
+	<td>1.7083</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_erro_calls</td>
+	<td>38.8889 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_duration_percent</td>
+	<td>exact:00:03:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_users_percent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_percent</td>
+	<td>0.00 %</td>
+</tr>
+<!--Self Price skaičiuojama iš partner_price-->
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_self_price</td>
+	<td>1.7083</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_selfcost_percent</td>
+	<td>0.00 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_calls_profit</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_calls_profit</td>
+	<td>0.00 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_avg_profit_per_min</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_call</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_day</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_user</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_profit</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Export to PDF</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test Partner</td>
+	<td>Test Partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_9</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=usetype_9</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_9</td>
+	<td>98.2917</td>
+</tr>
+<!--Partnerio prisijungimas-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#login_as_link_9 &gt; img[alt=&quot;Application key&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Logged as: Test Partner</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=reselleris</td>
+	<td>reselleris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_10</td>
+	<td>reselleris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=usetype_10</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_10</td>
+	<td>97.0800</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Finances')]</td>
+	<td>Finances</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Profit')]</td>
+	<td>Profit</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit?date_from[year]=2009&amp;date_from[month]=0&amp;date_from[day]=1&amp;date_till[year]=2015&amp;date_till[month]=0&amp;date_till[month]=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Responsible Accountant:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Profit from Subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>DID Owner Profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>Profit for: All , Period: 2009-01-01 - 2015-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_calls</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_answer_calls</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_answer_calls</td>
+	<td>44.4444 %</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Duration: 00:03:25</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Average call duration: 00:00:25 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_no_ans_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_no_ans_calls</td>
+	<td>0.0000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_busy_calls</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_busy_calls</td>
+	<td>16.6667 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_erro_calls</td>
+	<td>7</td>
+</tr>
+<!--Calls price skaičiuojama iš reseller_price-->
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_call_price</td>
+	<td>2.7333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_erro_calls</td>
+	<td>38.8889 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_duration_percent</td>
+	<td>exact:00:03:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_users_percent</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_percent</td>
+	<td>100.0000 %</td>
+</tr>
+<!--Self Price skaičiuojama iš partner_price-->
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_self_price</td>
+	<td>1.7083</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_selfcost_percent</td>
+	<td>62.5000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_calls_profit</td>
+	<td>1.0250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_calls_profit</td>
+	<td>37.5000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_avg_profit_per_min</td>
+	<td>0.3000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_call</td>
+	<td>0.1281</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_day</td>
+	<td>0.0005</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_user</td>
+	<td>1.0250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_profit</td>
+	<td>1.0250</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Export to PDF</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=10</td>
+	<td>reselleris</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='10'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>reselleris</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>reselleris</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>Profit for: reselleris - , Period: 2009-01-01 - 2015-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_calls</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_answer_calls</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_answer_calls</td>
+	<td>44.4444 %</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Duration: 00:03:25</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Average call duration: 00:00:25 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_no_ans_calls</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_no_ans_calls</td>
+	<td>0.0000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_busy_calls</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_busy_calls</td>
+	<td>16.6667 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_erro_calls</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_call_price</td>
+	<td>2.7333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_erro_calls</td>
+	<td>38.8889 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_duration_percent</td>
+	<td>exact:00:03:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_users_percent</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_percent</td>
+	<td>100.0000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_self_price</td>
+	<td>1.7083</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_selfcost_percent</td>
+	<td>62.5000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_calls_profit</td>
+	<td>1.0250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=percent_calls_profit</td>
+	<td>37.5000 %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_avg_profit_per_min</td>
+	<td>0.3000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_call</td>
+	<td>0.1281</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_day</td>
+	<td>0.0005</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=avg_profit_per_user</td>
+	<td>1.0250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_total_profit</td>
+	<td>1.0250</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=login_as_link_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Logged as: reselleris</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Finances</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2010</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_billsec</td>
+	<td>exact:00:03:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>3.0750</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_profit</td>
+	<td>0.3417</td>
+</tr>
+<!--Selt-Cost total price turi sutapti su partnerio profite atvaizduojama Total call price-->
+<tr>
+	<td>assertText</td>
+	<td>id=total_reseller_price</td>
+	<td>2.7333</td>
+</tr>
+</tbody></table>
+</body>
+</html>

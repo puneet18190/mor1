@@ -1,0 +1,373 @@
+10
+
+dir
+66296
+http://svn.kolmisoft.com/mor/gui/branches/x8/selenium/bundles
+http://svn.kolmisoft.com
+
+
+
+2017-02-07T13:33:45.986498Z
+66050
+rugile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19941b1f-7a74-413c-ab52-0de3e92e9a87
+
+invoices
+dir
+
+pbx_functions
+dir
+
+devices
+dir
+
+reseller_card_group
+dir
+
+services
+dir
+
+resellers_payment_option
+dir
+
+addons_activate
+dir
+
+accountant_permissions_invoices
+dir
+
+active_calls
+dir
+
+addons_limits
+dir
+
+autodialer
+dir
+
+accountant_permissions
+dir
+
+quick_stats
+dir
+
+api_tests
+dir
+
+reseller_pro_lcr
+dir
+
+vouchers
+dir
+
+queues_edit2
+dir
+
+asterisk_servers
+dir
+
+flatrate_user_subscriptions.bundle
+file
+
+
+
+
+2018-01-16T08:24:14.108088Z
+302581901e193ea571093835528bc4e9
+2013-11-05T12:55:00.099936Z
+41739
+ieva
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+506
+
+help_links.bundle
+file
+
+
+
+
+2018-01-16T08:24:14.108088Z
+5ac7c7ef6fe370a8de5814d53884e866
+2014-11-06T16:05:45.648130Z
+53817
+tomas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+263
+
+use_subscriptions2
+dir
+
+tariff_import
+dir
+
+resellers_payment_permission
+dir
+
+calls_through_different_servers.bundle
+file
+
+
+
+
+2018-01-16T08:24:14.108088Z
+c61fcb59c72a1c95ab91dbc4020b3469
+2014-10-30T09:02:49.108271Z
+53623
+tomas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+173
+
+sms_addon
+dir
+
+reseller_user_services_own_prov
+dir
+
+resellers_provider
+dir
+
+rerating
+dir
+
+last_call_stats
+dir
+
+providers
+dir
+
+reseller_user_services
+dir
+
+carrier_addon2
+dir
+
+tariff_import_with_fee
+dir
+
+cc_distributor
+dir
+
+test
+dir
+
+custom_rates.bundle
+file
+
+
+
+
+2018-01-16T08:24:14.108088Z
+63691b87c14bf570a8172220f4648cc8
+2014-10-31T09:41:49.587665Z
+53647
+tomas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+331
+
+accountant_permissions_monitorings
+dir
+
+universal_bundles
+dir
+
+calling_cards
+dir
+
+assign_prov_to_user
+dir
+
+accountant_permissions_dids
+dir
+
+payments
+dir
+
+provider_auth_unique
+dir
+
+deactivate_addons
+dir
+
+callback.bundle
+file
+
+
+
+
+2018-01-16T08:24:14.108088Z
+ad41929322e56726d2ec6c0aa87d55a8
+2014-10-08T11:29:56.689972Z
+52994
+tomas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+225
+
+calls_old.bundle
+file
+
+
+
+
+2018-01-16T08:24:14.109088Z
+0ceaef5001e16b77a52d23d1178423a3
+2014-11-13T11:23:35.333878Z
+53983
+tomas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+221
+
+resellers_aggregate
+dir
+
+cdr
+dir
+
+aggregates
+dir
+
+re_dids_in_cc_details
+dir
+
+partner
+dir
+
+user_without_owner
+dir
+
+queues_edit
+dir
+

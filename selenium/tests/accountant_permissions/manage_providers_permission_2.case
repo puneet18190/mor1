@@ -1,0 +1,1912 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>manage_providers_permission</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">manage_providers_permission</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_manage_provider</td>
+	<td>Manage Providers</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_provider_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_dids_opt_1_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--# Manage Payments permission: Write-->
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/stats/providers')]</td>
+	<td>Providers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/providers/list')]</td>
+	<td>Providers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Contrast&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Add new Provider</td>
+	<td>Add new Provider</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add new Provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Add new Provider</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>SIP_provider</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_tech_SIP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Login/Username:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_name</td>
+	<td>SIP_provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[dtmfmode]</td>
+	<td>rfc2833</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[location_id]</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>provider_ani_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_timeout</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_call_limit</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>registration_notice</td>
+	<td>Registration can be used when at least Username is entered</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_login</td>
+	<td>SIP_provider</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>registration_notice</td>
+	<td>Registration can be used when at least Username is entered</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_password</td>
+	<td>please_change</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>ip_authentication</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_reg_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cid_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_server_ip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cid_number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>canreinvite</td>
+	<td>no</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>device_nat_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>qualify_time</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>qualify_yes</td>
+	<td></td>
+</tr>
+<!--modifying values-->
+<tr>
+	<td>select</td>
+	<td>device[dtmfmode]</td>
+	<td>label=auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cid_name</td>
+	<td>11111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cid_number</td>
+	<td>1111111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_add_value_ip</td>
+	<td>0.0.0.2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=canreinvite</td>
+	<td>label=yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_nat_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>qualify_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>qualify_time</td>
+	<td>2001</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[speex]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h261]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h263]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h263p]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h264]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_trustrpid_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_sendrpid_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insecure_port</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insecure_invite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_t38pt_udptl_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_promiscredir_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_progressinband_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_videosupport_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_allow_duplicate_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>provider_interpret_noanswer_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>provider_interpret_busy_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_fake_ring_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Please select server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_name</td>
+	<td>SIP_provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[dtmfmode]</td>
+	<td>auto</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[location_id]</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>ip_authentication</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_reg_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cid_name</td>
+	<td>11111</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cid_number</td>
+	<td>1111111</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>canreinvite</td>
+	<td>yes</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>device_nat_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>qualify_time</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>qualify_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[speex]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[h261]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[h263]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[h263p]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[h264]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>fromuser</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>fromdomain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>device_trustrpid_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>device_sendrpid_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>device_videosupport_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>provider_interpret_noanswer_as_failed_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>device_fake_ring_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<!--delete provider (SIP)-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>delete_link_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider deleted</td>
+	<td></td>
+</tr>
+<!--create dahdi-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>dahdi_provider</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_tech_dahdi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<!--modifying values-->
+<tr>
+	<td>select</td>
+	<td>device[dtmfmode]</td>
+	<td>label=auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<!--Checking again for modified values-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_name</td>
+	<td>dahdi_provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[dtmfmode]</td>
+	<td>auto</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[location_id]</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<!--delete provider (SIP)-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>delete_link_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider deleted</td>
+	<td></td>
+</tr>
+<!--create IAX2-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>IAX2_provider</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_tech_IAX2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>device[dtmfmode]</td>
+	<td>label=auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cid_name</td>
+	<td>11111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cid_number</td>
+	<td>1111111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ip_add_value_ip</td>
+	<td>0.0.0.3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=canreinvite</td>
+	<td>label=yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_nat_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>qualify_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>qualify_time</td>
+	<td>2001</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g729]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[gsm]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h261]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h263p]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_progressinband_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_videosupport_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_allow_duplicate_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_interpret_noanswer_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_interpret_busy_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_fake_ring_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<!--Checking again for modified values-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_name</td>
+	<td>IAX2_provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[dtmfmode]</td>
+	<td>auto</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[location_id]</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_reg_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cid_name</td>
+	<td>11111</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>cid_number</td>
+	<td>1111111</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>canreinvite</td>
+	<td>yes</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>device_nat_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>qualify_time</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>qualify_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[gsm]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[h261]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>device_allow_duplicate_calls_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>provider_interpret_noanswer_as_failed_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>provider_interpret_busy_as_failed_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>device_fake_ring_1</td>
+	<td>on</td>
+</tr>
+<!--delete provider (SIP)-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>delete_link_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider deleted</td>
+	<td></td>
+</tr>
+<!--create H323-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>H323_provider</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_tech_H323</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<!--modifying values-->
+<tr>
+	<td>select</td>
+	<td>device[dtmfmode]</td>
+	<td>label=inband</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g723]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g726]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g729]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[gsm]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h264]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_allow_duplicate_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_interpret_noanswer_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_interpret_busy_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_fake_ring_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_ipaddr</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<!--Checking  for modified values-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_name</td>
+	<td>H323_provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[dtmfmode]</td>
+	<td>inband</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[location_id]</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>device_faststart_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>device_h245tunneling_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[g723]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[g726]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[g729]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>codec[gsm]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>device_allow_duplicate_calls_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>provider_interpret_noanswer_as_failed_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>provider_interpret_busy_as_failed_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>device_fake_ring_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>delete_link_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>SIP_provider</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_tech_SIP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<!--h323-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_tech_H323</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>H323_pr_test</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider[server_ip]</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=device_ipaddr</td>
+	<td>192.168.0.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>server_ip_7</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/destroy/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--set minimum items per page-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/2_items_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[@id='tech_1']</td>
+	<td>IAX2</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>test_link_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>tech_6</td>
+	<td>SIP</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>test_link_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>hostname_ip_hostname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>registration_notice</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Registration can be used when at least Username is entered</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_login</td>
+	<td>test</td>
+</tr>
+<!--check for register checkbox-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>hostname_ip_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>When Provider is Dynamic, it is not allowed to register to it</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>hostname_ip_hostname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>provider_reg_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>reg_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_reg_extension</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>add_to_servers_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>provider_reg_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_reg_extension</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>reg_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_reg_line</td>
+	<td>1234123412341</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>provider_reg_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_reg_line</td>
+	<td>1234123412341</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>provider_reg_line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>hd_test</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider[hidden]</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/server_providers/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/providers_list/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_by_scr</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>provider_id</td>
+	<td>label=hd_test</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/dids</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>provider_id</td>
+	<td>label=hd_test</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list?page=2&amp;s_hidden=0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>ani_8</td>
+	<td>hd_test</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>hide_8_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#hide_link_8 &gt; img[alt=&quot;Contrast&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider is hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>hide_8_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>ani_8</td>
+	<td>hd_test</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/provider_rules/8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_name</td>
+	<td>Destination rule</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_add</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_minlen</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_maxlen</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dst_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#dst_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_name</td>
+	<td>Source rule</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_cut</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_minlen</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_maxlen</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=src_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#prov_enable_2_1 &gt; form &gt; input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_img_2 &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>chooseCancelOnNextConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#delete_img_2 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/provider_rule_edit/8?providerrule_id=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

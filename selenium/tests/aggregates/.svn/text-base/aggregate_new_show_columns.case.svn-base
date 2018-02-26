@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/conflines/es_remote_35.sql</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=/aggregates/calls_and_aggregates_for_all_type_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/one_item_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/aggregates/list?date_from[year]=2013</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=October</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=17</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>%3%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[6]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=price_orig_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[7]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=price_term_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>0.5500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[8]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=billed_time_orig_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[9]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=billed_time_term_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=duration_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>00:06:48</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[14]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=acd_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>00:00:11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[11]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=calls_answered_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[13]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=asr_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>85.71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='columntableaggregates_data']/div[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=calls_total_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.jqx-grid-column-header.jqx-widget-header &gt; div &gt; div</td>
+	<td>Destination Group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[2]</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[15]/div</td>
+	<td>Customer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[3]/div/div</td>
+	<td>Originator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[4]/div/div</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=billed_time_term_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[17]/div</td>
+	<td>Billed Duration</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[9]/div/div/span</td>
+	<td>Terminator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[9]/div</td>
+	<td>exact:00:01:06</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[9]/div/b</td>
+	<td>exact:00:06:48</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=billed_time_term_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=price_term_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[16]/div</td>
+	<td>Billed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[7]/div/div</td>
+	<td>Terminator (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[7]/div</td>
+	<td>0.5500</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[7]/div</td>
+	<td>3.4000</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=price_term_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=acd_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[14]</td>
+	<td>ACD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[14]/div</td>
+	<td>exact:00:00:11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[14]/div</td>
+	<td>exact:00:00:24</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=acd_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=asr_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[13]/div/div</td>
+	<td>ASR %</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[13]/div</td>
+	<td>85.71</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[13]/div</td>
+	<td>65.38</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=asr_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=calls_total_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[12]/div/div</td>
+	<td>Total calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[12]/div</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[12]/div</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=calls_total_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=calls_answered_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[11]/div/div</td>
+	<td>Answered calls</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[11]/div</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[11]</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=calls_answered_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=duration_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[10]/div/div</td>
+	<td>Duration</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[10]/div</td>
+	<td>exact:00:01:06</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[10]/div/b</td>
+	<td>exact:00:06:48</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=duration_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=billed_time_orig_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Originator Price with Tax</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[17]/div</td>
+	<td>Billed Duration</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[8]/div/div</td>
+	<td>Originator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[8]</td>
+	<td>exact:00:01:06</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[8]/div</td>
+	<td>exact:00:06:48</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=billed_time_orig_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=price_orig_show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='columntableaggregates_data']/div[5]/div/div/span</td>
+	<td>Originator (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[5]/div</td>
+	<td>0.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[5]/div</td>
+	<td>7.2333</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='columntableaggregates_data']/div[6]/div/div/span</td>
+	<td>Originator Price with Tax (USD)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0aggregates_data']/div[6]/div</td>
+	<td>0.9900</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowaggregates_data']/div[6]/div</td>
+	<td>7.2333</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billed_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_orig &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#billsec_term &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ACD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Answered calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=ASR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Total calls</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

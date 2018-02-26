@@ -1,0 +1,121 @@
+10
+
+dir
+66296
+http://svn.kolmisoft.com/mor/gui/branches/x8/selenium/sqls
+http://svn.kolmisoft.com
+
+
+
+2016-12-13T12:57:42.285426Z
+65581
+rugile
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+19941b1f-7a74-413c-ab52-0de3e92e9a87
+
+invoices
+dir
+
+services
+dir
+
+dialplan
+dir
+
+localization
+dir
+
+autodialer
+dir
+
+provider
+dir
+
+for_crashes
+dir
+
+device
+dir
+
+settings
+dir
+
+did
+dir
+
+server
+dir
+
+addons
+dir
+
+voucher
+dir
+
+test
+dir
+
+lcr
+dir
+
+destination_groups
+dir
+
+number_pool
+dir
+
+queue
+dir
+
+terminator
+dir
+
+calling_cards
+dir
+
+ring_groups
+dir
+
+calls
+dir
+
+payments
+dir
+
+sms
+dir
+
+callshop
+dir
+
+cli
+dir
+
+aggregates
+dir
+
+card
+dir
+
+tariff
+dir
+
+permissions
+dir
+
+user
+dir
+

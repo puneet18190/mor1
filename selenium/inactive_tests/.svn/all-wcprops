@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/66296/mor/gui/branches/x8/selenium/inactive_tests
+END
+warning_balance_actions.case
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/inactive_tests/warning_balance_actions.case
+END
+papildomos_aggregates_variacijos_matomos_tik_invoice.case
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/62681/mor/gui/branches/x8/selenium/inactive_tests/papildomos_aggregates_variacijos_matomos_tik_invoice.case
+END
+profit_partner.case
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/selenium/inactive_tests/profit_partner.case
+END
+summer_time_zone.case
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/inactive_tests/summer_time_zone.case
+END
+rerating_aggregates.case
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/selenium/inactive_tests/rerating_aggregates.case
+END

@@ -1,0 +1,43 @@
+10
+
+dir
+66296
+http://svn.kolmisoft.com/mor/gui/branches/x8/app
+http://svn.kolmisoft.com
+
+
+
+2017-03-06T13:43:54.827728Z
+66280
+ervinas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19941b1f-7a74-413c-ab52-0de3e92e9a87
+
+assets
+dir
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+views
+dir
+

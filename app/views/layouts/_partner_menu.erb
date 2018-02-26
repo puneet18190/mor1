@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    partner_menu_div = new dTree('partner_menu_div');
+    partner_menu_div.config.inOrder = true;
+    partner_menu_div.add(0, -1, '<%= _('MAIN_MENU') %>');
+    partner_menu_div.add(10, 0, '<%= _('Settings') %>', '<%= Web_Dir %>/functions/partner_settings');
+    partner_menu_div.add(12, 0, '<%= _('Billing') %>', '');
+    partner_menu_div.add(14, 12, '<%= _('Invoices') %>', '<%= Web_Dir %>/accounting/invoices');
+    partner_menu_div.add(13, 12, '<%= _('Payments') %>', '<%= Web_Dir %>/payments/list');
+    partner_menu_div.add(15, 12, '<%= _('Services') %>', '<%= Web_Dir %>/services/list');
+    partner_menu_div.add(16, 15, '<%= _('Subscriptions') %>', '<%= Web_Dir %>/services/subscriptions');
+
+
+    partner_menu_div.add(2, 12, '<%= _('Tariffs') %>', '<%= Web_Dir %>/tariffs/list')
+    partner_menu_div.add(4, 0, '<%= _('Users') %>', '<%= Web_Dir %>/users/list');
+
+    $("partner_menu_div").innerHTML = partner_menu_div.toString();
+
+    personal_menu = new dTree('personal_menu');
+    personal_menu.config.inOrder = true;
+    personal_menu.add(0, -1, '<%= _('PERSONAL') %>');
+    personal_menu.add(1, 0, '<%= _('Start_page') %>', '<%= Web_Dir %>/');
+    personal_menu.add(3, 0, '<%= _('Personal_details') %>', '<%= Web_Dir %>/users/personal_details');
+
+    <% if show_rates_for_users %>
+    personal_menu.add(6, 3, '<%= _('Rates') %>', '<%= Web_Dir %>/tariffs/user_rates');
+    <% end %>
+
+    personal_menu.add(31, 3, '<%= _('Payments') %>', '<%= Web_Dir %>/payments/personal_payments');
+    personal_menu.add(32, 3, '<%= _('Invoices') %>', '<%= Web_Dir %>/accounting/user_invoices');
+    personal_menu.add(5, 0, '<%= _('Logout') %>', '<%= Web_Dir %>/callc/logout');
+
+    $("personal_menu_div").innerHTML = personal_menu.toString();
+</script>

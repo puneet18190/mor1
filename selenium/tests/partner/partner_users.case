@@ -1,0 +1,2119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>partner_users.case</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">partner_users.case</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=users</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6001</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>1</td>
+</tr>
+<!--# Negalima kurti userio, kol nėra tarifo-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Partner cant access currencies-->
+<tr>
+	<td>open</td>
+	<td>/billing/currencies/currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--~~~~~~~~~~~~~~~~~~-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Users')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Add new User</td>
+	<td>Add new User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=acc_1</td>
+	<td>ID</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_1</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_1</td>
+	<td>Username</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=usertype_1</td>
+	<td>User Type</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=account_type_1</td>
+	<td>Account Type</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_1</td>
+	<td>Balance</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add new User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>No available tariffs for user. Please create tariff and assign it to user. Otherwise this user will be unable to call.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--# Negalima kurti userio, jei Adminas nesukūręs Reseller Group-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_type_select</td>
+	<td>Admin has to create a Reseller Group</td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>reseller_group</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Group created</td>
+</tr>
+<!--# Kai partner'is turi tariff ir admin'as yra sukūręs reseller group'ę, tada partner gali kurti ir editinti reseller'ius-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--# Userio kūrimas-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>New user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>User was not created<br /> * Password must be longer than 7 characters<br /> * Username must be longer than 0 characters</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>User was not created<br /> * Password must be longer than 7 characters<br /> * Username must be longer than 0 characters</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>partner_user</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>partner_user1Sa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_clientid</td>
+	<td>123456789</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_lcr_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_type_select</td>
+	<td>reseller_group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_tariff_id</td>
+	<td>Retail - partner_tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td.bottom_border &gt; b</td>
+	<td>General</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[2]/table/tbody/tr/td/b</td>
+	<td>Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[5]/td/b</td>
+	<td>Blocking</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[11]/td/b</td>
+	<td>Taxes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[9]/td/b</td>
+	<td>Warning Balance</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td/table/tbody/tr[15]/td/b</td>
+	<td>Registration Address</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#invoices_form_name &gt; td.bottom_border &gt; b</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#recordings_form_name &gt; td.bottom_border &gt; b</td>
+	<td>Recordings</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#payments_form_name &gt; td.bottom_border &gt; b</td>
+	<td>Payments</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#blacklists_form_name &gt; td.bottom_border &gt; b</td>
+	<td>Blacklist / Whitelist</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#privacy_form_name &gt; td.bottom_border &gt; b</td>
+	<td>Privacy</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[20]/td/b</td>
+	<td>Comment</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Responsible Accountant</td>
+	<td></td>
+</tr>
+<!--Privacy opcijos neaktyvios-->
+<tr>
+	<td>assertChecked</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_gui_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_gui_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_csv_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_csv_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_pdf_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_pdf_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Add new User</td>
+	<td>Add new User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6002</td>
+	<td>6002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Partner User</td>
+	<td>Partner User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_6002</td>
+	<td>partner_user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=postpaid_6002</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=balance_6002</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#logged_6002 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#call_list_link_6002 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#manual_payment_link_6002 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#custom_rates_link_6002 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_log_link_6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_link_6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>ąčęė!@сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>passwordSa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_comment</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6003</td>
+	<td>6003</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=exact:ąčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_6003</td>
+	<td>ąčęė!@сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/6003</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_username</td>
+	<td>ąčęė!@сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>id=password_password</td>
+	<td>passwordSa1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_first_name</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_last_name</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_comment</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address_email</td>
+	<td>qwerty@test.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>MOR X5 User settings: ąčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: ąčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>jonukas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>jonukas1Sa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Jonas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Jonauskas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=user[taxation_country]</td>
+	<td>label=Lebanon</td>
+</tr>
+<!--Reseller PRO-->
+<tr>
+	<td>click</td>
+	<td>id=own_providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=minimal_charge_enabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=minimal_charge_date_month</td>
+	<td>label=12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_comment</td>
+	<td>comment test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_agreement_number</td>
+	<td>0000000007</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Jonas Jonauskas</td>
+	<td>Jonas Jonauskas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6004</td>
+	<td>6004</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_6004</td>
+	<td>jonukas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add new User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>petriukas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>petriukas1Sa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Petras</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Petrauskas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<!--# Userio editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>User settings: Partner User</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>test_partner_user</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>test_partner_user1Sa1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_type_select</td>
+	<td>reseller_group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_tariff_id</td>
+	<td>Retail - partner_tariff</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_accounting_number</td>
+	<td>9876543210</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#responsible_accountant &gt; td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Responsible Accountant</td>
+	<td></td>
+</tr>
+<!--Privacy atvaizdavimas-->
+<tr>
+	<td>assertChecked</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=privacy_gui_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=privacy_gui_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=privacy_csv_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=privacy_csv_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=privacy_pdf_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>id=privacy_pdf_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_4</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=privacy_gui_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=privacy_csv_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=privacy_pdf_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_4</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>User was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: Partner User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_username</td>
+	<td>test_partner_user</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=password_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Test Partner</td>
+</tr>
+<!--Privacy-->
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_gui_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_csv_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_4</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=privacy_pdf_0</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=privacy_global</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_gui_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_gui_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_csv_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_csv_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_pdf_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotEditable</td>
+	<td>id=privacy_pdf_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User's settings successfully changed: Test Partner User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=user_first_name</td>
+	<td>Test Partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reseller_type_select</td>
+	<td>reseller_group</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_tariff_id</td>
+	<td>Retail - partner_tariff</td>
+</tr>
+<!--# Naujo partnerio kūrimas-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lcr_name</td>
+	<td>partner lcr 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>LCR successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/providers_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=select_prov</td>
+	<td>label=Test Provider - IAX2/22.33.44.55</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=td.main_window &gt; div.nb &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>test_partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>test_partner1Sa1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_usertype</td>
+	<td>label=partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Super</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Partner</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_responsible_accountant_id</td>
+	<td>label=Test Accountant</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=user_lcr_id</td>
+	<td>partner lcr 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>User successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Super Partner</td>
+	<td>Super Partner</td>
+</tr>
+<!--# Prisijungimas su nauju partneriu-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#login_as_link_6006 &gt; img[alt=&quot;Application key&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Logged as: Super Partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=b</td>
+	<td>Super Partner</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>tariff</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>mauglis</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>mauglis1Sa1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td>Laukinis</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td>Mauglis</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Laukinis Mauglis</td>
+	<td>Laukinis Mauglis</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6007</td>
+	<td>mauglis</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=username_6004</td>
+	<td>jonukas</td>
+</tr>
+<!--Turi atvaizduoti tik Partneriui priklausancius resellerius-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=reseller_id</td>
+	<td>AllLaukinis Mauglis</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ąčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Jonas Jonauskas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Petras Petrauskas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test Partner User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Resellers User:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=6007</td>
+	<td>Laukinis Mauglis</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=6006</td>
+	<td>Super Partner</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Turi atvaizduoti tik Partneriui priklausancius resellerius-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=reseller_id</td>
+	<td>exact:Alląčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير Jonas Jonauskas Petras Petrauskas Test Partner User</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=6007</td>
+	<td>Laukinis Mauglis</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Test Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=6003</td>
+	<td>exact:ąčęė!@#$%^*()?сти́льную صباح الخير ąčęė!@#$%^*()?сти́льную صباح الخير</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=6004</td>
+	<td>Jonas Jonauskas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=6005</td>
+	<td>Petras Petrauskas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=6002</td>
+	<td>Test Partner User</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=6001</td>
+	<td>Test Partner</td>
+</tr>
+<!--# Users list-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table.simple &gt; tbody &gt; tr &gt; td</td>
+	<td>Username : First Name : Last Name : Email :</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6003</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6005</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=username_6007</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_username</td>
+	<td>jonukas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=username_6005</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_username</td>
+	<td>jonukas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_first_name</td>
+	<td>Petras</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Petras Petrauskas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Jonas Jonauskas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_last_name</td>
+	<td>%auskas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Jonas Jonauskas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Petras Petrauskas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Test Partner User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_email</td>
+	<td>qwerty@test.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=name_6003</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=username_6005</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_agr_number</td>
+	<td>0%5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=username_6003</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_id</td>
+	<td>6005</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=name_6005</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=name_6002</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=responsible_accountant_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_username</td>
+	<td>%ukas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_last_name</td>
+	<td>%auskas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=username_6005</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_agr_number</td>
+	<td>%8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=username_6005</td>
+	<td>petriukas</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=username_6004</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_username</td>
+	<td>%ukas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_last_name</td>
+	<td>%auskas</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_agr_number</td>
+	<td>%8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<!--Ne RSPRO useris-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>petriukas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>petriukas1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>No available tariffs for user. Please create tariff and assign it to user. Otherwise this user will be unable to call.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>tariff for partner user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>LCR:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_lcr_id</td>
+	<td></td>
+</tr>
+<!--RSPRO useris-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>jonukas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>jonukas1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>No available LCR for user. Please create LCR and assign it to user. Otherwise this user will be unable to call.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lcr_name</td>
+	<td>LCR for partner user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>LCR successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>tariff for partner user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>LCR:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=user_lcr_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_lcr_id</td>
+	<td>LCR for partner user</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_username</td>
+	<td>partner_user_rspro</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_password</td>
+	<td>partner_user_rspro1Sa1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=users</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6001</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6002</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6004</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6005</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6006</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6007</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/6001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_lcr_id</td>
+	<td>label=partner lcr 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test Partner</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=users</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6001</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6002</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6004</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6005</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>6008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lcr_id_value</td>
+	<td>3</td>
+</tr>
+</tbody></table>
+</body>
+</html>

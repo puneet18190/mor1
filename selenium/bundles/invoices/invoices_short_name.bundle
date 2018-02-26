@@ -1,0 +1,11 @@
+# ----
+# invoice  reseller settings
+#number lenght 5
+settings/reseller/invoices_number_length_5.sql
+# invoice number start 0 
+settings/reseller/invoice_number_start_0.sql
+# postpaid number type 2
+settings/reseller/invoices_number_type_2.sql
+# invoice_number format 2
+settings/reseller/invoices_number_format_2.sql
+# bundle loaded

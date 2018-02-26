@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>ip_auth_on_device_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ip_auth_on_device_update</td></tr>
+</thead><tbody>
+<!--Login as admin-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<!--Create providers for testing-->
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>test_provider</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_server_ip</td>
+	<td>4.4.4.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ip_add_value_ip</td>
+	<td>2.2.2.2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>test_provider_2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_server_ip</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ip_add_value_ip</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_port</td>
+	<td>4444</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<!--Hide a user-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/hide/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_5</td>
+	<td>Test Device for Admin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_6</td>
+	<td>Test Device for Reseller</td>
+</tr>
+<!--Device NOT visible when its owner is hidden-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=description_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=description_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=description_4</td>
+	<td></td>
+</tr>
+<!--Conflict between a device and providers-->
+<tr>
+	<td>open</td>
+	<td>billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>4.4.4.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by Device/Provider: test_provider</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=test_provider</td>
+	<td></td>
+</tr>
+<!--Check if combination is really used-->
+<tr>
+	<td>assertValue</td>
+	<td>provider_server_ip</td>
+	<td>4.4.4.4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>4444</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by Device/Provider: test_provider_2</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=test_provider_2</td>
+	<td></td>
+</tr>
+<!--Check if combination is really used-->
+<tr>
+	<td>assertValue</td>
+	<td>ip_add_value_ip</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>4444</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>3333</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<!--Conflict between two admin user's devices-->
+<tr>
+	<td>open</td>
+	<td>billing/devices/device_edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>3333</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by Device/Provider: IAX2/101</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=IAX2/101</td>
+	<td></td>
+</tr>
+<!--Check if combination is really used-->
+<tr>
+	<td>assertValue</td>
+	<td>host</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>port</td>
+	<td>3333</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=reseller</td>
+	<td></td>
+</tr>
+<!--Create a reseller PRO-->
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>reseller_group</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Group created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>user_username</td>
+	<td>reseller_pro</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password_password</td>
+	<td>passwordA1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>user_usertype</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>own_providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User successfully created</td>
+	<td></td>
+</tr>
+<!--Login as reseller PRO-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller_pro</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>passwordA1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<!--Create a provider-->
+<tr>
+	<td>type</td>
+	<td>tariff_name</td>
+	<td>reseller_tariff</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>tariff_purpose_provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Tariff successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_name</td>
+	<td>resellers_pro_provider</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_server_ip</td>
+	<td>6.6.6.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ip_add_value_ip</td>
+	<td>6.6.6.6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/lcrs/new</td>
+	<td></td>
+</tr>
+<!--Create a resellers pro user-->
+<tr>
+	<td>type</td>
+	<td>lcr_name</td>
+	<td>test lcr</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>LCR successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tariff_name</td>
+	<td>reseller_pro_tariff</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Tariff successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>user_username</td>
+	<td>resellers_pro_user</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password_password</td>
+	<td>qwertyA1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User successfully created</td>
+	<td></td>
+</tr>
+<!--Conflict between the two resellers pro devices and providers-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>device_description</td>
+	<td>user resellers pro device</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>6.6.6.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by Device/Provider: resellers_pro_provider</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=resellers_pro_provider</td>
+	<td></td>
+</tr>
+<!--Check if combination is really used-->
+<tr>
+	<td>assertValue</td>
+	<td>provider_server_ip</td>
+	<td>6.6.6.6</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>provider_port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/11s</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<!--Conflict between the reseller pro user's device and the admin user's provider-->
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>4.4.4.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by other User</td>
+	<td></td>
+</tr>
+<!--Verify if there is no link-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=test_provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>9999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--Login as a simple reseller-->
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--Conflict between the reseller's user device and the admin's provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>4.4.4.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by other User</td>
+	<td></td>
+</tr>
+<!--Verify if there is no link-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=test_provider</td>
+	<td></td>
+</tr>
+<!--Conflict between the reseller user's and admins user's devices-->
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>3333</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by other User</td>
+	<td></td>
+</tr>
+<!--Verify if there is no link-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=IAX2/101</td>
+	<td></td>
+</tr>
+<!--Conflict between the resellers user's and the reseller pro user's devices-->
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>6.6.6.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5060</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by other User</td>
+	<td></td>
+</tr>
+<!--Verify if there is no link-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=resellers_pro_provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5555</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=5</td>
+	<td></td>
+</tr>
+<!--Conflict between the two reseller user's devices-->
+<tr>
+	<td>type</td>
+	<td>device_description</td>
+	<td>user resellers device 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication_dynamic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5555</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--IP and port combination is used-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by Device: IAX2/105</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=IAX2/105</td>
+	<td></td>
+</tr>
+<!--Check if combination is really used-->
+<tr>
+	<td>assertValue</td>
+	<td>host</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>port</td>
+	<td>5555</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='hide_link_5']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>User hidden: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=description_7</td>
+	<td>Test Device for Resellers User</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=description_12</td>
+	<td>user resellers device 2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='hide_link_5']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>User unhidden: User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=User Resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_7</td>
+	<td>Test Device for Resellers User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_12</td>
+	<td>user resellers device 2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--Login as admin-->
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--Conflicts between the admin's user device and reseller user's device/provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>5555</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by User: Test Reseller in Device/Provider: IAX2/105</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=IAX2/105</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Test Reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>host</td>
+	<td>127.0.0.9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>port</td>
+	<td>9999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>IP Address and Port combination must be unique. Combination is used by User: reseller_pro in Device/Provider: SIP/1001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=SIP/1001</td>
+	<td></td>
+</tr>
+<!--Verify if a link works-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=reseller_pro</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

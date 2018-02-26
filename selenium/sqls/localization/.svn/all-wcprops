@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/localization
+END
+create.sql
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/localization/create.sql
+END
+reseller_location.sql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/localization/reseller_location.sql
+END

@@ -1,0 +1,1741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--patikrinam kaip atrodo visualiai-->
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Tariffs')]</td>
+	<td>Tariffs</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=New tariff</td>
+	<td>New tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; b</td>
+	<td>Retail tariffs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//b[2]</td>
+	<td>Wholesale tariffs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=USD</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=EUR</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Destinations CSV</td>
+	<td>Destinations CSV</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td>Currency</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[3]</td>
+	<td>Rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[4]</td>
+	<td>Last Tariff Update</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; b</td>
+	<td>Retail tariffs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//b[2]</td>
+	<td>Wholesale tariffs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Tariffs</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Tariffs')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Tariffs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Change Tariff for Users</td>
+	<td>Change Tariff for Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Search</td>
+	<td>Search</td>
+</tr>
+<!--exportuojam tarifus-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/destinations_csv?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>93,Afghanistan,Afghanistan proper 9320,Afghanistan</td>
+	<td></td>
+</tr>
+<!--------------------------------->
+<!--kuriam retail tarifa-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New tariff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=tariff[currency]</td>
+	<td>USD EUR</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tariff_purpose_user</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=tariff_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>retail_tarifas</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Tariff successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6</td>
+	<td>retail_tarifas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_6</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_6</td>
+	<td>Rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_all_rates_6</td>
+	<td>Delete all Rates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rates_csv_6 &gt; form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_6</td>
+	<td></td>
+</tr>
+<!----------------------->
+<!--Kuriam rates retail tarifui-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate5</td>
+	<td>0.12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate5</td>
+	<td>0.12</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=gch5</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate249</td>
+	<td>12.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=round249</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gch249</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Rates updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=gch249</td>
+	<td>2.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=rate249</td>
+	<td>12.6</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=round249</td>
+	<td>2</td>
+</tr>
+<!--editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/edit/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff[currency]</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>retail_tarifas_1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Tariff successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_6</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6</td>
+	<td>retail_tarifas_1</td>
+</tr>
+<!--Details-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[2]/table/tbody/tr/th</td>
+	<td>Card Group</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<!--export rates-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/6?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;filename&quot;:&quot;RETAIL_TARIFAS_1-EUR.csv&quot;,&quot;file&quot;:&quot;Destination Group Name,Rate(EUR),Round\n\&quot;Algeria\&quot;,0.1200,1\n\&quot;Lithuania\&quot;,12.6000,2\n&quot;}</td>
+</tr>
+<!--search-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_6</td>
+	<td>retail_tarifas_1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--Delete all rates-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete all Rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>All rates deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>id=rate5</td>
+	<td>0.12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>id=rate249</td>
+	<td>12.6</td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>id=round249</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertNotValue</td>
+	<td>id=gch249</td>
+	<td>2</td>
+</tr>
+<!--Delete tariff-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Tariff deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>retail_tarifas_1</td>
+	<td></td>
+</tr>
+<!--------------------->
+<!--Wholesale tariff-->
+<!--Create-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>Wholesale tariff</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Tariff successfully created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_7</td>
+	<td>Wholesale tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_7</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_7</td>
+	<td>Rates (0/0)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=import_csv_7</td>
+	<td>Import from CSV</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rates_csv_7 &gt; form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_details_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_7</td>
+	<td></td>
+</tr>
+<!--kuriam rates wholesale tarifui-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_2</td>
+	<td>0.10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_31</td>
+	<td>0.44</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=O</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_7053</td>
+	<td>0.77</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_17746</td>
+	<td>0.55</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_7</td>
+	<td>Rates (4/4)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<!--quick add new rate-->
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>370 - Lithuania (Lithuania proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>0.44</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_day</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_hour</td>
+	<td>label=04</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_minute</td>
+	<td>label=05</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_509</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_509</td>
+	<td>0.4400</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=effective_from_509</td>
+	<td>2012-02-03 04:05:00</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_7</td>
+	<td>Rates (5/5)</td>
+</tr>
+<!--add new rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Albania</td>
+	<td>Albania</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Albania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_20</td>
+	<td>0.888</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_7</td>
+	<td>Rates (6/6)</td>
+</tr>
+<!--edit-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/edit/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>Wholesale tariff 1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tariff[currency]</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_7</td>
+	<td>Wholesale tariff 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency_7</td>
+	<td>EUR</td>
+</tr>
+<!--Details-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Wholesale tariff 1</td>
+	<td>Wholesale tariff 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[2]/table/tbody/tr/th</td>
+	<td>Card Group</td>
+</tr>
+<!--export rates-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/7?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body</td>
+	<td>{&quot;filename&quot;:&quot;WHOLESALE_TARIFF_1-EUR.csv&quot;,&quot;file&quot;:&quot;Destination,Prefix,Rate(EUR),Connection Fee(EUR),Increment,Minimal Time,Start Time,End Time,Week Day,Effective from\n\&quot;Afghanistan proper\&quot;,93,0.1000,0.0000,1,0,00:00:00,23:59:59,\&quot;\&quot;,\&quot;\&quot;\n\&quot;Albania mobile-AMC\&quot;,35568,0.8880,0.0000,1,0,00:00:00,23:59:59,\&quot;\&quot;,\&quot;\&quot;\n\&quot;Algeria mobile-AlgeriaTel\&quot;,21398,0.4400,0.0000,1,0,00:00:00,23:59:59,\&quot;\&quot;,\&quot;\&quot;\n\&quot;Lithuania proper\&quot;,370,0.4400,0.0000,1,0,00:00:00,23:59:59,\&quot;\&quot;,2012-02-03 04:05:00\n\&quot;Oman Mobile\&quot;,968992,0.5500,0.0000,1,0,00:00:00,23:59:59,\&quot;\&quot;,\&quot;\&quot;\n\&quot;Oman proper\&quot;,968,0.7700,0.0000,1,0,00:00:00,23:59:59,\&quot;\&quot;,\&quot;\&quot;\n&quot;}</td>
+</tr>
+<!--import rates-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/import_csv2/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=file</td>
+	<td>/home/mor/selenium/files/csv/tariff_import2.csv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=prefix_id</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=rate_id</td>
+	<td>label=Price</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=delete_unimported_prefix_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_prefix_13</td>
+	<td>3706</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=imp_rate_13</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Columns assigned</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Analysis completed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates</td>
+	<td>Zero Rates in CSV file</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_count</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_display</td>
+	<td>(Press here to get the list)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/zero_rates_from_csv?csv2=1&amp;tariff_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_0</td>
+	<td>Lithuania Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_1</td>
+	<td>3706</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_2</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_0</td>
+	<td>Lithuania Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_1</td>
+	<td>37060</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_2</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates</td>
+	<td>Zero Rates in CSV file</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_count</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_display</td>
+	<td>(Press here to get the list)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/zero_rates_from_csv?csv2=1&amp;tariff_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_0</td>
+	<td>Lithuania Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_1</td>
+	<td>3706</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_2</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_0</td>
+	<td>Lithuania Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_1</td>
+	<td>37060</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_2</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>New Rates created: 13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates</td>
+	<td>Zero Rates in CSV file</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_count</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zero_rates_display</td>
+	<td>(Press here to get the list)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/zero_rates_from_csv?csv2=1&amp;tariff_id=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_0</td>
+	<td>Lithuania Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_1</td>
+	<td>3706</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_0_col_2</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_0</td>
+	<td>Lithuania Tele2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_1</td>
+	<td>37060</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=row_1_col_2</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_7</td>
+	<td>Rates (19/20)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_517</td>
+	<td>Albania proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_520</td>
+	<td>Albania Tirane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_522</td>
+	<td>35544</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_506</td>
+	<td>21398</td>
+</tr>
+<!--Chenge tariff for users-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/change_tariff_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=tariff_from</td>
+	<td>Wholesale tariff 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=tariff_to</td>
+	<td>Wholesale tariff 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Update Tariff for Users</td>
+</tr>
+<!--Wholesale -> Wholesale-->
+<tr>
+	<td>assertText</td>
+	<td>id=name_7</td>
+	<td>Wholesale tariff 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_7</td>
+	<td>Rates (19/20)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/make_user_tariff_wholesale/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=add_amount</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_8</td>
+	<td>Wholesale tariff 1 + 5.0 + 0.0%</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_8</td>
+	<td>Rates (19/20)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_534</td>
+	<td>5.1670</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_533</td>
+	<td>5.1960</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_528</td>
+	<td>5.4400</td>
+</tr>
+<!--~~~~~~~~~~~-->
+<!--Delete all rates-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete all Rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>All rates deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=name_516</td>
+	<td>Albania proper</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=name_518</td>
+	<td>Albania Tirane</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=prefix_521</td>
+	<td>35544</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>id=prefix_506</td>
+	<td>21398</td>
+</tr>
+<!--pasiekiamumas-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--cia currency , reikes testo gale-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/currencies/update_currencies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=O</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=O</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/7?st=O</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/6001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=EUR</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=ALL</td>
+	<td>ALL</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=DZD</td>
+	<td>DZD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=LABAS</td>
+	<td>LABAS</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=tariff[currency]</td>
+	<td>USD EUR ALL DZD LABAS</td>
+</tr>
+<!--~~~Blocked~~~-->
+<!--Wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>BlockedW</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Tariff successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/9?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_2</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_7</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_8</td>
+	<td>blocked</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_5</td>
+	<td>BLOCKED</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[2]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[4]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[5]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>9350</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>9350 - Afghanistan (Afghanistan Mazar-e-sharif)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[5]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>9360</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>9360 - Afghanistan (Afghanistan Jalalabad)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>blocked</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Albania</td>
+	<td>Albania</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Albania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_18</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_19</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_20</td>
+	<td>blocked</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dest_21</td>
+	<td>BLOCKED</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[8]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[9]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[10]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[11]/td[5]</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/ratedetail_edit/550</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=ratedetail_rate</td>
+	<td>Blocked</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ratedetail_rate</td>
+	<td>BLOCKED</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rate_550</td>
+	<td>Blocked</td>
+</tr>
+</tbody></table>
+</body>
+</html>

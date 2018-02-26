@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/!svn/ver/66056/mor/gui/branches/x8/app/helpers
+END
+callc_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/callc_helper.rb
+END
+groups_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/groups_helper.rb
+END
+payment_gateways_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/payment_gateways_helper.rb
+END
+cron_actions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/cron_actions_helper.rb
+END
+dids_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/dids_helper.rb
+END
+servers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/servers_helper.rb
+END
+cards_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/cards_helper.rb
+END
+tariffs_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/tariffs_helper.rb
+END
+stats_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/65145/mor/gui/branches/x8/app/helpers/stats_helper.rb
+END
+did_rates_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/did_rates_helper.rb
+END
+payments_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/payments_helper.rb
+END
+sms_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/sms_helper.rb
+END
+lcrs_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/lcrs_helper.rb
+END
+callshop_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/callshop_helper.rb
+END
+terminators_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/terminators_helper.rb
+END
+functions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/functions_helper.rb
+END
+cdr_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/66056/mor/gui/branches/x8/app/helpers/cdr_helper.rb
+END
+permissions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/permissions_helper.rb
+END
+pbx_functions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/pbx_functions_helper.rb
+END
+devices_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/devices_helper.rb
+END
+autodialer_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/autodialer_helper.rb
+END
+alerts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/alerts_helper.rb
+END
+recordings_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/64041/mor/gui/branches/x8/app/helpers/recordings_helper.rb
+END
+ringgroups_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/ringgroups_helper.rb
+END
+ivr_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/65866/mor/gui/branches/x8/app/helpers/ivr_helper.rb
+END
+layouts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/layouts_helper.rb
+END
+users_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/64532/mor/gui/branches/x8/app/helpers/users_helper.rb
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/65417/mor/gui/branches/x8/app/helpers/application_helper.rb
+END
+dialplans_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/dialplans_helper.rb
+END
+cardgroups_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/cardgroups_helper.rb
+END
+providers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/helpers/providers_helper.rb
+END

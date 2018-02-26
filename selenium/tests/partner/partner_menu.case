@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test Partner(partner)</td>
+	<td>Test Partner(partner)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/active_processor/callc/logout')]</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.dTreeNode</td>
+	<td>MAIN MENU</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Settings</td>
+	<td>Settings</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Settings</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Tariffs')]</td>
+	<td>Tariffs</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Tariffs')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Tariffs</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Users')]</td>
+	<td>Users</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Users')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Billing')]</td>
+	<td>Billing</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/accounting/invoices')]</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/billing/accounting/invoices')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='partner_statistics_menu_div']/div/div</td>
+	<td>STATISTICS</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Archived Calls')]</td>
+	<td>Archived Calls</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Archived Calls')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Archived Calls</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Provider:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>DID Provider:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Last calls')]</td>
+	<td>Last calls</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Last calls')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Last Calls</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Provider:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>DID Provider:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/stats/calls_per_day')]</td>
+	<td>Calls per Day</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Calls per Day')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Calls per Day</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='personal_menu_div']/div/div</td>
+	<td>PERSONAL MENU</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Start page')]</td>
+	<td>Start page</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Start page')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Start page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hello</td>
+	<td>Hello, Test Partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Personal details')]</td>
+	<td>Personal details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Personal details')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Personal details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Payments')]</td>
+	<td>Payments</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Payments')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Payments</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'Invoices')]</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Invoices')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/callc/logout')]</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Logout')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td &gt; b</td>
+	<td>Please enter your Username and Password to login:</td>
+</tr>
+</tbody></table>
+</body>
+</html>

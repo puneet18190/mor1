@@ -1,0 +1,9 @@
+# create cc groups
+# ----
+# create cc for admin
+calling_cards/ccgroup_14002/create.sql
+#create for reseller
+calling_cards/ccgroup_14301/create.sql
+# chenge admin currency
+user/admin_0/assign_currency_eur.sql
+# bundle loaded

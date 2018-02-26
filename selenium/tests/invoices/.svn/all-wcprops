@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/65850/mor/gui/branches/x8/selenium/tests/invoices
+END
+change_hard_limit.sql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/change_hard_limit.sql
+END
+invoices_bulk_pay.case
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoices_bulk_pay.case
+END
+invoices_for_reseller.sql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoices_for_reseller.sql
+END
+caller_id_did_id_set_zero.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/caller_id_did_id_set_zero.sql
+END
+invoices_list.case
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/64163/mor/gui/branches/x8/selenium/tests/invoices/invoices_list.case
+END
+send_invoices_to_user.sql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/send_invoices_to_user.sql
+END
+invoice_settings.case
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/64163/mor/gui/branches/x8/selenium/tests/invoices/invoice_settings.case
+END
+invoice_by_dids.sql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoice_by_dids.sql
+END
+send_invoice_to_re_user.sql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/send_invoice_to_re_user.sql
+END
+invoice_delete_check_balance.case
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoice_delete_check_balance.case
+END
+invoices_for_partner.case
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/65785/mor/gui/branches/x8/selenium/tests/invoices/invoices_for_partner.case
+END
+bad_email.sql
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/bad_email.sql
+END
+delete_hard_limit.sql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/delete_hard_limit.sql
+END
+invoices_pdf_csv.case
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/65850/mor/gui/branches/x8/selenium/tests/invoices/invoices_pdf_csv.case
+END
+invoice_details2.case
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoice_details2.case
+END
+calls_through_dids.sql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/calls_through_dids.sql
+END
+update_subscriptions_two.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/update_subscriptions_two.sql
+END
+calls_for_invoices.sql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/calls_for_invoices.sql
+END
+sms_for_invoices.sql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/sms_for_invoices.sql
+END
+invoices_xlsx.case
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoices_xlsx.case
+END
+update_subscriptions.sql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/update_subscriptions.sql
+END
+invoices_xlsx_for_partner.case
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/64985/mor/gui/branches/x8/selenium/tests/invoices/invoices_xlsx_for_partner.case
+END
+invoice_settings.sql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoice_settings.sql
+END
+subscriptions_for_invoices.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/subscriptions_for_invoices.sql
+END
+invoice_start_end_time.sql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoice_start_end_time.sql
+END
+invoice_details.case
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoice_details.case
+END
+long_calls.sql
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/long_calls.sql
+END
+invoices5.case
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/invoices/invoices5.case
+END

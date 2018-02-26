@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices
+END
+invoices_for_postpaid_users.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_for_postpaid_users.bundle
+END
+invoices_for_prepaid_users.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_for_prepaid_users.bundle
+END
+invoices_reseller.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_reseller.bundle
+END
+invoices.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices.bundle
+END
+invoices_inveleven_numbers.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_inveleven_numbers.bundle
+END
+detailed_csv.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/detailed_csv.bundle
+END
+invoice_billsec_to_user_billsec.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoice_billsec_to_user_billsec.bundle
+END
+send_invoices_to_user.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/send_invoices_to_user.bundle
+END
+reseller_invoice.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/reseller_invoice.bundle
+END
+balance_line.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/balance_line.bundle
+END
+invoices_reseller_2.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_reseller_2.bundle
+END
+invoices_reseller_3.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_reseller_3.bundle
+END
+invoices_short_name.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices_short_name.bundle
+END
+additional_invoice_options.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/additional_invoice_options.bundle
+END
+1.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/1.bundle
+END
+invoices2.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoices2.bundle
+END
+invoice_recalculation.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/invoices/invoice_recalculation.bundle
+END

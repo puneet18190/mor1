@@ -1,0 +1,24 @@
+<div class="nb"><%= b_date + nice_date_time(@recording.datetime) %></div><br>
+<% call = Call.where(uniqueid: @recording.uniqueid, calldate: @recording.datetime).order('id DESC').first %>
+
+<% if call %>
+    <%= _('Duration') %>: <%= call.real_billsec.to_i %><br>
+    <%= _('Source') %>: <%= call.src %><br>
+    <%= _('Destination') %>: <%= call.dst %><br>
+<% end %>
+<br>
+
+<% if session[:usertype] != "user" %>
+    <%= form_tag :action => "update", :id => @recording.id do %>
+        <table class='maintable'>
+          <tr>
+            <th><%= _("Comment") %></th>
+          </tr>
+          <tr>
+            <td><%= text_field("recording", "comment", :class => "input", :size => "100", :maxlength => "200") %></td>
+          </tr>
+        </table>
+        <br>
+        <%= submit_tag(_("Update"), disable_with: _('Processing..')) %>
+    <% end %>
+<% end %>

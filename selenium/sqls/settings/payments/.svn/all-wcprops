@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments
+END
+linkpoint_allow_http_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/linkpoint_allow_http_0.sql
+END
+uncheck_paypal_reseller_disable_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/uncheck_paypal_reseller_disable_0.sql
+END
+set_paypal_confirm_all_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/set_paypal_confirm_all_0.sql
+END
+disable_paypal_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/disable_paypal_0.sql
+END
+set_paypal_currency_DZD_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/set_paypal_currency_DZD_0.sql
+END
+linkpoint_test_enable_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/linkpoint_test_enable_0.sql
+END
+paypal_disable_for_reseller_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/paypal_disable_for_reseller_0.sql
+END
+paypal_max_amount_20_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/paypal_max_amount_20_0.sql
+END
+linkpoint_enabled_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/linkpoint_enabled_0.sql
+END
+paypal_max_amount_50_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/paypal_max_amount_50_0.sql
+END
+set_paypal_currency_USD_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/set_paypal_currency_USD_0.sql
+END
+set_paypal_currency_EUR_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/set_paypal_currency_EUR_0.sql
+END
+cyberplat_disabled_info_custommessage_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/cyberplat_disabled_info_custommessage_0.sql
+END
+linkpoint_storeid_333_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/linkpoint_storeid_333_0.sql
+END
+linkpoint_default_amount_444_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/linkpoint_default_amount_444_0.sql
+END
+paypal_email_notif_check_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/paypal_email_notif_check_0.sql
+END
+enable_webmoney_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/enable_webmoney_0.sql
+END
+enable_cyberplat_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/enable_cyberplat_0.sql
+END
+enable_paypal_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/enable_paypal_0.sql
+END
+paypal_user_pays_fee_check_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/paypal_user_pays_fee_check_0.sql
+END
+linkpoint_min_amount_666_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/linkpoint_min_amount_666_0.sql
+END
+enable_paypal_for_reseller_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/payments/enable_paypal_for_reseller_0.sql
+END

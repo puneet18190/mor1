@@ -1,0 +1,13 @@
+# insert aggregates data and users
+# ----
+/calls/calls_fix_delta.sql
+/user/accountant_4/make_simple_user.sql
+# accountant with id = 4 converted to simple user
+/calls/aggregates.sql
+# data for aggregates imported
+/user/user_for_aggregates.sql
+/user/accountant_1005/create.sql
+# users for aggregates created
+/aggregates/aggegates_for_other_usertypes.sql
+# aggregates for accountant and resellers imported
+# bundle loaded

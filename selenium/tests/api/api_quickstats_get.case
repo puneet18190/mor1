@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_quickstats_get</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_quickstats_get</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Arrow refresh&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Today:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#day_calls &gt; a</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=day_duration</td>
+	<td>exact:01:07:07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=day_cost</td>
+	<td>28.1103</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=day_did_owner_cost</td>
+	<td>21.7400</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=day_selfcost</td>
+	<td>-10.0047</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=day_profit</td>
+	<td>59.8550</td>
+</tr>
+<!--Pakeičiam currency, kad tikrai rodytu default system-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/admin_0/assign_currency_eur</td>
+	<td></td>
+</tr>
+<!--Įkeliam accountants-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_all_permissions_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--Hash #1-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=user_admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=user_admin&amp;hash=79e75e75f9cd6821e7b661250a45294b4579f262&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>2382</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; calls</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; duration</td>
+	<td>2382</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>0</td>
+</tr>
+<!--Daugiau active calls-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/active_calls/active_calls_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=user_adminBLOGAS&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=accountant&amp;hash=604b86f917a628a9502cf6b2f8b174ce20b77955&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=reseller&amp;hash=2d84f7c3e3d622e6362f99c0d72d02bf0df11b22&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>1645</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>14.114332000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>0.502667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>13.611665</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; calls</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; duration</td>
+	<td>1645</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; revenue</td>
+	<td>14.114332000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; self_cost</td>
+	<td>0.502667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; profit</td>
+	<td>13.611665</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=random&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;hash=56444564654&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>7</td>
+</tr>
+<!--Atsijungiam ir žiūrim ar veikia atsijungus-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=user_admin&amp;hash=79e75e75f9cd6821e7b661250a45294b4579f262&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>2382</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; calls</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; duration</td>
+	<td>2382</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=reseller&amp;hash=2d84f7c3e3d622e6362f99c0d72d02bf0df11b22&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>1645</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>14.114332000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>0.502667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>13.611665</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; calls</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; duration</td>
+	<td>1645</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; revenue</td>
+	<td>14.114332000000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; self_cost</td>
+	<td>0.502667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=today &gt; profit</td>
+	<td>13.611665</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>29 4027 28.110331000000002 -10.004668 59.85499900000001 29 4027 28.110331000000002 -10.004668 59.85499900000001 11 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>7</td>
+</tr>
+<!--Hash #2-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;random_param=AAA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<!--Hash #1 turi būti lygus Hash #2, nes į random parametrą turi nereaguoti-->
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash1']==storedVars['hash2']</td>
+	<td>true</td>
+</tr>
+<!--Fake forma-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/quickstats_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>hash</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>555</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Incorrect hash</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/quickstats_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>random</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>hash</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>${hash2}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/quickstats_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>hash</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>${hash2}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>29 4027 28.110331000000002 -10.004668 59.85499900000001 29 4027 28.110331000000002 -10.004668 59.85499900000001 11 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;till=705024000&amp;user_id=5&amp;hash=belekoks&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>29 4027 28.110331000000002 -10.004668 59.85499900000001 29 4027 28.110331000000002 -10.004668 59.85499900000001 11 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/quickstats_get?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/quickstats_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=quickstats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=duration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=revenue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=self_cost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=profit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=active_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=total</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=answered_calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>29 4027 28.110331000000002 -10.004668 59.85499900000001 29 4027 28.110331000000002 -10.004668 59.85499900000001 11 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=calls</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=duration</td>
+	<td>4027</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=revenue</td>
+	<td>28.110331000000002</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=self_cost</td>
+	<td>-10.004668</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=profit</td>
+	<td>59.85499900000001</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=total</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=answered_calls</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/quickstats_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>resellerBAD</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

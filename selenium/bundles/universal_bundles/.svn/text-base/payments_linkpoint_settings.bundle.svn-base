@@ -1,0 +1,14 @@
+# ----
+# enable linkpoint
+/settings/payments/linkpoint_enabled_0.sql
+# enable linkpoint test
+/settings/payments/linkpoint_test_enable_0.sql
+# enable linkpoint allow http
+/settings/payments/linkpoint_allow_http_0.sql
+# set 333 linkpoint store id
+/settings/payments/linkpoint_storeid_333_0.sql
+# set 444 linkpoint default amount
+/settings/payments/linkpoint_default_amount_444_0.sql
+# set 666 linkpoint min amount
+/settings/payments/linkpoint_min_amount_666_0.sql
+# bundle loaded

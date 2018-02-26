@@ -1,0 +1,14 @@
+# ----
+# invoice number start = inv
+settings/reseller/invoice_number_start_inv.sql
+# invoice number length = 9
+settings/reseller/invoices_number_length_9.sql
+# invoices number type = 1
+settings/reseller/invoices_number_type_1_1.sql
+# invoices show calls in detailed
+settings/reseller/invoices_show_calls_in_detailed.sql
+# invoices show balance line
+settings/reseller/show_balance_line_1_1.sql
+# invoices adress number format = 1
+settings/reseller/invoices_number_format_1.sql
+# bundle loaded

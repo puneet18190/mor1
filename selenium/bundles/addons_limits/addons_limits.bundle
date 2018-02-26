@@ -1,0 +1,15 @@
+# bundle for addons_limits.case test: allow API, GET API, secret key + hash_disabled
+# ----
+#  enable API
+/settings/api/enable_0.sql
+# allow GET API
+/settings/api/allow_get.sql
+# disable hash ckecking
+/settings/api/disable_hash_0.sql
+# cs_partly_paid_invoice_calls.sql
+callshop/cs_partly_paid_invoice_calls.sql
+# acc_groups.sql
+settings/addons/acc_groups.sql
+# all permissions write
+permissions/acc_all_permissions_write.sql
+# bundle loaded

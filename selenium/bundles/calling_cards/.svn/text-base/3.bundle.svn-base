@@ -1,0 +1,13 @@
+# create cc groups
+# ----
+# lcr for admin
+lcr/price_11002/create.sql
+# location for admin
+localization/create.sql
+# lcr for rs
+lcr/price_11302/create.sql
+# tariff for rs
+tariff/provider_12303/create.sql
+#location for rs
+localization/reseller_location.sql
+# bundle loaded

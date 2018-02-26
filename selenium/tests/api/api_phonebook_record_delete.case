@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>phonebook_record_delete</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">phonebook_record_delete</td></tr>
+</thead><tbody>
+<!--Login as admin and enable mor api-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<!--Create phonebook-->
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_name</td>
+	<td>phonebook1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_number</td>
+	<td>111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_speeddial</td>
+	<td>111</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_phonebook</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>phonebook1</td>
+	<td></td>
+</tr>
+<!--Check if one cannot delete phonebook with incorect hash-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;id=2&amp;test=1&amp;hash=invalid_ask23u23o</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--Try to delete phonebook but do not supply phonebook's id-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;test=1&amp;hash=e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record was not found</td>
+	<td></td>
+</tr>
+<!--Try to delete non existing phonebook-->
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=admin&amp;id=100</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;id=100&amp;test=1&amp;hash=4a1069b7711e1374dac5eee130a771cef40f9b98</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record was not found</td>
+	<td></td>
+</tr>
+<!--delete admins phopnebook-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;id=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?u=admin&amp;id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;id=1&amp;test=1&amp;hash=${hash1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>phonebook1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>111</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_name</td>
+	<td>phonebook2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_number</td>
+	<td>222</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_speeddial</td>
+	<td>222</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_phonebook</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=user_reseller&amp;id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash11</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=user_reseller&amp;id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash12</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=accountant&amp;id=2&amp;name=phonebook4&amp;number=444&amp;speeddial=444</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash13</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=reseller&amp;id=3&amp;name=phonebook6&amp;number=666&amp;speeddial=666</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash14</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=user_reseller&amp;id=4&amp;name=phonebook8&amp;number=dfg&amp;speeddial=dfg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash15</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/test/test_api?u=user_reseller&amp;id=4&amp;number=33d4&amp;speeddial=9.0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash16</td>
+</tr>
+<!--Login as accountant  can not use method-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--Verify that accountant cannot delete admins phonebook-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=accountant&amp;id=1&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=accountant&amp;id=2&amp;name=phonebook4&amp;number=444&amp;speeddial=444&amp;hash=${hash13}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--Login as reseller can not use method-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--Verify that reseller cannot delete admin's phonebook-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=reseller&amp;id=1&amp;hash=${hash1}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=reseller&amp;id=3&amp;name=phonebook6&amp;number=666&amp;speeddial=666&amp;hash=${hash14}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--Login as reseller's user and create phonebook-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_2</td>
+	<td>phonebook2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_2</td>
+	<td>222</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_name</td>
+	<td>phonebook7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_number</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_speeddial</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_phonebook</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>added</td>
+	<td></td>
+</tr>
+<!--Verify that reseller's user cannot delete admin's phonebook-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=user_reseller&amp;id=2&amp;hash=${hash11}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record was not found</td>
+	<td></td>
+</tr>
+<!--delete reseller user's phonebook-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=user_reseller&amp;id=3&amp;hash=${hash12}&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_2</td>
+	<td>phonebook2</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>phonebook7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>777</td>
+	<td></td>
+</tr>
+<!--API commands without hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;id=100&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;id=1&amp;name=phonebook2&amp;number=333&amp;speeddial=333&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record was not found</td>
+	<td></td>
+</tr>
+<!--su slaptazodziu-->
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;p=admin1&amp;id=2&amp;name=phonebook2&amp;number=333&amp;speeddial=333&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Phonebook record successfully deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>phonebook2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>333</td>
+	<td></td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/phonebooks/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_name</td>
+	<td>phonebook3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_number</td>
+	<td>333</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phonebook_speeddial</td>
+	<td>333</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add_phonebook</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Record successfully added</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>billing/api/phonebook_record_delete?u=admin&amp;p=admin1&amp;id=4&amp;name=phonebook3&amp;number=333&amp;speeddial=333&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Phonebook record successfully deleted</td>
+</tr>
+</tbody></table>
+</body>
+</html>

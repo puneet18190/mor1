@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>call_stats</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">call_stats</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/good_calls</td>
+	<td></td>
+</tr>
+<!--Create terminator-->
+<tr>
+	<td>open</td>
+	<td>/billing/terminators/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>test_terminator</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>provider_link_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=provider_id</td>
+	<td>label=Test Provider IAX2/22.33.44.55:4569</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider assigned</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider assigned</td>
+	<td></td>
+</tr>
+<!--Check profit values-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/profit?date_from[year]=2012&amp;amp;date_from[month]=11&amp;amp;date_from[day]=21&amp;amp;date_till[year]=2012&amp;amp;date_till[month]=11&amp;amp;date_till[day]=21</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>number_total_self_price</td>
+	<td>-3.3653</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:27:59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:02:19</td>
+	<td></td>
+</tr>
+<!--show_user_stats-->
+<!--ACD-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/show_user_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div/div</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[3]/div</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[4]/div</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[5]/div</td>
+	<td>exact:00:01:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[6]/div</td>
+	<td>exact:00:00:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[7]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[8]/div</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[9]/div</td>
+	<td>2.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[10]/div</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[11]/div</td>
+	<td>75.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_by_user']/div[12]/div</td>
+	<td>300.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div/div</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[2]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[3]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[4]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[5]/div</td>
+	<td>exact:00:00:30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[6]/div</td>
+	<td>exact:00:00:30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[7]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[8]/div</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[9]/div</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[10]/div</td>
+	<td>2.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[11]/div</td>
+	<td>66.67</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row1calls_by_user']/div[12]/div</td>
+	<td>200.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div &gt; b</td>
+	<td>exact:Total:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[2]/div/b</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[3]/div</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[4]/div</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[5]/div/b</td>
+	<td>exact:00:02:10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[6]/div/b</td>
+	<td>exact:00:00:43</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[7]/div/b</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[8]/div/b</td>
+	<td>11.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[9]/div</td>
+	<td>3.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[10]/div/b</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[11]/div/b</td>
+	<td>72.73</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_by_user']/div[12]/div/b</td>
+	<td>266.67</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/call_list_to_csv/0?call_type=all&amp;date_from=2009-01-01+00%3A00%3A00&amp;date_till=2009-01-02+23%3A59%3A59&amp;direction=outgoing&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/call_list_to_csv/0?call_type=all&amp;date_from=2009-01-01+00%3A00%3A00&amp;date_till=2009-01-02+23%3A59%3A59&amp;direction=outgoing&amp;test=1&amp;hgc=331</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>profit&quot;:&quot;1&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/call_list_to_csv/0?call_type=all&amp;date_from=2009-01-01+00%3A00%3A00&amp;date_till=2009-01-02+23%3A59%3A59&amp;direction=outgoing&amp;test=1&amp;hgc=332</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>&quot;profit&quot;=&gt;1.0</td>
+	<td></td>
+</tr>
+<!--one item per page-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/one_item_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/calls_per_day</td>
+	<td></td>
+</tr>
+<!--~~~Elastic Search 192.168.0.34 ~~~-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div/div</td>
+	<td>2009-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[3]/div</td>
+	<td>exact:00:02:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[4]/div</td>
+	<td>exact:00:00:35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[5]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[8]/div</td>
+	<td>13.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[9]/div</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[10]/div</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[11]/div</td>
+	<td>69.23</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[12]/div</td>
+	<td>225.00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[2]</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div/div</td>
+	<td>2009-01-02</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[3]/div</td>
+	<td>exact:00:02:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[4]/div</td>
+	<td>exact:00:00:35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[5]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[8]/div</td>
+	<td>23.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[9]/div</td>
+	<td>-6.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[10]/div</td>
+	<td>29.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[11]/div</td>
+	<td>126.09</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[12]/div</td>
+	<td>-483.33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div/b</td>
+	<td>exact:00:04:40</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[4]/div/b</td>
+	<td>exact:00:00:35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[5]/div/b</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[8]/div/b</td>
+	<td>36.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[9]/div/b</td>
+	<td>-2.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[10]/div/b</td>
+	<td>38.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[11]/div/b</td>
+	<td>105.56</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[12]/div/b</td>
+	<td>-1900.00</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div/div</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[3]/div</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[4]/div</td>
+	<td>exact:00:02:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[5]/div</td>
+	<td>70.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>29.41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[8]/div</td>
+	<td>10.1597</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[9]/div</td>
+	<td>-3.3653</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[10]/div</td>
+	<td>13.5250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[11]/div</td>
+	<td>133.12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[12]/div</td>
+	<td>-401.89</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>43</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div</td>
+	<td>exact:01:07:07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[4]/div/b</td>
+	<td>exact:00:02:18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[5]/div/b</td>
+	<td>67.44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[6]/div</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[7]/div/b</td>
+	<td>32.56</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[8]/div</td>
+	<td>28.1103</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[9]/div/b</td>
+	<td>-10.0047</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[10]/div/b</td>
+	<td>38.1150</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[11]/div/b</td>
+	<td>135.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[12]/div/b</td>
+	<td>-380.97</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='pagercalls_per_day']/div/div[3]</td>
+	<td>1-1 of 4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Tes</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/call_list_to_csv/0?call_type=all&amp;date_from=2009-01-01+00%3A00%3A00&amp;date_till=2009-01-02+23%3A59%3A59&amp;direction=outgoing&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>2009-01-01 00:00:01</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/call_list_to_csv/0?call_type=all&amp;date_from=2009-01-01+00%3A00%3A00&amp;date_till=2009-01-02+23%3A59%3A59&amp;direction=outgoing&amp;test=1&amp;hgc=331</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>profit&quot;:&quot;1&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/call_list_to_csv/0?call_type=all&amp;date_from=2009-01-01+00%3A00%3A00&amp;date_till=2009-01-02+23%3A59%3A59&amp;direction=outgoing&amp;test=1&amp;hgc=332</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>&quot;profit&quot;=&gt;1.0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Personal details changed</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/terminators/providers/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_1 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Provider removed</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats?date_from[year]=2012&amp;date_from[month]=10&amp;date_till[year]=2013&amp;search_on=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=s_provider</td>
+	<td>label=SIP_provider</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User&nbsp;&nbsp;#1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Total calls: 14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_provider_price</td>
+	<td>1.7843</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_user_price</td>
+	<td>7.7319</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/users_list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Enter value here</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Tes</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=2</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=21</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=8</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=9</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Found 10 more</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>t</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Found 10 more</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>555</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>No value found</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=date_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div/b</td>
+	<td>exact:00:40:32</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='0'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>system admin</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>system admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=2</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=21</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=8</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Found 11 more</td>
+</tr>
+<!--all-->
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>User:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>70</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div/b</td>
+	<td>exact:01:12:07</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_1600101/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/calls/reseller_1600101/calls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day?date_from[year]=2009&amp;date_till[year]=2009</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_day</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div/div</td>
+	<td>2009-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[3]/div</td>
+	<td>exact:00:02:20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[4]/div</td>
+	<td>exact:00:00:35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[5]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>date_till_year</td>
+	<td>label=2013</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div/div</td>
+	<td>2012-11-21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[3]/div</td>
+	<td>exact:00:27:59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[4]/div</td>
+	<td>exact:00:02:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[5]/div</td>
+	<td>70.59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>29.41</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>43</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div</td>
+	<td>exact:01:07:07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[4]/div/b</td>
+	<td>exact:00:02:18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[5]/div/b</td>
+	<td>67.44</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[6]/div</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[7]/div/b</td>
+	<td>32.56</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='pagercalls_per_day']/div/div[3]</td>
+	<td>1-1 of 4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Tes</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0</td>
+	<td>150000</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test User #1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Found 10 more</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div/b</td>
+	<td>exact:00:40:32</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='0'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>system admin</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>system admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=2</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=21</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=30</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=8</td>
+	<td>testuser</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=-2</td>
+	<td>Found 11 more</td>
+</tr>
+<!--all-->
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='-2'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>67</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div/b</td>
+	<td>exact:01:12:07</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Chart bar&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Calls per Day</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.jqx-grid-cell.jqx-grid-empty-cell &gt; span</td>
+	<td>No data to display</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/calls_per_day?date_from[year]=2011&amp;date_till[year]=2015</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2011</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2015</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=December</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div/div</td>
+	<td>2011-01-11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[3]/div</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[2]</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[2]</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[2]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[6]/div</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='row0calls_per_day']/div[7]/div</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[2]/div</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[3]/div/b</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[4]/div/b</td>
+	<td>exact:00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[5]/div/b</td>
+	<td>0.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[6]/div</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[7]/div/b</td>
+	<td>100.00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[8]/div</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='statusrowcalls_per_day']/div[9]/div/b</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='pagercalls_per_day']/div/div[3]</td>
+	<td>5-5 of 5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=destination_group_id</td>
+	<td>label=Lithuania</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=reseller_id</td>
+	<td>label=Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>user_list</td>
+	<td>No value found</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.jqx-grid-cell.jqx-grid-empty-cell &gt; span</td>
+	<td>No data to display</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=reseller_id</td>
+	<td>label=Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.jqx-grid-cell.jqx-grid-empty-cell &gt; span</td>
+	<td>No data to display</td>
+</tr>
+</tbody></table>
+</body>
+</html>

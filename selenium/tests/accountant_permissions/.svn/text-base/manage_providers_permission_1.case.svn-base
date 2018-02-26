@@ -1,0 +1,1174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>manage_providers_permission</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">manage_providers_permission</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/providers/provider_test_data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Providers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_manage_provider</td>
+	<td>Manage Providers</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_provider_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--# Manage Providers permission: Disabled-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/provider_rules/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/destroy/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/quick_changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You are not authorized to view this page</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//a[contains(@href, '/billing/providers/quick_changes')]</td>
+	<td>Quick Changes</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Quick Changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/provider_rules/8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_name</td>
+	<td>Destination rule</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_add</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_minlen</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dst_new_maxlen</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dst_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#dst_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_name</td>
+	<td>Source rule</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_cut</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_minlen</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=src_new_maxlen</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=src_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#prov_enable_2_1 &gt; form &gt; input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_img_2 &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>chooseCancelOnNextConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#delete_img_2 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/provider_rule_edit/8?providerrule_id=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEditable</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--# Manage Providers permission: Read-->
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_0</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_1</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=manage_provider_2</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manage_provider_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/stats/providers')]</td>
+	<td>Providers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(@href, '/billing/providers/list')]</td>
+	<td>Providers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Providers</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Add new Provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Contrast&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Page white gear&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_2</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ani_2</td>
+	<td>commonusepro1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tech_2</td>
+	<td>SIP</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=login_2</td>
+	<td>commonusepro1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=password_2</td>
+	<td>please_change</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_ip_2</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_name_2</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_17</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ani_17</td>
+	<td>commonusepro_h323</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tech_17</td>
+	<td>H323</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_ip_17</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=tariff_name_17</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit_link_1 &gt; img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Edit Provider: Test Provider</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=provider_name</td>
+	<td>Test Provider</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=provider_tariff_id</td>
+	<td>provider-tariff Test Tariff Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=device[dtmfmode]</td>
+	<td>inband info rfc2833 auto</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=device[location_id]</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_login</td>
+	<td>login</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>ip_authentication</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cid_name</td>
+	<td>Provider CallerID Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cid_number</td>
+	<td>Provider CallerID Number</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>reg_register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>reg_extension</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>device[dtmfmode]</td>
+	<td>label=auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>provider_ani_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_timeout</td>
+	<td>61</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_call_limit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ip_authentication</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cid_name</td>
+	<td>11111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cid_number</td>
+	<td>1111111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_server_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_add_value_ip</td>
+	<td>0.0.0.2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>provider_port</td>
+	<td>5061</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=canreinvite</td>
+	<td>label=yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>device_nat_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>qualify_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>qualify_time</td>
+	<td>2001</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[alaw]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[ulaw]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g723]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g726]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[g729]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[gsm]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[ilbc]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[lpc10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[speex]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[adpcm]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[slin]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h261]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h263]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h263p]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>codec[h264]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_trustrpid_no</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_sendrpid_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insecure_port</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insecure_invite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_t38pt_udptl_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_promiscredir_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_progressinband_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_videosupport_yes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_allow_duplicate_calls_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>provider_interpret_noanswer_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>provider_interpret_busy_as_failed_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>device_fake_ring_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='rules_link_8']/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=dst_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Provider rules</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Destination rule</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=add_1</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=minlen_1</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=maxlen_1</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_2</td>
+	<td>Source rule</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cut_2</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=minlen_2</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=maxlen_2</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#dst_add_new_img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/provider_rule_edit/8?providerrule_id=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>You do not have rights to edit this</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/destroy/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<!--Quick Changes-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/quick_changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_18_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_17_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_16_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_10_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_9_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_8_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_4_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_3_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_2_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_1_tariff_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_18_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_17_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_16_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_10_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_9_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_8_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_4_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_3_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_2_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_1_call_limit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_18_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_17_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_16_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_10_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_9_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_8_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_4_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_3_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_2_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_1_max_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_18_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_17_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_16_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_10_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_9_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_8_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_4_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_3_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_2_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_1_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_18_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_17_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_16_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_10_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_9_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_8_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_4_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_3_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_2_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=providers_1_time_limit_per_day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

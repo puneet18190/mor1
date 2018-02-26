@@ -1,0 +1,8 @@
+<% if @dst && @dir %>
+  <%= draw_flag(@dst.direction_code) %>&nbsp;<%= "#{@dst.name} #{@dir.name}" %>
+<% else %>
+  <%= _('Prefix_not_found') %>
+<% end %>
+
+<% # It seems like tests will need this %>
+<%= hidden_field 'test_rezult', '' %>

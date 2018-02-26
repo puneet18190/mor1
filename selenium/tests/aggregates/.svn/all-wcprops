@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates
+END
+aggregates_livesearches.case
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregates_livesearches.case
+END
+aggregates.case
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregates.case
+END
+aggregate_new_gui_and_search.case
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregate_new_gui_and_search.case
+END
+aggregate_new_variations.case
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregate_new_variations.case
+END
+aggregate_new_show_columns.case
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/63007/mor/gui/branches/x8/selenium/tests/aggregates/aggregate_new_show_columns.case
+END
+aggregate_new_variations2.case
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregate_new_variations2.case
+END
+aggregate_new_no_small_calls.case
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregate_new_no_small_calls.case
+END
+aggregate_new_variations3.case
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/64732/mor/gui/branches/x8/selenium/tests/aggregates/aggregate_new_variations3.case
+END

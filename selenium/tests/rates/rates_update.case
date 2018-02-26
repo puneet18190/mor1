@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>rates_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">rates_update</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/provider_12001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/provider_12001/create_rates_for_afghanistan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/reseller_12305/create_wholesale_tariff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/reseller_12305/add_wholesale_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_12001</td>
+	<td>Rates (17/17)</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#update_rates_12001 &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>autocomplete</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>No destinations found. At least 3 characters of Destination name must be entered.</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>autocomplete</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().jQuery.active == 0</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>No destinations found.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>%%%</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=destination-count</td>
+	<td>(17)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=span.currency-text</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.0.0</td>
+	<td>Afghanistan Cdma (9375)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.1.0</td>
+	<td>Afghanistan freephone (9380)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.2.0</td>
+	<td>Afghanistan Herat (9340)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.14.0</td>
+	<td>Afghanistan mobile-Roshan (9379)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.15.0</td>
+	<td>Afghanistan premium (9390)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.16.0</td>
+	<td>Afghanistan proper (93)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Rates successfully updated</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>*/billing/tariffs/rates_list/12001?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_120016</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>%%%</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>a.0000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=notice</td>
+	<td>Rates were not updated<br /> * New rate must be numeric</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/12001?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Rate successfully deleted</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=page_title</td>
+	<td>Update Rates by Destination mask</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>%%%</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=destination-count</td>
+	<td>(16)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>af%</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=destination-count</td>
+	<td>(16)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.0.0</td>
+	<td>Afghanistan freephone (9380)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.1.0</td>
+	<td>Afghanistan Herat (9340)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.11.0</td>
+	<td>Afghanistan mobile-Areeba (9377)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.14.0</td>
+	<td>Afghanistan premium (9390)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.15.0</td>
+	<td>Afghanistan proper (93)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates successfully updated</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>*/billing/tariffs/rates_list/12001?st=A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_120016</td>
+	<td>6.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Group updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show_advanced_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_252</td>
+	<td>0.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/partner_6001/add_wholesale_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/partner_6001/create_wholesale_tariff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>afghanistan%</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>1.1234</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=span.currency-text</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>*/billing/tariffs/rates_list/2*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_252</td>
+	<td>1.1234</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_252</td>
+	<td>0.8297</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=USD</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_252</td>
+	<td>1.1234</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=page_title</td>
+	<td>Tariffs</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Rates Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#update_rates_12001 &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#update_rates_2 &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>autocomplete</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>No destinations found. At least 3 characters of Destination name must be entered.</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>autocomplete</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().jQuery.active == 0</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>No destinations found.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>%%%</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=destination-count</td>
+	<td>(16)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>10.0000</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.0.0</td>
+	<td>Afghanistan freephone (9380)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.1.0</td>
+	<td>Afghanistan Herat (9340)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.7.0</td>
+	<td>Afghanistan mobile (9370)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.14.0</td>
+	<td>Afghanistan premium (9390)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.15.0</td>
+	<td>Afghanistan proper (93)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Rates successfully updated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=details_img_120015</td>
+	<td>10.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#delete_link_12001 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_tariff_id</td>
+	<td>label=Wholesale - reseller_tariif_test_1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/reseller_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tabTabdhtmlgoodies_tabView1_2 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show_rates_for_users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=rates_12345</td>
+	<td>Rates (7/7)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Rates Update</td>
+	<td>Rates Update</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12345</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>%%%</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>Denmark proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.0.0</td>
+	<td>Denmark proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.1.0</td>
+	<td>Latvia proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.3.0</td>
+	<td>Russia proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.6.0</td>
+	<td>USA proper*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Rates successfully updated</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>*/billing/tariffs/rates_list/12345?st=D</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_557</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_557</td>
+	<td>5.0000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/12345</td>
+	<td></td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>denmark%</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>1.1234</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>Denmark proper*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Rates successfully updated</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>*/billing/tariffs/rates_list/12345?st=D</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_557</td>
+	<td>1.1234</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_557</td>
+	<td>1.1234</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=e_rate_557</td>
+	<td>0.8297</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tariff_name</td>
+	<td>new_wholesale</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_purpose_user_wholesale</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>autocomplete</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>No destinations found. At least 3 characters of Destination name must be entered.</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>autocomplete</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().jQuery.active == 0</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td[name=&quot;1&quot;]</td>
+	<td>No destinations found.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocomplete</td>
+	<td>%%%</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>autocomplete</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=destination-count</td>
+	<td>(7)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new_rate</td>
+	<td>1.1</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.0.0</td>
+	<td>Denmark proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.1.0</td>
+	<td>Latvia proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.3.0</td>
+	<td>Russia proper*</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=destinations-table.6.0</td>
+	<td>USA proper*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=status</td>
+	<td>Rates successfully updated</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>*/billing/tariffs/rates_list/6?st=D</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_564</td>
+	<td>1.1000</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/update_rates/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

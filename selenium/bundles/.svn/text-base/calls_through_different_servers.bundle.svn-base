@@ -1,0 +1,8 @@
+# testui calls_through_different_servers.case
+# ----
+# servers.sql
+server/servers.sql
+# various_calls.sql
+calls/various_calls.sql
+# update_various_calls.sql
+# bundle loaded

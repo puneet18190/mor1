@@ -1,0 +1,6 @@
+# ----
+# Disable Registration Enabled
+/settings/registration/registration_enabled_uncheck.sql
+# Disable Recaptcha
+/settings/registration/disable_recaptcha.sql
+# bundle loaded

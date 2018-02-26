@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>dids_list</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">dids_list</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/dids_get/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.3.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.9.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.18.6</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.24.6</td>
+	<td>Test Accountant</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.26.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.5.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.10.6</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.14.6</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.15.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.21.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.20.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.26.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.5.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.11.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.13.6</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.17.6</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.20.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.24.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/visual/2_items_per_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/dids/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'13')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_did_owner</td>
+	<td>user Resellers</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table.page_title2 &gt; tbody &gt; tr &gt; td</td>
+	<td>1 2 3 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[2]/table/tbody/tr/td</td>
+	<td>1 2 3 4</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Owner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.6</td>
+	<td>User Resellers (Test Reseller)</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_did_owner</td>
+	<td>user Resellers</td>
+</tr>
+</tbody></table>
+</body>
+</html>

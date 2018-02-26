@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/services
+END
+delete_services.sql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/services/delete_services.sql
+END
+services_and_subscriptions.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/services/services_and_subscriptions.sql
+END
+services_subscribtions_2.sql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/services/services_subscribtions_2.sql
+END

@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various
+END
+archive_calls_every_day_at_disabled.sql
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/archive_calls_every_day_at_disabled.sql
+END
+archive_calls_older_than_4.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/archive_calls_older_than_4.sql
+END
+logout_link_google1_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_google1_0.sql
+END
+device_range_min_1004.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/device_range_min_1004.sql
+END
+logout_link_google2_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_google2_0.sql
+END
+logout_link_google3_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_google3_0.sql
+END
+logout_link_google4_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_google4_0.sql
+END
+archive_stop_calls_every_day_at_disabled.sql
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/archive_stop_calls_every_day_at_disabled.sql
+END
+do_not_allow_duplicate_device_check.sql
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/do_not_allow_duplicate_device_check.sql
+END
+allow_short_passwords_in_devices_check.sql
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/allow_short_passwords_in_devices_check.sql
+END
+provider_settings_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/provider_settings_0.sql
+END
+logout_link_delfi1_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_delfi1_0.sql
+END
+do_not_allow_duplicate_device_uncheck.sql
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/do_not_allow_duplicate_device_uncheck.sql
+END
+provider_settings_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/provider_settings_1.sql
+END
+logout_link_delfi2_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_delfi2_0.sql
+END
+allow_short_passwords_in_devices_uncheck.sql
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/allow_short_passwords_in_devices_uncheck.sql
+END
+logout_link_delfi3_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_delfi3_0.sql
+END
+logout_link_delfi4_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_delfi4_0.sql
+END
+device_settings_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/device_settings_0.sql
+END
+device_settings_1.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/device_settings_1.sql
+END
+logout_link_null_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/logout_link_null_0.sql
+END
+disallow_details_editing_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/disallow_details_editing_0.sql
+END
+allow_details_editing_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/allow_details_editing_0.sql
+END
+disallow_email_editing_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/disallow_email_editing_0.sql
+END
+allow_email_editing_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/allow_email_editing_0.sql
+END
+change_answer_to_failed.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/change_answer_to_failed.sql
+END
+disallow_prepaid_user_balance_drop_below_zero_0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/various/disallow_prepaid_user_balance_drop_below_zero_0.sql
+END

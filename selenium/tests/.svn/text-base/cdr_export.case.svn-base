@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/good_calls</td>
+	<td></td>
+</tr>
+<!--Creating Templates-->
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_templates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Excel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>CDR Export Templates</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Add new Template</td>
+	<td>Add new Template</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_template_new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>New CDR Export Template</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table.simple &gt; tbody &gt; tr &gt; td</td>
+	<td>exact:Name:</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=template_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[3]/td</td>
+	<td>Column #1:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[7]/td</td>
+	<td>Column #5:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[21]/td</td>
+	<td>Column #19:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//tr[24]/td</td>
+	<td>Column #22:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=columns_column_0</td>
+	<td>Accountcode Billsec Call ID Called From Called To Card ID DID Billsec DID Device ID DID Incoming Price DID Number DID Price DID Provider ID DID Provider Price DID User ID Date Destination Name Destination Number Disposition Duration Hangup Cause Hangup Cause Code Originator IP Partner Billsec Partner ID Partner Price Partner Rate Prefix Profit Provider Provider Billsec Provider ID Provider Price Provider Rate Real Billsec Real Duration Reseller Reseller Billsec Reseller ID Reseller Price Reseller Rate Server ID Source Number Terminator IP Unique ID User User Billsec User ID User Price User Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=columns_column_4</td>
+	<td>Accountcode Billsec Call ID Called From Called To Card ID DID Billsec DID Device ID DID Incoming Price DID Number DID Price DID Provider ID DID Provider Price DID User ID Date Destination Name Destination Number Disposition Duration Hangup Cause Hangup Cause Code Originator IP Partner Billsec Partner ID Partner Price Partner Rate Prefix Profit Provider Provider Billsec Provider ID Provider Price Provider Rate Real Billsec Real Duration Reseller Reseller Billsec Reseller ID Reseller Price Reseller Rate Server ID Source Number Terminator IP Unique ID User User Billsec User ID User Price User Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=columns_column_48</td>
+	<td>Accountcode Billsec Call ID Called From Called To Card ID DID Billsec DID Device ID DID Incoming Price DID Number DID Price DID Provider ID DID Provider Price DID User ID Date Destination Name Destination Number Disposition Duration Hangup Cause Hangup Cause Code Originator IP Partner Billsec Partner ID Partner Price Partner Rate Prefix Profit Provider Provider Billsec Provider ID Provider Price Provider Rate Real Billsec Real Duration Reseller Reseller Billsec Reseller ID Reseller Price Reseller Rate Server ID Source Number Terminator IP Unique ID User User Billsec User ID User Price User Rate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>CDR Export Template was not created<br /> * Name cannot be blank</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=template_name</td>
+	<td>Pirmas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>CDR Export Template successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Pirmas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destroy_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_template_new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=template_name</td>
+	<td>ANTRAS</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_0</td>
+	<td>label=Date</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_1</td>
+	<td>label=Called From</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_2</td>
+	<td>label=Called To</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_3</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_4</td>
+	<td>label=Destination Name</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_5</td>
+	<td>label=Duration</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_6</td>
+	<td>label=Hangup Cause</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_7</td>
+	<td>label=Server ID</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_8</td>
+	<td>label=Provider</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_9</td>
+	<td>label=Provider Rate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_10</td>
+	<td>label=Provider Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_11</td>
+	<td>label=Reseller</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_12</td>
+	<td>label=Reseller Rate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_13</td>
+	<td>label=Reseller Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_14</td>
+	<td>label=User</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_15</td>
+	<td>label=User Rate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_16</td>
+	<td>label=User Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_17</td>
+	<td>label=DID Number</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_18</td>
+	<td>label=DID Provider Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_19</td>
+	<td>label=DID Incoming Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_20</td>
+	<td>label=DID Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_21</td>
+	<td>label=Profit</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>CDR Export Template successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Pirmas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_2</td>
+	<td>ANTRAS</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destroy_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destroy_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_template_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>CDR Export Template Edit</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=template_name</td>
+	<td>Pirmas</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_18</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_19</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_20</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_21</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_0</td>
+	<td>label=Profit</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_1</td>
+	<td>label=DID Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_2</td>
+	<td>label=DID Incoming Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_3</td>
+	<td>label=DID Provider Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_4</td>
+	<td>label=DID Number</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_5</td>
+	<td>label=User Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_6</td>
+	<td>label=User Rate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_7</td>
+	<td>label=User</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_8</td>
+	<td>label=Reseller Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_9</td>
+	<td>label=Reseller Rate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_10</td>
+	<td>label=Reseller</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_11</td>
+	<td>label=Provider Price</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_12</td>
+	<td>label=Provider Rate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_13</td>
+	<td>label=Provider</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_14</td>
+	<td>label=Server ID</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_15</td>
+	<td>label=Hangup Cause</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_16</td>
+	<td>label=Duration</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_17</td>
+	<td>label=Destination Name</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_18</td>
+	<td>label=Prefix</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_19</td>
+	<td>label=Called To</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_20</td>
+	<td>label=Called From</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=columns_column_21</td>
+	<td>label=Date</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>CDR Export Template successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_template_edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=template_name</td>
+	<td>Pirmas</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_0</td>
+	<td>Profit</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_1</td>
+	<td>DID Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_2</td>
+	<td>DID Incoming Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_3</td>
+	<td>DID Provider Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_4</td>
+	<td>DID Number</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_5</td>
+	<td>User Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_6</td>
+	<td>User Rate</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_7</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_8</td>
+	<td>Reseller Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_9</td>
+	<td>Reseller Rate</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_10</td>
+	<td>Reseller</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_11</td>
+	<td>Provider Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_12</td>
+	<td>Provider Rate</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_13</td>
+	<td>Provider</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_14</td>
+	<td>Server ID</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_15</td>
+	<td>Hangup Cause</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_16</td>
+	<td>Duration</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_17</td>
+	<td>Destination Name</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_18</td>
+	<td>Prefix</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_19</td>
+	<td>Called To</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_20</td>
+	<td>Called From</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_21</td>
+	<td>Date</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_template_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_0</td>
+	<td>Date</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_10</td>
+	<td>Provider Price</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=columns_column_20</td>
+	<td>DID Price</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.nb &gt; img[alt=&quot;Excel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cdr_export_template_select</td>
+	<td>ANTRAS Pirmas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=cdr_export_template_select</td>
+	<td>label=Pirmas</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=cdr_export_template_select</td>
+	<td>Pirmas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td>Export</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_templates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>id=name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Column #18: Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>id=name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>id=name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Column #18: DID Number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>id=name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_2 &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>CDR Export Template successfully deleted</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>ANTRAS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cdr/export_template_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>CDR Export Template was not found</td>
+</tr>
+<!--Not Finished, need other Users-->
+</tbody></table>
+</body>
+</html>

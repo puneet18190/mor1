@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/65581/mor/gui/branches/x8/selenium/sqls/user
+END
+delete_users_first_and_last_names.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/user/delete_users_first_and_last_names.sql
+END
+many_users.sql
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/user/many_users.sql
+END
+users_list.sql
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/user/users_list.sql
+END
+users_tests_data.sql
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/user/users_tests_data.sql
+END
+user_for_aggregates.sql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/user/user_for_aggregates.sql
+END
+partners_and_resellers.sql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/user/partners_and_resellers.sql
+END

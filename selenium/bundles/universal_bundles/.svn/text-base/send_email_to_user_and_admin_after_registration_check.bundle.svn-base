@@ -1,0 +1,6 @@
+# ----
+# check Send Email To User After Registration
+/settings/registration/send_email_to_user_after_registration_check.sql
+# check Send_Email_To_Admin_After_Registration
+/settings/registration/send_email_to_admin_after_registration_check.sql
+# bundle loaded

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--assert price currencies-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='quick_add_new_rate']/form/table/tbody/tr[2]/td[3]</td>
+	<td>AAA</td>
+</tr>
+<!--assert price currencies with added rates-->
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>25882</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>25882 - Mozambique (Mozambique mobile-Mcel)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=M</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_503</td>
+	<td>Mozambique mobile-Mcel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>25882</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>25882 - Mozambique (Mozambique mobile-Mcel)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>25882656416461</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='quick_add_new_rate']/form/table/tbody/tr[2]/td[3]</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>25882</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>25882 - Mozambique (Mozambique mobile-Mcel)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rate was added</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=M</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_504</td>
+	<td>Mozambique mobile-Mcel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>25882</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>25882 - Mozambique (Mozambique mobile-Mcel)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prefix</td>
+	<td>25882656416461</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Destination was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_time_zone</td>
+	<td>label=(GMT-10:00) Hawaii</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick add new Rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>370 - Lithuania (Lithuania proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>3.5988</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/5?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_505</td>
+	<td>Lithuania proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_505</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=details_img_505</td>
+	<td>3.5988</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//td[@id='name_505'][@style='color: #BFBFBF;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//td[@id='prefix_505'][@style='color: #BFBFBF;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//a[contains(text(),'3.5988')][@style='color: #BFBFBF;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>prefix</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=prefix_results</td>
+	<td>370 - Lithuania (Lithuania proper)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>4.321</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_year</td>
+	<td>label=2014</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_month</td>
+	<td>label=March</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_day</td>
+	<td>label=11</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_hour</td>
+	<td>label=12</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=effective_date_minute</td>
+	<td>label=59</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[@id='name_506'][@style='color: #BFBFBF;']</td>
+	<td>Lithuania proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[@id='prefix_506'][@style='color: #BFBFBF;']</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[@id='details_img_506'][@style='color: #BFBFBF;']</td>
+	<td>4.3210</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//td[@id='effective_from_506'][@style='color: #BFBFBF;']</td>
+	<td>2014-03-11 12:59:00</td>
+</tr>
+</tbody></table>
+</body>
+</html>

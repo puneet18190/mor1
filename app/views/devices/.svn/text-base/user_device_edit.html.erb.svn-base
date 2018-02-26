@@ -1,0 +1,163 @@
+<!-- sitoks dizainas yra negerai -->
+<br>
+<%= form_tag(:action => 'user_device_update', :id => @device.id) do %>
+    <br>
+    <table class="simple" width="100%">
+      <tr>
+        <td width="50%" valign="top">
+          <% if @device.device_type != "FAX" %>
+              <table class="simple" width="100%">
+                <tr>
+                  <td> <%= _('Description') %>:</td>
+                  <td><%= text_field 'device', 'description', "class" => "input" %> </td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+                <% if @provider && provider_billing_active? %>
+                    <% owner_id = @owner.id %>
+                    <% if (owner_id > 0 && @owner.own_providers == 1) || owner_id == 0 %>
+                        <tr>
+                          <td> <%= _('Balance') %>:   </td>
+                          <td id="balance_<%= @device.id %>"><%= nice_number @provider.balance * @curr.exchange_rate %> <%= @curr.name %></td>
+                        </tr>
+                    <% end %>
+                <% end %>
+              </table>
+          <% elsif allow_pdffax_edit_for_user? %>
+          <table class="simple" width="100%" style="max-width: 400px; min-width: 200px">
+            <tr>
+              <td height="15"></td>
+            </tr>
+            <tr>
+              <td class="bottom_border" colspan=2>
+                <b><%= b_email + _('Emails_to_send_PDF_fax') %></b>
+              </td>
+            </tr>
+            <tr>
+              <td colspan=2>
+                <br/>
+                <%= render 'pdffaxemails', pdffaxemails: @pdffaxemails, device: @device %>
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <% end %>
+        </td>
+        <td width="50%" valign="top">
+          <% if @device.device_type != "FAX" &&
+                  @device.device_type != "Virtual" &&
+                  (rec_active?) &&
+                  !(@user && @user.recording_enabled.to_i != 1) %>
+              <table class="simple" width="100%">
+                <% if @device
+                     record = @device.record
+                     recording_to_email = @device.recording_to_email
+                     recording_email = @device.recording_email
+                     recording_keep = @device.recording_keep
+                   else
+                     record = Confline.get_value("Default_device_record", session[:user_id])
+                     recording_to_email = Confline.get_value("Default_device_recording_to_email", session[:user_id])
+                     recording_email = Confline.get_value("Default_device_recording_email", session[:user_id])
+                     recording_keep = Confline.get_value("Default_device_recording_keep", session[:user_id])
+                   end
+                %>
+
+                <tr>
+                  <td class="bottom_border">
+                    <b><%= b_record + _('Recordings') %></b>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <table class="simple">
+                      <tr>
+                        <td> <%= _('Record_calls_for_this_device') %>:</td>
+                        <td>
+                          <%= radio_button_tag('device[record]', 0, checked = (record.to_i == 0)) %> <%= _('_No') %>
+                          <%= radio_button_tag('device[record]', 1, checked = (record.to_i == 1)) %> <%= _('_Yes') %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td> <%= _('Send_Recording_to_Email') %>:</td>
+                        <td>
+                          <%= radio_button_tag('device[recording_to_email]', 0, checked = (recording_to_email.to_i == 0)) %> <%= _('_No') %>
+                          <%= radio_button_tag('device[recording_to_email]', 1, checked = (recording_to_email.to_i == 1)) %> <%= _('_Yes') %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td> <%= _('Recordings_Email') %>:</td>
+                        <td align="right">
+                          <%= text_field_tag 'device[recording_email]', recording_email.to_s, "class" => "input", :size => "25", :maxlength => "50" %>
+                        </td>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td> <%= _('Keep_Recordings_on_HDD_after_sent_to_email') %>:</td>
+                        <td>
+                          <%= radio_button_tag('device[recording_keep]', 0, checked = (recording_keep.to_i == 0)) %> <%= _('_No') %>
+                          <%= radio_button_tag('device[recording_keep]', 1, checked = (recording_keep.to_i == 1)) %> <%= _('_Yes') %>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+          <% end %>
+        </td>
+        <% if @user.allow_change_callerid == 1 %>
+            <tr>
+              <tr <%= tooltip(_('CallerID'), _('Device_CallerID_Explanation')) %>></tr>
+                <td class="bottom_border"><b><%= _('CallerID') %></b></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td>
+                <table class="simple">
+                  <tr>
+                    <td id="cid_name_name"><%= _('Name') %>:</td>
+                    <td id="cid_name_value"><%= text_field_tag 'cid_name', @cid_name, "class" => "input" %></td>
+                  </tr>
+                  <tr id='id_device_caller_id_number_1'>
+                    <td><%= radio_button_tag('device_caller_id_number', 1, @device_caller_id_number.to_i == 1, :onchange => 'disable_radio_buttons(this.id)') %></td>
+                    <td><%= _('Number') %>: <%= text_field_tag 'cid_number', @cid_number, "class" => "input" %></td>
+                  </tr>
+                  <tr id='id_device_caller_id_number_2' <%= tooltip(_('No_DID_assigned_to_Device'), _('No_DID_assigned_to_Device')) if !@device_dids_numbers || @device_dids_numbers.size.to_i == 0 %> >
+                    <td><%= radio_button_tag('device_caller_id_number', 2, @device_caller_id_number.to_i == 2, :disabled => !(@device_dids_numbers && @device_dids_numbers.size.to_i > 0), :onchange => "disable_radio_buttons(this.id);change_cid_value($('device_number_from_did').value)") %></td>
+                    <td><%= _('Number_from_DID') %>: <%= select_tag 'device_number_from_did', options_for_select(@device_dids_numbers, @cid_number.to_s), :onchange => 'change_cid_value(this.value)' %></td>
+                   </tr>
+                </table>
+              </td>
+            </tr>
+        <% end %>
+      </tr>
+    </table>
+    <%= submit_tag _('update'), data: { disable_with: _('Processing..') } %>
+<% end %>
+ <script type='text/javascript'>
+                function disable_radio_buttons(id) {
+                    if (id == 'device_caller_id_number_2') {
+                        $('device_number_from_did').disabled = false;
+                        $('cid_number').readOnly = true;
+                    }
+                    if (id == 'device_caller_id_number_1') {
+                        $('device_number_from_did').disabled = true;
+                        $('cid_number').readOnly = false;
+                    }
+                    if (id !== 'device_caller_id_number_2' && id !== 'device_caller_id_number_1') {
+                        $('device_number_from_did').disabled = true;
+                        $('cid_number').readOnly = true;
+                    }
+                }
+                function change_cid_value(val) {
+                    $('cid_number').value = val;
+                }
+                disable_radio_buttons('device_caller_id_number_<%= @device_caller_id_number %>');
+            </script>
+<br>
+<br>

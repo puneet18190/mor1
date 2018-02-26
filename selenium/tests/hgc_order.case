@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>hgc_order</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hgc_order</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/calls_for_hgc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/resellers/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=show_hgc_for_resellers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Resellers settings successfully changed</td>
+	<td></td>
+</tr>
+<!--hgc rikiavimas eilės tvarka-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=s_hgc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_hgc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_hgc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--hgc rikiavimas eilės tvarka-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_hgc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=s_hgc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--hgc rikiavimas eilės tvarka-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<!--hgc rikiavimas eilės tvarka-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/last_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/stats/old_calls_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option</td>
+	<td>All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[2]</td>
+	<td>0 - Unknow error. This is usually given by the</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[179]</td>
+	<td>249 - Partners call limit reached. Partner is</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//select[@id='s_hgc']/option[180]</td>
+	<td>250 - Partner is blocked. Unblock partner to a</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;509&quot;]</td>
+	<td>258 - Calling Card is not sold yet</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=option[value=&quot;510&quot;]</td>
+	<td>259 - Calling Card is empty</td>
+</tr>
+</tbody></table>
+</body>
+</html>

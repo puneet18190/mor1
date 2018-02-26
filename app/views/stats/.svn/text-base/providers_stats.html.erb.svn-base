@@ -1,0 +1,98 @@
+<%= javascript_include_tag 'swfobject' %>
+
+<b><%= _('Provider') %></b>:&nbsp;<%= link_to(@first_provider.name, {controller: :providers, action: :edit, id: @first_provider.id}) if @first_provider %>
+<br/><br/>
+
+<div align="left" class="nb">
+  <table class="simple bordered" style="padding: 0 3px;">
+    <%= form_tag action: :providers_stats do %>
+        <tr>
+          <td>
+            <%= _('From') %>:
+          </td>
+          <td>
+            <%= select_datetime(
+                        Time.mktime(session[:year_from], session[:month_from], session[:day_from], session[:hour_from], session[:minute_from]),
+                        end_year: Date.today.year + 1,
+                        prefix: 'date_from'
+                ) %>
+          </td>
+          <% if clear_provider_stats_search %>
+              <td>
+              </td>
+              <td align="right">
+                <%= link_to b_cross + _('Clear_search'), {action: :providers_stats, clear: 1}, {id: 'clear_search'} %>
+              </td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>
+            <%= _('Till') %>:
+          </td>
+          <td>
+            <%= select_datetime(
+                        Time.mktime(session[:year_till], session[:month_till], session[:day_till], session[:hour_till], session[:minute_till]),
+                        end_year: Date.today.year + 1,
+                        prefix: 'date_till'
+                ) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= _('Prefix') %>:
+          </td>
+          <td>
+            <%= text_field_tag :search, @s_prefix, class: 'input' %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="results">
+            <% if @results.present? %>
+                <%= draw_flag(@flag) if @flag %>&nbsp;<%= @results %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <br/>
+            <%= submit_tag _('Search'), data: {disable_with: _('Processing..')} %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+<br/>
+
+<div id="table">
+  <%= render 'prv_stats',
+             answered: @data[:table_totals][:answered], no_answer: @data[:table_totals][:no_answer],
+             busy: @data[:table_totals][:busy], failed: @data[:table_totals][:failed],
+
+             asr_calls: @data[:table_totals][:asr], no_answer_calls_pr: @data[:table_totals][:no_asr_pr],
+             busy_calls_pr: @data[:table_totals][:busy_pr], failed_calls_pr: @data[:table_totals][:failed_pr],
+
+             lv_Calls_graph: @calls_graph, lv_Avg_Calltime_graph: @avg_calltime_graph,
+             lv_Asr_graph: @asr_graph, lv_Profit_graph: @profit_graph
+  %>
+</div>
+
+<script type="text/javascript">
+    new Form.Element.Observer(
+            'search', 0.5,
+            function(element, value) {
+                new Ajax.Updater(
+                        'results',
+                        '<%= Web_Dir %>/stats/prefix_finder_find',
+                        {
+                            asynchronous: false,
+                            evalScripts: true,
+                            onComplete: function(request) {Element.hide('spinner');},
+                            onLoading: function(request) {Element.show('spinner');},
+                            parameters: 'prefix=' + encodeURIComponent(value)
+                        }
+                )
+            }
+    )
+</script>

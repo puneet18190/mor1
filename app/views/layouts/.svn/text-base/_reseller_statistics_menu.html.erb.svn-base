@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    reseller_statistics_menu = new dTree('reseller_statistics_menu');
+    reseller_statistics_menu.config.inOrder = true;
+    reseller_statistics_menu.add(0, -1, '<%= _('STATISTICS') %>');
+     reseller_statistics_menu.add(7, 0, '<%= _('Calls') %>', '<%= Web_Dir %>/stats/show_user_stats');
+     reseller_statistics_menu.add(16, 0, '<%= _('Google_maps') %>', '<%= Web_Dir %>/stats/google_maps');
+     reseller_statistics_menu.add(6, 0, '<%= _('Profit') %>', '<%= Web_Dir %>/stats/profit');
+    <% if session[:show_active_calls_for_users] == 1 or allow_manage_providers? %>
+     reseller_statistics_menu.add(9, 7, '<%= _('Active_calls') %>', '<%= Web_Dir %>/stats/active_calls');
+    <% end %>
+    <% if allow_manage_providers? && reseller_pro? %>
+      reseller_statistics_menu.add(10, 7, '<%= _('Aggregate') %>', '<%= Web_Dir %>/calls/aggregate');
+    <% end %>
+     reseller_statistics_menu.add(13, 7, '<%= _('Old_Calls') %>', '<%= Web_Dir %>/stats/old_calls_stats');
+
+    <% if allow_manage_providers? %>
+     reseller_statistics_menu.add(1, 7, '<%= _('Country_Stats') %>', '<%= Web_Dir %>/stats/country_stats');
+     <% end %>
+
+     reseller_statistics_menu.add(8, 7, '<%= _('Graphs') %>', '<%= Web_Dir %>/stats/reseller_all_user_stats', '', '', '<%= Web_Dir %>/images/dtree/chart.gif');
+     <% if current_user.reseller_allow_providers_tariff? && current_user.reseller_allowed_to_view_hgc_stats? %>
+      reseller_statistics_menu.add(2, 0, '<%= _('Hangup_cause') %>', '<%= Web_Dir %>/stats/hangup_cause_codes_stats');
+      <% end %>
+    reseller_statistics_menu.add(3, 7, '<%= _('Last_calls').downcase.capitalize %>', '<%= Web_Dir %>/stats/last_calls_stats');
+    <% if allow_manage_providers? %>
+    reseller_statistics_menu.add(4, 7, '<%= _('Load_stats') %>', '<%= Web_Dir %>/stats/load_stats');
+     <%end%>
+    <%if allow_manage_providers?%>
+    reseller_statistics_menu.add(5, 7, '<%= _('Providers') %>', '<%= Web_Dir %>/stats/providers');
+    <%end%>
+    <% if allow_manage_providers? && reseller_pro? %>
+        reseller_statistics_menu.add(11, 7, '<%= _('Summary') %>', '<%= Web_Dir %>/calls/summary');
+    <% end %>
+    <%##3396%>
+    <% if current_user.recording_enabled.to_i == 1 && rec_active? && show_recordings? %>
+    reseller_statistics_menu.add(14, 7, '<%= _('Recordings') %>', '<%= Web_Dir %>/recordings/recordings', '', '', '<%= Web_Dir %>/images/dtree/musicfolder.gif', '<%= Web_Dir %>/images/dtree/musicfolder.gif');
+    <% end %>
+      reseller_statistics_menu.add(15, 0, '<%= _('Search') %>', '<%= Web_Dir %>/stats/search');
+
+    $("reseller_statistics_menu_div").innerHTML = reseller_statistics_menu.toString();
+</script>

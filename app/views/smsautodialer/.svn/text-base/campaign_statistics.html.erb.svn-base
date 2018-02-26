@@ -1,0 +1,109 @@
+<%= javascript_include_tag 'swfobject' %>
+
+<div align="left" class="nb">
+  <%= form_tag action: :campaign_statistics do %>
+    <table class="bordered">
+      <tr>
+        <td>
+          <table class="simple">
+            <tr>
+              <td>
+                <%= _('From') %>:
+              </td>
+              <td>
+                <%= select_datetime(Time.mktime(session[:year_from], session[:month_from], session[:day_from],
+                  session[:hour_from], session[:minute_from]), :end_year => Date.today.year + 1, prefix: 'date_from',
+                  use_month_numbers: false)
+                %>
+              </td>
+              <% if @options[:show_clear] %>
+                <td valign="top">
+                  <%= (link_to b_cross + _('Clear_search'), action: :campaign_statistics, clear: 1) %>
+                </td>
+              <% end %>
+            </tr>
+            <tr>
+              <td>
+                <%= _('Till') %>:
+              </td>
+              <td>
+                <%= select_datetime(Time.mktime(session[:year_till], session[:month_till], session[:day_till],
+                  session[:hour_till], session[:minute_till]), end_year: Date.today.year + 1, prefix: 'date_till',
+                  use_month_numbers: false)
+                %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= _('Campaign') %>:
+              </td>
+              <td>
+                <%= select_tag(:campaign_id, options_for_select([['None', '-1']] + @all_campaigns.map { |c| [c.name, c.id] },
+                  @campaign_id), style: 'max-wdith:155px;width:155px')
+                %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          </br>
+          <%= submit_tag(_('Search'), data: { disable_with: _('Processing..') }) %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+<br/>
+<br/>
+<% if @campaign_id.to_i > 0  %>
+  <table class="maintable">
+    <tr class="row1">
+      <th id="name"><%= _('Campaign_name') %>:</th>
+      <td id="campaign_name" class="no_wrap" align="center" WIDTH="30%">
+        <%= @campaing_stat.name if @campaing_stat %>
+      </td>
+    </tr>
+    <tr>
+      <th id="numbers"><%= _('Total_numbers') %>:</th>
+      <td id="total_numbers" align="center"><%= @numbers if @numbers %></td>
+    </tr>
+    <tr class="row1">
+      <th id="dialed"><%= _('Failed') %>:</th>
+      <td id="dialed_value" align="center"><%= @dialed if @dialed %></td>
+    </tr>
+    <tr>
+      <th id="completed"><%= _('Completed') %>:</th>
+      <td id="completed_value" align="center"><%= @complete if @complete %></td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+    <% if @numbers > 0 %>
+      <% if @res.present? && @res.count.to_i > 0 %>
+        <table width="100%">
+          <tr>
+            <td align="left" width=" 10%">
+              <div id="flashcontent2"><strong>You need to upgrade your Flash Player</strong></div>
+              <script type="text/javascript">
+                  // <![CDATA[
+                  var so = new SWFObject("<%= Web_Dir %>/swf/amcolumn.swf", "amcolumn", "350", "250", "8", "#FFFFFF");
+                  so.addVariable("path", "<%= Web_Dir %>/swf/");
+                  so.addVariable("settings_file", escape("<%= Web_Dir %>/swf/amcolumn_1.xml"));
+                  so.addParam("wmode", "transparent");
+                  so.addVariable("chart_data", escape("<%= @calls_graph %>"));
+                  so.addVariable("additional_chart_settings", escape("<settings></settings>"));
+                  so.addVariable("additional_chart_settings", "<settings><labels><label><x>0</x><y>20</y><rotate>false</rotate><align>center</align><text_size>15</text_size><text><![CDATA[<b><%= _('SMS_messages') %></b>]]></text></label></labels></settings>");
+                  so.write("flashcontent2");
+                  // ]]>
+              </script>
+              <!-- end of amcolumn script -->
+            </td>
+          </tr>
+        </table>
+    <% end %>
+  <% end %>
+<% else %>
+    <b><%= _('Choose_campaign') %></b>
+<% end %>

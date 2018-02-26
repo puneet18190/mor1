@@ -1,0 +1,285 @@
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<div id='search_header'>
+  <%= form_tag action: :summary do %>
+      <table class="bordered">
+        <tr>
+          <td>
+            <table class="simple">
+              <tr>
+                <td><%= _('From') %>:</td>
+                <td><%= select_datetime(Time.mktime(session[:year_from], session[:month_from], session[:day_from], session[:hour_from], session[:minute_from]), :end_year => Date.today.year+1, :prefix => "date_from", :use_month_numbers => false) %></td>
+                <td width="100px"><%= link_to b_cross + _('Clear_search'), action: :summary, clean: 1 if dids_summary_clear_search_on %></td>
+              </tr>
+              <tr>
+                <td><%= _("Till") %>:</td>
+                <td><%= select_datetime(Time.mktime(session[:year_till], session[:month_till], session[:day_till], session[:hour_till], session[:minute_till]), :end_year => Date.today.year+1, :prefix => "date_till", :use_month_numbers => false) %></td>
+              </tr>
+              <tr>
+                <td><%= radio_button_tag "d_search", 1, @options[:d_search].to_i == 1 %> <%= _('DID') %></td>
+                <td>
+                  <input title="DID live search" type="text" size="20" id="did_number" name="did_number" autocomplete="off" value="<%=raw @options[:did].to_s %>" />
+                  <table id="did_list" style='width: 130px;margin-left:1px;margin-top:0px;position:absolute;min-width:100px;border-width: 1px;border-image: initial;-webkit-box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px;box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px;background-clip: initial;background-color: rgb(255, 255, 255);background-position: initial initial;background-repeat: initial initial;'></table>
+                </td>
+              </tr>
+              <tr>
+                <td><%= radio_button_tag 'd_search', 2, @options[:d_search].to_i == 2 %> <%= _('DID_Range') %>   </td>
+                <td><%= text_field_tag 'did_search_from', @options[:did_search_from], :class => 'imput' %>
+                  - <%= text_field_tag 'did_search_till', @options[:did_search_till], :class => 'imput' %></td>
+              </tr>
+              <tr>
+                <td><%= _("DID_Provider") %>:</td>
+                <td nowrap="tr">
+                  <select name="provider_id" style="width: 130px">
+                    <option value="any" <%= "selected" if @options[:provider] == 'any' %> ><%= _('Any') %></option>
+                    <% @providers.each { |provider| %>
+                        <option value="<%= provider.id %>" <%= "selected" if provider.id.to_s == @options[:provider] %> ><%= nice_provider(provider) %> </option>
+                    <% } %>
+                </select></td>
+              </tr>
+
+              <tr>
+                <td><%= _('Assigned_User_/_Device') %>:</td>
+                <td>
+                  <%= render 'shared/live_search_field', object: @search_user, object_id: @user_id, object_name: 'User', action_url: {controller: :users, action: :get_users_map, options: {show_admin: true} } %>&nbsp;
+                  <span id='user_devices'>
+                    <select name="s_device" style='width: 130px'>
+                      <option value="all" <%= "selected" if @options[:device_id] == 'all' %> ><%= _('All') %></option>
+                      <% @devices.try(:each) { |dev| %>
+                          <option style='width: 130px' value="<%= dev.id %>" style='width: 130px'<%= "selected" if dev.id.to_s == @options[:device_id] %> > <%= nice_device(dev) %> </option>
+                      <% } %>
+                    </select>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" ><%= _("Days") %>:</td>
+                <td><select name="s_days" onchange="update_period();" id='s_day' style="width: 130px">
+                  <option value='all' <%= 'selected' if @options[:sdays] == 'all' %> ><%= _('All') %></option>
+                  <option value='wd' <%= 'selected' if @options[:sdays] == 'wd' %> ><%= _('Work_days') %></option>
+                  <option value='fd' <%= 'selected' if @options[:sdays] == 'fd' %> ><%= _('Free_days') %></option>
+                </select>
+                 <span nowrap="true" >&nbsp;&nbsp;<%= _('Hour_period') %>:</span>
+                  <span id='update_periods'><%= render '/did_rates/search_periods', periods: @periods, period: @options[:period] %></span>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <%= _('Group_By_DID_Provider') %>: <%= radio_button_tag 'dids_grouping', 1, @options[:dids_grouping].to_i == 1 %>
+                  <%= _('Group_By_Assigned_User_/_Device') %>:<%= radio_button_tag 'dids_grouping', 2, @options[:dids_grouping].to_i == 2 %>
+                </td>
+              </tr>
+
+            </table>
+            </br>
+            <span style='float: left;'>
+              <%= submit_tag(_("Search"), data: { disable_with: _('Processing..') }) -%>
+              <script type="text/javascript">
+                new Form.Element.EventObserver('s_user', function(element, value) {new Ajax.Updater('user_devices', '<%= Web_Dir %>/devices/get_devices_for_search', {asynchronous:true, evalScripts:true, onComplete:function(request){Element.hide('spinner2');}, onLoading:function(request){Element.show('spinner2');}, parameters:'user_id=' + encodeURIComponent($('s_user_id').value) + '&did_search=1' + '&style=true'})})
+              </script>
+            </span>
+          </td>
+
+        </tr>
+      </table>
+  <% end %>
+</div>
+
+<br/><br/>
+
+<div id="dids_summary" style='min-width:850px'></div>
+
+<script type="text/javascript">
+
+    $j(document).ready(function ($) {
+        var table_data_json = <%= raw @data[:table_rows].to_json %>;
+        var time_format = '<%= @data[:options][:time_format] %>';
+        var float_digits = 'f<%= @data[:options][:number_digits] %>';
+        var percent_digits = 'f2';
+        var date_format = '<%= @data[:options][:date_format] %>';
+
+        var source =
+        {
+            localdata: table_data_json,
+            datatype: 'json',
+            datafields: [
+                { name: 'calls', type: 'int' },
+                { name: 'user_name', type: 'string' },
+                { name: 'provider', type: 'string' },
+                { name: 'billsec', type: 'int' },
+                { name: 'incoming_price', type: 'float' },
+                { name: 'owner_price', type: 'float' },
+                { name: 'provider_price', type: 'float' }
+            ],
+            pagesize: <%= session[:items_per_page] %>
+        };
+
+        var col_distr;
+            if (<%= can_see_finances? %>) {
+              col_distr = { name: '45%', calls: '5%', billsec: '13%',
+                incoming_price: '13%', owner_price: '11%', provider_price: '13%'
+              }
+            } else {
+                col_distr = { name: '71%', calls: '8%', billsec: '21%',
+                incoming_price: '0%', owner_price: '0%', provider_price: '0%'
+                }
+            }
+
+        var dataadapter = new $.jqx.dataAdapter(source);
+
+        var cellsrenderer_time = function (row, column, value) {
+            return '<div style="text-align: center; margin-top: 3.5px;">' + nice_billsec(value, time_format) + '</div>';
+        };
+
+        var getLocalization = function () {
+            var localizationobj = {};
+            localizationobj.decimalseparator = '<%= @data[:options][:number_decimal] %>';
+            localizationobj.thousandsseparator = '';
+            return localizationobj;
+        };
+
+        $("#dids_summary").jqxGrid(
+                {
+                    source: dataadapter,
+                    width: '100%',
+                    autoheight: true,
+                    rowsheight: 22,
+                    altrows: true,
+                    selectionmode: 'multiplecellsadvanced',
+                    showaggregates: true,
+                    showstatusbar: true,
+                    statusbarheight: 22,
+                    sortable: true,
+                    pageable: true,
+                    pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+                    localization: getLocalization(),
+                    ready: function () {
+                        $("#dids_summary").jqxGrid('sortby', 'user_name', 'asc');
+                    },
+                    columns: [
+                        { text: "<%= @options[:dids_grouping].to_i == 1 ? _('Provider') : _('User_/_Device') %>", datafield: "<%= @options[:dids_grouping].to_i == 1 ? 'provider' : 'user_name' %>", align: 'left', cellsalign: 'left', cellsalign: 'center', width: col_distr.name,
+                          cellsrenderer: function (row, column, value) {
+                            var result = '<div style="text-align: left; margin: 2px; overflow: hidden; vertical-align: middle; text-overflow: ellipsis;">';
+                            if (<%= @options[:dids_grouping].to_i == 1 %>) {
+                              result += '<a href="<%= Web_Dir %>/providers/edit/' + value.id + '" target="_blank">' + value.name + '</a></div>';
+                            } else {
+                              var device_id = table_data_json[row]['device']['device_id'];
+                              var user_id = table_data_json[row]['user_id'];
+                              var device_name = table_data_json[row]['device']['device_name'];
+                              var device_pic = table_data_json[row]['device']['device_pic_name']
+                               if ( device_id != 0 ) {
+                                result += '<a href="<%= Web_Dir %>/users/edit/' + user_id + '" target="_blank ">' + value + '</a> / ' + render_device_pic(device_pic, ' <%= Web_Dir %>') + ' <a href="<%= Web_Dir %>/devices/device_edit/' + device_id + '" target="_blank">' +  device_name +  '</a></div>';
+                              } else {
+                                result += '<a href="<%= Web_Dir %>/users/edit/' + user_id + '" target="_blank">' + value + '</a></div>';
+                              }
+                            }
+                            return  result;
+                          },
+                          aggregatesrenderer: function (aggregates) {
+                            return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                          }
+                        },
+
+
+                        { text: "<%= _('Calls') %>", datafield: 'calls', align: 'right', width: col_distr.calls, cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:total_calls] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Duration') %>", datafield: 'billsec', align: 'center', width: col_distr.billsec, cellsalign: 'right',cellsrenderer: cellsrenderer_time,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="text-align: center; position: right; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:total_billsec] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Incoming_price') %>", datafield: 'incoming_price', columngroup: 'DidPrice', cellsformat: float_digits, align: 'right', width: col_distr.incoming_price, cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:incoming_price] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Owner_price') %>", datafield: 'owner_price', columngroup: 'DidPrice', cellsformat: float_digits, align: 'right', cellsalign: 'right', width: col_distr.owner_price,
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:owner_price] %></b></div>';
+                            }
+                        },
+                        { text: "<%= _('Provider_price') %>", datafield: 'provider_price', columngroup: 'DidPrice',cellsformat: float_digits, align: 'right', width: col_distr.provider_price, cellsalign: 'right',
+                            aggregatesrenderer: function (aggregates) {
+                                return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:provider_price] %></b></div>';
+                            }
+                        }
+                    ],
+                columngroups:
+                [
+                  { text: "<%= _('DID_Price') %>", align: 'center', name: 'DidPrice' }
+                ]
+                });
+      document.getElementById("pagerdids_summary").style.zIndex = '22';
+      if (<%= !can_see_finances? %>) {
+       $.each(
+        ['incoming_price', 'owner_price', 'provider_price'],
+        function(index, value) {
+          $("#dids_summary").jqxGrid('hidecolumn', value);
+        });
+      }
+    });
+</script>
+
+<script type="text/javascript">
+    function update_period() {
+        new Ajax.Updater('update_periods', '<%= Web_Dir %>/did_rates/get_periods_for_search?d_search=' + $('d_search_1').checked + '&did=' + $('did_number').value + '&did_from=' + $('did_search_from').value + '&did_till=' + $('did_search_till').value + '&day=' + $('s_day').value, {asynchronous:true, evalScripts:true, onComplete:function (request) {
+            Element.hide('spinner');
+            Element.toggle('spinner2');
+        }, onLoading:function (request) {
+            Element.show('spinner');
+            Element.toggle('spinner2');
+        } })
+    }
+</script>
+
+<script type='text/javascript'>
+    Event.observe(window, 'load',  function() {
+        Event.observe($('did_number'), 'click', function(){
+            if ($('did_number').value == "") {
+                $('did_list').innerHTML = "";
+                <%=raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'empty_click=true'") %>
+            }
+            Event.observe($('did_number'), 'keyup', function(){
+                $('did_list').innerHTML = "";
+                <%=raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'did_livesearch='+$('did_number').value") %>
+            });
+            Event.observe($('did_list'), 'mouseover', function(){
+                var el = document.getElementById('did_list').getElementsByTagName('td');
+                for(var i=0;i<el.length;i++){
+                    el[i].onclick=function(){
+                        if (this.id != -2) {
+                            document.getElementById('did_number').value = this.innerHTML
+                            <%= raw remote_function(:update => 'did_list',:url => {:controller => :locations, :action => :get_did_map }, :with => "'did_livesearch='") %>
+                        }
+                    }
+                    el[i].onmouseover=function(){
+                        this.style.backgroundColor="#BBBBBB";
+                    }
+                    el[i].onmouseout=function(){
+                        this.style.backgroundColor="rgb(255, 255, 255)";
+                    }
+                }
+            });
+        });
+    });
+</script>

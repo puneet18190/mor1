@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/65365/mor/gui/branches/x8/selenium/tests/emails
+END
+identical_emails.case
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/64484/mor/gui/branches/x8/selenium/tests/emails/identical_emails.case
+END
+emails.case
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/63631/mor/gui/branches/x8/selenium/tests/emails/emails.case
+END
+emails2.case
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/64725/mor/gui/branches/x8/selenium/tests/emails/emails2.case
+END
+warning_email.case
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/emails/warning_email.case
+END
+email_variables.case
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/65365/mor/gui/branches/x8/selenium/tests/emails/email_variables.case
+END
+email_with_loop.sql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/63631/mor/gui/branches/x8/selenium/tests/emails/email_with_loop.sql
+END

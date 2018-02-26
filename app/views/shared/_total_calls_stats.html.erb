@@ -1,0 +1,41 @@
+<div id="total_container">
+<tr id="total_calculate_container" style="cursor:pointer"><th align="left" colspan="100"><%= _('total_values_calculate') %></th></tr>
+<tr id="total_progress_container"><th id='dots_container' align="left"  colspan="100"><%= _('total_values_progress') %></th></tr>
+<tr id="total_values_container" css="display:none">
+</tr>
+  <script type="text/javascript">
+      +function($){
+          $('#total_progress_container').hide();
+          $('#total_values_container').hide();
+          var dotsLoader;
+          var calculateTotalsUrl = '<%= raw (Web_Dir + "/stats/#{url}").html_safe%>';
+          $('#total_calculate_container').click(function(event){
+              formData = new FormData();
+              formData.append('total_line', '<%= total_line %>');
+              $.ajax({
+                  url: calculateTotalsUrl,
+                  type: 'POST',
+                  data: formData,
+                  dataType: 'text',
+                  beforeSend: function(xhr) {
+                      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                      $('#spinner').show();
+                      $('#total_calculate_container').hide();
+                      $('#total_progress_container').show();
+                      dotsLoader = appendLoadingDots('dots_container');
+                  },
+                  processData: false,
+                  contentType: false,
+                  async: true,
+                  cache: false
+              }).done(function(response){
+                  $('#spinner').hide();
+                  $('#total_progress_container').hide();
+                  $('#total_values_container').html(response);
+                  $('#total_values_container').show();
+                  clearInterval(dotsLoader);
+              });
+          });
+      }(jQuery);
+  </script>
+</div>

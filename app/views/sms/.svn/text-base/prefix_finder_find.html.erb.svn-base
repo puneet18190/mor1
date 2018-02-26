@@ -1,0 +1,7 @@
+<% if @results and @results.length > 0 %>
+    <%= @results %>
+<% else %>
+    <br/>
+<% end %>
+<div id="price" style="display:none"><%= @price %></div>
+<div id="curr" style="display:none"><%= current_user.currency.name.to_s %></div>

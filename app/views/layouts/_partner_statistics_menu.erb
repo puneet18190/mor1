@@ -1,0 +1,13 @@
+<script type='text/javascript'>
+    partner_statistics_menu = new dTree('partner_statistics_menu');
+    partner_statistics_menu.config.inOrder = true;
+    partner_statistics_menu.add(0, -1, '<%= _('STATISTICS') %>');
+  	partner_statistics_menu.add(5, 0, '<%= _('Calls') %>');
+    partner_statistics_menu.add(1, 5, '<%= _('Old_Calls') %>', '<%= Web_Dir %>/stats/old_calls_stats');
+    partner_statistics_menu.add(3, 5, '<%= _('Calls_per_day') %>', '<%= Web_Dir %>/stats/calls_per_day');
+    partner_statistics_menu.add(2, 5, '<%= _('Last_calls').downcase.capitalize %>', '<%= Web_Dir %>/stats/last_calls_stats');
+    partner_statistics_menu.add(4, 0, '<%= _('Finances') %>');
+    partner_statistics_menu.add(13, 4, '<%= _('Profit') %>', '<%= Web_Dir %>/stats/profit');
+
+    $('partner_statistics_menu_div').innerHTML = partner_statistics_menu.toString();
+</script>

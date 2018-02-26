@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>tariffs</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">tariffs</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Padaro prefixą 355 į B355-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/destination_groups/update_destination_with_letter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--search plus popup-->
+<!--create rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new/2?page=6&amp;st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate_12502</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Rates updated</td>
+</tr>
+<!--search-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_prefix</td>
+	<td>370</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>name_5</td>
+	<td>Test Tariff bad currency</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>name_4</td>
+	<td>Test Tariff + 0.1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name_1</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name_2</td>
+	<td>Test Tariff for Users</td>
+</tr>
+<!--popup-->
+<tr>
+	<td>mouseMove</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>370</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:00 - 23:59:59 =&gt; 0.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseMove</td>
+	<td>name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>370</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:00 - 23:59:59 =&gt; 0.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>s_prefix</td>
+	<td>370%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseMove</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>370600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:00 - 23:59:59 =&gt; 0.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:00 - 23:59:59 =&gt; 3.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseMove</td>
+	<td>name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>370</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:00 - 23:59:59 =&gt; 0.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseMove</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>370</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>00:00:00 - 23:59:59 =&gt; 0.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_1</td>
+	<td>Test Tariff</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_2</td>
+	<td>Test Tariff for Users</td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>B355</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>name_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rates_list/2?st=L</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseMove</td>
+	<td>name_503</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>name_503</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>370600 : 00:00:00 - 23:59:59 =&gt; 3.0 (USD)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_253</td>
+	<td>Albania proper</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=prefix_253</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>%B%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_253</td>
+	<td>Albania proper</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>%B</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Albania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/11?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tariff_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Group updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#confirm_without_message &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>changed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=universal_bundles/make_rspro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/retail_4/afghanistan_fix_035</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/retail_3/albania_fix_035</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/wholesale_12302/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/wholesale_12302/afghanistan_9370_023</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/provider_12303/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/tariff/provider_12303/create_rates_for_mali</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<!--admino retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/4?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;filename&quot;:&quot;TEST_TARIFF_+_0.1-USD.csv&quot;,&quot;file&quot;:&quot;Destination Group Name,Rate(USD),Round*Afghanistan*0.3500,1*&quot;}</td>
+	<td></td>
+</tr>
+<!--admino provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan proper*93,0.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<!--admino wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/2?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan proper*93,0.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<!--reselerio retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/4?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan*0.3500,1</td>
+	<td></td>
+</tr>
+<!--reselerio wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--reselerio provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--Reselerio reito editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/3?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/12302?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/12303?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<!--reselerio reitų eksportas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--search-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rate3</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=th &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_3</td>
+	<td>tariff</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/user_rates_list/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td>B355</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_3531</td>
+	<td>Albania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=directions_3531</td>
+	<td>View (1)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>%B%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_3531</td>
+	<td>Albania</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>%B</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Albania</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_pdf/3?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;filename&quot;:&quot;Rates-USD.pdf&quot;,&quot;file&quot;:&quot;File rendered&quot;}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>INTERNAL ERROR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<!--admino retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/4?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--admino provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--admino wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/2?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--reselerio retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/3?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Albania*2.0000,1</td>
+	<td></td>
+</tr>
+<!--reselerio wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan mobile*9370,0.2300,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<!--reselerio provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Mali proper*223,0.5478,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<!--Admino reito editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/2?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/4?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/1?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<!--admino reitų eksportas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/4&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/personal_details/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_currency_id</td>
+	<td>label=EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<!--admino retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/4?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>{&quot;filename&quot;:&quot;TEST_TARIFF_+_0.1-USD.csv&quot;,&quot;file&quot;:&quot;Destination Group Name,Rate(USD),Round*Afghanistan*0.3500,1*&quot;}</td>
+	<td></td>
+</tr>
+<!--admino provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/1?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan proper*93,0.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<!--admino wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/2?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Afghanistan proper*93,0.0000,0.0000,1,0,00:00:00,23:59:59</td>
+	<td></td>
+</tr>
+<!--reselerio retail-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/3?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--reselerio wholesale-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--reselerio provider-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303?test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--Reselerio reito editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/3?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/12302?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/12303?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<!--reselerio reitų eksportas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Reselerio reito editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/3?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/12302?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/12303?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<!--Admino reito editas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/2?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/4?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/rate_new_by_direction/1?dir_id=41&amp;st=C</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Tariff was not found</td>
+</tr>
+<!--reselerio reitų eksportas-->
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_user_rates_csv/3&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12302&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/tariffs/generate_providers_rates_csv/12303&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+</tbody></table>
+</body>
+</html>

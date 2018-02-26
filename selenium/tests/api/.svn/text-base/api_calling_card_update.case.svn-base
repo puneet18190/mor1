@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_calling_card_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_calling_card_update</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>API Requests are disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!--Testing required parameters for hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/generate_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=link</td>
+	<td>http://billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=4673451679&amp;name=kortele&amp;pin=7468&amp;batch_number=nesamone&amp;callerid=2&amp;min_balance=5&amp;language=lt&amp;user_id=2&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.0.0</td>
+	<td>card_id</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>API key</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>Generated hash</td>
+</tr>
+<!--bad user-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=test&amp;card_id=1&amp;hash= 	bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Access Denied</td>
+</tr>
+<!--Testing with bad parameters-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=%271&amp;number=%27a4673451679&amp;name=%27kortele&amp;pin=%27a7468&amp;batch_number=%27anesamone&amp;callerid=%272&amp;min_balance=%27a5&amp;language=lt&amp;user_id=%27a2&amp;hash=29cc8be07abc43c8e7e62394f8297d12be03b7df&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Wrong Calling Card ID</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=%27a4673451679&amp;name=%27kortele&amp;pin=%27a7468&amp;batch_number=%27anesamone&amp;callerid=%272&amp;min_balance=%27a5&amp;language=lt&amp;user_id=%27a2&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card number must be numerical</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=673451679&amp;name=%27kortele&amp;pin=%27a7468&amp;batch_number=%27anesamone&amp;callerid=%272&amp;min_balance=%27a5&amp;language=lt&amp;user_id=%27a2&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Bad number length, should be: 10</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=4673451679&amp;name=%27kortele&amp;pin=%27a7468&amp;batch_number=%27anesamone&amp;callerid=%272&amp;min_balance=%27a5&amp;language=lt&amp;user_id=%27a2&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Bad PIN length, should be: 4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=4673451679&amp;name=%27kortele&amp;pin=7468&amp;batch_number=%27anesamone&amp;callerid=%272&amp;min_balance=%27a5&amp;language=lt&amp;user_id=%27a2&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Balance is not a numerical value</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=1111111001&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<!--Pin cannot be blank-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=1111111000&amp;pin=&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Card PIN is blank</td>
+</tr>
+<!--Number is already taken-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;min_balance=-5&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Bad minimal balance</td>
+</tr>
+<!--Updates number-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;number=4673451680&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_1</td>
+	<td>4673451680</td>
+</tr>
+<!--Updates name-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;name=kortele&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_name</td>
+	<td>kortele</td>
+</tr>
+<!--Updates pin-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;pin=7469&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_1</td>
+	<td>7469</td>
+</tr>
+<!--Updates batch number-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;batch_number=1111&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_1</td>
+	<td>1111</td>
+</tr>
+<!--Updates callerid-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;callerid=5&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_callerid</td>
+	<td>5</td>
+</tr>
+<!--Updates min balance-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;min_balance=5&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_1</td>
+	<td>5.0000</td>
+</tr>
+<!--Updates daily_charge-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;daily_charge_paid_till=1447243121&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_1</td>
+	<td>2015-11-11</td>
+</tr>
+<!--Updates language-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;language=au&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_1</td>
+	<td>au</td>
+</tr>
+<!--Updates distributor-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;distributor=2&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=1&amp;distributor=3&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=distributor_1</td>
+	<td></td>
+</tr>
+<!--fake form-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/calling_card_update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>number</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>4673451681</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>hash</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>bc2f114099d16656d37e45fd9e8744cb9386d462</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_5</td>
+	<td>card_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>c_5</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_5</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_1</td>
+	<td>4673451681</td>
+</tr>
+<!--accountant-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=accountant&amp;card_id=1&amp;number=4673451682&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>acc rights</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/1?group_type=accountant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=callingcard_manage_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=callingcard_pin_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=see_financial_data_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_1</td>
+	<td>4673451681</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=accountant&amp;card_id=1&amp;number=4673451682&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Calling Card successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_1</td>
+	<td>4673451682</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=accountant&amp;card_id=1&amp;number=4673451682&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<!--reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=reseller&amp;card_id=1&amp;number=4673451683&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>You are not authorized to use this functionality</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/list?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>reseller_rights</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/2?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=calling_cards_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_1</td>
+	<td>(21)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cards_img_2</td>
+	<td>(0)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=reseller&amp;card_id=1&amp;number=4673451683&amp;hash=bc2f114099d16656d37e45fd9e8744cb9386d462&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Calling Card was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cardgroups/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cardgroup_name</td>
+	<td>resellers card group</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/new?cg=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=single_card_number</td>
+	<td>1231231231</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Card successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=reseller&amp;card_id=22&amp;number=1231231232&amp;hash=215b5f23b2258f7fed84c02c8f291671b8f00c83&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<!--accountant trying to reach resellers card-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=accountant&amp;card_id=22&amp;number=1231231232&amp;hash=215b5f23b2258f7fed84c02c8f291671b8f00c83&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Calling Card was not found</td>
+	<td></td>
+</tr>
+<!--admin trying to reach resellers card-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=22&amp;number=1231231232&amp;hash=215b5f23b2258f7fed84c02c8f291671b8f00c83&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Disable Hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=2&amp;number=7777777777&amp;name=adm card&amp;pin=7777&amp;batch_number=123456&amp;callerid=777&amp;min_balance=7&amp;daily_charge_paid_till=1404691200&amp;language=lt&amp;distributor=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_name</td>
+	<td>adm card</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_pin</td>
+	<td>7777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_callerid</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>7.0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>lt</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_1i</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_2i</td>
+	<td>July</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_3i</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_2</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_2</td>
+	<td>7777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_2</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_2</td>
+	<td>7.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_2</td>
+	<td>2014-07-07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_2</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_2</td>
+	<td>lt</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=accountant&amp;card_id=3&amp;number=8888888888&amp;name=acc card&amp;pin=8888&amp;batch_number=456789&amp;callerid=888&amp;min_balance=8&amp;daily_charge_paid_till=1407456000&amp;language=ru&amp;distributor=2&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_name</td>
+	<td>acc card</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_pin</td>
+	<td>8888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>456789</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_callerid</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>8.0</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_1i</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_2i</td>
+	<td>August</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_3i</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>ru</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_3</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_3</td>
+	<td>8888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_3</td>
+	<td>8.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_3</td>
+	<td>2014-08-08</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_3</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_3</td>
+	<td>ru</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test User #1</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=reseller&amp;card_id=22&amp;number=9999999999&amp;name=res card&amp;pin=999999&amp;batch_number=987654&amp;callerid=999&amp;min_balance=9&amp;daily_charge_paid_till=1410220800&amp;language=german&amp;distributor=5&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/index?cg=3&amp;clean=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=9999999999</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_22</td>
+	<td>res card</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_22</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_22</td>
+	<td>2014-09-09</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=lang_22</td>
+	<td>german</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=User Resellers</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/edit/22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_number</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_name</td>
+	<td>res card</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_pin</td>
+	<td>999999</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_batch_number</td>
+	<td>987654</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_callerid</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_min_balance</td>
+	<td>9.0</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_1i</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_2i</td>
+	<td>September</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=card_daily_charge_paid_till_3i</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=card_language</td>
+	<td>german</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/cards/show/22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_22</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_22</td>
+	<td>999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=batch_22</td>
+	<td>987654</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_22</td>
+	<td>9.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_22</td>
+	<td>2014-09-09</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_22</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_22</td>
+	<td>german</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=User Resellers</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--API XML-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=22&amp;number=1231231232&amp;hash=215b5f23b2258f7fed84c02c8f291671b8f00c83&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=page</td>
+	<td>Calling Card successfully updated</td>
+</tr>
+<!--disallow_get-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/disallow_get</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/calling_card_update?u=admin&amp;card_id=22&amp;number=1231231232&amp;hash=215b5f23b2258f7fed84c02c8f291671b8f00c83&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=status</td>
+	<td>GET Requests are disabled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=cards</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=owner_id_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=cardgroup_id_value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_value</td>
+	<td>7777777777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_value</td>
+	<td>7777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_value</td>
+	<td>2014-07-07 00:00:00 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_value</td>
+	<td>777</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>adm card</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=min_balance_value</td>
+	<td>7.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=owner_id_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_value</td>
+	<td>8888888888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_value</td>
+	<td>8888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_value</td>
+	<td>2014-08-08 00:00:00 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_value</td>
+	<td>888</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_value</td>
+	<td>ru</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>acc card</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_id_value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=id_value</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=owner_id_value</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number_value</td>
+	<td>1231231232</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pin_value</td>
+	<td>999999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=daily_charge_paid_till_value</td>
+	<td>2014-09-09 00:00:00 +0300</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=callerid_value</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=language_value</td>
+	<td>german</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>res card</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_id_value</td>
+	<td>5</td>
+</tr>
+</tbody></table>
+</body>
+</html>

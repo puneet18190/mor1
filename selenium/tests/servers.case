@@ -1,0 +1,2091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>servers</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">servers</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--sukuriamas serverio devaisas-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=devices</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>mor_server_1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_value</td>
+	<td>mor_server_1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/additional_modules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=CCL_Active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_address</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=host</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Server cannot be created. Server device extension mor_server_2 has been modified in database. Please change it with correct one</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=devices</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>mor_server_2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_value</td>
+	<td>mor_server_2</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_type</td>
+	<td>asterisk other</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=server_type</td>
+	<td>asterisk</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_hostname</td>
+	<td>127.0.0.2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Server cannot be created. Server device extension mor_server_2 has been modified in database. Please change it with correct one</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_hostname</td>
+	<td>127.0.0.9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Server created</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_hostname</td>
+	<td>127.0.0.8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Server created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_2</td>
+	<td>127.0.0.3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_1</td>
+	<td>127.0.0.1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_3</td>
+	<td>127.0.0.2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_2</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_1</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_3</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/additional_modules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=CCL_Active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--Create new server. Check if ID's cannot be the same.-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_hostname</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_type</td>
+	<td>main2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_maxcalllimit</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_comment</td>
+	<td>second serv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Server created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_6</td>
+	<td>127.0.0.5</td>
+</tr>
+<!--Set default server in default devices.-->
+<!--...SIP-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=device_server_id</td>
+	<td>label=ID: 6, IP: 127.0.0.5 (second serv)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Settings saved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[server_id]</td>
+	<td>ID: 6, IP: 127.0.0.5 (second serv)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>device_description</td>
+	<td>TEST</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[server_id]</td>
+	<td>ID: 6, IP: 127.0.0.5 (second serv)</td>
+</tr>
+<!--...H323-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=device_device_type_H323</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Settings saved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[server_id]</td>
+	<td>ID: 6, IP: 127.0.0.5 (second serv)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/new?return_to_action=list&amp;return_to_controller=users&amp;user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>device_description</td>
+	<td>TEST</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[server_id]</td>
+	<td>ID: 6, IP: 127.0.0.5 (second serv)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=device[server_id]</td>
+	<td>label=ID: 1, IP: 127.0.0.1 (main system)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=host</td>
+	<td>192.169.0.1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Device's settings updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[server_id]</td>
+	<td>ID: 1, IP: 127.0.0.1 (main system)</td>
+</tr>
+<!--Do not let delete server if it has assigned devices.-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>delete_link_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Server was not deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Server has assigned devices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>device[server_id]</td>
+	<td>label=ID: 1, IP: 127.0.0.1 (main system)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>delete_link_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Server deleted</td>
+	<td></td>
+</tr>
+<!--create some servers-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_hostname</td>
+	<td>127.0.0.81</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.81</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.81</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_type</td>
+	<td>main22</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_maxcalllimit</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_comment</td>
+	<td>second serv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Server created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>server_id_3</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_hostname</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_type</td>
+	<td>main23</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_maxcalllimit</td>
+	<td>1003</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>server_comment</td>
+	<td>third serv</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Server created</td>
+	<td></td>
+</tr>
+<!--other tipo serveris-->
+<tr>
+	<td>assertText</td>
+	<td>server_id_8</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=server_type</td>
+	<td>label=other</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip_for_ami</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_hostname</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_comment</td>
+	<td>other type</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Server created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_id_9</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_9</td>
+	<td>127.0.0.5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_9</td>
+	<td>other</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#providers_link_9 &gt; img[alt=&quot;Provider&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#core_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#gui_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#db_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#stats_9 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#stats_9 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Server Load Stats</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=flashcontent_hdd_util</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=flashcontent_cpu_general_load</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=flashcontent_cpu_loadstats1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=flashcontent_services</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/edit/9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_type</td>
+	<td>asterisk other</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=server_type</td>
+	<td>other</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=server_type</td>
+	<td>label=asterisk</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_9</td>
+	<td>asterisk</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/edit/9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=server_type</td>
+	<td>asterisk</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=server_type</td>
+	<td>label=other</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Server updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=type_9</td>
+	<td>other</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#active_9 &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#core_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#core_9 &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#gui_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#db_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#gui_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#db_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#gui_9 &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#db_9 &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#active_9 &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Server disabled</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#active_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#test_9 &gt; a &gt; img[alt=&quot;Lightning&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=devices</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>mor_server_1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>mor_server_8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>mor_server_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=name_value</td>
+	<td>mor_server_3</td>
+</tr>
+<!--9 serverio core visada off-->
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=servers</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=core_value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>mor_server_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>mor_server_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>mor_server_3</td>
+	<td></td>
+</tr>
+<!--Kai serveris other tipo, jo turi neduoti pasirinkti device, provider ir kituose objektuose.-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>name=device[server_id]</td>
+	<td>exact:ID: 1, IP: 127.0.0.1 (main system) ID: 3, IP: 127.0.0.2 () ID: 4, IP: 127.0.0.9 () ID: 5, IP: 127.0.0.8 () ID: 7, IP: 127.0.0.81 (second serv) ID: 8, IP: 127.0.0.4 (third serv)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>127.0.0.5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=device_server_id</td>
+	<td>exact:ID: 1, IP: 127.0.0.1 (main system) ID: 3, IP: 127.0.0.2 () ID: 4, IP: 127.0.0.9 () ID: 5, IP: 127.0.0.8 () ID: 7, IP: 127.0.0.81 (second serv) ID: 8, IP: 127.0.0.4 (third serv)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>127.0.0.5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/resellers/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=resellers_server</td>
+	<td>exact:Server_1: 127.0.0.1|127.0.0.1 Server_3: 127.0.0.2|127.0.0.2 Server_4: 127.0.0.9|127.0.0.9 Server_5: 127.0.0.8|127.0.0.8 Server_7: 127.0.0.81|127.0.0.81 Server_8: 127.0.0.4|127.0.0.4</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/providers/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>provider[name]</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>test prov</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>provider[tech]</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>SIP</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>provider[tariff_id]</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>add_to_servers[9]</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Provider successfully created</td>
+</tr>
+<!--patikrinama, kad 9 serveris (other tipo) nepriskirtas-->
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Provider was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Please select server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=provider_server_ip</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_add_value_ip</td>
+	<td>0.0.0.1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=add_to_servers_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Provider successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_ip_2</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--Check if only admin can change default server-->
+<!--...Accountant-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to view this page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to view this page</td>
+	<td></td>
+</tr>
+<!--...Reseller-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to view this page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/default_device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>device[server_id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>device[server_id]</td>
+	<td>ID: 1, IP: 127.0.0.1 (main system) ID: 3, IP: 127.0.0.2 () ID: 4, IP: 127.0.0.9 () ID: 5, IP: 127.0.0.8 () ID: 7, IP: 127.0.0.81 (second serv) ID: 8, IP: 127.0.0.4 (third serv)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>device[server_id]</td>
+	<td>label=ID: 7, IP: 127.0.0.81 (second serv)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Settings saved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>device[server_id]</td>
+	<td>ID: 1, IP: 127.0.0.1 (main system)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/additional_modules</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=CCL_Active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ip_address</td>
+	<td>127.0.1.2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=host</td>
+	<td>127.0.1.2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--other tipo serveris taip pat neturi turėti devices ikonėlės-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#devices_9 &gt; a &gt; img[alt=&quot;Device&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/server_devices_list/9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Access Denied</td>
+</tr>
+<!--Kai serveris nėra aktyvus, leidžia įrašyti nepasiekiamą ip-->
+<tr>
+	<td>setTimeout</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=server_ip_for_ami</td>
+	<td>192.168.0.222</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>192.168.0.222</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_hostname</td>
+	<td>192.168.0.222</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--crash bus sutvakrytas-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_3</td>
+	<td>192.168.0.222</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_for_s_3</td>
+	<td>192.168.0.222</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_3</td>
+	<td>192.168.0.222</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<!--Kai serveris aktyvus-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--crash bus sutvarkytas-->
+<!--Keičiam į pasiekiamą ip-->
+<tr>
+	<td>open</td>
+	<td>/billing/servers/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_hostname</td>
+	<td>127.0.0.10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=server_ip</td>
+	<td>127.0.0.10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=server_ip_for_ami</td>
+	<td>127.0.0.10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Server updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hostname_3</td>
+	<td>127.0.0.10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_for_s_3</td>
+	<td>127.0.0.10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ip_3</td>
+	<td>127.0.0.10</td>
+</tr>
+<!--Blocked IPs-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/device/blocked_ips.sql</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/monitorings/blocked_ips</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Blocked IPs</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;World delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=th</td>
+	<td>Country</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td>Blocked IP</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[3]</td>
+	<td>Server</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[4]</td>
+	<td>Reason</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[5]</td>
+	<td>Action</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=blocked_ip_1</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=blocked_ip_2</td>
+	<td>22.33.44.55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_link_1</td>
+	<td>exact:ID: 1, IP: 127.0.0.1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_link_2</td>
+	<td>exact:ID: 3, IP: 127.0.0.10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reason_1</td>
+	<td>Pirmo Servo blockas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reason_2</td>
+	<td>Blockas PROVUI</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_link_1</td>
+	<td>Unblock</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_link_2</td>
+	<td>Unblock</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_ip_2</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row2 &gt; #server_ip_1</td>
+	<td>22.33.44.55</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#server_ip_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#server_ip_1 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=#server_ip_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Provider IP is blocked</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>css=#server_ip_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=#server_ip_1 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Provider IP is blocked</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>More details in Monitorings -&gt; Blocked IPs page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>css=#server_ip_1 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#server_hostname_row &gt; td &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#server_ip_row &gt; td &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/show_devices/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#description_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#description_3 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=#description_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Device IP is blocked</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>More details in Monitorings -&gt; Blocked IPs page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>css=#description_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/devices/device_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#ip_add_name_d &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#ip_add_name_d &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Blocked IPs</td>
+</tr>
+<!--Unblock-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=delete_link_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>IP will be unblocked in 1 minute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=blocked_ip_1</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>22.33.44.55</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_link_1</td>
+	<td>exact:ID: 1, IP: 127.0.0.1</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=server_link_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=reason_1</td>
+	<td>Pirmo Servo blockas</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Blockas PROVUI</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=delete_link_1</td>
+	<td>Unblock</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#delete_link_2 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_ip_2</td>
+	<td>0.0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=tr.row2 &gt; #server_ip_1</td>
+	<td>22.33.44.55</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#server_ip_2 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#server_ip_1 &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/providers/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#server_hostname_row &gt; td &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#server_ip_row &gt; td &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<!--Asterisk-only Load Stats-->
+<tr>
+	<td>open</td>
+	<td>/billing/stats/load_stats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=s_server</td>
+	<td>All 127.0.0.1 127.0.0.10 127.0.0.9 127.0.0.8 127.0.0.81 127.0.0.4</td>
+</tr>
+<!--Servers uptime:-->
+<tr>
+	<td>open</td>
+	<td>/billing/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[2]/th</td>
+	<td>Technical Info:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[3]/td</td>
+	<td>System Uptime - 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_0</td>
+	<td>* days, ??:??</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[4]/td</td>
+	<td>Core Uptime:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_core_0</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[5]/td</td>
+	<td>System Uptime - 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[6]/td</td>
+	<td>System Uptime - 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[7]/td</td>
+	<td>System Uptime - 5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[8]/td</td>
+	<td>System Uptime - 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[9]/td</td>
+	<td>System Uptime - 8</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>System Uptime - 9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>System Uptime - 10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[10]/td</td>
+	<td>ES Sync Status:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=es_sync_status</td>
+	<td>100 %</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/servers/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#active_9 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#core_4 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#core_7 &gt; a &gt; img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[2]/th</td>
+	<td>Technical Info:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[7]/td</td>
+	<td>exact:Core Uptime:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[10]/td</td>
+	<td>exact:Core Uptime:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[12]/td</td>
+	<td>System Uptime - 9</td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[3]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>main system</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[3]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[9]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>second serv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[9]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[11]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>third serv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[11]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[12]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>other type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[12]/td</td>
+	<td></td>
+</tr>
+<!--CORE UPTIME-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/server/core_uptime.sql</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[2]/th</td>
+	<td>Technical Info:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_core_0</td>
+	<td>0 days, 04:19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_core_2</td>
+	<td>1 day, 19:14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=server_core_4</td>
+	<td>180 days, 04:43</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='servers_uptime']/tbody/tr[13]/td</td>
+	<td>ES Sync Status:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=es_sync_status</td>
+	<td>100 %</td>
+</tr>
+</tbody></table>
+</body>
+</html>

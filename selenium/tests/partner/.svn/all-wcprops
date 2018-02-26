@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/65742/mor/gui/branches/x8/selenium/tests/partner
+END
+partner_permissions.case
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/63890/mor/gui/branches/x8/selenium/tests/partner/partner_permissions.case
+END
+partner_tariffs.case
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62923/mor/gui/branches/x8/selenium/tests/partner/partner_tariffs.case
+END
+partner_payments.case
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/64984/mor/gui/branches/x8/selenium/tests/partner/partner_payments.case
+END
+partner_settings.case
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/partner/partner_settings.case
+END
+partner_users.case
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/partner/partner_users.case
+END
+partner_settings2.case
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/63460/mor/gui/branches/x8/selenium/tests/partner/partner_settings2.case
+END
+partner_create.case
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/65742/mor/gui/branches/x8/selenium/tests/partner/partner_create.case
+END
+partner_dids.case
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/partner/partner_dids.case
+END
+partner_services.case
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/65742/mor/gui/branches/x8/selenium/tests/partner/partner_services.case
+END
+partner_menu.case
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/62681/mor/gui/branches/x8/selenium/tests/partner/partner_menu.case
+END

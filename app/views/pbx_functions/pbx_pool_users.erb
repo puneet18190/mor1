@@ -1,0 +1,26 @@
+<b><%= _('pbx_pool') %>: <%= link_to @pbx_pool.name, {action: 'pbx_pool_edit', id: @pbx_pool.id} %></b>
+</br>
+</br>
+</br>
+<table class="maintable" style="min-width:275px">
+  <tr>
+    <th align="left"><%= _('User') %></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @pbx_pool.users.each_with_index do |user, i| %>
+    <tr class="row<%= (i % 2 + 1).to_s %>">
+      <td id="user_<%= user.id %>" align="left"><%= link_to nice_user(user), {:controller => 'users', :action => 'edit', :id => user.id} %></td>
+      <td align="center" id="edit_<%= user.id %>"><%= link_to b_edit, {:controller => 'users', :action => 'edit', :id => user.id} %></td>
+      <td id="show_devices_<%= user.id %>" align="center"><%= link_to(b_device + ("(#{user.devices.size})"), {:controller => 'devices', :action => 'show_devices', :id => user.id}, :id => "show_devices_link_"+user.id.to_s) if user.is_user? %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% content_for :scripts do %>
+  <script>
+    function toggleUserSelect() {
+      $j('#user_select').toggle();
+    }
+  </script>
+<% end %>

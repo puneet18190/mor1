@@ -1,0 +1,7 @@
+#make rspro
+user/reseller_3/make_rspro.sql
+#make permission
+permissions/reseller/create.sql
+# cc write
+permissions/reseller/cc_write.sql
+#bundle loaded

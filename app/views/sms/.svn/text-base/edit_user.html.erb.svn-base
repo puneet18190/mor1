@@ -1,0 +1,29 @@
+<b>  <%= b_user %> <%= nice_user(@user) %> </b>
+<br>
+<br>
+<%= form_tag(action: :lcr_update_user, id: @user.id) do %>
+
+    <table>
+      <% if admin? || accountant? %>
+
+          <tr>
+            <td> <%= _('Sms_LCR') %>:</td>
+            <td>
+              <%= select_tag(:lcr_id, options_for_select(@sms_lcrs.map { |lcr| [lcr.name, lcr.id] }, @user.sms_lcr.try(:id))) %>
+            </td>
+          </tr>
+      <% end %>
+      <tr>
+        <td> <%= _('Sms_Tariff') %>:</td>
+        <td>
+          <%= select_tag(:tariff_id, options_for_select(@tariffs.map { |tariff| [tariff.name, tariff.id] }, @user.sms_tariff_id)) %>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+
+    <%= submit_tag _('Change'), data: { disable_with: _('Processing..') } %>
+<% end %>
+
+<br>

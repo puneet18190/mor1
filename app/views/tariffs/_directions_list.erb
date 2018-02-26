@@ -1,0 +1,17 @@
+<div id='direction_list'>
+  <br/>
+  <table class='simple'>
+    <% search_directions(params).each { |direction| %>
+      <tr>
+        <td>
+          <% if direction.new_rates_available == 1 %>
+            <%= link_to(draw_flag(direction.code) + ' ' + direction.name,
+              action: :rate_new_by_direction, dir_id: direction.id, id: params[:tariff_id], st: params[:st]) %>
+          <% else %>
+            &nbsp<%= draw_flag(direction.code) + ' ' + direction.name + ' - ' + _('All_rates_are_set') %>
+          <% end %>
+        </td>
+      </tr>
+    <% } %>
+  </table>
+</div>

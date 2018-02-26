@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_1600101/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/manual_payment?user_id=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>amount</td>
+	<td>120</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Private Comment:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Cia yra Private Comment: Labai labai labai labai labai labai labai</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comment for User:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=comments_for_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=comments_for_user</td>
+	<td>Cia yra Comment for User: Labai labai labai labai labai labai labai</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Private Comment:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comment for User:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cia yra Private Comment: Labai labai labai labai labai labai labai</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cia yra Comment for User: Labai labai labai labai labai labai labai</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Payment added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/personal_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comment_10</td>
+	<td>Cia yra Comment for User: L...</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Cia yra Private Comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Cia yra Comment for User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/manual_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=amount</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>As esu reselerio Private Comment, malonu susipazinti</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=comments_for_user</td>
+	<td>As esu reselerio Comment for User, malonu susipazinti</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_5</td>
+	<td>As esu reselerio Private Comment, malonu susipazinti</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comments_for_user_5</td>
+	<td>As esu reselerio Comment for User, malonu susipazinti</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_11</td>
+	<td>As esu reselerio Private Co...</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_11</td>
+	<td>As esu reselerio Comment fo...</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=payment_description_tag_11</td>
+	<td>Edit 1 As esu reselerio Private Comment, malonu susipazinti</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_11</td>
+	<td>As esu reselerio Private Co...</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@title='As esu reselerio Private Comment, malonu susipazinti']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#payment_comment_link_11 &gt; a &gt; img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=payment_comment_tag_11</td>
+	<td>Edit 2 As esu reselerio Comment for User, malonu susipazinti</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Cancel')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_11</td>
+	<td>As esu reselerio Comment fo...</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@title='As esu reselerio Comment for User, malonu susipazinti']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=ok_11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_11</td>
+	<td>Edit 1 As esu reselerio Pri...</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#payment_comment_link_11 &gt; a &gt; img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='ok_11'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Cancel')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_11</td>
+	<td>Edit 2 As esu reselerio Com...</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/personal_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comment_11</td>
+	<td>Edit 2 As esu reselerio Com...</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit 2 As esu reselerio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Edit 1 As esu reselerio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@src='/billing/images/icons/comment_edit.png']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@title='Cia yra Private Comment: Labai labai labai labai labai labai labai']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@title='Cia yra Comment for User: Labai labai labai labai labai labai labai']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@src='/billing/images/icons/comment_edit.png']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>payment_description_tag_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=payment_description_tag_10</td>
+	<td>Cia yra Private Comment: Labai labai labai labai labai labai labai</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>ok_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=payment_comment_tag_10</td>
+	<td>Cia yra Comment for User: Labai labai labai labai labai labai labai</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>xpath=(//input[@name='ok_10'])[2]</td>
+	<td>Ok</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=(//a[contains(text(),'Cancel')])[2]</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#payment_comment_link_10 &gt; a &gt; img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>payment_description_tag_10</td>
+	<td>aaaaa</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#payment_comment_link_10 &gt; a &gt; img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=payment_comment_tag_10</td>
+	<td>bbbbb</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Cancel')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@src='/billing/images/icons/comment_edit.png']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@title='Cia yra Private Comment: Labai labai labai labai labai labai labai']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@title='Cia yra Comment for User: Labai labai labai labai labai labai labai']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@src='/billing/images/icons/comment_edit.png']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>payment_description_tag_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>payment_description_tag_10</td>
+	<td>aaaaa</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=payment_comment_tag_10</td>
+	<td>bbbbb</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[name=&quot;ok_10&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='ok_10'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@src='/billing/images/icons/comment_edit.png']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='aaaaa']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='bbbbb']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@src='/billing/images/icons/comment_edit.png']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>payment_description_tag_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>ok_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=payment_description_tag_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=payment_comment_tag_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='ok_10'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=payment_comment_tag_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#payment_comment_link_10 &gt; a &gt; img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Cancel')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#payment_comment_link_10 &gt; a &gt; img[alt=&quot;Comment edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/manual_payment?user_id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=amount</td>
+	<td>75</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>privatus komentaras</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=comments_for_user</td>
+	<td>komentaras simple useriui</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_2</td>
+	<td>privatus komentaras</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comments_for_user_2</td>
+	<td>komentaras simple useriui</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_12</td>
+	<td>privatus komentaras</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_12</td>
+	<td>komentaras simple useriui</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_all_permissions_write</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/personal_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comment_12</td>
+	<td>komentaras simple useriui</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>privatus komentaras</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>accountant</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>accountant1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Private Comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Comment for User</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_12</td>
+	<td>privatus komentaras</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_12</td>
+	<td>komentaras simple useriui</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/manual_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=amount</td>
+	<td>96</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>partnerio privatus komentaras</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=comments_for_user</td>
+	<td>partnerio komentaras useriui</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=description_1600101</td>
+	<td>partnerio privatus komentaras</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comments_for_user_1600101</td>
+	<td>partnerio komentaras useriui</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_description_link_13</td>
+	<td>partnerio privatus komentaras</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=payment_comment_link_13</td>
+	<td>partnerio komentaras useriui</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Application key&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/payments/personal_payments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=comment_13</td>
+	<td>partnerio komentaras useriui</td>
+</tr>
+</tbody></table>
+</body>
+</html>

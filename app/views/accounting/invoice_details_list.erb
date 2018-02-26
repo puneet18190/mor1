@@ -1,0 +1,54 @@
+<% nice_number_hash = { change_decimal: session[:change_decimal], global_decimal: session[:global_decimal] } %>
+<%= form_tag action: 'invoice_details_list', search_pressed: true do %>
+  <%= hidden_field_tag 'page', 1 %>
+    <table>
+      <tr>
+        <td>
+          <%= _('Prefix') %>:
+        </td>
+        <td>
+          <%= text_field_tag 's_prefix', @options[:s_prefix], 'class' => 'input', size: '15', maxlength: '30' %>
+        </td>
+        <td>
+          <%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %>
+        </td>
+        <td align='right'>
+          <%= (link_to b_cross + _('Clear_search'), action: 'invoice_details_list', clear: 1) if @clear_search %>
+        </td>
+      </tr>
+    </table>
+<% end %>
+
+<br/><br/>
+
+<% if @total_pages > 1 %>
+    <%= page_select_header(@options[:page], @total_pages, nil, @options) %>
+<% end %>
+
+<table class='maintable' width='100%'>
+  <tr>
+    <th align='left'><%= sortable_list_header('name', _('Service') + '/' + _('Destination'), @options) %></th>
+    <th align='right'><%= sortable_list_header('quantity', _('Units'), @options) %></th>
+    <th align='right'><%= sortable_list_header('total_time', _('Time'), @options) %></th>
+    <th align='right'><%= sortable_list_header('price', _('Price'), @options) + " (#{@invoice_currency})" %></th>
+  </tr>
+<% unless @invoice_lines_in_page_count.zero? %>
+  <% @invoice_lines_in_page.each_with_index do |invoice_line, i| %>
+    <tr class="row<%= (i % 2 + 1).to_s %>">
+      <td id="destination_<%= invoice_line.id %>" align='left'><%= invoice_line.read_attribute(:name).to_s + (invoice_line.prefix.present? ? ' (' + invoice_line.prefix.to_s + ')' : '') %></td>
+      <td id="calls_<%= invoice_line.id %>" align='right'><%= invoice_line.quantity.to_i %></td>
+      <td id="time_<%= invoice_line.id %>" align='right'><%= nice_time(invoice_line.total_time.to_s) %></td>
+      <td id="price_<%= invoice_line.id %>" align='right'><%= nice_invoice_number(invoice_line.read_attribute(:price).to_d * @invoice.invoice_exchange_rate.to_f, nice_number_hash, @invoice_precision) %></td>
+    </tr>
+  <% end %>
+<% end %>
+  <tr>
+    <th id='total' align='left' colspan='2'><%= _('Total') %>:</th>
+    <th id='total_time' align='right'> <%= nice_time(@total_time.to_s) %></th>
+    <th id='total_price' align='right'> <%= nice_invoice_number(@total_amount.to_d, nice_number_hash, @invoice_precision) %>(<%= @invoice_currency %>)</th>
+  </tr>
+</table>
+<% if @total_pages > 1 %>
+    </br>
+    <%= page_select_header(@options[:page], @total_pages, nil, @options) %>
+<% end %>

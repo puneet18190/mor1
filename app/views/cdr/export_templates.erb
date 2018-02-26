@@ -1,0 +1,16 @@
+<%= link_to b_add + _('Add_new_Template'), action: :export_template_new %>
+<br/><br/>
+<table class="maintable" width="35%">
+  <tr>
+    <th align="left"><%= _('Name') %></th>
+    <th width="10%"></th>
+    <th width="10%"></th>
+  </tr>
+  <% @templates.each_with_index do |template, index| %>
+    <tr class="row<%= (index % 2 + 1) %>">
+      <td align="left" id="name_<%= template.id %>" <%= tooltip(_('Columns'), tooltip_export_template_columns(template)) %>><%= template.name %></td>
+      <td align="center" id="edit_<%= template.id %>"><%= link_to b_edit, {action: :export_template_edit, id: template.id} %></td>
+      <td align="center" id="destroy_<%= template.id %>"><%= link_to b_delete, {action: :export_template_destroy, id: template.id}, {data: {confirm: _('are_you_sure')}, method: :post, id: "delete_link_#{template.id}"} %></td>
+    </tr>
+  <% end %>
+</table>

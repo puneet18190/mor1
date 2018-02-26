@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/retail_3
+END
+australia_mob_002.sql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/retail_3/australia_mob_002.sql
+END
+albania_fix_035.sql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/retail_3/albania_fix_035.sql
+END
+add_rates.sql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/retail_3/add_rates.sql
+END
+create_rates_for_mali.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/retail_3/create_rates_for_mali.sql
+END
+create_rates_for_us.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/retail_3/create_rates_for_us.sql
+END

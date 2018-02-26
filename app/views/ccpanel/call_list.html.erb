@@ -1,0 +1,51 @@
+<% show_price = (Confline.get_value('CCShop_show_values_without_VAT_for_user').to_i == 1) %>
+<% if @calls.present? %>
+    <%= _('total_calls') %>: <b><%= @calls.size %></b>
+    <br/><br/>
+    <table width="100%" class="maintable">
+      <tr>
+        <th align="center"><%= _('Date') %></th>
+        <th align="left"><%= _('called_from') %></th>
+        <th align="left"><%= _('called_to') %></th>
+        <th align="left"><%= _('Destination') %></th>
+        <th align="left"><%= _('hangup_cause') %></th>
+        <th align="center"><%= _('duration') %></th>
+        <% if show_price %>
+            <th align="right"><%= _('Price') %></th>
+        <% end %>
+        <th align="right"><%= _('Price_with_VAT') %></th>
+      </tr>
+
+      <% @calls.each_with_index do |call, index| %>
+          <% text_class = call.processed == 0 ? 'n' : 'n_disabled' %>
+          <tr class="row<%= (index % 2 + 1).to_s %>">
+            <td class="<%= text_class %>" align="center"><%= h(call.calldate.strftime('%Y-%m-%d %H:%M:%S')) %></td>
+            <td class="<%= text_class %>"><%= h(call.clid) %></td>
+            <td class="<%= text_class %>"><%= h(call.localized_dst) %></td>
+            <% dest = Destination.where(prefix: call.prefix).first %>
+            <td class="<%= text_class %>"><%= "#{dest.try(:direction).try(:name)} #{dest.try(:name)}" %></td>
+            <td class="<%= text_class %>" align="left"><%= call.disposition %></td>
+            <td class="<%= text_class %>" align="center"><%= nice_time call.billsec %></td>
+            <% if show_price %>
+                <td class="<%= text_class %>" align="right"><%= nice_number(call.user_price) %></td>
+            <% end %>
+            <td class="<%= text_class %>" align="right"><%= nice_number(call.user_price.to_f + @cg.get_tax.count_tax_amount(call.user_price.to_f)) %></td>
+          </tr>
+      <% end %>
+
+      <tr>
+        <th align="left">&nbsp;<%= _('Total') %>:</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th align="right"></th>
+        <th align="center"><%= nice_time @totals[:billsec] %></th>
+        <% if show_price %>
+            <th align="right"><%= nice_number @totals[:price] %></th>
+        <% end %>
+        <th align="right"><%= nice_number @totals[:price_with_vat] %></th>
+      </tr>
+    </table>
+<% else %>
+    <%= _('you_have_no_calls') %>
+<% end %>

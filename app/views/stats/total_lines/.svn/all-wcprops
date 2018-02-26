@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/63615/mor/gui/branches/x8/app/views/stats/total_lines
+END
+_last_calls_stats_admin_total.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/63475/mor/gui/branches/x8/app/views/stats/total_lines/_last_calls_stats_admin_total.html.erb
+END
+_last_calls_stats_partner_total.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/63475/mor/gui/branches/x8/app/views/stats/total_lines/_last_calls_stats_partner_total.html.erb
+END
+_last_calls_stats_reseller_total.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/63615/mor/gui/branches/x8/app/views/stats/total_lines/_last_calls_stats_reseller_total.html.erb
+END
+_last_calls_stats_user_total.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/63475/mor/gui/branches/x8/app/views/stats/total_lines/_last_calls_stats_user_total.html.erb
+END

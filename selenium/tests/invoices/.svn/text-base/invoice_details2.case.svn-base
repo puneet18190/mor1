@@ -1,0 +1,1379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>invoice_details2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">invoice_details2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/various_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>INV0801012</td>
+</tr>
+<!--* pridėti eilutes su Time Zone ir Currency.-->
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>UTC</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Time Zone:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Currency:</td>
+	<td></td>
+</tr>
+<!--* Ištrinti headerį Generate: PDF, CSV.-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Generate:</td>
+	<td></td>
+</tr>
+<!--* Invoice eilutėje panaikitni PDF ikonėlę, o vietoj csv įdėti XLSX parsisiuntimą.-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/5']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_destinations_csv/5')]</td>
+	<td></td>
+</tr>
+<!--* Pridėti linką Incoice details-->
+<tr>
+	<td>assertText</td>
+	<td>link=Invoice Details</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_17</td>
+	<td>SMS</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_17</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_15</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_15</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_16</td>
+	<td>Test_periodic_service - Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_16</td>
+	<td>93.2258</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_14</td>
+	<td>Romania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_14</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_time</td>
+	<td>exact:00:20:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>126.2258(USD)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Test Reseller</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>INV0801013</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>Vilnius</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_destinations_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Invoice Details</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_19</td>
+	<td>Calls from Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_19</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_19</td>
+	<td>28.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_20</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_20</td>
+	<td>17.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_18</td>
+	<td>Belarus</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_18</td>
+	<td>exact:00:05:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_18</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>49.0000(USD)</td>
+</tr>
+<!--*  pdf, csv failai atvaizduojami useriui atsižvelgiant į jo edite pažymėtus checkboxus-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<!--* By Destinations csv setingas yra, bet useriui neatvaizduojamas csv-->
+<tr>
+	<td>check</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>INV0801012</td>
+</tr>
+<!--* pridėti eilutes su Time Zone ir Currency.-->
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>UTC</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Time Zone:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Currency:</td>
+	<td></td>
+</tr>
+<!--* Ištrinti headerį Generate: PDF, CSV. ir Services sąrašą-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Generate:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Service</td>
+	<td></td>
+</tr>
+<!--* Invoice eilutėje panaikitni PDF ikonėlę, o vietoj csv įdėti XLSX parsisiuntimą.-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/5']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/5')]</td>
+	<td></td>
+</tr>
+<!--* By Destinations csv setingas yra, bet useriui neatvaizduojamas csv-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_destinations_csv/5')]</td>
+	<td></td>
+</tr>
+<!--* Pridėti linką Incoice details-->
+<tr>
+	<td>assertText</td>
+	<td>link=Invoice Details</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_17</td>
+	<td>SMS</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_17</td>
+	<td>20.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_15</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_15</td>
+	<td>1.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_16</td>
+	<td>Test_periodic_service - Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_16</td>
+	<td>93.2258</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_14</td>
+	<td>Romania</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_14</td>
+	<td>12.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_time</td>
+	<td>exact:00:20:50</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>126.2258(USD)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>Test Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>INV0801013</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>Vilnius</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_destinations_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Invoice Details</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_19</td>
+	<td>Calls from Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_19</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_19</td>
+	<td>28.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_20</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_20</td>
+	<td>17.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_18</td>
+	<td>Belarus</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_18</td>
+	<td>exact:00:05:25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_18</td>
+	<td>4.0000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>49.0000(USD)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_30</td>
+	<td>Test_periodic_service - Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_30</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_30</td>
+	<td>174.0472</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>174.0472(EUR)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>User Resellers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>1211201</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>Atlantic Time (Canada)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/12']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_pdf/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Invoice Details</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_30</td>
+	<td>Test_periodic_service - Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_30</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_30</td>
+	<td>174.0472</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_price</td>
+	<td>174.0472(EUR)</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details_list/11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Invoice was not found</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--*  pdf, csv failai atvaizduojami useriui atsižvelgiant į jo edite pažymėtus checkboxus-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<!--Test with blank First/Last Name-->
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: user_admin</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<!--Test with blank First/Last Name-->
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hello</td>
+	<td>Hello, user_admin</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/5</td>
+	<td></td>
+</tr>
+<!--Test that name is not empty-->
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>user_admin</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/5']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_pdf/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hello</td>
+	<td>Hello, reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/6</td>
+	<td></td>
+</tr>
+<!--Test that name is not empty-->
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_destinations_csv/6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/5</td>
+	<td></td>
+</tr>
+<!--Test with blank First/Last Name-->
+<tr>
+	<td>type</td>
+	<td>id=user_first_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_last_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: user_reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>user_reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=hello</td>
+	<td>Hello, user_reseller</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/12</td>
+	<td></td>
+</tr>
+<!--Test that name is not empty-->
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>user_reseller</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/12']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_pdf/12')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/12')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

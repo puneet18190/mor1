@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>api_subscription_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">api_subscription_update</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/enable_api</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/services/services_subscribtions_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<!--#hash1 !!!!!!!!!!!!! hashai priklauso tik nuo subscription_id-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;u=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash1</td>
+</tr>
+<!--hahsas su visais parametrais -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;u=admin&amp;subscription_activation_start=1307167264&amp;subscription_activation_end=1307167265&amp;subscription_memo=aaa&amp;subscription_until_canceled=1&amp;subscription_no_expiration_at_the_end_of_a_month=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash2</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash1']==storedVars['hash2']</td>
+	<td>true</td>
+</tr>
+<!--#hash 3-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;u=admin&amp;subscription_id=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash3</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['hash1']==storedVars['hash3']</td>
+	<td>false</td>
+</tr>
+<!--#hash 4-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;u=admin&amp;subscription_id=54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash4</td>
+</tr>
+<!--#hash 5-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;u=admin&amp;subscription_id=21</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash5</td>
+</tr>
+<!--#hash 6-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;subscription_id=17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash6</td>
+</tr>
+<!--#hash 7/flat rate-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;subscription_id=32</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash7</td>
+</tr>
+<!--#hash 8-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/test_api?api_name=subscription_update&amp;subscription_id=24</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=body</td>
+	<td>hash8</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--random hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_start=1266883200&amp;test=1&amp;hash=${hash4}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!--irasom service id kurio nera-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=1457455&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Incorrect hash</td>
+	<td></td>
+</tr>
+<!-- Keiciam start data    2010-02-22 00:00:00-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_start=1266796800&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_start=12667964800&amp;subscription_activation_end=1296604800 &amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription activation end date must be valid timestamp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_start=12667964800&amp;subscription_activation_end=1296604800&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Activation start date must be earlier than end date</td>
+	<td></td>
+</tr>
+<!--end data = 01 / 12 / 2012-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_end=1326326400&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<!--memoo=testuojam-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=21&amp;subscription_memo=testuojam&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<!--until canceled-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=21&amp;subscription_until_canceled=1&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<!--subscription_no_expiration_at_the_end_of_a_month-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_no_expiration_at_the_end_of_a_month=1&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Service is not flat rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=21&amp;subscription_no_expiration_at_the_end_of_a_month=1&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<!--nesavooo-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=reseller&amp;subscription_id=21&amp;subscription_memo=testuojam_reseleriui&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was not found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=user_reseller&amp;subscription_id=21&amp;subscription_memo=testuojam_paprastam useriuii&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=user_admin&amp;subscription_id=21&amp;subscription_memo=testuojam_accountantui&amp;test=1&amp;hash=${hash5}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Access Denied</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_start_11</td>
+	<td>2010-02-22 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_11</td>
+	<td>2012-01-12 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_21</td>
+	<td>testuojam</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_21</td>
+	<td>Until canceled</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscription_edit/21?back=subscriptions&amp;page=1&amp;s_date_from=-1&amp;s_date_till=-1&amp;s_device=-1&amp;s_memo=&amp;s_service=-1&amp;s_user=</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=no_expire</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<!--reselllller-->
+<!--start=12 / 22 / 2008, end =  12 / 12 / 2009-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=reseller&amp;subscription_id=17&amp;subscription_activation_start=1229904000&amp;subscription_activation_end=1260576000&amp;test=1&amp;hash=${hash6}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<!--subscription_no_expiration_at_the_end_of_a_month-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=reseller&amp;subscription_id=32&amp;subscription_no_expiration_at_the_end_of_a_month=1&amp;test=1&amp;hash=${hash7}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=reseller&amp;subscription_id=24&amp;subscription_memo=reeseller_testavimas&amp;subscription_until_canceled=1&amp;test=1&amp;hash=${hash8}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=February</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_start_17</td>
+	<td>2008-12-22 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_17</td>
+	<td>2009-12-12 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_24</td>
+	<td>reeseller_testavimas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_left_32</td>
+	<td>60</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=accountant&amp;subscription_id=11&amp;subscription_activation_start=1266796800&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Successfully logged in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/subscriptions_read</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=accountant&amp;subscription_id=11&amp;subscription_activation_start=1266796800&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>You are not authorized to use this functionality</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/permissions/accountant/subscriptions_write</td>
+	<td></td>
+</tr>
+<!--start = 10 / 10 / 2009, end= 12 / 21 / 2012-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_start=1255132800&amp;subscription_activation_end=1356048000&amp;subscription_memo=accountant_testavimas&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_11</td>
+	<td>accountant_testavimas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_11</td>
+	<td>2012-12-21 00:00:00</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_start_11</td>
+	<td>2009-10-10 00:00:00</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_until_canceled=1&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_11</td>
+	<td>Until canceled</td>
+</tr>
+<!--disable hash-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=api_tests/disable_hash</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<!-- 12 / 21 / 2013 -->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_end=1387584000&amp;subscription_until_canceled=0&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=until_canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=activation_end_11</td>
+	<td>2013-12-21 00:00:00</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/fake_form?path_to_action=/billing/api/subscription_update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_1</td>
+	<td>u</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_1</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_2</td>
+	<td>subscription_id</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_2</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_2</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_3</td>
+	<td>subscription_memo</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_3</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_3</td>
+	<td>ffake forma</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=c_4</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=c_4</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=n_c_4</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription was successfully updated</td>
+</tr>
+<!--admin gali updeitinti reselerio subscriptionus-->
+<!--reselerio userio subsc-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=17&amp;subscription_memo=updated by admin&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<!--reselerio subsc-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=27&amp;subscription_memo=updated by admin&amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Subscription was successfully updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2020</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_17</td>
+	<td>updated by admin</td>
+</tr>
+<!--test=1 formato testavimas - iki siol buvo tik html-->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/settings/api/enable_xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_memo=xml_test&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription was successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=admin&amp;subscription_id=11&amp;subscription_activation_start=12667964800&amp;subscription_activation_end=1296604800 &amp;test=1&amp;hash=${hash3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=error</td>
+	<td>Subscription activation end date must be valid timestamp</td>
+</tr>
+<!--buvo crash su tokia užklausa:-->
+<tr>
+	<td>open</td>
+	<td>/billing/api/subscription_update?u=reseller&amp;subscription_id=50&amp;subscription_activation_start=1414753871&amp;subscription_activation_end=hhh&amp;subscription_until_canceled=1&amp;test=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=success</td>
+	<td>Subscription was successfully updated</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/services/subscriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2020</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=memo_27</td>
+	<td>updated by admin</td>
+</tr>
+</tbody></table>
+</body>
+</html>

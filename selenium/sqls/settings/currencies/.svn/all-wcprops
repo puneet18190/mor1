@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies
+END
+daily_currencies.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies/daily_currencies.sql
+END
+update_currencies.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies/update_currencies.sql
+END
+change_default.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies/change_default.sql
+END
+delete_from_daily_currencies.sql
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies/delete_from_daily_currencies.sql
+END
+insert_EUR_01_01_in_daily_currencies.sql
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies/insert_EUR_01_01_in_daily_currencies.sql
+END
+insert_EUR_11_21_in_daily_currencies.sql
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/settings/currencies/insert_EUR_11_21_in_daily_currencies.sql
+END

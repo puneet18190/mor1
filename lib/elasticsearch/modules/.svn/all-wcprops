@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/65363/mor/gui/branches/x8/lib/elasticsearch/modules
+END
+es_calls_by_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/lib/elasticsearch/modules/es_calls_by_user.rb
+END
+es_providers_stats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/64144/mor/gui/branches/x8/lib/elasticsearch/modules/es_providers_stats.rb
+END
+es_dids_summary.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62718/mor/gui/branches/x8/lib/elasticsearch/modules/es_dids_summary.rb
+END
+es_dids_stats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/62705/mor/gui/branches/x8/lib/elasticsearch/modules/es_dids_stats.rb
+END
+es_calls_per_hour.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/63830/mor/gui/branches/x8/lib/elasticsearch/modules/es_calls_per_hour.rb
+END
+es_calls_per_day.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/63082/mor/gui/branches/x8/lib/elasticsearch/modules/es_calls_per_day.rb
+END
+es_profit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/64508/mor/gui/branches/x8/lib/elasticsearch/modules/es_profit.rb
+END
+es_last_calls_totals.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/65363/mor/gui/branches/x8/lib/elasticsearch/modules/es_last_calls_totals.rb
+END
+es_aggregates.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/63281/mor/gui/branches/x8/lib/elasticsearch/modules/es_aggregates.rb
+END
+es_quick_stats_technical_info.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/63848/mor/gui/branches/x8/lib/elasticsearch/modules/es_quick_stats_technical_info.rb
+END
+es_hgc_stats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/63073/mor/gui/branches/x8/lib/elasticsearch/modules/es_hgc_stats.rb
+END
+es_invoice_destinations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/64558/mor/gui/branches/x8/lib/elasticsearch/modules/es_invoice_destinations.rb
+END
+es_invoice_by_cid_csv.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/63524/mor/gui/branches/x8/lib/elasticsearch/modules/es_invoice_by_cid_csv.rb
+END
+es_country_stats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/63071/mor/gui/branches/x8/lib/elasticsearch/modules/es_country_stats.rb
+END
+es_loss_making_calls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/63072/mor/gui/branches/x8/lib/elasticsearch/modules/es_loss_making_calls.rb
+END

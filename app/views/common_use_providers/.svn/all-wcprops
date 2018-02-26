@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/64144/mor/gui/branches/x8/app/views/common_use_providers
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/62681/mor/gui/branches/x8/app/views/common_use_providers/edit.html.erb
+END
+rs_edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/64144/mor/gui/branches/x8/app/views/common_use_providers/rs_edit.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/62681/mor/gui/branches/x8/app/views/common_use_providers/index.html.erb
+END

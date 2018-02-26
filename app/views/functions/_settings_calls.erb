@@ -1,0 +1,42 @@
+<table class="simple" width="100%">
+  <tr>
+    <td></td>
+    <td><b><%= _('Archive_to') %>:</b></td>
+    <td>
+      <% arch_calls_to_csv = Confline.get_value("Archive_Calls_to_CSV").to_i %>
+      <%= radio_button_tag('archive_calls_to_csv', '0', (arch_calls_to_csv == 0)) + _('DB_default') %>
+      <%= radio_button_tag('archive_calls_to_csv', '1', (arch_calls_to_csv == 1)) + _('File_tgz') %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><b><%= _('Archive_when') %>:</b></td>
+    <td>
+      <%= text_field_tag('archive_when', Confline.get_value("Move_to_old_calls_older_than", 0).to_i, "class" => "input", :size => "5", :maxlength => "3") %> <%= _('days_0_disabled') %>
+    </td>
+  </tr>
+  <%= raw setting_boolean(_('Archive_only_answered_calls'), 'archive_only_answered_calls', 'Archive_only_answered_calls') %>
+  <tr>
+    <td width="30"></td>
+    <td><b><%= _('Archive_at') %>: </b></td>
+    <td>
+      <%= select_tag('archive_at_hour', options_for_select([[_('disable'),'-1']]+('00'..'23').to_a, selected: archive_at_hour)) %> :
+      <%= select_tag('archive_at_minute', options_for_select([[_('disable'),'-1']]+('00'..'59').to_a, selected: archive_at_minute)) %>
+    </td>
+  <tr>
+    <td width="30"></td>
+    <td><b><%= _('Archive_till') %>: </b></td>
+    <td>
+      <%= select_tag('archive_till_hour', options_for_select([[_('disable'),'-1']]+('00'..'23').to_a, selected: archive_till_hour)) %> :
+      <%= select_tag('archive_till_minute', options_for_select([[_('disable'),'-1']]+('00'..'59').to_a, selected: archive_till_minute)) %>
+    </td>
+  </tr>
+  <%= raw setting_boolean(_('Delete_Calls_instead_of_Archiving'), 'delete_calls_instead_of_archiving', 'Delete_Calls_instead_of_Archiving') %>
+  <tr>
+    <td></td>
+    <td><b><%= _('Delete_Archived_Calls_older_than') %>:</b></td>
+    <td>
+      <%= text_field_tag('delete_archived_calls_older_than', (Confline.where(name: 'Delete_Archived_Calls_older_than', owner_id: 0).first.try(:value) || 0).to_i, class: 'input', size: 5, maxlength: 3) %> <%= _('days_0_disabled') %>
+    </td>
+  </tr>
+</table>

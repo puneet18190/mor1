@@ -1,0 +1,5 @@
+<%= form_for :template, url: {action: :export_template_create, id: @template.id} do |f| %>
+    <%= render 'export_template_form', f: f, template: @template %>
+    <br/>
+    <%= submit_tag _('Create'), data: {disable_with: _('Processing..')} %>
+<% end %>

@@ -1,0 +1,7 @@
+# Vouchers enabled
+voucher/check_vouchers_enabled.sql
+# 5 voucher number length
+voucher/voucher_number_length_5.sql
+# Voucher card disable
+voucher/check_voucher_card_disable.sql
+# bundle loaded

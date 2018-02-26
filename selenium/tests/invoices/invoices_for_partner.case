@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>invoices_for_partner</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">invoices_for_partner</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--įkeliami invoisai per sql, kadangi invoisų scriptas braine negali būti testuojamas-->
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/various_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/partner_6001/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/user/reseller_1600101/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/various_invoices_for_partner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/partner_invoice</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/6001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=user[generate_invoice]</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=xlsx</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=i2</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=i3</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Notice that when generating Invoices User Time Zone will be applied, so depending on your Time Zone settings some statistics may differ </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=link_generate_invoices</td>
+	<td>Generate Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=link_invoices_recalculaion</td>
+	<td>Recalculate invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=invoices_to_csv</td>
+	<td>Export to CSV</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=link_send_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table.simple &gt; tbody &gt; tr &gt; td</td>
+	<td>USDEUR</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>id=s_username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_period_start</td>
+	<td>label=2008-01-01</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_period_end</td>
+	<td>label=2009-12-31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_50</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_51</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_53</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_50</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_51</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_52</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_53</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_number_50</td>
+	<td>INV0801011</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_type_50</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_start_50</td>
+	<td>2008-01-01</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_period_end_50</td>
+	<td>2009-12-31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_issue_50</td>
+	<td>2014-11-06</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_timezone50</td>
+	<td>Mountain Time (US &amp; Canada)</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=image_not_sent_50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=image_not_sent_manually_50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=image_not_paid_50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=image_paid_53</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_53</td>
+	<td>235.6667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_53</td>
+	<td>235.6667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_currency_53</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#details_link_53 &gt; img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#delete_link_53 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_currency</td>
+	<td>USD</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total</td>
+	<td>384.8925</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_wat</td>
+	<td>384.8925</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EUR</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_price_53</td>
+	<td>235.6667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_full_price_53</td>
+	<td>235.6667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=inv_currency_53</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total</td>
+	<td>348.4893</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_wat</td>
+	<td>348.4893</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=total_currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#delete_link_50 &gt; img[alt=&quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Invoice deleted: INV0801011</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Invoices</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=user_50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#details_link_53 &gt; img[alt=&quot;Details&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>exact:Invoice: 1211201</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Back to Invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Notice that when generating Invoices User Time Zone will be applied, so depending on your Time Zone settings some statistics may differ </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=number</td>
+	<td>1211201</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=invoice_type</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_start</td>
+	<td>2012-11-20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=period_end</td>
+	<td>2014-11-06</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_zone</td>
+	<td>UTC</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=issue_date</td>
+	<td>2014-11-06</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=input[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#manually &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=paid_date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price</td>
+	<td>235.6667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=full_price</td>
+	<td>235.6667</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=currency</td>
+	<td>EUR</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recalculate</td>
+	<td>Invoice was already paid or sent, you cannot recalculate price</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_details1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_details2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_details3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_details4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=invoice_client_details5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_details6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=Invoice Details</td>
+	<td>Invoice Details</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invoice Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_63</td>
+	<td>DID Owner Cost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=calls_63</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=time_63</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=price_63</td>
+	<td>15.8700</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.3</td>
+	<td>15.8700</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.3</td>
+	<td>15.8700</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.2</td>
+	<td>exact:00:53:34</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Units</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.1</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.1</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Service/Destination</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.1.0</td>
+	<td>USA (1)</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.maintable.2.0</td>
+	<td>Test_periodic_service - Test_preriodic_service_memo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_prefix</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td>%</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=destination_65</td>
+	<td>USA (1)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Clear search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=s_prefix</td>
+	<td></td>
+</tr>
+<!--pdf testuojami partner_permissions.case-->
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/53</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#manually &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#manually &gt; a &gt; img[alt=&quot;Check&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[@action='/billing/accounting/export_invoice_to_xlsx/53']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_pdf/53')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_csv/53')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/53')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/53')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_by_cid_csv/53')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_destinations_csv/53')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/52</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=create_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_day</td>
+	<td>label=6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_comment</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details1</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details2</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details4</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=invoice_client_details5</td>
+	<td>label=Angola</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=invoice_client_details6</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Invoice updated</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=create_payment</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_client_details3</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=invoice_comment</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=create_payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_day</td>
+	<td>label=11</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=image_not_paid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoice_details/52</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=issue_date</td>
+	<td>2013-02-28</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=image_paid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=img[alt=&quot;Cross&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=recalculate</td>
+	<td>Invoice was already paid or sent, you cannot recalculate price</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=link_generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='1600101'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Partner`s Reseller</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>Selected Invoice period is not yet over for this User</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/partner_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page_title_icon</td>
+	<td>Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_number_type_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Settings saved</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('date_from_year').getElementsBySelector('option')[0].text = 2010; this.browserbot.getCurrentWindow().document.getElementById('date_from_year').getElementsBySelector('option')[0].value = 2010; }</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=November</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_prepaid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=link_invoices_recalculaion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>No invoice found to recalculate</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action,'/billing/accounting/export_invoice_to_xlsx/1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_bundle_sql/?path=universal_bundles/email_settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td># bundle loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/sqls/invoices/various_invoices_for_partner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/6001</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=xlsx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=i3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>partner</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>partner1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices_recalculation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('date_from_year').getElementsBySelector('option')[0].text = 2010; this.browserbot.getCurrentWindow().document.getElementById('date_from_year').getElementsBySelector('option')[0].value = 2010; }</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>No invoice found to recalculate</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2008</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Recalculating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_period_start</td>
+	<td>label=2008-01-01</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=s_period_end</td>
+	<td>label=2009-12-31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to send 1 invoices by email?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=notice</td>
+	<td>No Invoices found in selected period, or Invoice type is not selected for Users</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/generate_invoices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_from_year</td>
+	<td>label=2011</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=invoice_type_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='6001'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Partner's Reseller</td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().Ajax.activeRequestCount == 0	</td>
+	<td>15000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_year</td>
+	<td>label=2016</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=date_till_day</td>
+	<td>label=31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Background Task for Generating Invoices successfully created</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/accounting/user_invoice_details/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action,'/billing/accounting/export_invoice_to_xlsx/1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_csv/1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//form[contains(@action, '/billing/accounting/generate_invoice_detailed_pdf/1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/background_tasks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_3</td>
+	<td>Prepaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_2</td>
+	<td>Generating Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_4</td>
+	<td>Postpaid</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_4</td>
+	<td>Recalculating Invoices</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=user_5</td>
+	<td>Test Partner</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=task_5</td>
+	<td>Generating Invoices</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<% if @find_backup_size.to_i > -1 %>
+    <p>
+      <b><%= _('Delete_by') %>: </b>
+      <b><%= _('Date') %>: </b> <%= session_from_datetime %> - <%= session_till_datetime %>
+    </p>
+    <p><b><%= _('Found_files_to_delete') %>: <%= @find_backup_size.to_i %> </b></p>
+<% else %>
+    <p><b><%= _('Delete_files') %></b></p>
+<% end %>
+<% if @find_backup_size.to_i == -1 %>
+    <div class="form_background" style="width: 350px">
+      <%= form_tag action: :bulk_management do %>
+          <table>
+            <tr>
+              <td><%= _('From') %>:</td>
+              <td colspan="3">
+                <%= select_datetime(Time.mktime(session[:year_from], session[:month_from], session[:day_from], session[:hour_from], session[:minute_from]), end_year: Date.today.year+1, prefix: "date_from", use_month_numbers: false) %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= _('Till') %>:</td>
+              <td>
+                <%= select_datetime(Time.mktime(session[:year_till], session[:month_till], session[:day_till], session[:hour_till], session[:minute_till]), end_year: Date.today.year+1, prefix: "date_till", use_month_numbers: false) %></td>
+            </tr>
+            <tr>
+              <td colspan="3"><br><%= submit_tag _('Delete'), disable_with: _('Processing..'), id: 'submit' %></td>
+            </tr>
+          </table>
+      <% end %>
+    </div>
+<% else %>
+    <% if @find_backup_size.to_i > 0 %>
+        <%= button_to(_('Confirm'), {action: :bulk_delete, array: @delete_file}, {class: "imput", onclick: "return confirm('#{_('Are_you_sure')}');", data: {confirm: _('are_you_sure')}, method: "post"}) %>
+        <br/>
+        <br/>
+    <% end %>
+    <%= link_to b_back + _('Back_to_bulk_management'), action: :bulk_management %>
+<% end %>

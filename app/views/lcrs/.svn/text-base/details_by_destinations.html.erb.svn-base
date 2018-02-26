@@ -1,0 +1,221 @@
+<%= javascript_include_tag "wz_tooltip" %>
+<table>
+  <tr>
+    <td class="n" <%= "onmouseover=\"Tip(\' #{(lcrpartial_destinations_providers(@lcr.id)).to_s} \')\" onmouseout = \"UnTip()\"".html_safe %>><%= raw "<b>"+_('Main_LCR') + "</b>: " + @lcr.name.to_s + "&nbsp;&nbsp;&nbsp;" %>  <%= raw "<b>" + _('Order') + "</b>: " + @lcr.order.to_s %></td>
+  </tr>
+</table>
+<br/>
+
+<%= form_tag action: :details_by_destinations do %>
+<table id="search_details" class="bordered">
+  <tr>
+    <td>
+      <table class="simple">
+
+        <tr>
+          <td><%= _('Destination') %>:</td>
+          <td><%= text_field_tag 's_destination', @options[:s_destination], class:  'input', size: 18, maxlength: 30 %></td>
+          <td><%= _('Country') %>:</td>
+          <td colspan="3">
+            <select name="s_country"  style="width: 200px">
+              <option value='' selected> <%= _('All') %></option>
+              <% @countrys.each do |country| %>
+                <option value=<%= country.try(:code).to_s %> <%= 'selected' if country.try(:code).to_s == @options[:s_country] %>><%= country.name %></option>
+              <% end %>
+            </select>
+          </td>
+          <td align="right">
+          <% unless @search.zero? %>
+            <%= link_to b_cross + _('Clear_search'), {action: :details_by_destinations, :clear => 1}, {id: 'clear_search'} %>
+          <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td><%= _('Prefix') %>:</td>
+          <td colspan="4">
+            <%= text_field_tag 's_prefix', @options[:s_prefix], class: 'input', size: 18, maxlength: 30 %>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="5" height="10px"></td>
+        </tr>
+
+        <tr>
+          <td colspan="5"><%= submit_tag _('Search'), data: { disable_with: _('Processing..') } %></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<% end %>
+
+<br/>
+
+<%= page_select_header(@options[:page], @total_pages, {}, @options) %>
+
+<table width="100%" class="maintable">
+  <tr>
+    <th align="left"><%= nice_list_order('name', _('Country'), @options, {}) %></th>
+    <th align="left"><%= nice_list_order('prefix', _('Prefix'), @options, {}) %></th>
+    <th align="left"><%= nice_list_order('dest_name', _('Destination'), @options, {}) %></th>
+    <th align="left"><%= nice_list_order('dstgroup_name', _('Destination_Group'), @options, {}) %></th>
+    <th align="left"><%= _('LCR') %></th>
+    <th align="left"><%= _('Order') %></th>
+    <th align="center"><%= _('Active_destinations') %></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% i = 0 %>
+  <% @lcr_partials.each do |lp| %>
+      <tr class="row<%= (i % 2 + 1).to_s %>">
+        <td align="left" id="name_<%= lp['id'] %>"><%= draw_flag(lp['code']) %> <%= lp['name'] %></td>
+        <td align="left" id="prefix_<%= lp['id'] %>"><%= lp['prefix'] %></td>
+        <td align="left" id="dest_name_<%= lp['id'] %>"><%= lp['dest_name'] %></td>
+        <td align="left" id="dstgroup_name<%= lp['id'] %>"><%= lp['dstgroup_name'] %></td>
+        <td align="left" id="lname_<%= lp['id'] %>"><%= lp['lname'] %></td>
+
+        <% if lp['lcr_id'] %>
+            <td class="n" <%= "onmouseover=\"Tip(\' #{(lcrpartial_destinations_providers(lp['lcr_id'])).to_s} \')\" onmouseout = \"UnTip()\"".html_safe %>><%= lp['order'] %>     </td>
+        <% else %>
+            <td></td>
+        <% end %>
+
+        <% if lp['prefix'].present? %>
+        <td align="center"><%= link_to b_view, {action: 'lcrpartial_destinations', id: lp['id'].to_s, prefix: lp['prefix'].to_s, lcrp: lp['lid'].to_s}, id: "lcr_destinations_#{lp['lid']}", onclick: "window.open(this.href,'new_window','scrollbars=1,status=0,menubar=0,resizable=1,width=500,height=600');return false;" %></td>
+        <% elsif lp['destinationgroup_id'].to_i > 0 %>
+        <td align="center"><%= link_to b_view, {action: 'lcrpartial_destinations_by_group', direction_code: lp['code'].to_s, dg_id: lp['destinationgroup_id'].to_s, dg_name: lp['dstgroup_name'].to_s, lcrp: lp['lid'].to_s}, onclick: "window.open(this.href,'new_window','scrollbars=1,status=0,menubar=0,resizable=1,width=500,height=600');return false;" %></td>
+        <% elsif lp['dest_name'].present? %>
+        <td align="center"><%= link_to b_view, {action: 'lcrpartial_destinations_by_name', dest_name: lp['dest_name'].to_s, lcrp: lp['lid'].to_s}, onclick: "window.open(this.href,'new_window','scrollbars=1,status=0,menubar=0,resizable=1,width=500,height=600');return false;" %></td>
+        <% else %>
+        <td></td>
+        <% end %>
+
+        <% if (accountant? && session[:acc_manage_lcr].to_i == 2) || admin? || reseller? %>
+        <td align="center"><%= link_to b_edit, {action: 'lcrpartial_edit', id: lp['lid']}, id: "lcr_edit_#{lp['lid']}" %></td>
+        <td align="center"><%= link_to b_delete, {action: 'lcrpartial_destroy', id: lp['lid']}, id: "lcr_delete_#{lp['lid']}", data: {confirm: _('are_you_sure')}, method: :post %></td>
+        <% end %>
+      </tr>
+      <% i += 1 %>
+  <% end %>
+</table>
+<br/>
+
+<%= page_select_header(@options[:page], @total_pages, {}, @options) %>
+
+
+<% if (accountant? && session[:acc_manage_lcr].to_i == 2) || admin? || reseller? %>
+<%= link_to_function(b_add + _('Add_new_destinations'), "Element.toggle('new_provider')") %>
+<div id="new_provider" <%= raw "style='display:none;'" if @dest_new == 0 %>>
+  <br/>
+  <table>
+
+    <!-- BY PREFIX -->
+
+    <tr>
+      <%= form_tag(:action => 'create_prefix_lcr_partials', :id => @lcr.id) do %>
+      <td>
+        <%= _('Prefix') %>: <%= text_field_tag :search, "", :class => "input" %>
+        <script type="text/javascript">
+          new Form.Element.Observer('search', 0.5, function(element, value) {new Ajax.Updater('results', '<%= Web_Dir %>/lcrs/complete_prefix_finder', {asynchronous:false, evalScripts:true, onComplete:function(request){Element.hide('spinner');}, onLoading:function(request){Element.show('spinner');}, parameters:'prefix=' + encodeURIComponent(value)})})
+        </script>
+      </td>
+      <td>
+        <div id="results"></div>
+      </td>
+      <td><%= _('Lcr') %>:
+        <select name="lcr">
+        <% for l in @lcrs %>
+          <option value="<%= l.id %>"><%= l.name + " (" + l.order + ")" %></option>
+        <% end %>
+        </select>
+        <%= image_submit_tag 'icons/check.png', :title => _('Add'), :id => "prefix_f" %>
+      </td>
+      <% end %>
+    </tr>
+
+    <!-- BY COUNTRY-PREFIX -->
+
+    <tr>
+      <%= form_tag(:action => 'create_prefix_lcr_partials', :id => @lcr.id) do %>
+      <td>
+        <%= _('Country') %>:
+        <select id="country" name="country">
+        <% for country in @countrys %>
+          <option value="<%= country.code %>"><%= country.name %></option>
+        <% end %>
+        </select>
+        <script type="text/javascript">
+          new Form.Element.Observer('country', 0.5, function(element, value) {new Ajax.Updater('pre', '<%= Web_Dir %>/lcrs/prefix_finder_find_country/<%= @lcr.id %>', {asynchronous:false, evalScripts:true, onComplete:function(request){Element.hide('spinner');}, onLoading:function(request){Element.show('spinner');}, parameters:'prefix=' + encodeURIComponent(value)})})
+        </script>
+      </td>
+      <td>
+        <%= _('Prefix') %>:
+        <select name="search" id="pre">
+          <% if @direction %>
+            <%= lcrpartial_prefixl(@direction) %>
+          <% elsif !@countrys.empty? %>
+            <%= lcrpartial_prefixl(@countrys[0]) %>
+          <% end %>
+        </select>
+      </td>
+      <td>
+        <%= _('Lcr') %>:
+        <select name="lcr">
+        <% for l in @lcrs %>
+          <option value="<%= l.id %>"><%= l.name + " (" + l.order + ")" %></option>
+        <% end %>
+        </select>
+        <%= image_submit_tag 'icons/check.png', :title => _('Add') %>
+      </td>
+      <% end %>
+    </tr>
+
+    <!-- BY DESTINATION NAME -->
+
+    <tr>
+      <%= form_tag(:action => 'create_destination_lcr_partials', :id => @lcr.id) do %>
+      <td colspan="2"><%= _('Destination_name') %>: <%= text_field_tag :destination_name, "", :class => "input" %></td>
+      <td>
+        <%= _('Lcr') %>:
+        <select name="lcr">
+        <% for l in @lcrs %>
+          <option value="<%= l.id %>"><%= l.name + " (" + l.order + ")" %></option>
+        <% end %>
+        </select>
+        <%= image_submit_tag 'icons/check.png', :title => _('Add'), :id => "prefix_f" %>
+      </td>
+      <% end %>
+    </tr>
+
+    <!-- BY DESTINATION GROUP -->
+
+    <tr>
+      <%= form_tag(:action => 'create_destinationgroup_lcr_partials', :id => @lcr.id) do %>
+      <td colspan="2">
+        <%= _('Destination_Group') %>:
+        <select id="destinationgroup_id" name="destinationgroup_id">
+        <% @destination_groups.each do |dg| %>
+          <option value="<%= dg.id %>"><%= dg.name %></option>
+        <% end %>
+        </select>
+      </td>
+      <td>
+        <%= _('Lcr') %>:
+        <select name="lcr">
+        <% for l in @lcrs %>
+          <option value="<%= l.id %>"><%= l.name + " (" + l.order + ")" %></option>
+        <% end %>
+        </select>
+        <%= image_submit_tag 'icons/check.png', :title => _('Add') %>
+      </td>
+      <% end %>
+    </tr>
+
+  </table>
+</div>
+<br/>
+<br/>
+<% end %>

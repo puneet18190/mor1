@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/!svn/ver/65788/mor/gui/branches/x8/app/views/cdr
+END
+import_csv.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/import_csv.html.erb
+END
+not_import_bad_cdr.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/not_import_bad_cdr.html.erb
+END
+_export_template_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/63471/mor/gui/branches/x8/app/views/cdr/_export_template_form.erb
+END
+bad_rows_from_csv.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/bad_rows_from_csv.erb
+END
+rerating.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/65788/mor/gui/branches/x8/app/views/cdr/rerating.html.erb
+END
+export_templates.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/63471/mor/gui/branches/x8/app/views/cdr/export_templates.erb
+END
+export_template_edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/63471/mor/gui/branches/x8/app/views/cdr/export_template_edit.erb
+END
+_new_cli.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/_new_cli.html.erb
+END
+cli_add.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/cli_add.html.erb
+END
+_bad_cdrs.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/_bad_cdrs.html.erb
+END
+_analize.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/_analize.html.erb
+END
+export_template_new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/63471/mor/gui/branches/x8/app/views/cdr/export_template_new.erb
+END
+fix_bad_cdr.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/62681/mor/gui/branches/x8/app/views/cdr/fix_bad_cdr.html.erb
+END

@@ -1,0 +1,9 @@
+# ----
+# invoice  settings/invoices settings for reseller
+# invoice number start = INV
+settings/reseller/invoice_number_start_inv.sql
+# invoices number length = 3
+settings/reseller/invoices_number_length_3.sql
+# invoices number type = 1
+settings/reseller/invoices_number_type_1_1.sql
+# bundle loaded

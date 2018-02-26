@@ -1,0 +1,8 @@
+# ~~~~~~~~~~~~~~~~~~~~
+# Enable Paypal
+/settings/payments/enable_paypal_0.sql
+# Uncheck Disable PayPal For Reseller
+/settings/payments/enable_paypal_for_reseller_0.sql
+# Set PayPal Max Amount to 50
+/settings/payments/paypal_max_amount_50_0.sql
+# bundle loaded

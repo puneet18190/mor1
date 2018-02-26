@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/pbx_pools_list_data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not Found</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_functions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td>PBX Pool</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=pbx_pool_id</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Antras Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_2</td>
+	<td>Antras Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>110</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--antro poolo id-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_3_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_function_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td>PBX Pool</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_2</td>
+	<td>Global</td>
+</tr>
+<!--priskyrus Global exlines reikšmė -->
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>110</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>112</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>123</td>
+</tr>
+<!--skirtinguose pooluose extension gali kartotis-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_functions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_3</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_3</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<!--tas pats poolas negali turėti vienodų extensions-->
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_function_edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_2</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_2</td>
+	<td>Trecias Poolas</td>
+</tr>
+<!--turi neleisti kurti vienodų, kada yra skirtingos funkcijos-->
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=type_id</td>
+	<td>label=Dial Local</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_function_edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dp_type</td>
+	<td>label=Dial Local</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_ext</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully updated</td>
+</tr>
+<!--RING GROUPS-->
+<tr>
+	<td>open</td>
+	<td>/billing/ringgroups/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Extension belongs to PBX Pool:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_name</td>
+	<td>with pbx</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_data2</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>Antras Poolas Global Pirmas Poolas Trecias Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Ring Group successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=span.ringgroup_items2</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>120</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_2_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/ringgroups/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Ring Group successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_4</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_4</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>120</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>121</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>135</td>
+</tr>
+<!--skirtinguose pooluose extension gali kartotis-->
+<tr>
+	<td>open</td>
+	<td>/billing/ringgroups/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_name</td>
+	<td>second rg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_data2</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Ring Group successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=span.ringgroup_items2</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=dialplan_name</td>
+	<td>second rg</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=dialplan_data2</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<!--tas pats poolas negali turėti vienodų extensions-->
+<tr>
+	<td>open</td>
+	<td>/billing/ringgroups/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_name</td>
+	<td>third rg</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_data2</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Ring Group was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/ringgroups/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>label=Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Ring Group was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ringgroup_pbx_pools_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Ring Group successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_5</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_4</td>
+	<td>135</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_5</td>
+	<td>Pirmas Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_4</td>
+	<td>Trecias Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/load_delta_sql/tests/sql/acc_groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/permissions/edit/12?group_type=reseller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pbx_functions_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_functions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td>PBX Pool</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=pbx_pool_id</td>
+	<td>Global</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_id</td>
+	<td>Global Ketvirtas Poolas Penktas Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Penktas Poolas</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<!--ir tarp userių gali kartotis, nes kitokie poolai-->
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_6</td>
+	<td>Penktas Poolas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=pbx_pool_id</td>
+	<td>Global Ketvirtas Poolas Penktas Poolas</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>124</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<!--penkto poolo id-->
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>pool_6_mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_function_edit/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//th[2]</td>
+	<td>PBX Pool</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>Global Ketvirtas Poolas Penktas Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Global</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_6</td>
+	<td>Global</td>
+</tr>
+<!--priskyrus Global exlines reikšmė -->
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>admin1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/test/make_select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=table</td>
+	<td>label=extlines</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>124</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body &gt; p</td>
+	<td>Not found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>126</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_devices_all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=context_value</td>
+	<td>mor_local</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=exten_value</td>
+	<td>123</td>
+</tr>
+<!--Pridedam raidinį extention-->
+<tr>
+	<td>open</td>
+	<td>/billing/devices/show_devices/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Assign Provider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=extension_1</td>
+	<td>prov_test</td>
+</tr>
+<!--Pridedam device su raidiniu extention-->
+<tr>
+	<td>open</td>
+	<td>/billing/ringgroups/edit/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add new Device</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=s_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=s_user</td>
+	<td>Test User #1</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id=s_user</td>
+	<td>w</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>javascript{this.browserbot.getCurrentWindow().document.getElementById('s_user_id').value='1004'}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=device_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=device_id</td>
+	<td>label=IAX2/prov1 - Test Provider</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//img[@alt='Add'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=item_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>Ring Group successfully updated</td>
+</tr>
+<!--Patikrinam ar necrashina updatinant user pbx pool'ą-->
+<tr>
+	<td>open</td>
+	<td>/billing/users/edit/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=user_pbx_pool_id</td>
+	<td>label=Trecias Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=sbmt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>User's settings successfully changed: Test User #1</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/billing/callc/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_username</td>
+	<td>reseller</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>login_psw</td>
+	<td>reseller1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>commit</td>
+	<td></td>
+</tr>
+<!--skirtinguose pooluose extension gali kartotis-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_functions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Ketvirtas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_7</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_7</td>
+	<td>Ketvirtas Poolas</td>
+</tr>
+<!--tas pats poolas negali turėti vienodų extensions-->
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Ketvirtas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_function_edit/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Ketvirtas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Penktas Poolas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully updated</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data2_6</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=data6_6</td>
+	<td>Penktas Poolas</td>
+</tr>
+<!--turi neleisti kurti vienodų, kada yra skirtingos funkcijos-->
+<tr>
+	<td>type</td>
+	<td>id=ext</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pbx_pool_id</td>
+	<td>label=Penktas Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=type_id</td>
+	<td>label=Dial Local</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;image&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<!--editinant irgi-->
+<tr>
+	<td>open</td>
+	<td>/billing/functions/pbx_function_edit/6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dialplan_pbx_pool_id</td>
+	<td>label=Ketvirtas Poolas</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dp_type</td>
+	<td>label=Dial Local</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>External DID was not updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>* Extension already exists in selected PBX Pool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dialplan_ext</td>
+	<td>1239</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=status</td>
+	<td>External DID successfully updated</td>
+</tr>
+</tbody></table>
+</body>
+</html>

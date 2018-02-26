@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/64284/mor/gui/branches/x8/selenium/bundles/partner
+END
+partner_payments.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/62681/mor/gui/branches/x8/selenium/bundles/partner/partner_payments.bundle
+END
+create_partner_resellers_and_users.bundle
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/64284/mor/gui/branches/x8/selenium/bundles/partner/create_partner_resellers_and_users.bundle
+END

@@ -1,0 +1,10 @@
+# ----This bundle will change reseller_use and admin_user balance, and will change admin and reseller currency to EUR
+# Change admin currency to EUR
+/user/admin_0/assign_currency_eur.sql
+# Cahnge user balance
+/user/user_2/change_balance.sql
+# change reseller currency
+/user/reseller_3/assign_currency_eur.sql
+# change user_reseller balance
+/user/user_5/change_balance.sql
+# bundle loaded

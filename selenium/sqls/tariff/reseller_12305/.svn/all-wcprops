@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/reseller_12305
+END
+create_wholesale_tariff.sql
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/reseller_12305/create_wholesale_tariff.sql
+END
+create.sql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/reseller_12305/create.sql
+END
+add_wholesale_rates.sql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/62681/mor/gui/branches/x8/selenium/sqls/tariff/reseller_12305/add_wholesale_rates.sql
+END

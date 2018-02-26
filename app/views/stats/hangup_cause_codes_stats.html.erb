@@ -1,0 +1,112 @@
+<%= javascript_include_tag 'swfobject' %>
+<b><%= "#{_('Provider')}: #{@provider.try(:name)}" %></b>
+<br/>
+<br/>
+
+<div align='left' class='nb'>
+  <%= form_tag action: :hangup_cause_codes_stats do %>
+      <%= hidden_field_tag 'search_on', 1 %>
+      <table class="bordered">
+        <tr>
+          <td>
+            <%= _('From') %>:
+          </td>
+          <td>
+            <%= select_date(Time.mktime(session[:year_from], session[:month_from], session[:day_from]), end_year: (Date.today.year + 1), prefix: 'date_from') %>
+          </td>
+          <td>
+            <%= _('Till') %>:
+          </td>
+          <td>
+            <%= select_date(Time.mktime(session[:year_till], session[:month_till], session[:day_till]), end_year: (Date.today.year + 1), prefix: 'date_till') %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= _('Provider') %>:
+          </td>
+          <td>
+            <%= select_tag('provider_id', options_for_select([[_('All'), '-1']] + natsort_provider_list(@providers), @provider.try(:id))) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= _('User') %>:
+          </td>
+          <td>
+            <%= render('shared/live_search_field',
+                       object: params[:s_user].to_s,
+                       object_id: @user_id || -2,
+                       object_name: 'User',
+                       action_url: {controller: :users, action: :get_users_map, options: {show_admin: true,
+                         responsible_accountant_including_owner_users: (accountant_show_assigned_users? ? current_user_id : '')}}
+                )
+            %>
+          </td>
+          <td id='user_devices_name'>
+            <%= _('Devices') %>:
+          </td>
+          <td id='user_devices'>
+            <% if @user_id.to_i >= 0 %>
+                <% opt_map = @user.devices.map { |d| [nice_device_no_pic(d), d.id] } %>
+                <% opt_map = [[_('All'), 'all']] + opt_map -%>
+                <%= select_tag('s_device', options_for_select(opt_map, @device_id.to_i)) %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= submit_tag _('Search'), data: {disable_with: _('Processing..')} %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+</div>
+
+<br/>
+
+<% if @searching %>
+    <% if @calls[:calls].present? %>
+        <div id='table'>
+          <%= render 'es_hangup_stats', calls: @calls, graph: @calls_graph,
+                     search_data: {code: @code, provider_id: @provider_id, user: @user, user_id: @user_id, device_id: @device_id} %>
+        </div>
+    <% else %>
+        <%= b_info + _('No_data_found') %>
+    <% end %>
+<% else %>
+    <% unless @searching %>
+        <%= b_info + _('press_search_button_to_show_data') %>
+    <% end %>
+<% end %>
+
+
+<script type='text/javascript'>
+    show_hide_devices();
+    new Form.Element.EventObserver('s_user',
+            function(element, value) {
+                show_hide_devices();
+                if ($('s_user_id').value >= 0) {
+                    new Ajax.Updater('user_devices',
+                            '<%= Web_Dir %>/devices/ajax_get_user_devices',
+                            {
+                                evalScripts: true,
+                                onComplete: function(request){Element.hide('spinner');},
+                                onLoading: function(request){Element.show('spinner');},
+                                parameters: 'user_id=' + encodeURIComponent($('s_user_id').value) + '&default=<%= @device_id.to_i %>&all=true&fax=true'
+                            }
+                    );
+                }
+            }
+    );
+
+    function show_hide_devices() {
+        if ($('s_user_id').value < 0) {
+            $('user_devices_name').style.display = 'none';
+            $('user_devices').style.display = 'none';
+        } else {
+            $('user_devices_name').style.display = '';
+            $('user_devices').style.display = '';
+        }
+    }
+</script>

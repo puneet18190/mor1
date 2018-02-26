@@ -1,0 +1,246 @@
+<%= javascript_include_tag 'jqwidgets/jqxcore.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdata.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxbuttons.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxscrollbar.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxmenu.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.aggregates.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.columnsresize.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.export.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.filter.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.pager.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.selection.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxgrid.sort.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxpanel.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxlistbox.js' %>
+<%= javascript_include_tag 'jqwidgets/jqxdropdownlist.js' %>
+<%= javascript_include_tag 'jqxGrid_helper.js' %>
+
+<%= b_info + _('currency_notice') %>
+<br/>
+<br/>
+<%= render 'search_form', options: @options, searching: @searching, data: @data,
+                          terminators: @terminators, destination_groups: @destination_groups, from: @from, till: @till %>
+<br/>
+<% if @searching %>
+    <% if @data[:table_rows].present? %>
+    <div id='aggregates_data'></div>
+
+    <script type="text/javascript">
+        $j(document).ready(function ($) {
+            var table_data_json = <%= raw @data[:table_rows].to_json %>;
+            var time_format = '<%= @data[:options][:time_format] %>';
+            var float_digits = 'f<%= @data[:options][:number_digits] %>';
+            var percent_digits = 'f2';
+            var date_format = '<%= @data[:options][:date_format] %>';
+            var web_dir = '<%= Web_Dir %>';
+            var aggregates_data_grid = $("#aggregates_data");
+
+            var source =
+            {
+                localdata: table_data_json,
+                datatype: 'json',
+                datafields: [
+                    { name: 'destination_group', type: 'string' },
+                    { name: 'prefix', type: 'string' },
+                    { name: 'originator', type: 'string' },
+                    { name: 'terminator', type: 'string' },
+
+                    { name: 'billed_originator', type: 'float' },
+                    { name: 'billed_originator_with_tax', type: 'float' },
+                    { name: 'billed_terminator', type: 'float' },
+                    { name: 'billed_duration_originator', type: 'int' },
+                    { name: 'billed_duration_terminator', type: 'int' },
+                    { name: 'duration', type: 'int' },
+                    { name: 'answered_calls', type: 'int' },
+                    { name: 'total_calls', type: 'int' },
+                    { name: 'asr', type: 'number' },
+                    { name: 'acd', type: 'int' }
+                ],
+                pagesize: <%= session[:items_per_page] %>
+            };
+
+            var dataadapter = new $.jqx.dataAdapter(source);
+
+            var link_to_user_edit = function (row, column, value) {
+                var user_id = table_data_json[row]['originator_id'];
+                return '<div style="text-align: left; margin-top: 3.5px; margin-left: 3.5px">' +
+                        '<a href="' + web_dir + '/users/edit/' + user_id +
+                        '">' + value + '</a></div>';
+            };
+
+            var cellsrenderer_time = function (row, column, value) {
+                return '<div style="text-align: center; margin-top: 3.5px;">' + nice_billsec(value, time_format) + '</div>';
+            };
+
+            var getLocalization = function () {
+                var localizationobj = {};
+                localizationobj.decimalseparator = '<%= @data[:options][:number_decimal] %>';
+                localizationobj.thousandsseparator = '';
+                return localizationobj;
+            };
+
+            aggregates_data_grid.jqxGrid(
+                    {
+                        source: dataadapter,
+                        width: '100%',
+                        autoheight: true,
+                        rowsheight: 22,
+                        altrows: true,
+                        selectionmode: 'multiplecellsadvanced',
+                        handlekeyboardnavigation: function (event) {
+                            var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+                            if (key == 86 && event.ctrlKey == true) {
+                                return true;
+                            }
+                        },
+                        showaggregates: true,
+                        showstatusbar: true,
+                        statusbarheight: 22,
+                        sortable: true,
+                        pageable: true,
+                        pagesizeoptions: <%= [5, 10, 20].include?(session[:items_per_page]) ? [5, 10, 20] : [5, 10, 20, session[:items_per_page]].sort %>,
+                        localization: getLocalization(),
+                        columns: [
+                            { text: "<%= _('Destination_Group') %>", datafield: 'destination_group',
+                                aggregatesrenderer: function (aggregates) {
+                                    if (<%= @data[:options][:group_by].include?(:destination_group) %>) {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                                    } else {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"></div>';
+                                    }
+                                }
+                            },
+                            { text: "<%= _('Prefix') %>", datafield: 'prefix',
+                                aggregatesrenderer: function (aggregates) {
+                                    if (<%= !@data[:options][:group_by].include?(:destination_group) %>) {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                                    } else {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"></div>';
+                                    }
+                                }
+                            },
+                            { text: "<%= _('Originator') %>", datafield: 'originator', columngroup: 'Customer', cellsrenderer: link_to_user_edit,
+                                aggregatesrenderer: function (aggregates) {
+                                    if (<%= !@data[:options][:group_by].include?(:prefix) && !@data[:options][:group_by].include?(:destination_group) %>) {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                                    } else {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"></div>';
+                                    }
+                                }
+                            },
+                            { text: "<%= _('Terminator') %>", datafield: 'terminator', columngroup: 'Customer',
+                                aggregatesrenderer: function (aggregates) {
+                                    if (<%= !@data[:options][:group_by].include?(:originator) && !@data[:options][:group_by].include?(:prefix) && !@data[:options][:group_by].include?(:destination_group) %>) {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"><b><%= _('Total') %>:</b></div>';
+                                    } else {
+                                        return '<div style="position: relative; margin: 2px; overflow: hidden; text-align: left;"></div>';
+                                    }
+                                }
+                            },
+
+                            { text: "<%= _('Originator') + " (#{current_user.currency.name})" %>", datafield: 'billed_originator', columngroup: 'Billed', cellsformat: float_digits, align: 'right', cellsalign: 'right',
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:billed_originator] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('Originator_Price_with_Vat') + " (#{current_user.currency.name})" %>", datafield: 'billed_originator_with_tax', columngroup: 'Billed', cellsformat: float_digits, align: 'right', cellsalign: 'right',
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:billed_originator_with_tax] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('Terminator') + " (#{current_user.currency.name})" %>", datafield: 'billed_terminator', columngroup: 'Billed', cellsformat: float_digits, align: 'right', cellsalign: 'right',
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="position: relative; margin: 2px 2px 0 0; overflow: hidden; text-align: right;"><b><%= @data[:table_totals][:billed_terminator] %></b></div>';
+                                }
+                            },
+                            { text: " <%= _('Originator') %> ", datafield: 'billed_duration_originator', columngroup: 'BilledDuration', align: 'center', cellsrenderer: cellsrenderer_time,
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:billed_duration_originator] %></b></div>';
+                                }
+                            },
+                            { text: " <%= _('Terminator') %> ", datafield: 'billed_duration_terminator', columngroup: 'BilledDuration', align: 'center', cellsrenderer: cellsrenderer_time,
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:billed_duration_terminator] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('Duration') %>", datafield: 'duration', align: 'center', cellsrenderer: cellsrenderer_time,
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:duration] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('Answered_calls') %>", datafield: 'answered_calls', align: 'right', cellsalign: 'right',
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: right; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:answered_calls] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('Total_calls') %>", datafield: 'total_calls', align: 'right', cellsalign: 'right',
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: right; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:total_calls] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('ASR') %> %", datafield: 'asr', align: 'right', cellsalign: 'right', cellsformat: percent_digits,
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: right; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:asr] %></b></div>';
+                                }
+                            },
+                            { text: "<%= _('ACD') %>", datafield: 'acd', align: 'center', cellsrenderer: cellsrenderer_time,
+                                aggregatesrenderer: function (aggregates) {
+                                    return '<div style="text-align: center; position: relative; margin: 2px; overflow: hidden;"><b><%= @data[:table_totals][:acd] %></b></div>';
+                                }
+                            }
+                        ],
+                        columngroups:
+                                [
+                                    { text: "<%= _('Customer') %>", align: 'center', name: 'Customer' },
+                                    { text: "<%= _('Billed') %>", align: 'center', name: 'Billed' },
+                                    { text: "<%= _('Billed_Duration') %>", align: 'center', name: 'BilledDuration' }
+                                ]
+                    });
+
+            if (<%= !(@data[:options][:group_by].include?(:destination_group) || @data[:options][:group_by].include?(:prefix)) %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'destination_group'); }
+            if (<%= !@data[:options][:group_by].include?(:prefix) %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'prefix'); }
+            if (<%= !@data[:options][:group_by].include?(:originator) %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'originator'); }
+            if (<%= !@data[:options][:group_by].include?(:terminator) %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'terminator'); }
+
+            if (<%= @options[:price_orig_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'billed_originator'); }
+            if (<%= @options[:price_orig_show].to_i != 1 || !@data[:options][:group_by].include?(:originator) %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'billed_originator_with_tax'); }
+            if (<%= @options[:price_term_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'billed_terminator'); }
+            if (<%= @options[:billed_time_orig_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'billed_duration_originator'); }
+            if (<%= @options[:billed_time_term_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'billed_duration_terminator'); }
+            if (<%= @options[:duration_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'duration'); }
+            if (<%= @options[:calls_answered_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'answered_calls'); }
+            if (<%= @options[:calls_total_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'total_calls'); }
+            if (<%= @options[:asr_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'asr'); }
+            if (<%= @options[:acd_show].to_i != 1 %>) { aggregates_data_grid.jqxGrid('hidecolumn', 'acd'); }
+
+            fix_column_width('aggregates_data');
+            //aggregates_data_grid.jqxGrid('sortby', 'date', 'desc');
+
+            document.getElementById("pageraggregates_data").style.zIndex = '24';
+
+            $("#csvExport").jqxButton();
+            $("#csvExport").click(function () {
+                var table_content = aggregates_data_grid.jqxGrid('exportdata', 'json');
+
+                $.fileDownload('<%= Web_Dir%>/aggregates/aggregates_download_table_data', {
+                    httpMethod: 'POST',
+                    data: {
+                        authenticity_token: '<%= form_authenticity_token %>',
+                        table_content: table_content
+                    },
+                    failCallback: function (html, url) {
+
+                        alert('Download failed, please contact System Administrator if this problem persists.');
+                    }
+                });
+            });
+        });
+    </script>
+    <% else %>
+        <%= b_info + _('No_data_found') %>
+    <% end %>
+<% else %>
+    <%= b_info + _('press_search_button_to_show_data') %>
+<% end %>
