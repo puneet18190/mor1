@@ -6075,7 +6075,7 @@ class ApiController < ApplicationController
 
   def get_otp
     begin
-      @client = Twilio::REST::Client.new "AC05ebe7084b23d3eb07cc6ae54f6909ae", "0dc4800c67709c26a6de89ee062da5df"
+      @client = Twilio::REST::Client.new "", ""
       user = User.new(username: params["mobile"])
       User.current = user
       user.save!
