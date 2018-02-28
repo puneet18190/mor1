@@ -66,3 +66,4 @@ gem 'rack-utf8_sanitizer', '1.3.0'
 gem 'bugsnag'
 
 gem 'net-ssh', '2.9.2'
+gem 'rails_db_info'
