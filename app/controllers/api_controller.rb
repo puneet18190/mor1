@@ -5340,6 +5340,35 @@ class ApiController < ApplicationController
     send_xml_data(@out_string, params[:test].to_i)
   end
 
+  def get_otp
+    begin
+      @client = Twilio::REST::Client.new "", ""
+      user = User.new(username: params["mobile"])
+      User.current = user
+      user.save!
+      otp = 4.times.map{rand(10)}.join
+      message = @client.messages.create(
+        body: "OTP: #{otp}",
+        to: params["mobile"], 
+        from: "+33644605220"
+      )
+    rescue Exception => e
+      render json: {status: false, errors: e.messages}
+    end
+
+  end
+
+  def verify_otp
+    user = User.where(username: params["mobile"]).first
+    if user.otp == params["otp"]
+      user.password = rand(36**8).to_s(36)
+      user.save!
+      render json:{status: true, user: user}
+    else
+      render json: {status: false}
+    end
+  end
+
   private
 
   def current_is_admin?
@@ -6071,34 +6100,5 @@ class ApiController < ApplicationController
 
   def acc_cant_see_users?(user)
     !(current_user.accountant_allow_edit('user_manage') || current_user.accountant_allow_read('user_manage'))
-  end
-
-  def get_otp
-    begin
-      @client = Twilio::REST::Client.new "", ""
-      user = User.new(username: params["mobile"])
-      User.current = user
-      user.save!
-      otp = 4.times.map{rand(10)}.join
-      message = @client.messages.create(
-        body: "OTP: #{otp}",
-        to: params["mobile"], 
-        from: "+33644605220"
-      )
-    rescue Exception => e
-      render json: {status: false, errors: e.messages}
-    end
-
-  end
-
-  def verify_otp
-    user = User.where(username: params["mobile"]).first
-    if user.otp == params["otp"]
-      user.password = rand(36**8).to_s(36)
-      user.save!
-      render json:{status: true, user: user}
-    else
-      render json: {status: false}
-    end
   end
 end
