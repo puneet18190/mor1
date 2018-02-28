@@ -67,3 +67,4 @@ gem 'bugsnag'
 
 gem 'net-ssh', '2.9.2'
 gem 'rails_db_info'
+gem 'twilio-ruby'

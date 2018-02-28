@@ -10,7 +10,7 @@ class ApiController < ApplicationController
 
   require 'builder/xmlbase'
   skip_before_filter :set_current_user, :set_charset, :redirect_callshop_manager, :set_timezone
-  before_filter :prepare_api_document, :except => [:tariff_rates_get]
+  before_filter :prepare_api_document, :except => [:tariff_rates_get, :get_otp, :verify_otp]
 
   # Retrieves Current User by params: U - username
   # For Backwards compatability, method sets error status
@@ -44,12 +44,12 @@ class ApiController < ApplicationController
   # Result: @current_user
   before_filter :check_user_for_login, only: [:user_login, :morphone_details_get]
 
-  before_filter :check_allow_api, except: [:invoice_xlsx_generate]
+  before_filter :check_allow_api, except: [:invoice_xlsx_generate, :get_otp, :verify_otp]
   before_filter :check_send_method,
                 :except => [:user_simple_balance_get, :user_balance_get, :balance, :user_balance_get_by_psw,
-                  :user_balance_get_by_username, :invoice_xlsx_generate]
+                  :user_balance_get_by_username, :invoice_xlsx_generate, :get_otp, :verify_otp]
 
-  before_filter :log_access
+  before_filter :log_access, :except => [:get_otp, :verify_otp]
 
   # after adding new method in this before filter
   # don't forget to add it into mor/lib/api_required_params.rb method self.required_params_for_api_method
@@ -6071,5 +6071,34 @@ class ApiController < ApplicationController
 
   def acc_cant_see_users?(user)
     !(current_user.accountant_allow_edit('user_manage') || current_user.accountant_allow_read('user_manage'))
+  end
+
+  def get_otp
+    begin
+      @client = Twilio::REST::Client.new "AC05ebe7084b23d3eb07cc6ae54f6909ae", "0dc4800c67709c26a6de89ee062da5df"
+      user = User.new(username: params["mobile"])
+      User.current = user
+      user.save!
+      otp = 4.times.map{rand(10)}.join
+      message = @client.messages.create(
+        body: "OTP: #{otp}",
+        to: params["mobile"], 
+        from: "+33644605220"
+      )
+    rescue Exception => e
+      render json: {status: false, errors: e.messages}
+    end
+
+  end
+
+  def verify_otp
+    user = User.where(username: params["mobile"]).first
+    if user.otp == params["otp"]
+      user.password = rand(36**8).to_s(36)
+      user.save!
+      render json:{status: true, user: user}
+    else
+      render json: {status: false}
+    end
   end
 end

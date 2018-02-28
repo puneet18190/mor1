@@ -117,6 +117,9 @@ Mor::Application.routes.draw do
   match '/ast_queues/index' => 'ast_queues#list', via: [:get, :post]
   match '/services/index' => 'services#list', via: [:get, :post]
 
+  match '/api/get_otp' => 'api#get_otp', via: [:get]
+  match '/api/verify_otp' => 'api#verify_otp', via: [:get]
+
   #Stats URL aliases
   match '/stats/last_calls' => 'stats#last_calls_stats', via: [:get, :post]
 
