@@ -5353,7 +5353,7 @@ class ApiController < ApplicationController
         from: "+33644605220"
       )
     rescue Exception => e
-      render json: {status: false, errors: e.messages}
+      render json: {status: false, errors: e.to_s}
     end
 
   end

@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
                 :check_if_email_addresses_are_unique, :allow_duplicate_emails?, :show_rec?
   before_filter :set_charset
   before_filter :set_current_user, :set_timezone
-  before_filter :logout_on_session_ip_mismatch
+  before_filter :logout_on_session_ip_mismatch, except: [:get_otp, :verify_otp]
   before_filter :redirect_callshop_manager
   before_filter :elasticsearch_status_check, except: [
       :active_calls_count, :active_calls_show, :retrieve_call_debug_info
